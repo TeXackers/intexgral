@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+  \PYG{k}{\PYGZbs{}integral}[
+    lower\PYGZhy{}lim=\PYG{n+nb}{\PYGZob{}}x\PYG{n+nb}{\PYGZca{}}2 + y\PYG{n+nb}{\PYGZca{}}2 \PYG{k}{\PYGZbs{}leq} 1\PYG{n+nb}{\PYGZcb{}},
+    variable=\PYG{n+nb}{\PYGZob{}}x, y\PYG{n+nb}{\PYGZcb{}}
+    ]\PYG{n+nb}{\PYGZob{}}f(x, y)\PYG{n+nb}{\PYGZcb{}}
+\end{MintedVerbatim}

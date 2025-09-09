@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+  \PYG{k}{\PYGZbs{}NewDifferential}\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}feynmandiff}\PYG{n+nb}{\PYGZcb{}\PYGZob{}}\PYG{k}{\PYGZbs{}mathcal}\PYG{n+nb}{\PYGZob{}}D\PYG{n+nb}{\PYGZcb{}\PYGZcb{}}
+  \PYG{k}{\PYGZbs{}integral}[
+    variable=\PYG{n+nb}{\PYGZob{}}q(t)\PYG{n+nb}{\PYGZcb{}},
+    diff\PYGZhy{}symb=\PYG{k}{\PYGZbs{}feynmandiff}
+    ]\PYG{n+nb}{\PYGZob{}}e\PYG{n+nb}{\PYGZca{}\PYGZob{}}+\PYG{k}{\PYGZbs{}dfrac}\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}imath} S[q(t)]\PYG{n+nb}{\PYGZcb{}\PYGZob{}}\PYG{k}{\PYGZbs{}hbar}\PYG{n+nb}{\PYGZcb{}\PYGZcb{}\PYGZcb{}}
+\end{MintedVerbatim}

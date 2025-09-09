@@ -1,0 +1,3023 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2025 Valentin Dao
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or (at your option) any later
+% version. The latest version of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.3c or later is part of all distributions of
+% LaTeX version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'maintained'
+% and the current maintainer is Valentin Dao (vdao.texdev@gmail.com).
+%
+% This work consists of the files intexgral.ins and intexgral.dtx,
+% along with the derived files intexgral-doc-en.pdf, and 
+% intexgral-doc-fr.pdf. In order to acquire the .tex master files 
+% producing the documentations and the .sty file, simply run this 
+% installation file through any engine.
+%
+% The repository of this work can be found at:
+%
+%   https://github.com/ankaa3908/intexgral 
+%
+% \fi
+%
+%<*readme>
+# `intexgral` – A LaTeX package for typesetting integrals
+
+---
+
+![Static Badge](https://img.shields.io/badge/LaTeX_3-blue?style=for-the-badge&logo=LaTeX&logoColor=%23008080&labelColor=%23EDE9E9&color=%23008080)
+
+![CTAN Version](https://img.shields.io/ctan/v/intexgral?style=flat-square&label=CTAN%20version&link=https%3A%2F%2Fctan.org%2Fpkg%2Fintexgral) ![CTAN License](https://img.shields.io/ctan/l/intexgral?style=flat-square&label=License&color=orange) ![Static Badge](https://img.shields.io/badge/Requires-expl3_2025--05--14-purple?style=flat-square) ![Static Badge](https://img.shields.io/badge/Verification_system-l3build-%2300007D?style=flat-square)
+
+---
+
+## Description
+
+The package provides a central macro `\integral` that helps typeset integrals. As it only contains one argument – the integrand – its use is heavily dependent of a `key = value` interface. The latter allows the user to customise many elements of an integral, including:
+
+__On the package side__
+- Adaptation of the style to physics papers convention.
+- Selection of the order of limits input.
+- Choosing between upright or italic *d* for differentials.
+
+__On the macro side__
+- Changing the symbol.
+- Automate the composition of integrals with limits.
+- Fine adjustment of differentials.
+- Inclusion of the Jacobian.
+
+For instance, consider this code:
+
+```latex
+\begin{equation}
+  \int_0^R \rho \mathrm{d}\rho \int_0^H z \mathrm{d}z \int_0^{2\pi} \phi \mathrm{d} \phi
+\end{equation}
+```
+
+can easily be rewritten like so:
+
+```latex
+\begin{equation}
+  \integral[int-split=true,limits={0, R; 0, H; 0, 2\pi}, variable={\rho, z,\phi}]{\rho; z;\phi}
+\end{equation}
+```
+
+The package also offers a couple of auxiliary macros to help enhance the use of some keys:
+
+- `\NewLimitsKeyword` (and its variant) to associate keywords with common limits.
+- `\NewDifferentialKeyword` (and its variant) to associate keywords to common lists of differential (and Jacobian).
+- `\differentials` to precisely place the differentials wherever the user wants to.
+- `\defaultdiff` & `\defaultvdiff` for changing the default differential.
+
+and much more... See the documentation for exhaustive presentation of all the features along with examples.
+
+## Author
+
+This package is maintained by Valentin Dao: vdao.texdev@gmail.com
+
+Contribution: Anthony Saint-Criq
+
+## License
+
+Released under the [LaTeX Project Public License v1.3c](https://www.latex-project.org/lppl/lppl-1-3c.pdf) or later.
+
+This work has the LPPL maintenance status `maintained`.
+
+## Files
+
+The bundle contains the following files:
+```
+README.md                   This file.
+intexgral.ins               The installation file.
+intexgral.dtx               The source file, along with the derived files:
+- intexgral-doc-en.pdf      The english package documentation in PDF format.
+- intexgral-doc-fr.pdf      The french package documentation in PDF format.
+```
+%</readme>
+%
+%<*doc-en>
+\documentclass[full, check=true]{l3doc}
+
+\ExplSyntaxOn
+
+\tl_new:N \l__intexgral_doc_update_tl
+\tl_new:N \l__intexgral_doc_new_tl
+
+\keys_define:nn { l3doc/function }
+  {
+    maj .tl_set:N = \l__intexgral_doc_update_tl,
+    new .tl_set:N = \l__intexgral_doc_new_tl,
+  }
+
+  \cs_set:Npn \__codedoc_typeset_dates:
+  {
+    \bool_lazy_all:nF
+      {
+        { \tl_if_empty_p:N \l__codedoc_date_added_tl }
+        { \tl_if_empty_p:N \l__codedoc_date_updated_tl }
+        { \tl_if_empty_p:N \l__intexgral_doc_update_tl }
+        { \tl_if_empty_p:N \l__intexgral_doc_new_tl }
+      }
+      { \midrule }
+    \tl_if_empty:NF \l__codedoc_date_added_tl
+      {
+        \multicolumn { 2 } { @{} r @{} }
+          { \scriptsize New: \, \l__codedoc_date_added_tl } \\
+      }
+    \tl_if_empty:NF \l__codedoc_date_updated_tl
+      {
+        \multicolumn { 2 } { @{} r @{} }
+          { \scriptsize Updated: \, \l__codedoc_date_updated_tl } \\
+      }
+    \tl_if_empty:NF \l__intexgral_doc_update_tl
+      {
+        \multicolumn{ 2 }{ @{} r @{} }
+          { 
+            \itshape\sffamily\scriptsize
+            \iflanguageloaded{french}{Mis~à~jour:}{} 
+            \iflanguageloaded{english}{Updated:}{} 
+            \, \l__intexgral_doc_update_tl 
+          } \\
+      }
+    \tl_if_empty:NF \l__intexgral_doc_new_tl
+      {
+        \multicolumn{ 2 }{ @{} r @{} }
+          { 
+            \itshape\sffamily\scriptsize
+            \iflanguageloaded{french}{Nouveau:}{} 
+            \iflanguageloaded{english}{New:}{} 
+            \, \l__intexgral_doc_new_tl 
+          } \\
+      }
+  }
+
+\ExplSyntaxOff
+
+\usepackage{amsmath, amssymb}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\setmainfont{ChronicleTextG3}[
+  Extension         = .otf,
+  UprightFont       = *-Roman-Pro,
+  ItalicFont        = *-Italic-Pro,
+  BoldFont          = *-Bold-Pro,
+  BoldItalicFont    = *-BoldIta-Pro,
+]
+
+\setsansfont{Whitney}[
+  Extension        = .otf,
+  UprightFont      = *-Medium,
+  ItalicFont       = *-MediumItalic,
+  BoldFont         = *-Bold,
+  BoldItalic       = *-BoldItalic,
+  UprightFeatures  = 
+    {
+      StylisticSet = 1, 
+      StylisticSet = 10, 
+      StylisticSet = 11, 
+    },
+  BoldFeatures     = 
+    {
+      StylisticSet = 1, 
+      StylisticSet = 10, 
+      StylisticSet = 11, 
+    },
+  ItalicFeatures   = 
+    {
+      StylisticSet = 1, 
+      StylisticSet = 10, 
+      StylisticSet = 11, 
+      StylisticSet = 8, 
+      StylisticSet = 9  
+    }
+]
+
+\newfontface{\smbold}{Whitney-Semibold.otf}
+
+\setmathfont{NewCMMath-Regular.otf}
+
+\usepackage{intexgral}
+
+\NewDifferential{\feynmandiff}{\mathcal{D}}
+\RenewDifferential{\odif}{\symup{d}}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.3}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+\usepackage{luacode}
+
+\begin{luacode}
+function fontcopyright(fontname)
+  local font = fontloader.open(kpse.find_file(fontname, 'opentype fonts'))
+  if font then
+    local metrics = fontloader.to_table(font)
+    local copyright = metrics.copyright:gsub("https?://%S+$", "")
+    local copyright = copyright:gsub("Copyright%s%(C%)", "\\copyright\\")
+    local copyright = copyright:gsub("&", "\\&")
+    tex.print('\\textit{' .. metrics.fullname .. '}\\par')
+    tex.print(copyright)
+  end
+end
+\end{luacode}
+
+\usepackage{changelog}
+\usepackage{enumitem}
+\renewenvironment{changelogitemize}
+  {\begin{itemize}[label=\raisebox{0.5ex}{$\scriptscriptstyle\blacktriangleright$}]}
+  {\end{itemize}}
+
+\usepackage{xcolor}
+\definecolor{RoyalBlue}{RGB}{0, 35, 102}
+\definecolor{RoyalRed}{RGB}{157, 16, 45}
+\definecolor{RoyalGrey}{HTML}{DEDEDE}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\sffamily\LARGE\bfseries}
+\titleformat*{\subsection}{\sffamily\Large\bfseries}
+\titleformat*{\subsubsection}{\smbold\large}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{minted}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usemintedstyle{tango}
+\newtcolorbox{texminted}{
+  enhanced,
+  frame hidden,
+  colback = RoyalGrey
+}
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor   = {Valentin Dao},
+  pdftitle    = {The intexgral package},
+  pdfcreator  = {LuaLaTeX with hyperref package},
+  linkcolor   = RoyalBlue,
+  urlcolor    = RoyalRed
+}
+
+\usepackage{cleveref}
+
+\NewDocumentCommand{\sarg}{}{*}
+\NewDocumentCommand{\filecreationdate}{}{26-07-2025}
+
+\IndexPrologue{
+  \section*{Index}
+  \addcontentsline{toc}{section}{Index}
+}
+
+\EnableCrossrefs
+
+\begin{document}
+
+\GetFileInfo{intexgral.sty}
+
+\title{^^A
+  The \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}} package^^A
+  \thanks{This file describes \fileversion, updated \filedate}
+}
+
+\author{^^A
+  Valentin Dao^^A
+  \thanks{E-mail: \href{mailto:vdao.texdev@gmail.com}{vdao.texdev@gmail.com}}
+}
+
+\date{Released \filecreationdate}
+
+\maketitle
+
+\begin{documentation}
+
+\begin{abstract}
+
+While integral composition is prevalent in \LaTeX, it often proves to be impractical. When the expression becomes complex, it becomes difficult to modify its various elements in an illegible source code. To address this problem, the \pkg{intexgral} package offers a central macro whose only argument is the integrand. Everything else (limits, differentials\dots) can be modified using a \meta{keyval} interface. Unlike the traditional method, where the user chooses the limit order with the active characters \verb|_| and \verb|^|, the package had to establish a convention. Thus, for the two keys that will deal with limits, the assumed input will be \verb|_|\meta{lower limit}\verb|^|\meta{upper limit}. Since this package is written in \pkg{expl3}, it depends on the \LaTeX3 group of packages \pkg{l3kernel} and \pkg{l3package}. In addition, \pkg{intexgral} uses the \pkg{derivative} package to facilitate the manipulation of differentials. 
+
+\end{abstract}
+
+\tableofcontents
+
+\subsection*{License}
+
+\copyright\ 2025 Valentin Dao, published under the \LaTeX\ Project Public License (\textsc{lppl}) 1.3c
+
+\subsection*{Fonts}
+
+\directlua{fontcopyright('ChronicleTextG3-Roman-Pro.otf')}
+
+\vspace*{\baselineskip}
+
+\begingroup
+\sffamily
+\directlua{fontcopyright('Whitney-Medium.otf')}
+\endgroup
+
+\subsection*{Repository}
+
+\href{https://github.com/ankaa3908/intexgral/tree/main}{\faGithub\ See GitHub repository}.
+
+\subsection*{Acknowledgements}
+
+Many thanks to Plante and Slurpy for accompanying me on this adventure of learning \TeX, your pieces of advice were priceless. I'd also like to thank Matty, who kindly reviewed this package and gave me ideas for the versions to come. 
+
+\newpage
+
+\section{Package options}
+
+These options can be declared with with the following syntax when the package is loaded in the preamble:
+
+\begin{center}
+  \ttfamily
+  \cs{usepackage}\oarg{keyval}\{intexgral\}
+\end{center}
+
+\begin{variable}{invert-limits}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  This key inverts the limit order convention. The entirety of the document can only follow one convention.
+\end{variable}
+
+\begin{function}{invert-differentials}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  It is common to see the differentials placed before the integrand in physics papers. This key hence swaps their position.
+\end{function}
+
+\begin{function}{hide-differentials}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  If the user wishes to hide the differentials throughout the whole document, this key completely deactivates their automatic composition.
+\end{function}
+
+\begin{function}{italic, upright}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+    \meta{boolean}\hfill(default: true)
+  \end{syntax}
+  These are the two keys of the \pkg{derivative} package.\footnotemark  
+\end{function}
+\footnotetext{Available on \textsc{ctan} as: \url{https://ctan.org/pkg/derivative}}
+
+\section{Presentation of the main macro}
+
+\begin{function}{\integral}
+  \begin{syntax}
+    \oarg{keyval list}\marg{integrand}
+  \end{syntax}
+  This macro is used to typeset integrals. It must, of course, be used in math mode. Here is a first example.
+\end{function}
+\begin{texminted}
+\begin{minted}{latex}
+  \integral{f(x)}
+\end{minted}
+\end{texminted}
+\begin{equation}
+  \integral{f(x)}
+\end{equation}
+
+As this macro revolves around the use of keys, the first part of this documentation will present them grouped by themes. The second part will document the auxiliary macros that complement the functionality of certain keys.
+
+\section{List of keys}
+
+\subsection{Integration limits}
+
+\subsubsection{Defining the limits}
+
+\begin{function}{limits, limits*}
+  \begin{syntax}
+    \marg{pseudo-clist}, \meta{keyword}
+    \marg{pseudo-clist}, \meta{keyword}
+  \end{syntax}
+  This key determines the integration limits to be used, following the convention explained in the abstract. 
+\end{function}
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={1, 10}
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits={1, 10}
+  ]{f(x)}
+\end{equation}
+
+The starred version of the key expresses the limits as an interval. The direction of the brackets automatically adjusts to the presence of $\pm$\cs{infty}.
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits*={1, 10}
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits*={1, 10},
+  ]{f(x)}
+\end{equation}
+
+The major strength of \texttt{limits} is that it allows you to specify the limits of several integrals and typesets them for you. To do this, the limits must be separated by semicolons to enable the package to to correctly evaluate to which integral they belong.
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={0, R; 0, H; 0, 2\pi}, 
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{minted}
+\end{texminted}\begin{equation}
+\integral[
+  limits={0, R; 0, H; 0, 2\pi},
+  variable={\rho, z, \phi}
+  ]{\rho z \phi}
+\end{equation}
+
+\subsubsection{Separate the integral}
+
+\begin{function}{int-split}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  This key separates the different variables of the integral and isolates them. It is therefore necessary to use it \emph{before} \texttt{limits} so that the latter knows in which mode to operate in. Moreover, this key requires that we indicate how to separate the integrand. This additional step can be done using the same logic as for the limits, i.e. using a semicolon.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    int-split=true, 
+    limits={0, R; 0, H; 0, 2\pi}, 
+    variable={\rho, z, \phi}
+    ]{\rho; z; \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  int-split=true,
+  limits={radius; height; circle},
+  variable={\rho, z, \phi}
+  ]{\rho; z; \phi}
+\end{equation}
+
+To function correctly, it is obvious that the keys \texttt{limits} and \texttt{variable}\footnotemark, as well as the integrand, have to have the same dimension. If it is not the case, the compilation won't fail, but the integral expression may no longer make any sense. Numerous warning messages will be there to inform you of this and tell you what is wrong. So don't forget the commas and/or semicolons, even if an element remains empty!
+\footnotetext{To be discovered.}
+
+\begin{function}{limits-mode}
+  \begin{syntax}
+    limits, nolimits\hfill(default: nolimits)
+  \end{syntax}
+  Equivalent to using \cs{limits} or \cs{nolimits}.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits-mode=limits, 
+    limits={a, b}, 
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+\begin{equation}
+  \integral[
+    limits-mode=limits,
+    limits={a, b}
+    ]{f(x)}
+\end{equation}
+
+\subsection{Symbol (and more about limits)}
+
+The keys \texttt{limits} and \texttt{limits*} are very useful when the final expression of the integral is determined (in other words, when the limits of each variable have been defined). However, this only covers\dots\ the final expression! For more general cases, they are relatively inconvenient. To typeset a double integral over a surface $S$, one would have to write \verb|limits={,;,S}|. Needless to say, it is rather unsuitable for the user and not optimal for the package. Furthermore, the glyph won't be correct. The set of forthcoming keys therefore offers an easy way to modify the integral symbol and limits.
+
+\subsubsection{Selecting a symbol}
+
+\begin{function}{int-symb}
+  \begin{syntax}
+    \meta{control sequence}
+  \end{syntax}
+  This key accepts a macro designating an integral symbol. For instance, \verb|int-symb=\oint| is equivalent to using \verb|\oint_{...}^{...}|. By default, the \pkg{intexgral} package tries to load all symbols from \pkg{unicode-math}\footnotemark, as it offers the largest variety of them. If a symbol is not defined, a warning message will be issued and the missing macro will be substituted to \cs{int}.
+\end{function}
+\footnotetext{See documentation for the \href{https://ctan.mines-albi.fr/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf}{complete list} of symbols.}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    int-symb=\oint, 
+    lower-lim=\mathcal{C}, 
+    diff-vec=true
+    ]{f(\vec{r})}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    int-symb=\oint,
+    lower-lim=\mathcal{C},
+    diff-vec=true,
+    ]{f(\vec{r})}
+\end{equation}
+
+\subsubsection{Generating many integrals}
+
+\begin{function}{nint}
+  \begin{syntax}
+    \meta{integer}
+  \end{syntax}
+  This key accepts an integer $n$ that allows you to compose $n$ integrals. It is advisable to use this key only if the number of symbols exceeds 4 to favour the glyphs defined by the mathematical font used.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    nint=5, 
+    lower-lim=\Omega, 
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    nint=5,
+    lower-lim=\Omega,
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{equation}
+
+\subsubsection{Defining limits (when there is only one symbol)}
+
+\begin{function}{lower-lim, upper-lim}
+  \begin{syntax}
+    \marg{lower limit}
+    \marg{upper limit}
+  \end{syntax}
+  These two keys allow you to specify the lower and upper limits, respectively. They are only suitable if a single symbol is displayed. If you need to specify both limits, the limits key should, of course, be used.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1}, 
+    variable={x, y}
+    ]{f(x, y)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1},
+    variable={x, y}
+    ]{f(x, y)}
+\end{equation}
+
+\vspace{\baselineskip}
+
+The previous keys (excluding \texttt{nint}) cover a fairly --- I hope --- general use. Nonetheless, further optimisation is possible to save even more time. That is why in addition of \texttt{int-symb}, \texttt{lower-lim} and \texttt{upper-lim}, \pkg{intexgral} offers \emph{shortcut} keys:
+
+\subsubsection{Combining symbol and limit}\label{subsubsec:bornelim}
+
+\begin{function}[maj=v1.1.0]{single, double, triple, quadruple, contour, surface, volume}
+  \begin{syntax}
+    \sarg\marg{limit}\hfill(symbol: \cs{int})
+    \sarg\marg{limit}\hfill(symbol: \cs{iint})
+    \sarg\marg{limit}\hfill(symbol: \cs{iiint})
+    \sarg\marg{limit}\hfill(symbol: \cs{iiiint})
+    \sarg\marg{limit}\hfill(symbol: \cs{oint})
+    \sarg\marg{limit}\hfill(symbol: \cs{oiint})
+    \sarg\marg{limit}\hfill(symbol: \cs{oiiint})
+  \end{syntax}
+  All these keys allow the action of \texttt{int-symb} and \texttt{lower-lim}/\texttt{upper-lim} to be grouped together, making it easier to choose the symbol and the bound at the same time. The value of the key is optional, in which case the symbol will change, but the bound will remain empty. The keys without asterisks modify the lower limit, whereas their starred variants affect the upper limit.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double=S, 
+    variable={x, y}
+    ]{xy}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\subsubsection{Recurring limits motif}
+
+As with symbols, lower bounds sometimes follow common patterns that can be generalised with keys, avoiding overloading the expression of \texttt{lower-lim}.
+
+\begin{function}{domain}
+  \begin{syntax}
+    \marg{*-list}
+  \end{syntax}
+  This key accepts a list delimited by asterisks. Then, each element of the list will be parsed as follows:
+  \begin{itemize}
+    \item The first token of the item is passed to \cs{mathbb} (preceded by \cs{uppercase} in case the \textsc{shift} key is too far away for your fingers). 
+    \item The remaining tokens --- which may be empty --- are interpreted as the Cartesian power of the domain. 
+  \end{itemize}
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y}
+    ]{xy}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\begin{function}{boundary}
+  \begin{syntax}
+    \marg{lower limit}
+  \end{syntax}
+  This key simply places the $\partial$ symbol before the lower limit.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S 
+    ]{G(\vec{r})}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S
+    ]{G(\vec{r})}
+\end{equation}
+
+\subsection{Differentials}
+
+\subsubsection{Specifying the variables}
+
+\begin{function}{variable}
+  \begin{syntax}
+    \marg{clist}, \meta{keyword}, none
+  \end{syntax}
+  This key allows to specify the integration variables as a comma list. If this key is not specified, the package will display $\odif{x}$ by default (or $\odif{\vec{r}}$ if \texttt{diff-vec} is enabled). The \cref{subsec:diffconfig} shows how to modify these choices. If \texttt{none} is parsed, no differentials will be shown. 
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    triple=V, 
+    variable={x, y, z}
+    ]{f(x, y, z)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    triple=V,
+    variable={x, y, z}
+    ]{f(x, y, z)}
+\end{equation}
+
+\subsubsection{Including the Jacobian}
+
+\begin{function}{jacobian}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  This key enables/disables the display of the Jacobian when defined by \cs{NewDifferentialKeyword} (see \cref{subsec:diff})
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  V_\textrm{sphère} = 
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi}, 
+    variable=spherical,
+    jacobian=true
+    ]{;;}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  V_\textrm{sphère} = 
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi},
+    variable=spherical,
+    jacobian=true,
+    ]{;;}
+\end{equation}
+
+\subsubsection{Modifying the symbol}
+
+\begin{function}{diff-symb}
+  \begin{syntax}
+    \meta{control sequence}
+  \end{syntax}
+  As mentioned earlier, the \pkg{derivative} package is used to format differentials. This key allows to change the style of the differentials among those defined by \cs{NewDifferential}
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \NewDifferential{\feynmandiff}{\mathcal{D}}
+  \integral[
+    variable={q(t)}, 
+    diff-symb=\feynmandiff
+    ]{e^{+\dfrac{\imath S[q(t)]}{\hbar}}}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    variable={q(t)},
+    diff-symb=\feynmandiff
+    ]{e^{+\dfrac{\imath S[q(t)]}{\hbar}}}
+\end{equation}
+
+\subsubsection{Opting for the starred variant}
+
+\begin{function}{diff-star}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  If this key is set to true, it is equivalent to using \cs{odif*{}} or its variants.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double, 
+    variable={x, y},
+    diff-star=true,
+    ]{x^2 \exp(y)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double,
+    variable={x, y},
+    diff-star=true
+    ]{x^2 \exp(y)}
+\end{equation}
+
+\subsubsection{Designating options}
+
+\begin{function}{diff-options}
+  \begin{syntax}
+    \marg{keyval list}
+  \end{syntax}
+  This key accepts a list of keys as it would have been written as an optional argument of \cs{odif} or its variants. For example, \verb|diff-options={order={2, 3}, var=all}| will be interpreted as \verb|\odif[order={2, 3}, var=all]{...}|.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    diff-options={order=4}
+    ]{\bar{\psi}(x)(\imath\gamma^\mu\partial_\mu-m)\psi(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    diff-options={order=4}
+    ]{\bar{\psi}(x)(\imath\gamma^\mu\partial_\mu-m)\psi(x)}
+\end{equation}
+
+\subsubsection{Creating a path integral}
+
+\begin{function}{diff-vec}
+  \begin{syntax}
+    \meta{boolean}
+  \end{syntax}
+  This key applies \cs{vec} to each integration variable and places \cs{cdot} as a separator.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double=S,
+    variable=S,
+    diff-vec=true
+    ]{\vec{F}}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable=S,
+    diff-vec=true,
+    ]{\vec{F}}
+\end{equation}
+
+\section{Auxiliary macros}
+\subsection{Package options}
+\begin{function}[new=v2.0.0]{\intexgralsetup}
+  \begin{syntax}
+    \marg{package options}
+  \end{syntax}
+  This macro offers an alternative way to load package options. It should, of course, be used in the preamble only.
+\end{function}
+
+\subsection{Loading new symbols}
+
+\begin{function}{\NewIntegralSymbol}
+  \begin{syntax}
+    \marg{csname}
+  \end{syntax}
+  If you use a package which defines symbols that are not part of \pkg{unicode-math}, you can load them by using the \cs{NewIntegralSymbol} macro in the preamble. They will then be accessible via the \texttt{int-symb} key. The argument must take the form of a macro \emph{without backslash}: for example, \verb|\NewIntegralSymbol{myint}|. Please note that \cs{NewIntegralSymbol} is only a means for the package to recognise pre-existing symbols and their corresponding macros internally. It is not a way to create a new glyph. It is the user's responsibility to load the necessary packages so that the desired symbols are defined. The loading order is not important, however.
+\end{function}
+
+\subsection{Looking back at the \texttt{limits} key}
+
+\begin{function}{\NewLimitsKeyword, \RenewLimitsKeyword, \ProvideLimitsKeyword, \DeclareLimitsKeyword}
+  \begin{syntax}
+    \marg{keyword}\marg{limits}
+  \end{syntax}
+  It is common to have to specify the same limits in an integral. To make them easier to write, the \texttt{limits(*)} key(s) also accept a keyword designating limits defined by one of these four macros:
+\end{function}
+\begin{itemize}
+  \item \cs{NewLimitsKeyword} creates a new keyword and issues an error if it already exists.
+  \item \cs{RenewLimitsKeyword} redefines a keyword and issues an error if it does not already exist.
+  \item \cs{ProvideLimitsKeyword} creates a keyword only if it doesn't already exist. No error message will be issued if it is the case.
+  \item \cs{DeclareLimitsKeyword} creates a new keyword no matter what, overwriting any previous definitions.
+\end{itemize}
+
+Using one of the previous examples, we could modify the expression of the integral as follows:
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={radius; height; circle},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    limits={radius; height; circle},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{equation}
+
+\begin{table}[h!t]
+  \centering
+  \begin{tabular}{l c}
+    \toprule
+    Keyword & Limits\\
+    \midrule
+    ab & $a, b$\\
+    real & $-\infty, +\infty$\\
+    positive & $0, +\infty$\\
+    negative & $-\infty, 0$\\
+    unit & $0, 1$\\
+    circle & $0, 2\pi$\\
+    scircle & $0, \pi$\\
+    qcircle & $0, \frac{pi}{2}$\\
+    height & $0, H$\\
+    radius & $0, R$\\
+    length & $0, L$\\
+    time & $0, T$\\
+    \bottomrule
+  \end{tabular}
+  \caption{List of keywords for limits.}
+\end{table}
+
+\textbf{Important:} due to the implementation of \cs{NewLimitsKeyword} and its variants, the user \emph{must} follow the package's convention on limits order, even if \texttt{invert-limits} is set to \texttt{true}.
+
+\subsection{Looking back at the \texttt{variable} key}\label{subsec:diff}
+
+\begin{function}{\NewDifferentialKeyword, \RenewDifferentialKeyword, \ProvideDifferentialKeyword, \DeclareDifferentialKeyword}
+  \begin{syntax}
+    \marg{keyword}\marg{differentials}\oarg{jacobian}
+  \end{syntax}
+  Similarly, the same groups of differentials often resurface. It is therefore also possible to define keywords whose comma list is predefined (the variants have the same behaviour). The sole difference is that we can also specify the Jacobian. The latter must also be a comma list, as it allows the package to split it when the \texttt{int-split} mode is enabled. Its display is controlled by the \texttt{jacobian} key as explained above.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    triple={V},
+    variable=cartesian
+    ]{f(x, y, z)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    triple={V},
+    variable=cartesian
+    ]{f(x, y, z)}
+\end{equation}
+
+\begin{table}[h!t]
+  \centering
+  \begin{tabular}{l c c}
+    \toprule
+    Keyword & Differentials & Jacobian \\
+    \midrule
+    cartesian & $x, y, z$ & -- \\
+    polar & $r, \theta$ & $ r $ \\
+    cylindrical & $r, \theta, z$ & $ r $ \\
+    spherical & $ r, \theta, \phi $ & $ r, \sin\theta $ \\
+    \bottomrule
+  \end{tabular}
+  \caption{List of keywords for differentials.}
+\end{table}
+
+\subsection{Custom differentials placement}
+
+\begin{function}{\differentials}
+  Although the option \texttt{invert-differentials} exists, it is often desirable to be able to place differentials wherever you want. For instance, they are often seen in the numerator of a fraction when the latter is equal to 1. To meet this need, the package provides the \cs{differentials} macro. When \texttt{int-split=false}, \cs{differentials} typesets all differentials in the same place. When  \texttt{int-split=true}, \cs{differentials} must be rewritten between each semicolon. In both cases, the Jacobian will be attached to the differentials.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    variable={a},
+    ]{\frac{\differentials}{a}} = \ln(a) + C
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    variable={a},
+    ]{\frac{\differentials}{a}} = \ln(a) + C
+\end{equation}
+
+\subsection{Default differentials configuration}\label{subsec:diffconfig}
+
+\begin{function}[new=v2.0.0]{\defaultdiff, \defaultvdiff}
+  \begin{syntax}
+    \marg{clist}, \meta{token}, \meta{keyword} \hfill(default: x) 
+    \marg{clist}, \meta{token}, \meta{keyword} \hfill(default: r)
+  \end{syntax}
+  As mentioned earlier, the package automatically places \emph{x} (or $\vec{r}$\,) as the integration parameters if no variables are given. This can be changed to avoid repeating the \texttt{variable} key when a large part of your document uses the same differential. As with the \texttt{variable} key, different arguments are possible. The assignment of the two macros is local, and they can therefore be placed in a group if necessary.
+\end{function}
+
+\begin{function}[new=v2.0.0]{\vdiffstyle}
+  \begin{syntax}
+    \marg{control sequence}\hfill(default: \cs{vec})
+  \end{syntax}
+  The \texttt{diff-vec} key uses \cs{vec} to apply a vector to differentials. However, there are many different vector styles in \LaTeX. Thus, the macro presented here uses the control sequence given \emph{without argument} to format the vector. For example, with the \pkg{esvect} package loaded, we could define the style to use as follows: \verb|\vdiffstyle{\vv}|. The assignment is also local.
+\end{function}
+
+\newpage
+
+\addcontentsline{toc}{section}{Changelog}
+
+\begin{changelog}[sectioncmd=\section*]
+\begin{version}[v=2.0.0, date=2025-09-09]
+\added 
+\item Macro \cs{intexgralsetup}.
+\item Macro \cs{defaultdiff}.
+\item Macro \cs{defaultvdiff}.
+\item Macro \cs{vdiffstyle}.
+\changed
+\item Warning messages related to nonexisting symbols. They are now only triggered when the integral is typeset. 
+\removed
+\item Key \texttt{diff-vec-style}.
+\item Warning message about misuse of semi-colon in conjunction with the \texttt{int-split} key.
+\fixed 
+\item Bug where the integrand was not reset when \cs{integral} was used succesively  (\href{https://tex.stackexchange.com/questions/749990/issue-with-integral-command-from-intexgral-package-in-math-mode}{details here}).
+\item \pkg{expl3} log leftovers which shouldn't have been there.
+\end{version}
+
+\begin{version}[v=1.1.0, date=2025-07-29]
+\added
+\item Starred variants for the keys controlling both symbol and limits (\cref{subsubsec:bornelim}).
+\end{version}
+\shortversion{v=1.0.0, date=2025-07-26, changes=Initial version.}
+\end{changelog}
+
+\PrintIndex
+
+\end{documentation}
+
+\end{document}
+%</doc-en>
+%
+%<*doc-fr>
+\documentclass[full, check=true]{l3doc}
+\ExplSyntaxOn
+
+\tl_new:N \l__intexgral_doc_update_tl
+\tl_new:N \l__intexgral_doc_new_tl
+
+\keys_define:nn { l3doc/function }
+  {
+    maj .tl_set:N = \l__intexgral_doc_update_tl,
+    new .tl_set:N = \l__intexgral_doc_new_tl,
+  }
+
+\cs_set:Npn \__codedoc_typeset_dates:
+  {
+    \bool_lazy_all:nF
+      {
+        { \tl_if_empty_p:N \l__codedoc_date_added_tl }
+        { \tl_if_empty_p:N \l__codedoc_date_updated_tl }
+        { \tl_if_empty_p:N \l__intexgral_doc_update_tl }
+        { \tl_if_empty_p:N \l__intexgral_doc_new_tl }
+      }
+      { \midrule }
+    \tl_if_empty:NF \l__codedoc_date_added_tl
+      {
+        \multicolumn { 2 } { @{} r @{} }
+          { \scriptsize New: \, \l__codedoc_date_added_tl } \\
+      }
+    \tl_if_empty:NF \l__codedoc_date_updated_tl
+      {
+        \multicolumn { 2 } { @{} r @{} }
+          { \scriptsize Updated: \, \l__codedoc_date_updated_tl } \\
+      }
+    \tl_if_empty:NF \l__intexgral_doc_update_tl
+      {
+        \multicolumn{ 2 }{ @{} r @{} }
+          { 
+            \itshape\sffamily\scriptsize
+            \iflanguageloaded{french}{Mis~à~jour:}{} 
+            \iflanguageloaded{english}{Updated:}{} 
+            \, \l__intexgral_doc_update_tl 
+          } \\
+      }
+    \tl_if_empty:NF \l__intexgral_doc_new_tl
+      {
+        \multicolumn{ 2 }{ @{} r @{} }
+          { 
+            \itshape\sffamily\scriptsize
+            \iflanguageloaded{french}{Nouveau:}{} 
+            \iflanguageloaded{english}{New:}{} 
+            \, \l__intexgral_doc_new_tl 
+          } \\
+      }
+  }
+
+\ExplSyntaxOff
+
+\usepackage{amsmath, amssymb}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\setmainfont{ChronicleTextG3}[
+  Extension         = .otf,
+  UprightFont       = *-Roman-Pro,
+  ItalicFont        = *-Italic-Pro,
+  BoldFont          = *-Bold-Pro,
+  BoldItalicFont    = *-BoldIta-Pro,
+]
+
+\setsansfont{Whitney}[
+  Extension        = .otf,
+  UprightFont      = *-Medium,
+  ItalicFont       = *-MediumItalic,
+  BoldFont         = *-Bold,
+  BoldItalic       = *-BoldItalic,
+  UprightFeatures  = 
+    {
+      StylisticSet = 1, 
+      StylisticSet = 10, 
+      StylisticSet = 11, 
+    },
+  BoldFeatures     = 
+    {
+      StylisticSet = 1, 
+      StylisticSet = 10, 
+      StylisticSet = 11, 
+    },
+  ItalicFeatures   = 
+    {
+      StylisticSet = 1, 
+      StylisticSet = 10, 
+      StylisticSet = 11, 
+      StylisticSet = 8, 
+      StylisticSet = 9  
+    }
+]
+
+\newfontface{\smbold}{Whitney-Semibold.otf}
+
+\setmathfont{NewCMMath-Regular.otf}
+
+\usepackage{intexgral}
+
+\NewDifferential{\feynmandiff}{\mathcal{D}}
+\RenewDifferential{\odif}{\symup{d}}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.3}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+
+\usepackage{luacode}
+
+\begin{luacode}
+function fontcopyright(fontname)
+  local font = fontloader.open(kpse.find_file(fontname, 'opentype fonts'))
+  if font then
+    local metrics = fontloader.to_table(font)
+    local copyright = metrics.copyright:gsub("https?://%S+$", "")
+    local copyright = copyright:gsub("Copyright%s%(C%)", "\\copyright\\")
+    local copyright = copyright:gsub("&", "\\&")
+    tex.print('\\textit{' .. metrics.fullname .. '}\\par')
+    tex.print(copyright)
+  end
+end
+\end{luacode}
+
+\usepackage{changelog}
+\usepackage{enumitem}
+\renewenvironment{changelogitemize}
+  {\begin{itemize}[label=\raisebox{0.5ex}{$\scriptscriptstyle\blacktriangleright$}]}
+  {\end{itemize}}
+
+\usepackage{xcolor}
+\definecolor{RoyalBlue}{RGB}{0, 35, 102}
+\definecolor{RoyalRed}{RGB}{157, 16, 45}
+\definecolor{RoyalGrey}{HTML}{DEDEDE}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\sffamily\LARGE\bfseries}
+\titleformat*{\subsection}{\sffamily\Large\bfseries}
+\titleformat*{\subsubsection}{\smbold\large}
+
+\DeclareTranslation{French}{changelog}{Historique des modifications}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{minted}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usemintedstyle{tango}
+\newtcolorbox{texminted}{
+  enhanced,
+  frame hidden,
+  colback = RoyalGrey
+}
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor   = {Valentin Dao},
+  pdftitle    = {L'extension intexgral},
+  pdfcreator  = {LuaLaTeX with hyperref package},
+  linkcolor   = RoyalBlue,
+  urlcolor    = RoyalRed
+}
+
+\usepackage{cleveref}
+
+\NewDocumentCommand{\sarg}{}{*}
+\NewDocumentCommand{\filecreationdate}{}{26-07-2025}
+
+\ExplSyntaxOn
+\seq_gset_split:Nne \g_tmpa_seq { - } { \filedate }
+\seq_reverse:N \g_tmpa_seq
+\gdef\filedate{ \seq_use:Nnnn \g_tmpa_seq {} { - } { - } }
+\ExplSyntaxOff
+
+\IndexPrologue{
+  \section*{Index}
+  \addcontentsline{toc}{section}{Index}
+}
+
+\EnableCrossrefs
+\DisableImplementation
+
+\begin{document}
+
+\GetFileInfo{intexgral.sty}
+
+\title{^^A
+  L'extension \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}}^^A
+  \thanks{Ce fichier décrit la version \fileversion, mise à jour le \filedate}
+}
+
+\author{^^A
+  Valentin Dao^^A
+  \thanks{E-mail: \href{mailto:vdao.texdev@gmail.com}{vdao.texdev@gmail.com}}
+}
+
+\date{Publiée le \filecreationdate}
+
+\maketitle
+
+\begin{documentation}
+
+\begin{abstract}
+
+Tandis que la composition d'intégrales est très fréquente en \LaTeX, cette dernière se révèle souvent peu pratique. Lorsque l'expression devient complexe, il devient alors difficile d'en modifier les différents éléments dans un code source peu lisible. Pour répondre à ce problème, le package \pkg{intexgral} met à disposition une macro centrale dont le seul argument est l'intégrande. Tout le reste (les bornes, les différentielles\dots) pourra aisément être modifié grâce à une interface \meta{clés = valeur}. Contrairement à la méthode classique, où l'utilisateur choisit l'ordre des bornes avec les caractères actifs \verb|_| et \verb|^|, le package a dû fixer une convention. Ainsi, pour les deux clés gérant les bornes qui seront présentées, l'entrée supposée sera \verb|_|\meta{borne inférieure}\verb|^|\meta{borne supérieure}. Ce package étant écrit en \pkg{expl3}, il dépend donc des packages \LaTeX3 \pkg{l3kernel} et \pkg{l3package}. De plus, \pkg{intexgral} utilise le package \pkg{derivative} afin de faciliter la manipulation de différentielles.
+
+\end{abstract}
+
+\tableofcontents
+
+\subsection*{Licence}
+
+\copyright\ 2025 Valentin Dao, publié sous la \LaTeX\ Project Public License (\textsc{lppl}) 1.3c
+
+\subsection*{Polices}
+
+\directlua{fontcopyright('ChronicleTextG3-Roman-Pro.otf')}
+
+\vspace*{\baselineskip}
+
+\begingroup
+\sffamily
+\directlua{fontcopyright('Whitney-Medium.otf')}
+\endgroup
+
+\subsection*{Dépôt}
+
+\href{https://github.com/ankaa3908/intexgral/tree/main}{\faGithub\ Voir dépôt GitHub}.
+
+\subsection*{Remerciements}
+
+Un grand merci à Plante et Slurpy de m'avoir accompagné dans cette aventure que fut l'apprentissage de \TeX, vos conseils ont été précieux. Je tiens également à remercier Matty qui a gentiment révisé ce package et m'a donné des idées pour les versions à venir. 
+
+\newpage
+
+\section{Options de package}
+
+Ces options peuvent être utilisées avec la syntaxe suivante lorsque le package est chargé dans le préambule:
+\begin{center}
+  \ttfamily
+  \cs{usepackage}\oarg{clés}\{intexgral\}
+\end{center}
+
+\begin{function}{invert-limits}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+  \end{syntax}
+  Cette clé permet d'inverser la convention d'ordre des limites. L'entièreté du document ne peut suivre qu'une seule convention.
+\end{function}
+
+\begin{function}{invert-differentials}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+  \end{syntax}
+  Il est courant de voir les différentielles placées avant l'intégrande dans les articles de physique. Cette clé intervertit donc leurs positionnements.
+\end{function}
+
+\begin{function}{hide-differentials}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+  \end{syntax}
+  Si l'utilisateur souhaite que les différentielles ne soient pas affichées tout au long du document, cette clé désactive complètement la composition automatique de celles-ci. 
+\end{function}
+
+\begin{function}{italic, upright}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+    \meta{boolean}\hfill(défaut: true)
+  \end{syntax}
+  Ce sont les deux clés du package \pkg{derivative}.\footnotemark  
+\end{function}
+\footnotetext{Disponible sur \textsc{ctan} sous: \url{https://ctan.org/pkg/derivative}}
+
+\section{Présentation de la macro principale}
+
+\begin{function}{\integral}
+  \begin{syntax}
+    \oarg{liste de clés}\marg{intégrande}
+  \end{syntax}
+  Cette macro est celle qui permet de composer les intégrales. Elle doit naturellement être utilisée en mode mathématique. En voici un premier exemple:
+\end{function}
+\begin{texminted}
+\begin{minted}{latex}
+  \integral{f(x)}
+\end{minted}
+\end{texminted}
+\begin{equation}
+  \integral{f(x)}
+\end{equation}
+
+Puisque cette macro est axée autour de l'utilisation de clés, la première partie de cette documentation les présentera en les regroupant par domaines. La seconde partie quant à elle documentera les macros auxiliaires qui viennent compléter les fonctionnalités de certaines clés.
+
+\section{Liste des clés}
+
+\subsection{Bornes d'intégration}
+
+\subsubsection{Définir les bornes}
+
+\begin{function}{limits, limits*}
+  \begin{syntax}
+    \marg{pseudo-clist}, \meta{mot-clé}
+    \marg{pseudo-clist}, \meta{mot-clé}
+  \end{syntax}
+  Cette clé détermine les bornes d'intégration à utiliser en suivant la convention édictée dans le résumé. 
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={1, 10}
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits={1, 10}
+  ]{f(x)}
+\end{equation}
+
+La variante étoilée de la clé exprime les bornes sous la forme d'un intervalle. Le sens des crochets s'adapte automatiquement à la présence de $\pm$\cs{infty}.
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits*={1, 10}
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits*={1, 10},
+  ]{f(x)}
+\end{equation}
+
+La grande force de \texttt{limits} est qu'elle permet de spécifier les bornes de plusieurs intégrales et se charge de les composer pour vous. Pour ce faire, il faut séparer les bornes de points-virgules pour permettre au package de correctement évaluer à quelle intégrale elles appartiennent.
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={0, R; 0, H; 0, 2\pi}, 
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits={0, R; 0, H; 0, 2\pi},
+  variable={\rho, z, \phi}
+  ]{\rho z \phi}
+\end{equation}
+
+\subsubsection{Séparer l'intégrale}
+
+\begin{function}{int-split}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+  \end{syntax}
+  Cette clé sépare les différentes variables de l'intégrale et les isole. Il est donc nécessaire de l'utiliser \emph{avant} \texttt{limits} afin que celle-ci sache dans quel mode opérer. De plus, cette clé requiert que l'on indique comment séparer l'intégrande. Cette étape supplémentaire se réalise en suivant la même logique que pour les bornes, c'est-à-dire en utilisant le point-virgule. 
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    int-split=true, 
+    limits={0, R; 0, H; 0, 2\pi}, 
+    variable={\rho, z, \phi}
+    ]{\rho; z; \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  int-split=true,
+  limits={radius; height; circle},
+  variable={\rho, z, \phi}
+  ]{\rho; z; \phi}
+\end{equation}
+
+Pour bien fonctionner, il est évident que les clés \texttt{limits} et \texttt{variable}\footnote{à découvrir d'ici peu.}, ainsi que l'intégrande, doivent avoir la même dimension. Si ce n'est pas le cas, la compilation n'échouera pas, mais l'expression de l'intégrale risque de ne plus avoir aucun sens. De nombreux messages d'avertissement seront là pour vous en informer et vous dire ce qui ne va pas. N'oubliez donc pas les virgules et/ou points-virgules même si un élément reste vide!
+
+\subsubsection{Choisir le positionnement des bornes}
+
+\begin{function}{limits-mode}
+  \begin{syntax}
+    limits, nolimits\hfill(défaut: nolimits)
+  \end{syntax}
+  Équivalent à employer \cs{limits} ou \cs{nolimits}.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits-mode=limits, 
+    limits={a, b}, 
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+\begin{equation}
+  \integral[
+    limits-mode=limits,
+    limits={a, b}
+    ]{f(x)}
+\end{equation}
+
+\subsection{Symbole (et encore des bornes)}
+
+Les clés \texttt{limits} et \texttt{limits*} se révèlent très utiles lorsque l'expression finale d'une intégrale est déterminée (autrement dit, lorsque les bornes de chaque variable ont été définies). Cependant, cela couvre seulement\dots\ l'expression finale! Pour des cas plus généraux, elles sont relativement malcommodes. Pour composer une intégrale double sur une surface $S$, on devrait écrire \verb|limits={,;,S}|. Il va sans dire que c'est assez mal adapté pour l'utilisateur et peu optimal pour le package. Par ailleurs, le glyphe ne serait pas correct. L'ensemble des clés à suivre propose donc une façon de modifier facilement le symbole intégrale et les bornes.
+
+\subsubsection{Sélectionner le symbole}\label{subsubsec:symb}
+
+\begin{function}{int-symb}
+  \begin{syntax}
+    \meta{séquence de contrôle}
+  \end{syntax}
+  Cette clé accepte une macro désignant un symbole intégrale. Par exemple, \verb|int-symb=\oint| revient à utiliser \verb|\oint_{...}^{...}|. Par défaut, le package \pkg{intexgral} tente de charger tous les symboles d'\pkg{unicode-math}\footnotemark, étant donné qu'il en offre le plus grand nombre. Si un symbole n'est pas défini, un message d'avertissement sera émis et la commande manquante sera substituée à \cs{int}.
+\end{function}
+\footnotetext{Voir la documentation pour la \href{https://ctan.mines-albi.fr/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf}{liste complète} des symboles.}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    int-symb=\oint, 
+    lower-lim=\mathcal{C}, 
+    diff-vec=true
+    ]{f(\vec{r})}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    int-symb=\oint,
+    lower-lim=\mathcal{C},
+    diff-vec=true,
+    ]{f(\vec{r})}
+\end{equation}
+
+\subsubsection{Générer beaucoup intégrales}
+
+\begin{function}{nint}
+  \begin{syntax}
+    \meta{entier}
+  \end{syntax}
+  Cette clé accepte un entier $n$ qui permet de composer $n$ intégrales. Il est conseillé d'avoir recours à cette clé seulement si le nombre de symboles dépasse 4 afin de privilégier les glyphes définis par la police mathématique utilisée.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    nint=5, 
+    lower-lim=\Omega, 
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    nint=5,
+    lower-lim=\Omega,
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{equation}
+
+\subsubsection{Définir les bornes (lorsqu'il n'y a qu'un seul symbole)}
+
+\begin{function}{lower-lim, upper-lim}
+  \begin{syntax}
+    \marg{borne inférieure}
+    \marg{borne supérieure}
+  \end{syntax}
+  Ces deux clés permettent de spécifier les bornes inférieures et supérieures respectivement. Elles ne sont adaptées que si un seul symbole est affiché. Si vous avez besoin de spécifier les deux limites, la clé \texttt{limits} devra être privilégiée.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1}, 
+    variable={x, y}
+    ]{f(x, y)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1},
+    variable={x, y}
+    ]{f(x, y)}
+\end{equation}
+
+\vspace{\baselineskip}
+
+Les clés précédentes (sans compter \texttt{nint}) couvrent un usage --- je l'espère --- assez général. Toutefois, on peut optimiser davantage pour un gain de temps supplémentaire. C'est pourquoi en plus de \texttt{int-symb}, \texttt{lower-lim} et \texttt{upper-lim}, \pkg{intexgral} propose des clés \emph{raccourci}:
+
+\subsubsection{Combiner symbole et borne}\label{subsubsec:bornelim}
+
+\begin{function}[maj=v1.1.0]{single, double, triple, quadruple, contour, surface, volume}
+  \begin{syntax}
+    \sarg\marg{borne}\hfill(symbole: \cs{int})
+    \sarg\marg{borne}\hfill(symbole: \cs{iint})
+    \sarg\marg{borne}\hfill(symbole: \cs{iiint})
+    \sarg\marg{borne}\hfill(symbole: \cs{iiiint})
+    \sarg\marg{borne}\hfill(symbole: \cs{oint})
+    \sarg\marg{borne}\hfill(symbole: \cs{oiint})
+    \sarg\marg{borne}\hfill(symbole: \cs{oiiint})
+  \end{syntax}
+  Toutes ces clés permettent de regrouper l'action de \texttt{int-symb} et \texttt{lower-lim}/\texttt{upper-lim} ensemble, facilitant le choix du symbole et de la borne en même temps. La valeur de la clé est optionnelle, auquel cas le symbole changera mais la borne restera vide. Les clés sans astérisques modifient la borne inférieure, tandis que leurs variantes étoilées affectent la borne supérieure. 
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double=S, 
+    variable={x, y}
+    ]{xy}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\subsubsection{Motifs récurrents de bornes}
+
+Tout comme pour les symboles, les bornes suivent parfois des schémas courants qui peuvent se généraliser avec des clés, évitant de surcharger l'expression de \texttt{lower-lim}.
+
+\begin{function}{domain}
+  \begin{syntax}
+    \marg{*-list}
+  \end{syntax}
+  Cette clé accepte une liste dont le délimiteur est un astérisque. Ensuite, chaque élément de la liste est analysée de la façon suivante:
+  \begin{itemize}
+    \item Le premier token de l'item se voit passer \cs{mathbb} (précédé d'\cs{uppercase} au cas où la touche \textsc{shift} serait trop loin pour vos doigts).
+    \item Les tokens restants --- qui peuvent être vides --- sont interprétés comme la puissance cartésienne de l'ensemble. 
+  \end{itemize}
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y}
+    ]{xy}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\begin{function}{boundary}
+  \begin{syntax}
+    \marg{tokens}
+  \end{syntax}
+  Cette clé place simplement le symbol $\partial$ avant la borne inférieure.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S 
+    ]{G(\vec{r})}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S
+    ]{G(\vec{r})}
+\end{equation}
+
+\subsection{Différentielles}
+
+\subsubsection{Spécifier les variables}
+
+\begin{function}{variable}
+  \begin{syntax}
+    \marg{clist}, \meta{mot-clé}, none
+  \end{syntax}
+  Cette clé permet de spécifier les paramètres d'intégration sous forme de liste d'éléments séparés par des virgules (clist). Si cette clé n'est pas renseignée, le package affichera par défaut $\odif{x}$ (ou $\odif{\vec{r}}$ si \texttt{diff-vec} est activé). La \cref{subsec:diffconfig} vous montre comment modifier ces choix. Si \texttt{none} est passé comme valeur, aucune différentielle ne sera affichée.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    triple=V, 
+    variable={x, y, z}
+    ]{f(x, y, z)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    triple=V,
+    variable={x, y, z}
+    ]{f(x, y, z)}
+\end{equation}
+
+\subsubsection{Inclure le jacobien}
+
+\begin{function}{jacobian}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+  \end{syntax}
+  Cette clé active/désactive l'affichage du jacobien lorsque défini par \cs{NewDifferentialKeyword} (voir \cref{subsec:diff})
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  V_\textrm{sphère} = 
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi}, 
+    variable=spherical,
+    jacobian=true
+    ]{;;}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  V_\textrm{sphère} = 
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi},
+    variable=spherical,
+    jacobian=true,
+    ]{;;}
+\end{equation}
+
+\subsubsection{Modifier le symbole}
+
+\begin{function}{diff-symb}
+  \begin{syntax}
+    \meta{séquence de contrôle}
+  \end{syntax}
+  Comme évoqué plus tôt, le package \pkg{derivative} est utilisé pour la mise en forme des différentielles. Cette clé permet de changer le style des différentielles parmi ceux définis par \cs{NewDifferential}. 
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \NewDifferential{\feynmandiff}{\mathcal{D}}
+  \integral[
+    variable={q(t)}, 
+    diff-symb=\feynmandiff
+    ]{e^{+\dfrac{\imath S[q(t)]}{\hbar}}}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    variable={q(t)},
+    diff-symb=\feynmandiff
+    ]{e^{+\dfrac{\imath S[q(t)]}{\hbar}}}
+\end{equation}
+
+\subsubsection{Opter pour la variante étoilée}
+
+\begin{function}{diff-star}
+  \begin{syntax}
+    \meta{boolean}\hfill(défaut: false)
+  \end{syntax}
+  Si cette clé est vraie, cela revient à utiliser \cs{odif*{}} ou ses variantes.  
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double, 
+    variable={x, y},
+    diff-star=true,
+    ]{x^2 \exp(y)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double,
+    variable={x, y},
+    diff-star=true
+    ]{x^2 \exp(y)}
+\end{equation}
+
+\subsubsection{Désigner des options}
+
+\begin{function}{diff-options}
+  \begin{syntax}
+    \marg{clés}
+  \end{syntax}
+  Cette clé accepte une liste de clés telle qu'elle aurait été écrite comme argument optionnel de \cs{odif} ou ses variantes. Pour illustrer, \verb|diff-options={order={2, 3}, var=all}| sera interprété comme \verb|\odif[order={2, 3}, var=all]{...}|.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    diff-options={order=4}
+    ]{\bar{\psi}(x)(\imath\gamma^\mu\partial_\mu-m)\psi(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    diff-options={order=4}
+    ]{\bar{\psi}(x)(\imath\gamma^\mu\partial_\mu-m)\psi(x)}
+\end{equation}
+
+\subsubsection{Réaliser une intégrale curviligne}
+
+\begin{function}{diff-vec}
+  \begin{syntax}
+    \meta{boolean}
+  \end{syntax}
+  Cette clé applique \cs{vec} à chaque paramètre d'intégration et place un \cs{cdot} comme séparation.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double=S,
+    variable=S,
+    diff-vec=true
+    ]{\vec{F}}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable=S,
+    diff-vec=true,
+    ]{\vec{F}}
+\end{equation}
+
+\section{Macros auxiliaires}
+
+\subsection{Options de package}
+
+\begin{function}[new=v2.0.0]{\intexgralsetup}
+  \begin{syntax}
+    \marg{options de package}
+  \end{syntax}
+  Cette macro offre un moyen alternatif de charger les options du package. Elle doit bien évidemment être utilisée dans le préambule seulement.
+\end{function}
+
+\subsection{Charger des symboles}
+
+\begin{function}{\NewIntegralSymbol}
+  \begin{syntax}
+    \marg{csname}
+  \end{syntax}
+  Si vous utilisez un package définissant des symboles ne faisant pas partie d'\pkg{unicode-math}, vous pouvez les charger en utilisant la macro \cs{NewIntegralSymbol} dans le préambule. Ils seront dès lors accessible avec la clé \texttt{int-symb}. L'argument devra prendre la forme d'une commande \emph{sans antislash}: par exemple \verb|\NewIntegralSymbol{myint}|. Veuillez noter que \cs{NewIntegralSymbol} n'est qu'un moyen pour le package de reconnaître les symboles préexistants et leurs macros de façon interne. Ce n'est en rien une manière de créer un nouveau glyphe. Il en va de la responsabilité de l'utilisateur de charger les packages nécessaires pour que les symboles voulus soient définis. L'ordre de chargement n'a cependant pas d'importance. 
+\end{function}
+
+\subsection{Retour sur la clé \texttt{limits}}
+
+\begin{function}{\NewLimitsKeyword, \RenewLimitsKeyword, \ProvideLimitsKeyword, \DeclareLimitsKeyword}
+  \begin{syntax}
+    \marg{mot-clé}\marg{bornes}
+  \end{syntax}
+Il est courant de devoir renseigner les mêmes bornes dans une intégrale. Pour faciliter leur écriture, les clé(s) \texttt{limits(*)} accepte également un mot-clé désignant des bornes définies par l'une de ces quatre macros:
+\end{function}
+\begin{itemize}
+  \item \cs{NewLimitsKeyword} crée un nouveau mot-clé et émet une erreur s'il existe déjà.
+  \item \cs{RenewLimitsKeyword} redéfinit un mot-clé et émet une erreur s'il n'existe pas déjà. 
+  \item \cs{ProvideLimitsKeyword} ne crée un nouveau mot-clé que s'il n'existe pas déjà. Aucun message ne sera émis dans le cas échéant.
+  \item \cs{DeclareLimitsKeyword} crée un nouveau mot-clé quoi qu'il en soit, écrasant toute définition préalable.
+\end{itemize}
+
+En reprenant l'un des exemples précédents, on pourrait modifier l'expression de l'intégrale de la façon suivante:
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={radius; height; circle},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    limits={radius; height; circle},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{equation}
+
+\begin{table}[h!t]
+  \centering
+  \begin{tabular}{l c}
+    \toprule
+    Mot-clé & Bornes\\
+    \midrule
+    ab & $a, b$\\
+    real & $-\infty, +\infty$\\
+    positive & $0, +\infty$\\
+    negative & $-\infty, 0$\\
+    unit & $0, 1$\\
+    circle & $0, 2\pi$\\
+    scircle & $0, \pi$\\
+    qcircle & $0, \frac{pi}{2}$\\
+    height & $0, H$\\
+    radius & $0, R$\\
+    length & $0, L$\\
+    time & $0, T$\\
+    \bottomrule
+  \end{tabular}
+  \caption{Liste des mots-clés pour les bornes.}
+\end{table}
+
+\textbf{Important:} dû à l'implémentation de \cs{NewLimitsKeyword} et ses variantes, l'utilisateur \emph{doit} suivre la convention d'ordre des bornes du package, même si \texttt{invert-limits} est fixé à \texttt{true}.
+
+\subsection{Retour sur la clé \texttt{variable}}\label{subsec:diff}
+
+\begin{function}{\NewDifferentialKeyword, \RenewDifferentialKeyword, \ProvideDifferentialKeyword, \DeclareDifferentialKeyword}
+  \begin{syntax}
+    \marg{mot-clé}\marg{différentielles}\oarg{jacobien}
+  \end{syntax}
+De façon similaire, les mêmes groupes de différentielles réapparaissent souvent. On peut donc également définir des mots-clés dont la liste est déjà prédéfinie (les variantes ont le même comportement). La seule différence est que l'on peut en plus spécifier un jacobien. Ce dernier devra prendre la forme d'une clist. Ceci permet de pouvoir séparer le jacobien lorsque le mode \texttt{int-split} est activé. Son affichage est contrôlé par la clé \texttt{jacobian} expliquée précédemment.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    triple={V},
+    variable=cartesian
+    ]{f(x, y, z)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    triple={V},
+    variable=cartesian
+    ]{f(x, y, z)}
+\end{equation}
+
+\begin{table}[h!t]
+  \centering
+  \begin{tabular}{l c c}
+    \toprule
+    Mot-clé & Différentielles & Jacobien \\
+    \midrule
+    cartesian & $x, y, z$ & -- \\
+    polar & $r, \theta$ & $ r $ \\
+    cylindrical & $r, \theta, z$ & $ r $ \\
+    spherical & $ r, \theta, \phi $ & $ r, \sin\theta $ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Liste des mots-clés pour les différentielles.}
+\end{table}
+
+\subsection{Emplacements personnalisés des différentielles}
+
+\begin{function}{\differentials}
+  Bien que l'option \texttt{invert-differentials} existe, il est souvent souhaitable de pouvoir placer les différentielles où l'on veut. Par exemple, il est fréquent de les voir au numérateur d'une fraction lorsque celui-ci vaut 1. Pour répondre à ce besoin, le package met à disposition la macro \verb|\differentials|. Lorsque \texttt{int-split=false}, \cs{differentials} compose toutes les différentielles au même endroit. Si \texttt{int-split=true}, il faudra réécrire \cs{differentials} entre chaque point-virgule. Dans les deux cas, le jacobien sera rattaché aux différentielles.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    variable={a},
+    ]{\frac{\differentials}{a}} = \ln(a) + C
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    variable={a},
+    ]{\frac{\differentials}{a}} = \ln(a) + C
+\end{equation}
+\subsection{Configuration par défaut des différentielles}\label{subsec:diffconfig}
+\begin{function}[new=v2.0.0]{\defaultdiff, \defaultvdiff}
+\begin{syntax}
+  \marg{clist}, \meta{token}, \meta{mot-clé} \hfill(défaut: x) 
+  \marg{clist}, \meta{token}, \meta{mot-clé} \hfill(défaut: r)
+\end{syntax}
+Comme évoqué avant, le package place automatiquement \emph{x} (ou $\vec{r}$\,) comme paramètre d'intégration si aucune variable n'est donnée. Ceci peut être modifié et ainsi éviter de répéter la clé \texttt{variable} lorsqu'une grande partie de votre document utilise une même différentielle. À l'image de la clé \texttt{variable}, différents arguments sont possibles. L'assignation des deux macros est locale et elle peuvent donc être placées dans un groupe si besoin.  
+\end{function}
+
+\begin{function}[new=v2.0.0]{\vdiffstyle}
+\begin{syntax}
+  \marg{séquence de contrôle}\hfill(défaut: \cs{vec})
+\end{syntax}
+La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les différentielles. Il existe pourtant de nombreux styles de vecteurs différents en \LaTeX. Ainsi, la macro ici présente utilise la séquence de contrôle donnée \emph{sans argument} pour formater le vecteur. Par exemple, avec le package \pkg{esvect} chargé, on pourrait définir le style à utiliser de la façon suivante: \verb|\vdiffstyle{\vv}|. L'assignation est elle aussi locale.
+
+\end{function}
+
+\newpage
+\addcontentsline{toc}{section}{Historique des modifications}
+\begin{changelog}[sectioncmd=\section*]
+\begin{version}[v=2.0.0, date=2025-09-09]
+\added 
+\item Macro \cs{intexgralsetup}.
+\item Macro \cs{defaultdiff}.
+\item Macro \cs{defaultvdiff}.
+\item Macro \cs{vdiffstyle}.
+\changed
+\item Messages d'avertissement liés aux symboles non-existants. Ils ne sont maintenant provoqués que lorsque l'intégrale est composée.  
+\removed
+\item Clé \texttt{diff-vec-style}.
+\item Message d'avertissement lié à la mauvaise utilisation des points-virgules en conjonction de la clé \texttt{int-split}.
+\fixed 
+\item Bug où l'intégrande n'était pas réinitialisée lorsque \cs{integral} était employée successivement (\href{https://tex.stackexchange.com/questions/749990/issue-with-integral-command-from-intexgral-package-in-math-mode}{détails ici }).
+\item Des restes de log \pkg{expl3} qui n'auraient pas dû être là.
+\end{version}
+
+\begin{version}[v=1.1.0, date=2025-07-29]
+\added
+\item Variantes étoilées pour les clés controlant symbole et borne (\cref{subsubsec:bornelim}).
+\end{version}
+\shortversion{v=1.0.0, date=2025-07-26, changes=Version initiale.}
+\end{changelog}
+\PrintIndex
+
+\end{documentation}
+
+\end{document}
+%</doc-fr>
+%
+%    \begin{macrocode}
+%<*package>
+%<@@=intexgral_pkg>
+
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{expl3}[2025-05-14]
+\RequirePackage{amssymb}
+\ProvidesExplPackage
+  {intexgral}{2025-09-09}{2.0.0}{A LaTeX package for typesetting integrals.}
+
+\@ifpackagelater{expl3}{2025-05-14}{}{\PackageError{expl3~version~too~old,~see~version~requirement~on~the~GitHub~page.}}
+
+\bool_new:N \l_@@_invert_limits_bool
+\bool_new:N \l_@@_deactivate_differential_bool
+\bool_new:N \l_@@_invert_differential_bool
+
+\keys_define:nn { intexgral }
+  {
+    invert-limits .bool_set:N = \l_@@_invert_limits_bool,
+    invert-limits .usage:n = { preamble },
+    invert-limits .initial:n = { false },
+
+    hide-differentials .bool_set:N = \l_@@_deactivate_differential_bool,
+    hide-differentials .usage:n = { preamble },
+    hide-differentials .initial:n = { false },
+
+    invert-differentials .bool_set:N = \l_@@_invert_differential_bool,
+    invert-differentials .usage:n = { preamble },
+    invert-differentials .initial:n = { false },
+
+    italic .choice:,
+      italic / true .code:n = { \PassOptionsToPackage{italic=true}{derivative} },
+      italic / false .code:n = { \PassOptionsToPackage{italic=false}{derivative} },
+
+    upright .choice:,
+      upright / true .code:n = { \PassOptionsToPackage{upright=true}{derivative} },
+      upright / false .code:n = { \PassOptionsToPackage{upright=false}{derivative} },
+  }
+
+\IfFormatAtLeastTF { 2022-06-01 }
+  { \ProcessKeyOptions[intexgral] }
+  {
+    \RequirePackage{l3keys2e}
+    \ProcessKeysOptions{intexgral}
+  }
+
+\RequirePackage{derivative}
+
+\cs_new:Nn \@@_warning_msg_header: {
+  (integral~no.~
+  \int_use:N\g_@@_integral_number_int\c_space_tl\msg_line_context:)
+}
+
+\msg_new:nnnn { intexgral } { integral-alr-def }
+  { Macro~\token_to_str:N\integral~already~defined. }
+  {
+    It~seems~like~\token_to_str:N\integral~has~been~defined~by~another~package.
+    I~will~overwrite~its~current~definition,~hoping~it~won't~affect~your~document~much.
+  }
+
+\msg_new:nnnn { intexgral } { diff-group-alr-def }
+  { Differential~group~"\tl_trim_spaces:n{#1}"~already~defined. }
+  { You~should~use~\token_to_str:N\RenewDifferentialKeyword~instead. }
+
+\msg_new:nnnn { intexgral } { diff-group-not-def }
+  { Differential~group~"\tl_trim_spaces:n{#1}"~undefined. }
+  { You~should~use~\token_to_str:N\NewDifferentialKeyword~instead. }
+
+\msg_new:nnnn { intexgral } { lim-group-alr-def }
+  { Limits~group~"\tl_trim_spaces:n{#1}"~already~defined. }
+  { You~should~use~\token_to_str:N\RenewLimitsKeyword~instead. }
+
+\msg_new:nnnn { intexgral } { lim-group-not-def }
+  { Limits~group~"\tl_trim_spaces:n{#1}"~undefined. }
+  { You~should~use~\token_to_str:N\NewLimitsKeyword~instead. }
+
+\msg_new:nnn { intexgral } { unknown-int-symb }
+  { 
+    Unknown~integral~symbol~\@@_warning_msg_header:\\
+    Undefined~symbol~"\tl_trim_spaces:n{#1}"~substituted~to~\token_to_str:N\int.
+  }
+
+\msg_new:nnn { intexgral } { no-diff-despite-macro }
+  {
+    Unknown~differentials~\@@_warning_msg_header:\\
+    You~used~\token_to_str:N\differentials~but~no~differentials~were~declared.
+  }
+
+\msg_new:nnn { intexgral } { unequal-dim }
+  {
+    Inconsistent~separation~\@@_warning_msg_header:\\
+    The~integral~sequence~contains~#1~element(s).\\
+    The~integrand~sequence~contains~#2~element(s).\\
+    The~differentials~sequence~contains~#3~element(s).
+  }
+
+\msg_new:nnn { intexgral } { no-jacobian }
+  {
+    No~jacobian~\@@_warning_msg_header:\\
+    You~asked~to~display~the~jacobian~but~it~hasn't~been~declared~for~the~corresponding~differentials.
+  }
+
+\msg_new:nnn { intexgral } { use-glyph-instead }
+  {
+    Use~adapted~glyph~instead~\@@_warning_msg_header:\\
+    You~used~the~key~"multiple"~for~a~symbol~containing~
+    less~than~5~regular~integrals.~
+    You~may~want~to~use~the~font's~dedicated~glyph~instead.
+  }
+
+\msg_new:nnn { intexgral } { missing-diff }
+  {
+    Missing~differentials~\@@_warning_msg_header:\\
+    I~have~spotted~\token_to_str:N\differentials~only~#1~times~whereas~you~declared~#2~variables.
+  }
+
+\msg_new:nnn { intexgral } { missing-var }
+  {
+    Too~many~differentials~\@@_warning_msg_header:\\
+    The~amount~of~\token_to_str:N\differentials~exceeded~that~of~the~variables.
+    ~The~subsequent~\token_to_str:N\differentials~won't~show~anything.
+  }
+
+\msg_new:nnn { intexgral } { int-symb-alr-def }
+  { 
+    Integral~symbol~"\tl_trim_spaces:n{#1}"~already~defined.\\
+    The~symbol~has~either~already~been~loaded~either~by~the~package~or~yourself.
+    ~I~will~just~ignore~it.
+  }
+
+\cs_if_free:NF \integral
+  {
+    \msg_warning:nn { intexgral } { integral-alr-def }
+    \cs_undefine:N \integral
+  }
+
+\cs_new_protected:Npn \@@_mathchoice:nnnn #1#2#3#4 {
+  \mathchoice{#1}{#2}{#3}{#4}
+}
+
+\cs_generate_variant:Nn \regex_if_match:nnTF { nVTF }
+\cs_generate_variant:Nn \@@_new_limits_group:nn { nV }
+\cs_generate_variant:Nn \str_if_eq:nnTF { neTF }
+\cs_generate_variant:Nn \str_if_eq:nnF { neF }
+\cs_generate_variant:Nn \@@_parse_variable:nn { oo }
+
+\tl_new:N \l_@@_integrand_tl
+\tl_new:N \l_@@_integral_symbol_tl
+\tl_new:N \l_@@_lower_limit_tl
+\tl_new:N \l_@@_upper_limit_tl
+\tl_new:N \l_@@_limits_style_tl
+\tl_new:N \l_@@_differentials_options_i_tl
+\tl_new:N \l_@@_differentials_options_ii_tl
+\tl_new:N \l_@@_vectorial_differential_style_tl
+\tl_new:N \l_@@_independent_differential_options_tl
+\tl_new:N \l_@@_domain_char_tl
+\tl_new:N \l_@@_domain_dimension_tl
+\tl_new:N \l_@@_default_differential_tl
+\tl_new:N \l_@@_default_vector_differential_tl
+\tl_const:Nn \c_@@_left_bracket_tl { [ }
+\tl_const:Nn \c_@@_right_bracket_tl { ] }
+
+\tl_set_eq:NN \l_@@_integral_symbol_tl \int
+
+\bool_new:N \l_@@_manual_differentials_bool
+\bool_new:N \l_@@_custom_variables_bool
+\bool_new:N \l_@@_separate_integral_bool
+\bool_new:N \l_@@_vectorial_differentials_bool
+\bool_new:N \l_@@_jacobian_bool
+\bool_new:N \l_@@_starred_differential_bool
+\bool_new:N \l_@@_has_order_bool
+\bool_new:N \l_@@_has_var_bool
+
+\bool_set_false:N \l_@@_vectorial_differentials_bool
+\bool_set_false:N \l_@@_manual_differentials_bool
+\bool_set_false:N \l_@@_custom_variables_bool
+\bool_set_false:N \l_@@_separate_integral_bool
+\bool_set_false:N \l_@@_has_order_bool
+\bool_set_false:N \l_@@_has_var_bool
+
+\clist_new:N \g_@@_independent_differential_options_clist
+\clist_new:N \l_@@_variable_i_clist
+\clist_new:N \l_@@_variable_ii_clist
+\clist_new:N \l_@@_var_index_clist
+
+\seq_new:N \l_@@_integrand_seq
+\seq_new:N \l_@@_integral_symbol_seq
+\seq_new:N \l_@@_jacobian_seq
+\seq_new:N \l_@@_differential_seq
+\seq_new:N \l_@@_limits_seq
+\seq_new:N \l_@@_upper_limits_seq
+\seq_new:N \l_@@_lower_limits_seq
+\seq_new:N \l_@@_differential_var_i_seq
+\seq_new:N \l_@@_differential_var_ii_seq
+\seq_new:N \l_@@_differential_order_i_seq
+\seq_new:N \l_@@_differential_order_ii_seq
+\seq_new:N \l_@@_domain_seq
+
+\prop_new:N \g_@@_limits_keyword_prop
+\prop_new:N \g_@@_differential_group_keyword_prop
+
+\int_new:N \l_@@_integral_sequence_int
+\int_gzero_new:N \g_@@_integral_number_int
+
+\cs_new_protected:Npn \@@_new_integral_symbol:n #1 {
+  \cs_if_exist:cT { #1 }
+    { 
+      \tl_new:c { c_@@_#1_symbol_tl }
+      \tl_set_eq:cc { c_@@_#1_symbol_tl } { #1 } 
+    }
+}
+
+\prg_new_conditional:Npnn \@@_symbol_if_exist:N #1 { T, F, TF }
+  {
+    \cs_if_exist:NTF #1 
+      { \prg_return_true: }
+      { \prg_return_false: }
+  }
+
+\cs_new_protected:Nn \@@_check_sequence_size: {
+  \int_compare:nNnTF
+    { \seq_count:N \l_@@_integral_symbol_seq }
+    =
+    { \seq_count:N \l_@@_integrand_seq }
+      {
+        \int_compare:nNnF
+          { \seq_count:N \l_@@_integrand_seq }
+          =
+          { \seq_count:N \l_@@_differential_seq }
+            {
+              \msg_warning:nneee { intexgral } { unequal-dim }
+                { \seq_count:N \l_@@_integral_symbol_seq }
+                { \seq_count:N \l_@@_integrand_seq       }
+                { \seq_count:N \l_@@_differential_seq    }
+            }
+      }
+      {
+        \msg_warning:nneee { intexgral } { unequal-dim }
+          { \seq_count:N \l_@@_integral_symbol_seq }
+          { \seq_count:N \l_@@_integrand_seq       }
+          { \seq_count:N \l_@@_differential_seq    }
+      }
+}
+
+\cs_new_protected:Npn \@@_set_limits:nn #1#2 {
+  \bool_if:NTF \l_@@_invert_limits_bool
+    {
+      \tl_set:Nn \l_@@_lower_limit_tl { #2 }
+      \tl_set:Nn \l_@@_upper_limit_tl { #1 }
+    }
+    {
+      \tl_set:Nn \l_@@_lower_limit_tl { #1 }
+      \tl_set:Nn \l_@@_upper_limit_tl { #2 }
+    }
+}
+
+\cs_new_protected:Npn \@@_parse_integral_symbol: {
+  \tl_use:N \l_@@_integral_symbol_tl
+  \tl_use:N \l_@@_limits_style_tl
+  \c_math_subscript_token
+    { \l_@@_lower_limit_tl }
+  \c_math_superscript_token
+    { \l_@@_upper_limit_tl }
+}
+
+\cs_new_protected:Nn \@@_integral_preconfiguration: {
+  \int_gincr:N \g_@@_integral_number_int
+
+  \cs_set_protected:Npn \differentials {
+    \seq_if_empty:NTF \l_@@_differential_seq
+      { \msg_warning:nn { intexgral } { missing-var } }
+      {
+        \bool_if:NTF \l_@@_invert_differential_bool
+          {
+            \seq_gpop_left:NN \l_@@_differential_seq \l_tmpa_tl
+            \tl_use:N \l_tmpa_tl
+            \seq_if_empty:NF \l_@@_jacobian_seq
+              {
+                \seq_gpop_left:NN \l_@@_jacobian_seq \l_tmpb_tl
+                \tl_use:N \l_tmpb_tl
+              }
+          }
+          {
+            \seq_if_empty:NF \l_@@_jacobian_seq
+              {
+                \seq_gpop_left:NN \l_@@_jacobian_seq \l_tmpb_tl
+                \tl_use:N \l_tmpb_tl
+              }
+            \seq_gpop_left:NN \l_@@_differential_seq \l_tmpa_tl
+            \tl_use:N \l_tmpa_tl
+          }
+      }
+  }
+
+  \bool_if:NT \l_@@_separate_integral_bool
+    { 
+      \seq_set_split:NnV 
+        \l_@@_integrand_seq 
+        { ; } 
+        \l_@@_integrand_tl 
+    }
+
+  \seq_if_empty:NT \l_@@_integral_symbol_seq
+    {
+      \seq_put_right:Nn \l_@@_integral_symbol_seq
+        { \@@_parse_integral_symbol: }
+    }
+
+  \seq_if_empty:NT \l_@@_integrand_seq
+    {
+      \seq_put_right:NV \l_@@_integrand_seq \l_@@_integrand_tl
+    }
+
+  \@@_parse_differentials:
+
+  \bool_if:NTF \l_@@_jacobian_bool
+    {
+      \seq_if_empty:NT \l_@@_jacobian_seq
+        { \msg_warning:nn { intexgral } { no-jacobian } }
+    }
+    { \seq_clear:N \l_@@_jacobian_seq }
+
+  \regex_if_match:nVTF { \c{differentials}+ } \l_@@_integrand_tl
+    { \bool_set_true:N \l_@@_manual_differentials_bool }
+    { \bool_set_false:N \l_@@_manual_differentials_bool }
+
+  \bool_if:NT \l_@@_manual_differentials_bool
+    {
+      \regex_count:nVN { \c{differentials} } \l_@@_integrand_tl \l_tmpa_int
+      \int_set:Nn \l_tmpb_int { \seq_count:N \l_@@_differential_seq }
+      \int_compare:nNnT
+        { \l_tmpa_int }
+        <
+        { \l_tmpb_int }
+        { 
+          \msg_warning:nnee { intexgral } { missing-diff } 
+            { \l_tmpa_int } 
+            { \seq_count:N \l_@@_differential_seq } 
+        }
+    }
+
+  \bool_if:NT \l_@@_separate_integral_bool
+    { \@@_check_sequence_size: }
+}
+
+\cs_new_protected:Nn \@@_print_integral: {
+
+  \@@_integral_preconfiguration:
+
+  \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
+    {
+      \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
+
+      \bool_if:NT \l_@@_invert_differential_bool
+        {
+          \bool_if:NF \l_@@_manual_differentials_bool
+            {
+              \bool_if:NF \l_@@_deactivate_differential_bool
+                { \seq_item:Nn \l_@@_differential_seq { ##1 } }
+              \bool_if:NT \l_@@_jacobian_bool
+                { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+            }
+        }
+
+      \seq_item:Nn \l_@@_integrand_seq { ##1 }
+
+      \bool_if:NT \l_@@_vectorial_differentials_bool
+        {
+          \bool_if:NTF \l_@@_separate_integral_bool
+            { \cdot }
+            {
+              \int_compare:nNnT { ##1 } = { 1 }
+                { \cdot }
+            }
+        }
+
+      \bool_if:NF \l_@@_invert_differential_bool
+        {
+          \bool_if:NF \l_@@_manual_differentials_bool
+            {
+              \bool_if:NT \l_@@_jacobian_bool
+                { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+              \bool_if:NF \l_@@_deactivate_differential_bool
+                { \seq_item:Nn \l_@@_differential_seq { ##1 } }
+            }
+        }
+    }
+}
+
+\cs_new_protected:Npn \@@_new_limits_group:nn #1#2 {
+  \prop_put:Nnn \g_@@_limits_keyword_prop { #1 } { #2 }
+}
+
+\cs_new_protected:Npn \@@_new_differential_group:nnn #1#2#3 {
+  \prop_put:Nnn \g_@@_differential_group_keyword_prop
+    { #1 } { #2 }
+  \tl_if_blank:nF { #3 }
+    {
+      \clist_set:Nn \l_tmpa_clist { #3 }
+      \seq_set_from_clist:cN { g_@@_#1_jacobian_seq } \l_tmpa_clist
+    }
+}
+
+\cs_new:Npn \@@_parse_integral_limit:n #1 {
+  \prop_if_in:NnTF \g_@@_limits_keyword_prop { #1 }
+    { \prop_item:Nn \g_@@_limits_keyword_prop { #1 } }
+    { #1 }
+}
+
+\cs_new:Npn \@@_differentials:nn #1#2 {
+  \bool_if:NTF \l_@@_starred_differential_bool
+    { \odif*[#1]{#2} }
+    { \odif[#1]{#2} }
+}
+
+\cs_new_protected:Npn \@@_extract_differential_order:n #1 {
+  \regex_extract_once:nnNT { order \s* = \s* \{ \s* (\d+ (?: \s* , \s* \d+ )* ) \s* \} }
+    { #1 } \l_@@_differential_order_i_seq
+    { \bool_set_true:N \l_@@_has_order_bool }
+    \clist_set:Ne \l_tmpa_clist
+      { \seq_item:Nn \l_@@_differential_order_i_seq { 2 } }
+    \seq_set_from_clist:NN \l_@@_differential_order_ii_seq \l_tmpa_clist
+}
+
+\cs_new_protected:Npn \@@_extract_differential_var:n #1 {
+  \regex_extract_once:nnNTF
+    { var\s*=\s*(none|all|\{\s*(\d+(?:\s*,\s*\d+)*\s*)\}) }
+    { #1 }
+    \l_@@_differential_var_i_seq
+    { \bool_set_true:N \l_@@_has_var_bool }
+    {
+      \str_if_in:nnT { #1 } { var }
+        {
+          \seq_put_left:Nn \l_@@_differential_var_i_seq { var }
+          \bool_set_true:N \l_@@_has_var_bool
+        }
+    }
+  \clist_set:Ne \l_tmpa_clist 
+    { \seq_item:Nn \l_@@_differential_var_i_seq { 3 } }
+  \seq_set_from_clist:NN \l_@@_differential_var_ii_seq \l_tmpa_clist
+}
+
+\cs_new_protected:Npn \@@_remove_differential_order_and_var:n #1 {
+  \tl_set:Nn \l_@@_independent_differentials_options_tl { #1 }
+  \regex_replace_all:nnN
+    {
+      order\s*=\s*\{\s*\d+(\s*,\s*\d+)*\}\s*,?
+      |
+      [^-]var(?:\s*=\s*(?:none|all|\{\s*\d+(?:\s*,\s*\d+)*\s*\}))?,?
+    }
+    {  }
+    \l_@@_independent_differentials_options_tl
+}
+
+\cs_new_protected:Npn \@@_parse_variable:nn #1#2 {
+  \clist_set:Nn \l_tmpa_clist { #2 }
+  \seq_set_from_clist:NN \l_tmpa_seq \l_tmpa_clist
+  \bool_if:NTF \l_@@_separate_integral_bool
+    {
+      \@@_extract_differential_order:n { #1 }
+      \@@_extract_differential_var:n { #1 }
+      \@@_remove_differential_order_and_var:n { #1 }
+      \seq_map_indexed_inline:Nn \l_tmpa_seq {
+        \tl_put_right:Ne \l_@@_differentials_options_ii_tl
+          { \l_@@_independent_differentials_options_tl }
+        \bool_if:NT \l_@@_has_order_bool
+          {
+            \tl_put_right:Ne \l_@@_differentials_options_ii_tl
+              { order=\seq_item:Nn \l_@@_differential_order_ii_seq { ##1 }, }
+          }
+        \bool_if:NT \l_@@_has_var_bool
+          {
+            \int_compare:nNnTF
+            { \seq_count:N \l_@@_differential_var_i_seq }
+            =
+            { 1 }
+            { \tl_put_right:Nn \l_@@_differentials_options_ii_tl { var } }
+            {
+              \str_if_eq:neF { none }
+                { \seq_item:Nn \l_@@_differential_var_i_seq { 2 } }
+                  {
+                    \str_if_eq:neTF { all }
+                      { \seq_item:Nn \l_@@_differential_var_i_seq { 2 } }
+                      {
+                        \tl_put_right:Nn \l_@@_differentials_options_ii_tl
+                        { var }
+                      }
+                      {
+                        \seq_if_in:NnT \l_@@_differential_var_ii_seq { ##1 }
+                          {
+                            \seq_pop_left:NN 
+                              \l_@@_differential_var_ii_seq 
+                              \l_tmpa_tl
+                            \tl_put_right:Nn 
+                              \l_@@_differentials_options_ii_tl
+                              { var, }
+                          }
+                      }
+                  }
+            }
+          }
+        \seq_put_right:Ne \l_@@_differential_seq
+          {
+            \@@_differentials:nn
+              { \l_@@_differentials_options_ii_tl }
+              { \seq_item:Nn \l_tmpa_seq { ##1 } }
+          }
+        \tl_clear:N \l_@@_differentials_options_ii_tl
+      }
+    }
+    {
+      \seq_put_right:Nn \l_@@_differential_seq
+        {
+          \@@_differentials:nn { #1 } { #2 }
+        }
+    }
+}
+
+\cs_new_protected:Npn \@@_parse_differentials: {
+  \bool_if:NTF \l_@@_vectorial_differentials_bool
+    {
+      \clist_map_inline:Nn \l_@@_variable_i_clist
+        {
+          \clist_put_right:Nn \l_@@_variable_ii_clist
+            { \l_@@_vectorial_differential_style_tl{##1} }
+        }
+      \bool_if:NTF \l_@@_custom_variables_bool
+        {
+          \@@_parse_variable:oo
+            { \l_@@_differentials_options_i_tl }
+            { \l_@@_variable_ii_clist }
+        }
+        {
+          \@@_parse_variable:oo
+            { \l_@@_differentials_options_i_tl }
+            { 
+              \l_@@_vectorial_differential_style_tl
+                { \l_@@_default_vector_differential_tl } 
+            }
+        }
+
+    }
+    {
+      \bool_if:NTF \l_@@_custom_variables_bool
+        {
+          \@@_parse_variable:oo
+            { \l_@@_differentials_options_i_tl }
+            { \l_@@_variable_i_clist }
+        }
+        {
+          \@@_parse_variable:oo
+            { \l_@@_differentials_options_i_tl }
+            { \l_@@_default_differential_tl }
+        }
+    }
+}
+
+\cs_new_protected:Npn \@@_parse_limits:n #1 {
+  \tl_set:Nn \l_tmpa_tl { #1 }
+  \seq_clear:N \l_@@_lower_limits_seq
+  \seq_clear:N \l_@@_upper_limits_seq
+  \seq_set_split:NnV \l_@@_limits_seq { ; } \l_tmpa_tl
+}
+
+\cs_new_protected:Nn \@@_set_limits_regular: {
+  \seq_map_inline:Nn \l_@@_limits_seq
+    {
+      \clist_set:Ne \l_tmpa_clist
+        { \@@_parse_integral_limit:n { ##1 } }
+      \seq_put_right:Ne \l_@@_lower_limits_seq
+        { \clist_item:Nn \l_tmpa_clist { 1 } }
+      \seq_put_right:Ne \l_@@_upper_limits_seq
+        { \clist_item:Nn \l_tmpa_clist { 2 } }
+    }
+}
+
+\cs_new_protected:Npn \@@_set_limits_starred: {
+  \seq_map_indexed_inline:Nn \l_@@_limits_seq
+    {
+      \clist_set:Ne \l_tmpa_clist { \@@_parse_integral_limit:n { ##2 } }
+      \bool_if:NTF \l_@@_invert_limits_bool
+        {
+          \tl_set:Ne \l_@@_lower_limit_tl
+          {
+            \clist_item:Nn \l_tmpa_clist { 2 }
+            \tex_mathpunct:D,
+            \clist_item:Nn \l_tmpa_clist { 1 }
+          }
+        }
+        {
+          \tl_set:Ne \l_@@_lower_limit_tl
+          {
+            \clist_item:Nn \l_tmpa_clist { 1 }
+            \tex_mathpunct:D,
+            \clist_item:Nn \l_tmpa_clist { 2 }
+          }
+        }
+          \bool_if:NTF \l_@@_invert_limits_bool
+            { \seq_put_right:Ne \l_@@_upper_limits_seq }
+            { \seq_put_right:Ne \l_@@_lower_limits_seq }
+        {
+          \str_case_e:nnF { \clist_item:Nn \l_tmpa_clist { 1 } }
+            {
+              { -\infty } { \tex_left:D \c_@@_right_bracket_tl }
+            }
+            { \tex_left:D \c_@@_left_bracket_tl }
+          \tl_use:N \l_@@_lower_limit_tl
+          \str_case_e:nnF { \clist_item:Nn \l_tmpa_clist { 2 } }
+            {
+              { +\infty } { \tex_right:D \c_@@_left_bracket_tl }
+            }
+            { \tex_right:D \c_@@_right_bracket_tl }
+          }
+    }
+}
+
+\cs_new_protected:Nn \@@_generate_integral_sequence: {
+  \int_set:Nn \l_@@_integral_sequence_int
+    {
+      \seq_if_empty:NTF \l_@@_lower_limits_seq
+        { \seq_count:N \l_@@_upper_limits_seq }
+        { \seq_count:N \l_@@_lower_limits_seq }
+    }
+  \bool_if:NTF \l_@@_separate_integral_bool
+    {
+      \int_step_inline:nn { \l_@@_integral_sequence_int }
+        {
+          \seq_put_right:Nn \l_@@_integral_symbol_seq
+            {
+              \@@_set_limits:nn
+                { \seq_item:Nn \l_@@_lower_limits_seq { ##1 } }
+                { \seq_item:Nn \l_@@_upper_limits_seq { ##1 } }
+              \@@_parse_integral_symbol:
+            }
+        }
+    }
+    {
+      \seq_put_right:Nn \l_@@_integral_symbol_seq
+        {
+          \int_step_inline:nn { \l_@@_integral_sequence_int }
+            {
+              \@@_set_limits:nn
+                { \seq_item:Nn \l_@@_lower_limits_seq { ##1 } }
+                { \seq_item:Nn \l_@@_upper_limits_seq { ##1 } }
+              \@@_parse_integral_symbol:
+            }
+        }
+    }
+}
+
+\keys_define:nn { integral } {
+
+  % LIMITS
+
+  int-split .bool_set:N = \l_@@_separate_integral_bool,
+
+  limits .code:n =
+    {
+      \@@_parse_limits:n { #1 }
+      \@@_set_limits_regular:
+      \@@_generate_integral_sequence:
+    },
+
+  limits* .code:n =
+    {
+      \@@_parse_limits:n { #1 }
+      \@@_set_limits_starred:
+      \@@_generate_integral_sequence:
+    },
+
+  limits-mode .choice:,
+    limits-mode / limits .code:n =
+      { \tl_set_eq:NN \l_@@_limits_style_tl \tex_limits:D },
+    limits-mode / nolimits .code:n =
+      { \tl_set_eq:NN \l_@@_limits_style_tl \tex_nolimits:D },
+  limits-mode .default:n = { nolimits },
+
+  lower-lim .tl_set:N = \l_@@_lower_limit_tl,
+
+  upper-lim .tl_set:N = \l_@@_upper_limit_tl,
+
+  int-symb .code:n = 
+    {
+      \@@_symbol_if_exist:NTF #1
+        { \tl_set:Nn \l_@@_integral_symbol_tl { #1 } }
+        { 
+          \msg_warning:nnn { intexgral } { unknown-int-symb } { #1 } 
+          \tl_set_eq:NN \l_@@_integral_symbol_tl \int
+        }
+    },
+
+  % SYMBOL SHORTCUT
+
+  nint .code:n =
+    {
+      \int_compare:nNnT { #1 } < { 5 }
+        { \msg_warning:nn { intexgral } { use-glyph-instead } }
+
+      \tl_clear:N \l_@@_integral_symbol_tl
+
+      \int_step_inline:nn { #1 }
+        {
+          \tl_put_right:Nn \l_@@_integral_symbol_tl
+            { \c_@@_int_symbol_tl }
+          \int_compare:nNnT { ##1 } < { #1 }
+            {
+              \tl_put_right:Nn \l_@@_integral_symbol_tl
+                {
+                  \@@_mathchoice:nnnn
+                    { \tex_mkern:D -12mu \scan_stop: }
+                    { \tex_mkern:D -8mu \scan_stop: }
+                    { \tex_mkern:D -4mu \scan_stop: }
+                    { \tex_mkern:D -2mu \scan_stop: }
+                }
+            }
+        }
+    },
+
+  single .meta:n =
+    {
+      int-symb=\c_@@_int_symbol_tl,
+      lower-lim=#1
+    },
+
+  double .meta:n =
+    {
+      int-symb=\c_@@_iint_symbol_tl,
+      lower-lim=#1
+    },
+
+  triple .meta:n =
+    {
+      int-symb=\c_@@_iiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  quadruple .meta:n =
+    {
+      int-symb=\c_@@_iiiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  contour .meta:n =
+    {
+      int-symb=\c_@@_oint_symbol_tl,
+      lower-lim=#1
+    },
+
+  surface .meta:n =
+    {
+      int-symb=\c_@@_oiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  volume .meta:n =
+    {
+      int-symb=\c_@@_oiiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  single* .meta:n =
+    {
+      int-symb=\c_@@_int_symbol_tl,
+      upper-lim=#1
+    },
+
+  double* .meta:n =
+    {
+      int-symb=\c_@@_iint_symbol_tl,
+      upper-lim=#1
+    },
+
+  triple* .meta:n =
+    {
+      int-symb=\c_@@_iiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  quadruple* .meta:n =
+    {
+      int-symb=\c_@@_iiiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  contour* .meta:n =
+    {
+      int-symb=\c_@@_oint_symbol_tl,
+      upper-lim=#1
+    },
+
+  surface* .meta:n =
+    {
+      int-symb=\c_@@_oiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  volume* .meta:n =
+    {
+      int-symb=\c_@@_oiiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  % LIMITS SHORTCUTS
+
+  domain .code:n =
+    {
+      \tl_set:Nn \l_tmpa_tl { #1 }
+      \seq_set_split:NnV \l_@@_domain_seq { * } \l_tmpa_tl
+      \seq_map_inline:Nn \l_@@_domain_seq
+        {
+          \tl_if_empty:NF \l_@@_lower_limit_tl
+            { \tl_put_right:Nn \l_@@_lower_limit_tl { \times } }
+          \tl_set:Ne \l_@@_domain_char_tl
+            { \exp_args:Ne \str_uppercase:n { \tl_head:n { ##1 } } }
+          \tl_set:Ne \l_@@_domain_dimension_tl
+            { \tl_tail:n { ##1 } }
+          \tl_put_right:Ne \l_@@_lower_limit_tl
+            {
+              \exp_not:N \mathbb { \l_@@_domain_char_tl }
+              \c_math_superscript_token { \l_@@_domain_dimension_tl }
+            }
+        }
+    },
+
+  boundary .code:n =
+    { \tl_set:Nn \l_@@_lower_limit_tl { \partial #1 } },
+
+  % DIFFERENTIALS
+
+  variable .code:n =
+    {
+      \bool_set_true:N \l_@@_custom_variables_bool
+      \str_if_eq:nnTF { #1 } { none }
+        { \bool_set_true:N \l_@@_deactivate_differential_bool }
+        {
+          \prop_get:NnNTF 
+            \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
+              {
+                \clist_set:NV \l_@@_variable_i_clist \l_tmpa_tl
+                \seq_if_exist:cT { g_@@_#1_jacobian_seq }
+                  { \seq_set_eq:Nc \l_@@_jacobian_seq { g_@@_#1_jacobian_seq } }
+              }
+              { \clist_set:Nn \l_@@_variable_i_clist { #1 } }
+        }
+    },
+
+  jacobian .bool_set:N = \l_@@_jacobian_bool,
+
+  diff-vec .bool_set:N = \l_@@_vectorial_differentials_bool,
+
+  diff-symb .code:n =
+    {
+      \cs_set:Npn \@@_differentials:nn ##1##2 {
+        \bool_if:NTF \l_@@_starred_differential_bool
+          { #1*[##1]{##2} }
+          { #1[##1]{##2} }
+      }
+    },
+
+  diff-star .bool_set:N = \l_@@_starred_differential_bool,
+
+  diff-options .tl_set:N = \l_@@_differentials_options_i_tl,
+
+}
+
+\NewDocumentCommand{\NewLimitsKeyword}{ m m }{
+  \prop_get:NnNTF \g_@@_limits_keyword_prop { #1 } \l_tmpa_tl
+    { \msg_error:nnn { intexgral } { lim-group-alr-def } { #1 } }
+    {
+      \bool_if:NTF \l_@@_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \@@_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \@@_new_limits_group:nn { #1 } { #2 } }
+    }
+}
+
+\NewDocumentCommand{\RenewLimitsKeyword}{ m m }{
+  \prop_pop:NnNTF \g_@@_limits_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \bool_if:NTF \l_@@_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \@@_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \@@_new_limits_group:nn { #1 } { #2 } }
+    }
+    { \msg_error:nnn { intexgral } { lim-group-not-def } }
+}
+
+\NewDocumentCommand{\ProvideLimitsKeyword}{ m m }{
+  \prop_get:NnNF \g_@@_limits_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \bool_if:NTF \l_@@_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \@@_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \@@_new_limits_group:nn { #1 } { #2 } }
+    }
+}
+
+\NewDocumentCommand{\DeclareLimitsKeyword}{ m m }{
+  \prop_pop:NnNT \g_@@_limits_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \bool_if:NTF \l_@@_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \@@_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \@@_new_limits_group:nn { #1 } { #2 } }
+    }
+}
+
+\NewDocumentCommand{\NewDifferentialKeyword}{ m m o }{
+  \prop_get:NnNTF \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    { \msg_error:nnn { intexgral } { diff-group-alr-def } { #1 } }
+    { \@@_new_differential_group:nnn { #1 } { #2 } { #3 } }
+}
+
+\NewDocumentCommand{\RenewDifferentialKeyword}{ m m o }{
+  \prop_pop:NnNTF \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \seq_clear:c { g_@@_#1_jacobian_seq }
+      \@@_new_differential_group:nnn { #1 } { #2 } { #3 }
+    }
+    { \msg_error:nnn { intexgral } { diff-group-alr-def } { #1 } }
+}
+
+\NewDocumentCommand{\ProvideDifferentialKeyword}{ m m o }{
+  \prop_get:NnNF \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    { \@@_new_differential_group:nnn { #1 } { #2 } { #3 } }
+}
+
+\NewDocumentCommand{\DeclareDifferentialKeyword}{ m m o }{
+  \prop_pop:NnNT \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \seq_clear:c { g_@@_#1_jacobian_seq }
+      \@@_new_differential_group:nnn { #1 } { #2 } { #3 }
+    }
+}
+
+\NewDocumentCommand{\NewIntegralSymbol}{ m }{
+  \AtBeginDocument{
+  \tl_if_exist:cTF { c_@@_#1_symbol_tl }
+    { \msg_warning:nnn { intexgral } { int-symb-alr-def } { #1 } }
+    { \@@_new_integral_symbol:n { #1 } }
+  }
+}
+
+\NewDocumentCommand{\defaultdiff}{ m }{
+  \prop_get:NnNTF 
+    \g_@@_differential_group_keyword_prop
+    { #1 }
+    \l_tmpa_tl
+    { \tl_set_eq:NN \l_@@_default_differential_tl \l_tmpa_tl }
+    { \tl_set:Nn \l_@@_default_differential_tl { #1 } }
+}
+
+\NewDocumentCommand{\defaultvdiff}{ m }{
+  \prop_get:NnNTF 
+    \g_@@_differential_group_keyword_prop
+    { #1 }
+    \l_tmpa_tl
+    { \tl_set_eq:NN \l_@@_default_vector_differential_tl \l_tmpa_tl }
+    { \tl_set:Nn \l_@@_default_vector_differential_tl { #1 } }
+}
+
+\NewDocumentCommand{\vdiffstyle}{ m }{
+  \tl_set:Nn \l_@@_vectorial_differential_style_tl { #1 }
+}
+
+\NewDocumentCommand{\intexgralsetup}{ m }{
+  \keys_set:nn { intexgral } { #1 }
+}
+
+\@onlypreamble\intexgralsetup
+\@onlypreamble\NewIntegralSymbol
+
+\NewIntegralSymbol{int}
+\NewIntegralSymbol{iint}
+\NewIntegralSymbol{iiint}
+\NewIntegralSymbol{iiiint}
+\NewIntegralSymbol{oint}
+\NewIntegralSymbol{oiint}
+\NewIntegralSymbol{oiiint}
+\NewIntegralSymbol{idotsint}
+\NewIntegralSymbol{intclockwise}
+\NewIntegralSymbol{awint}
+\NewIntegralSymbol{varointclockwise}
+\NewIntegralSymbol{ointctrclockwise}
+\NewIntegralSymbol{sumint}
+\NewIntegralSymbol{intbar}
+\NewIntegralSymbol{intBar}
+\NewIntegralSymbol{fint}
+\NewIntegralSymbol{cirfnint}
+\NewIntegralSymbol{rppolint}
+\NewIntegralSymbol{scpolint}
+\NewIntegralSymbol{npolint}
+\NewIntegralSymbol{pointint}
+\NewIntegralSymbol{sqint}
+\NewIntegralSymbol{intlarhk}
+\NewIntegralSymbol{intx}
+\NewIntegralSymbol{intcap}
+\NewIntegralSymbol{intcup}
+\NewIntegralSymbol{upint}
+\NewIntegralSymbol{lowint}
+\NewIntegralSymbol{inttop}
+\NewIntegralSymbol{intbottom}
+\NewIntegralSymbol{intextender}
+
+\NewLimitsKeyword{ab}{a, b}
+\NewLimitsKeyword{real}{-\infty, +\infty}
+\NewLimitsKeyword{positive}{0, +\infty}
+\NewLimitsKeyword{negative}{-\infty, 0}
+\NewLimitsKeyword{unit}{0, 1}
+\NewLimitsKeyword{circle}{0, 2\pi}
+\NewLimitsKeyword{scircle}{0, \pi}
+\NewLimitsKeyword{qcircle}{0, \frac{\pi}{2}}
+\NewLimitsKeyword{height}{0, H}
+\NewLimitsKeyword{radius}{0, R}
+\NewLimitsKeyword{length}{0, L}
+\NewLimitsKeyword{time}{0, T}
+
+\NewDifferentialKeyword{cartesian}{x, y, z}
+\NewDifferentialKeyword{polar}{r, \theta}[r]
+\NewDifferentialKeyword{cylindrical}{r, \theta, z}[r]
+\NewDifferentialKeyword{spherical}{r, \theta, \phi}[r^2, \sin\theta]
+
+\defaultdiff{x}
+\defaultvdiff{r}
+\vdiffstyle{\vec}
+
+\NewDocumentCommand{\integral}{ O{} m }{
+  \group_begin:
+  \keys_set:nn { integral } { #1 }
+  \tl_set:Nn \l_@@_integrand_tl { #2 }
+  \@@_print_integral:
+  \group_end:
+}
+
+\ExplSyntaxOff
+
+%</package>
+%    \end{macrocode}

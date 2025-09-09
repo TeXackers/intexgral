@@ -1,0 +1,965 @@
+%%
+%% This is file `intexgral-en.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% intexgral.dtx  (with options: `doc-en')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2025 Valentin Dao
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status 'maintained'
+%% and the current maintainer is Valentin Dao (vdao.texdev@gmail.com).
+%% 
+%% This work consists of the files intexgral.ins and intexgral.dtx,
+%% along with the derived files intexgral-doc-en.pdf, and
+%% intexgral-doc-fr.pdf. In order to acquire the .tex master files
+%% producing the documentations and the .sty file, simply run this
+%% installation file through any engine.
+%% 
+%% The repository of this work can be found at:
+%% 
+%%   https://github.com/ankaa3908/intexgral
+%% 
+\documentclass[full, check=true]{l3doc}
+
+\ExplSyntaxOn
+
+\tl_new:N \l__intexgral_doc_update_tl
+\tl_new:N \l__intexgral_doc_new_tl
+
+\keys_define:nn { l3doc/function }
+  {
+    maj .tl_set:N = \l__intexgral_doc_update_tl,
+    new .tl_set:N = \l__intexgral_doc_new_tl,
+  }
+
+  \cs_set:Npn \__codedoc_typeset_dates:
+  {
+    \bool_lazy_all:nF
+      {
+        { \tl_if_empty_p:N \l__codedoc_date_added_tl }
+        { \tl_if_empty_p:N \l__codedoc_date_updated_tl }
+        { \tl_if_empty_p:N \l__intexgral_doc_update_tl }
+        { \tl_if_empty_p:N \l__intexgral_doc_new_tl }
+      }
+      { \midrule }
+    \tl_if_empty:NF \l__codedoc_date_added_tl
+      {
+        \multicolumn { 2 } { @{} r @{} }
+          { \scriptsize New: \, \l__codedoc_date_added_tl } \\
+      }
+    \tl_if_empty:NF \l__codedoc_date_updated_tl
+      {
+        \multicolumn { 2 } { @{} r @{} }
+          { \scriptsize Updated: \, \l__codedoc_date_updated_tl } \\
+      }
+    \tl_if_empty:NF \l__intexgral_doc_update_tl
+      {
+        \multicolumn{ 2 }{ @{} r @{} }
+          {
+            \itshape\sffamily\scriptsize
+            \iflanguageloaded{french}{Mis~à~jour:}{}
+            \iflanguageloaded{english}{Updated:}{}
+            \, \l__intexgral_doc_update_tl
+          } \\
+      }
+    \tl_if_empty:NF \l__intexgral_doc_new_tl
+      {
+        \multicolumn{ 2 }{ @{} r @{} }
+          {
+            \itshape\sffamily\scriptsize
+            \iflanguageloaded{french}{Nouveau:}{}
+            \iflanguageloaded{english}{New:}{}
+            \, \l__intexgral_doc_new_tl
+          } \\
+      }
+  }
+
+\ExplSyntaxOff
+
+\usepackage{amsmath, amssymb}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\setmainfont{ChronicleTextG3}[
+  Extension         = .otf,
+  UprightFont       = *-Roman-Pro,
+  ItalicFont        = *-Italic-Pro,
+  BoldFont          = *-Bold-Pro,
+  BoldItalicFont    = *-BoldIta-Pro,
+]
+
+\setsansfont{Whitney}[
+  Extension        = .otf,
+  UprightFont      = *-Medium,
+  ItalicFont       = *-MediumItalic,
+  BoldFont         = *-Bold,
+  BoldItalic       = *-BoldItalic,
+  UprightFeatures  =
+    {
+      StylisticSet = 1,
+      StylisticSet = 10,
+      StylisticSet = 11,
+    },
+  BoldFeatures     =
+    {
+      StylisticSet = 1,
+      StylisticSet = 10,
+      StylisticSet = 11,
+    },
+  ItalicFeatures   =
+    {
+      StylisticSet = 1,
+      StylisticSet = 10,
+      StylisticSet = 11,
+      StylisticSet = 8,
+      StylisticSet = 9
+    }
+]
+
+\newfontface{\smbold}{Whitney-Semibold.otf}
+
+\setmathfont{NewCMMath-Regular.otf}
+
+\usepackage{intexgral}
+
+\NewDifferential{\feynmandiff}{\mathcal{D}}
+\RenewDifferential{\odif}{\symup{d}}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.3}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+\usepackage{luacode}
+
+\begin{luacode}
+function fontcopyright(fontname)
+  local font = fontloader.open(kpse.find_file(fontname, 'opentype fonts'))
+  if font then
+    local metrics = fontloader.to_table(font)
+    local copyright = metrics.copyright:gsub("https?://%S+$", "")
+    local copyright = copyright:gsub("Copyright%s%(C%)", "\\copyright\\")
+    local copyright = copyright:gsub("&", "\\&")
+    tex.print('\\textit{' .. metrics.fullname .. '}\\par')
+    tex.print(copyright)
+  end
+end
+\end{luacode}
+
+\usepackage{changelog}
+\usepackage{enumitem}
+\renewenvironment{changelogitemize}
+  {\begin{itemize}[label=\raisebox{0.5ex}{$\scriptscriptstyle\blacktriangleright$}]}
+  {\end{itemize}}
+
+\usepackage{xcolor}
+\definecolor{RoyalBlue}{RGB}{0, 35, 102}
+\definecolor{RoyalRed}{RGB}{157, 16, 45}
+\definecolor{RoyalGrey}{HTML}{DEDEDE}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\sffamily\LARGE\bfseries}
+\titleformat*{\subsection}{\sffamily\Large\bfseries}
+\titleformat*{\subsubsection}{\smbold\large}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{minted}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usemintedstyle{tango}
+\newtcolorbox{texminted}{
+  enhanced,
+  frame hidden,
+  colback = RoyalGrey
+}
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor   = {Valentin Dao},
+  pdftitle    = {The intexgral package},
+  pdfcreator  = {LuaLaTeX with hyperref package},
+  linkcolor   = RoyalBlue,
+  urlcolor    = RoyalRed
+}
+
+\usepackage{cleveref}
+
+\NewDocumentCommand{\sarg}{}{*}
+\NewDocumentCommand{\filecreationdate}{}{26-07-2025}
+
+\IndexPrologue{
+  \section*{Index}
+  \addcontentsline{toc}{section}{Index}
+}
+
+\EnableCrossrefs
+
+\begin{document}
+
+\GetFileInfo{intexgral.sty}
+
+\title{^^A
+  The \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}} package^^A
+  \thanks{This file describes \fileversion, updated \filedate}
+}
+
+\author{^^A
+  Valentin Dao^^A
+  \thanks{E-mail: \href{mailto:vdao.texdev@gmail.com}{vdao.texdev@gmail.com}}
+}
+
+\date{Released \filecreationdate}
+
+\maketitle
+
+\begin{documentation}
+
+\begin{abstract}
+
+While integral composition is prevalent in \LaTeX, it often proves to be impractical. When the expression becomes complex, it becomes difficult to modify its various elements in an illegible source code. To address this problem, the \pkg{intexgral} package offers a central macro whose only argument is the integrand. Everything else (limits, differentials\dots) can be modified using a \meta{keyval} interface. Unlike the traditional method, where the user chooses the limit order with the active characters \verb|_| and \verb|^|, the package had to establish a convention. Thus, for the two keys that will deal with limits, the assumed input will be \verb|_|\meta{lower limit}\verb|^|\meta{upper limit}. Since this package is written in \pkg{expl3}, it depends on the \LaTeX3 group of packages \pkg{l3kernel} and \pkg{l3package}. In addition, \pkg{intexgral} uses the \pkg{derivative} package to facilitate the manipulation of differentials.
+
+\end{abstract}
+
+\tableofcontents
+
+\subsection*{License}
+
+\copyright\ 2025 Valentin Dao, published under the \LaTeX\ Project Public License (\textsc{lppl}) 1.3c
+
+\subsection*{Fonts}
+
+\directlua{fontcopyright('ChronicleTextG3-Roman-Pro.otf')}
+
+\vspace*{\baselineskip}
+
+\begingroup
+\sffamily
+\directlua{fontcopyright('Whitney-Medium.otf')}
+\endgroup
+
+\subsection*{Repository}
+
+\href{https://github.com/ankaa3908/intexgral/tree/main}{\faGithub\ See GitHub repository}.
+
+\subsection*{Acknowledgements}
+
+Many thanks to Plante and Slurpy for accompanying me on this adventure of learning \TeX, your pieces of advice were priceless. I'd also like to thank Matty, who kindly reviewed this package and gave me ideas for the versions to come.
+
+\newpage
+
+\section{Package options}
+
+These options can be declared with with the following syntax when the package is loaded in the preamble:
+
+\begin{center}
+  \ttfamily
+  \cs{usepackage}\oarg{keyval}\{intexgral\}
+\end{center}
+
+\begin{variable}{invert-limits}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  This key inverts the limit order convention. The entirety of the document can only follow one convention.
+\end{variable}
+
+\begin{function}{invert-differentials}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  It is common to see the differentials placed before the integrand in physics papers. This key hence swaps their position.
+\end{function}
+
+\begin{function}{hide-differentials}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  If the user wishes to hide the differentials throughout the whole document, this key completely deactivates their automatic composition.
+\end{function}
+
+\begin{function}{italic, upright}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+    \meta{boolean}\hfill(default: true)
+  \end{syntax}
+  These are the two keys of the \pkg{derivative} package.\footnotemark
+\end{function}
+\footnotetext{Available on \textsc{ctan} as: \url{https://ctan.org/pkg/derivative}}
+
+\section{Presentation of the main macro}
+
+\begin{function}{\integral}
+  \begin{syntax}
+    \oarg{keyval list}\marg{integrand}
+  \end{syntax}
+  This macro is used to typeset integrals. It must, of course, be used in math mode. Here is a first example.
+\end{function}
+\begin{texminted}
+\begin{minted}{latex}
+  \integral{f(x)}
+\end{minted}
+\end{texminted}
+\begin{equation}
+  \integral{f(x)}
+\end{equation}
+
+As this macro revolves around the use of keys, the first part of this documentation will present them grouped by themes. The second part will document the auxiliary macros that complement the functionality of certain keys.
+
+\section{List of keys}
+
+\subsection{Integration limits}
+
+\subsubsection{Defining the limits}
+
+\begin{function}{limits, limits*}
+  \begin{syntax}
+    \marg{pseudo-clist}, \meta{keyword}
+    \marg{pseudo-clist}, \meta{keyword}
+  \end{syntax}
+  This key determines the integration limits to be used, following the convention explained in the abstract.
+\end{function}
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={1, 10}
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits={1, 10}
+  ]{f(x)}
+\end{equation}
+
+The starred version of the key expresses the limits as an interval. The direction of the brackets automatically adjusts to the presence of $\pm$\cs{infty}.
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits*={1, 10}
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  limits*={1, 10},
+  ]{f(x)}
+\end{equation}
+
+The major strength of \texttt{limits} is that it allows you to specify the limits of several integrals and typesets them for you. To do this, the limits must be separated by semicolons to enable the package to to correctly evaluate to which integral they belong.
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={0, R; 0, H; 0, 2\pi},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{minted}
+\end{texminted}\begin{equation}
+\integral[
+  limits={0, R; 0, H; 0, 2\pi},
+  variable={\rho, z, \phi}
+  ]{\rho z \phi}
+\end{equation}
+
+\subsubsection{Separate the integral}
+
+\begin{function}{int-split}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  This key separates the different variables of the integral and isolates them. It is therefore necessary to use it \emph{before} \texttt{limits} so that the latter knows in which mode to operate in. Moreover, this key requires that we indicate how to separate the integrand. This additional step can be done using the same logic as for the limits, i.e. using a semicolon.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    int-split=true,
+    limits={0, R; 0, H; 0, 2\pi},
+    variable={\rho, z, \phi}
+    ]{\rho; z; \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+\integral[
+  int-split=true,
+  limits={radius; height; circle},
+  variable={\rho, z, \phi}
+  ]{\rho; z; \phi}
+\end{equation}
+
+To function correctly, it is obvious that the keys \texttt{limits} and \texttt{variable}\footnotemark, as well as the integrand, have to have the same dimension. If it is not the case, the compilation won't fail, but the integral expression may no longer make any sense. Numerous warning messages will be there to inform you of this and tell you what is wrong. So don't forget the commas and/or semicolons, even if an element remains empty!
+\footnotetext{To be discovered.}
+
+\begin{function}{limits-mode}
+  \begin{syntax}
+    limits, nolimits\hfill(default: nolimits)
+  \end{syntax}
+  Equivalent to using \cs{limits} or \cs{nolimits}.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits-mode=limits,
+    limits={a, b},
+    ]{f(x)}
+\end{minted}
+\end{texminted}
+\begin{equation}
+  \integral[
+    limits-mode=limits,
+    limits={a, b}
+    ]{f(x)}
+\end{equation}
+
+\subsection{Symbol (and more about limits)}
+
+The keys \texttt{limits} and \texttt{limits*} are very useful when the final expression of the integral is determined (in other words, when the limits of each variable have been defined). However, this only covers\dots\ the final expression! For more general cases, they are relatively inconvenient. To typeset a double integral over a surface $S$, one would have to write \verb|limits={,;,S}|. Needless to say, it is rather unsuitable for the user and not optimal for the package. Furthermore, the glyph won't be correct. The set of forthcoming keys therefore offers an easy way to modify the integral symbol and limits.
+
+\subsubsection{Selecting a symbol}
+
+\begin{function}{int-symb}
+  \begin{syntax}
+    \meta{control sequence}
+  \end{syntax}
+  This key accepts a macro designating an integral symbol. For instance, \verb|int-symb=\oint| is equivalent to using \verb|\oint_{...}^{...}|. By default, the \pkg{intexgral} package tries to load all symbols from \pkg{unicode-math}\footnotemark, as it offers the largest variety of them. If a symbol is not defined, a warning message will be issued and the missing macro will be substituted to \cs{int}.
+\end{function}
+\footnotetext{See documentation for the \href{https://ctan.mines-albi.fr/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf}{complete list} of symbols.}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    int-symb=\oint,
+    lower-lim=\mathcal{C},
+    diff-vec=true
+    ]{f(\vec{r})}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    int-symb=\oint,
+    lower-lim=\mathcal{C},
+    diff-vec=true,
+    ]{f(\vec{r})}
+\end{equation}
+
+\subsubsection{Generating many integrals}
+
+\begin{function}{nint}
+  \begin{syntax}
+    \meta{integer}
+  \end{syntax}
+  This key accepts an integer $n$ that allows you to compose $n$ integrals. It is advisable to use this key only if the number of symbols exceeds 4 to favour the glyphs defined by the mathematical font used.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    nint=5,
+    lower-lim=\Omega,
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    nint=5,
+    lower-lim=\Omega,
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{equation}
+
+\subsubsection{Defining limits (when there is only one symbol)}
+
+\begin{function}{lower-lim, upper-lim}
+  \begin{syntax}
+    \marg{lower limit}
+    \marg{upper limit}
+  \end{syntax}
+  These two keys allow you to specify the lower and upper limits, respectively. They are only suitable if a single symbol is displayed. If you need to specify both limits, the limits key should, of course, be used.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1},
+    variable={x, y}
+    ]{f(x, y)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1},
+    variable={x, y}
+    ]{f(x, y)}
+\end{equation}
+
+\vspace{\baselineskip}
+
+The previous keys (excluding \texttt{nint}) cover a fairly --- I hope --- general use. Nonetheless, further optimisation is possible to save even more time. That is why in addition of \texttt{int-symb}, \texttt{lower-lim} and \texttt{upper-lim}, \pkg{intexgral} offers \emph{shortcut} keys:
+
+\subsubsection{Combining symbol and limit}\label{subsubsec:bornelim}
+
+\begin{function}[maj=v1.1.0]{single, double, triple, quadruple, contour, surface, volume}
+  \begin{syntax}
+    \sarg\marg{limit}\hfill(symbol: \cs{int})
+    \sarg\marg{limit}\hfill(symbol: \cs{iint})
+    \sarg\marg{limit}\hfill(symbol: \cs{iiint})
+    \sarg\marg{limit}\hfill(symbol: \cs{iiiint})
+    \sarg\marg{limit}\hfill(symbol: \cs{oint})
+    \sarg\marg{limit}\hfill(symbol: \cs{oiint})
+    \sarg\marg{limit}\hfill(symbol: \cs{oiiint})
+  \end{syntax}
+  All these keys allow the action of \texttt{int-symb} and \texttt{lower-lim}/\texttt{upper-lim} to be grouped together, making it easier to choose the symbol and the bound at the same time. The value of the key is optional, in which case the symbol will change, but the bound will remain empty. The keys without asterisks modify the lower limit, whereas their starred variants affect the upper limit.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double=S,
+    variable={x, y}
+    ]{xy}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\subsubsection{Recurring limits motif}
+
+As with symbols, lower bounds sometimes follow common patterns that can be generalised with keys, avoiding overloading the expression of \texttt{lower-lim}.
+
+\begin{function}{domain}
+  \begin{syntax}
+    \marg{*-list}
+  \end{syntax}
+  This key accepts a list delimited by asterisks. Then, each element of the list will be parsed as follows:
+  \begin{itemize}
+    \item The first token of the item is passed to \cs{mathbb} (preceded by \cs{uppercase} in case the \textsc{shift} key is too far away for your fingers).
+    \item The remaining tokens --- which may be empty --- are interpreted as the Cartesian power of the domain.
+  \end{itemize}
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y}
+    ]{xy}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\begin{function}{boundary}
+  \begin{syntax}
+    \marg{lower limit}
+  \end{syntax}
+  This key simply places the $\partial$ symbol before the lower limit.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S
+    ]{G(\vec{r})}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S
+    ]{G(\vec{r})}
+\end{equation}
+
+\subsection{Differentials}
+
+\subsubsection{Specifying the variables}
+
+\begin{function}{variable}
+  \begin{syntax}
+    \marg{clist}, \meta{keyword}, none
+  \end{syntax}
+  This key allows to specify the integration variables as a comma list. If this key is not specified, the package will display $\odif{x}$ by default (or $\odif{\vec{r}}$ if \texttt{diff-vec} is enabled). The \cref{subsec:diffconfig} shows how to modify these choices. If \texttt{none} is parsed, no differentials will be shown.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    triple=V,
+    variable={x, y, z}
+    ]{f(x, y, z)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    triple=V,
+    variable={x, y, z}
+    ]{f(x, y, z)}
+\end{equation}
+
+\subsubsection{Including the Jacobian}
+
+\begin{function}{jacobian}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  This key enables/disables the display of the Jacobian when defined by \cs{NewDifferentialKeyword} (see \cref{subsec:diff})
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  V_\textrm{sphère} =
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi},
+    variable=spherical,
+    jacobian=true
+    ]{;;}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  V_\textrm{sphère} =
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi},
+    variable=spherical,
+    jacobian=true,
+    ]{;;}
+\end{equation}
+
+\subsubsection{Modifying the symbol}
+
+\begin{function}{diff-symb}
+  \begin{syntax}
+    \meta{control sequence}
+  \end{syntax}
+  As mentioned earlier, the \pkg{derivative} package is used to format differentials. This key allows to change the style of the differentials among those defined by \cs{NewDifferential}
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \NewDifferential{\feynmandiff}{\mathcal{D}}
+  \integral[
+    variable={q(t)},
+    diff-symb=\feynmandiff
+    ]{e^{+\dfrac{\imath S[q(t)]}{\hbar}}}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    variable={q(t)},
+    diff-symb=\feynmandiff
+    ]{e^{+\dfrac{\imath S[q(t)]}{\hbar}}}
+\end{equation}
+
+\subsubsection{Opting for the starred variant}
+
+\begin{function}{diff-star}
+  \begin{syntax}
+    \meta{boolean}\hfill(default: false)
+  \end{syntax}
+  If this key is set to true, it is equivalent to using \cs{odif*{}} or its variants.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double,
+    variable={x, y},
+    diff-star=true,
+    ]{x^2 \exp(y)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double,
+    variable={x, y},
+    diff-star=true
+    ]{x^2 \exp(y)}
+\end{equation}
+
+\subsubsection{Designating options}
+
+\begin{function}{diff-options}
+  \begin{syntax}
+    \marg{keyval list}
+  \end{syntax}
+  This key accepts a list of keys as it would have been written as an optional argument of \cs{odif} or its variants. For example, \verb|diff-options={order={2, 3}, var=all}| will be interpreted as \verb|\odif[order={2, 3}, var=all]{...}|.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    diff-options={order=4}
+    ]{\bar{\psi}(x)(\imath\gamma^\mu\partial_\mu-m)\psi(x)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    diff-options={order=4}
+    ]{\bar{\psi}(x)(\imath\gamma^\mu\partial_\mu-m)\psi(x)}
+\end{equation}
+
+\subsubsection{Creating a path integral}
+
+\begin{function}{diff-vec}
+  \begin{syntax}
+    \meta{boolean}
+  \end{syntax}
+  This key applies \cs{vec} to each integration variable and places \cs{cdot} as a separator.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    double=S,
+    variable=S,
+    diff-vec=true
+    ]{\vec{F}}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable=S,
+    diff-vec=true,
+    ]{\vec{F}}
+\end{equation}
+
+\section{Auxiliary macros}
+\subsection{Package options}
+\begin{function}[new=v2.0.0]{\intexgralsetup}
+  \begin{syntax}
+    \marg{package options}
+  \end{syntax}
+  This macro offers an alternative way to load package options. It should, of course, be used in the preamble only.
+\end{function}
+
+\subsection{Loading new symbols}
+
+\begin{function}{\NewIntegralSymbol}
+  \begin{syntax}
+    \marg{csname}
+  \end{syntax}
+  If you use a package which defines symbols that are not part of \pkg{unicode-math}, you can load them by using the \cs{NewIntegralSymbol} macro in the preamble. They will then be accessible via the \texttt{int-symb} key. The argument must take the form of a macro \emph{without backslash}: for example, \verb|\NewIntegralSymbol{myint}|. Please note that \cs{NewIntegralSymbol} is only a means for the package to recognise pre-existing symbols and their corresponding macros internally. It is not a way to create a new glyph. It is the user's responsibility to load the necessary packages so that the desired symbols are defined. The loading order is not important, however.
+\end{function}
+
+\subsection{Looking back at the \texttt{limits} key}
+
+\begin{function}{\NewLimitsKeyword, \RenewLimitsKeyword, \ProvideLimitsKeyword, \DeclareLimitsKeyword}
+  \begin{syntax}
+    \marg{keyword}\marg{limits}
+  \end{syntax}
+  It is common to have to specify the same limits in an integral. To make them easier to write, the \texttt{limits(*)} key(s) also accept a keyword designating limits defined by one of these four macros:
+\end{function}
+\begin{itemize}
+  \item \cs{NewLimitsKeyword} creates a new keyword and issues an error if it already exists.
+  \item \cs{RenewLimitsKeyword} redefines a keyword and issues an error if it does not already exist.
+  \item \cs{ProvideLimitsKeyword} creates a keyword only if it doesn't already exist. No error message will be issued if it is the case.
+  \item \cs{DeclareLimitsKeyword} creates a new keyword no matter what, overwriting any previous definitions.
+\end{itemize}
+
+Using one of the previous examples, we could modify the expression of the integral as follows:
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    limits={radius; height; circle},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    limits={radius; height; circle},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{equation}
+
+\begin{table}[h!t]
+  \centering
+  \begin{tabular}{l c}
+    \toprule
+    Keyword & Limits\\
+    \midrule
+    ab & $a, b$\\
+    real & $-\infty, +\infty$\\
+    positive & $0, +\infty$\\
+    negative & $-\infty, 0$\\
+    unit & $0, 1$\\
+    circle & $0, 2\pi$\\
+    scircle & $0, \pi$\\
+    qcircle & $0, \frac{pi}{2}$\\
+    height & $0, H$\\
+    radius & $0, R$\\
+    length & $0, L$\\
+    time & $0, T$\\
+    \bottomrule
+  \end{tabular}
+  \caption{List of keywords for limits.}
+\end{table}
+
+\textbf{Important:} due to the implementation of \cs{NewLimitsKeyword} and its variants, the user \emph{must} follow the package's convention on limits order, even if \texttt{invert-limits} is set to \texttt{true}.
+
+\subsection{Looking back at the \texttt{variable} key}\label{subsec:diff}
+
+\begin{function}{\NewDifferentialKeyword, \RenewDifferentialKeyword, \ProvideDifferentialKeyword, \DeclareDifferentialKeyword}
+  \begin{syntax}
+    \marg{keyword}\marg{differentials}\oarg{jacobian}
+  \end{syntax}
+  Similarly, the same groups of differentials often resurface. It is therefore also possible to define keywords whose comma list is predefined (the variants have the same behaviour). The sole difference is that we can also specify the Jacobian. The latter must also be a comma list, as it allows the package to split it when the \texttt{int-split} mode is enabled. Its display is controlled by the \texttt{jacobian} key as explained above.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    triple={V},
+    variable=cartesian
+    ]{f(x, y, z)}
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    triple={V},
+    variable=cartesian
+    ]{f(x, y, z)}
+\end{equation}
+
+\begin{table}[h!t]
+  \centering
+  \begin{tabular}{l c c}
+    \toprule
+    Keyword & Differentials & Jacobian \\
+    \midrule
+    cartesian & $x, y, z$ & -- \\
+    polar & $r, \theta$ & $ r $ \\
+    cylindrical & $r, \theta, z$ & $ r $ \\
+    spherical & $ r, \theta, \phi $ & $ r, \sin\theta $ \\
+    \bottomrule
+  \end{tabular}
+  \caption{List of keywords for differentials.}
+\end{table}
+
+\subsection{Custom differentials placement}
+
+\begin{function}{\differentials}
+  Although the option \texttt{invert-differentials} exists, it is often desirable to be able to place differentials wherever you want. For instance, they are often seen in the numerator of a fraction when the latter is equal to 1. To meet this need, the package provides the \cs{differentials} macro. When \texttt{int-split=false}, \cs{differentials} typesets all differentials in the same place. When  \texttt{int-split=true}, \cs{differentials} must be rewritten between each semicolon. In both cases, the Jacobian will be attached to the differentials.
+\end{function}
+
+\begin{texminted}
+\begin{minted}{latex}
+  \integral[
+    variable={a},
+    ]{\frac{\differentials}{a}} = \ln(a) + C
+\end{minted}
+\end{texminted}
+
+\begin{equation}
+  \integral[
+    variable={a},
+    ]{\frac{\differentials}{a}} = \ln(a) + C
+\end{equation}
+
+\subsection{Default differentials configuration}\label{subsec:diffconfig}
+
+\begin{function}[new=v2.0.0]{\defaultdiff, \defaultvdiff}
+  \begin{syntax}
+    \marg{clist}, \meta{token}, \meta{keyword} \hfill(default: x)
+    \marg{clist}, \meta{token}, \meta{keyword} \hfill(default: r)
+  \end{syntax}
+  As mentioned earlier, the package automatically places \emph{x} (or $\vec{r}$\,) as the integration parameters if no variables are given. This can be changed to avoid repeating the \texttt{variable} key when a large part of your document uses the same differential. As with the \texttt{variable} key, different arguments are possible. The assignment of the two macros is local, and they can therefore be placed in a group if necessary.
+\end{function}
+
+\begin{function}[new=v2.0.0]{\vdiffstyle}
+  \begin{syntax}
+    \marg{control sequence}\hfill(default: \cs{vec})
+  \end{syntax}
+  The \texttt{diff-vec} key uses \cs{vec} to apply a vector to differentials. However, there are many different vector styles in \LaTeX. Thus, the macro presented here uses the control sequence given \emph{without argument} to format the vector. For example, with the \pkg{esvect} package loaded, we could define the style to use as follows: \verb|\vdiffstyle{\vv}|. The assignment is also local.
+\end{function}
+
+\newpage
+
+\addcontentsline{toc}{section}{Changelog}
+
+\begin{changelog}[sectioncmd=\section*]
+\begin{version}[v=2.0.0, date=2025-09-09]
+\added
+\item Macro \cs{intexgralsetup}.
+\item Macro \cs{defaultdiff}.
+\item Macro \cs{defaultvdiff}.
+\item Macro \cs{vdiffstyle}.
+\changed
+\item Warning messages related to nonexisting symbols. They are now only triggered when the integral is typeset.
+\removed
+\item Key \texttt{diff-vec-style}.
+\item Warning message about misuse of semi-colon in conjunction with the \texttt{int-split} key.
+\fixed
+\item Bug where the integrand was not reset when \cs{integral} was used succesively  (\href{https://tex.stackexchange.com/questions/749990/issue-with-integral-command-from-intexgral-package-in-math-mode}{details here}).
+\item \pkg{expl3} log leftovers which shouldn't have been there.
+\end{version}
+
+\begin{version}[v=1.1.0, date=2025-07-29]
+\added
+\item Starred variants for the keys controlling both symbol and limits (\cref{subsubsec:bornelim}).
+\end{version}
+\shortversion{v=1.0.0, date=2025-07-26, changes=Initial version.}
+\end{changelog}
+
+\PrintIndex
+
+\end{documentation}
+
+\end{document}
+\endinput
+%%
+%% End of file `intexgral-en.tex'.

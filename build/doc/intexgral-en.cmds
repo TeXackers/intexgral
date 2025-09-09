@@ -1,0 +1,46 @@
+--
+Functions documented but not defined:
+--
+! invert-limits
+! invert-differentials
+! hide-differentials
+! italic
+! upright
+! \integral
+! limits
+! limits*
+! int-split
+! limits-mode
+! int-symb
+! nint
+! lower-lim
+! upper-lim
+! single
+! double
+! triple
+! quadruple
+! contour
+! surface
+! volume
+! domain
+! boundary
+! variable
+! jacobian
+! diff-symb
+! diff-star
+! diff-options
+! diff-vec
+! \intexgralsetup
+! \NewIntegralSymbol
+! \NewLimitsKeyword
+! \RenewLimitsKeyword
+! \ProvideLimitsKeyword
+! \DeclareLimitsKeyword
+! \NewDifferentialKeyword
+! \RenewDifferentialKeyword
+! \ProvideDifferentialKeyword
+! \DeclareDifferentialKeyword
+! \differentials
+! \defaultdiff
+! \defaultvdiff
+! \vdiffstyle

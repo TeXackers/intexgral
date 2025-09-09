@@ -1,0 +1,1083 @@
+%%
+%% This is file `intexgral.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% intexgral.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2025 Valentin Dao
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status 'maintained'
+%% and the current maintainer is Valentin Dao (vdao.texdev@gmail.com).
+%% 
+%% This work consists of the files intexgral.ins and intexgral.dtx,
+%% along with the derived files intexgral-doc-en.pdf, and
+%% intexgral-doc-fr.pdf. In order to acquire the .tex master files
+%% producing the documentations and the .sty file, simply run this
+%% installation file through any engine.
+%% 
+%% The repository of this work can be found at:
+%% 
+%%   https://github.com/ankaa3908/intexgral
+%% 
+
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{expl3}[2025-05-14]
+\RequirePackage{amssymb}
+\ProvidesExplPackage
+  {intexgral}{2025-09-09}{2.0.0}{A LaTeX package for typesetting integrals.}
+
+\@ifpackagelater{expl3}{2025-05-14}{}{\PackageError{expl3~version~too~old,~see~version~requirement~on~the~GitHub~page.}}
+
+\bool_new:N \l__intexgral_pkg_invert_limits_bool
+\bool_new:N \l__intexgral_pkg_deactivate_differential_bool
+\bool_new:N \l__intexgral_pkg_invert_differential_bool
+
+\keys_define:nn { intexgral }
+  {
+    invert-limits .bool_set:N = \l__intexgral_pkg_invert_limits_bool,
+    invert-limits .usage:n = { preamble },
+    invert-limits .initial:n = { false },
+
+    hide-differentials .bool_set:N = \l__intexgral_pkg_deactivate_differential_bool,
+    hide-differentials .usage:n = { preamble },
+    hide-differentials .initial:n = { false },
+
+    invert-differentials .bool_set:N = \l__intexgral_pkg_invert_differential_bool,
+    invert-differentials .usage:n = { preamble },
+    invert-differentials .initial:n = { false },
+
+    italic .choice:,
+      italic / true .code:n = { \PassOptionsToPackage{italic=true}{derivative} },
+      italic / false .code:n = { \PassOptionsToPackage{italic=false}{derivative} },
+
+    upright .choice:,
+      upright / true .code:n = { \PassOptionsToPackage{upright=true}{derivative} },
+      upright / false .code:n = { \PassOptionsToPackage{upright=false}{derivative} },
+  }
+
+\IfFormatAtLeastTF { 2022-06-01 }
+  { \ProcessKeyOptions[intexgral] }
+  {
+    \RequirePackage{l3keys2e}
+    \ProcessKeysOptions{intexgral}
+  }
+
+\RequirePackage{derivative}
+
+\cs_new:Nn \__intexgral_pkg_warning_msg_header: {
+  (integral~no.~
+  \int_use:N\g__intexgral_pkg_integral_number_int\c_space_tl\msg_line_context:)
+}
+
+\msg_new:nnnn { intexgral } { integral-alr-def }
+  { Macro~\token_to_str:N\integral~already~defined. }
+  {
+    It~seems~like~\token_to_str:N\integral~has~been~defined~by~another~package.
+    I~will~overwrite~its~current~definition,~hoping~it~won't~affect~your~document~much.
+  }
+
+\msg_new:nnnn { intexgral } { diff-group-alr-def }
+  { Differential~group~"\tl_trim_spaces:n{#1}"~already~defined. }
+  { You~should~use~\token_to_str:N\RenewDifferentialKeyword~instead. }
+
+\msg_new:nnnn { intexgral } { diff-group-not-def }
+  { Differential~group~"\tl_trim_spaces:n{#1}"~undefined. }
+  { You~should~use~\token_to_str:N\NewDifferentialKeyword~instead. }
+
+\msg_new:nnnn { intexgral } { lim-group-alr-def }
+  { Limits~group~"\tl_trim_spaces:n{#1}"~already~defined. }
+  { You~should~use~\token_to_str:N\RenewLimitsKeyword~instead. }
+
+\msg_new:nnnn { intexgral } { lim-group-not-def }
+  { Limits~group~"\tl_trim_spaces:n{#1}"~undefined. }
+  { You~should~use~\token_to_str:N\NewLimitsKeyword~instead. }
+
+\msg_new:nnn { intexgral } { unknown-int-symb }
+  {
+    Unknown~integral~symbol~\__intexgral_pkg_warning_msg_header:\\
+    Undefined~symbol~"\tl_trim_spaces:n{#1}"~substituted~to~\token_to_str:N\int.
+  }
+
+\msg_new:nnn { intexgral } { no-diff-despite-macro }
+  {
+    Unknown~differentials~\__intexgral_pkg_warning_msg_header:\\
+    You~used~\token_to_str:N\differentials~but~no~differentials~were~declared.
+  }
+
+\msg_new:nnn { intexgral } { unequal-dim }
+  {
+    Inconsistent~separation~\__intexgral_pkg_warning_msg_header:\\
+    The~integral~sequence~contains~#1~element(s).\\
+    The~integrand~sequence~contains~#2~element(s).\\
+    The~differentials~sequence~contains~#3~element(s).
+  }
+
+\msg_new:nnn { intexgral } { no-jacobian }
+  {
+    No~jacobian~\__intexgral_pkg_warning_msg_header:\\
+    You~asked~to~display~the~jacobian~but~it~hasn't~been~declared~for~the~corresponding~differentials.
+  }
+
+\msg_new:nnn { intexgral } { use-glyph-instead }
+  {
+    Use~adapted~glyph~instead~\__intexgral_pkg_warning_msg_header:\\
+    You~used~the~key~"multiple"~for~a~symbol~containing~
+    less~than~5~regular~integrals.~
+    You~may~want~to~use~the~font's~dedicated~glyph~instead.
+  }
+
+\msg_new:nnn { intexgral } { missing-diff }
+  {
+    Missing~differentials~\__intexgral_pkg_warning_msg_header:\\
+    I~have~spotted~\token_to_str:N\differentials~only~#1~times~whereas~you~declared~#2~variables.
+  }
+
+\msg_new:nnn { intexgral } { missing-var }
+  {
+    Too~many~differentials~\__intexgral_pkg_warning_msg_header:\\
+    The~amount~of~\token_to_str:N\differentials~exceeded~that~of~the~variables.
+    ~The~subsequent~\token_to_str:N\differentials~won't~show~anything.
+  }
+
+\msg_new:nnn { intexgral } { int-symb-alr-def }
+  {
+    Integral~symbol~"\tl_trim_spaces:n{#1}"~already~defined.\\
+    The~symbol~has~either~already~been~loaded~either~by~the~package~or~yourself.
+    ~I~will~just~ignore~it.
+  }
+
+\cs_if_free:NF \integral
+  {
+    \msg_warning:nn { intexgral } { integral-alr-def }
+    \cs_undefine:N \integral
+  }
+
+\cs_new_protected:Npn \__intexgral_pkg_mathchoice:nnnn #1#2#3#4 {
+  \mathchoice{#1}{#2}{#3}{#4}
+}
+
+\cs_generate_variant:Nn \regex_if_match:nnTF { nVTF }
+\cs_generate_variant:Nn \__intexgral_pkg_new_limits_group:nn { nV }
+\cs_generate_variant:Nn \str_if_eq:nnTF { neTF }
+\cs_generate_variant:Nn \str_if_eq:nnF { neF }
+\cs_generate_variant:Nn \__intexgral_pkg_parse_variable:nn { oo }
+
+\tl_new:N \l__intexgral_pkg_integrand_tl
+\tl_new:N \l__intexgral_pkg_integral_symbol_tl
+\tl_new:N \l__intexgral_pkg_lower_limit_tl
+\tl_new:N \l__intexgral_pkg_upper_limit_tl
+\tl_new:N \l__intexgral_pkg_limits_style_tl
+\tl_new:N \l__intexgral_pkg_differentials_options_i_tl
+\tl_new:N \l__intexgral_pkg_differentials_options_ii_tl
+\tl_new:N \l__intexgral_pkg_vectorial_differential_style_tl
+\tl_new:N \l__intexgral_pkg_independent_differential_options_tl
+\tl_new:N \l__intexgral_pkg_domain_char_tl
+\tl_new:N \l__intexgral_pkg_domain_dimension_tl
+\tl_new:N \l__intexgral_pkg_default_differential_tl
+\tl_new:N \l__intexgral_pkg_default_vector_differential_tl
+\tl_const:Nn \c__intexgral_pkg_left_bracket_tl { [ }
+\tl_const:Nn \c__intexgral_pkg_right_bracket_tl { ] }
+
+\tl_set_eq:NN \l__intexgral_pkg_integral_symbol_tl \int
+
+\bool_new:N \l__intexgral_pkg_manual_differentials_bool
+\bool_new:N \l__intexgral_pkg_custom_variables_bool
+\bool_new:N \l__intexgral_pkg_separate_integral_bool
+\bool_new:N \l__intexgral_pkg_vectorial_differentials_bool
+\bool_new:N \l__intexgral_pkg_jacobian_bool
+\bool_new:N \l__intexgral_pkg_starred_differential_bool
+\bool_new:N \l__intexgral_pkg_has_order_bool
+\bool_new:N \l__intexgral_pkg_has_var_bool
+
+\bool_set_false:N \l__intexgral_pkg_vectorial_differentials_bool
+\bool_set_false:N \l__intexgral_pkg_manual_differentials_bool
+\bool_set_false:N \l__intexgral_pkg_custom_variables_bool
+\bool_set_false:N \l__intexgral_pkg_separate_integral_bool
+\bool_set_false:N \l__intexgral_pkg_has_order_bool
+\bool_set_false:N \l__intexgral_pkg_has_var_bool
+
+\clist_new:N \g__intexgral_pkg_independent_differential_options_clist
+\clist_new:N \l__intexgral_pkg_variable_i_clist
+\clist_new:N \l__intexgral_pkg_variable_ii_clist
+\clist_new:N \l__intexgral_pkg_var_index_clist
+
+\seq_new:N \l__intexgral_pkg_integrand_seq
+\seq_new:N \l__intexgral_pkg_integral_symbol_seq
+\seq_new:N \l__intexgral_pkg_jacobian_seq
+\seq_new:N \l__intexgral_pkg_differential_seq
+\seq_new:N \l__intexgral_pkg_limits_seq
+\seq_new:N \l__intexgral_pkg_upper_limits_seq
+\seq_new:N \l__intexgral_pkg_lower_limits_seq
+\seq_new:N \l__intexgral_pkg_differential_var_i_seq
+\seq_new:N \l__intexgral_pkg_differential_var_ii_seq
+\seq_new:N \l__intexgral_pkg_differential_order_i_seq
+\seq_new:N \l__intexgral_pkg_differential_order_ii_seq
+\seq_new:N \l__intexgral_pkg_domain_seq
+
+\prop_new:N \g__intexgral_pkg_limits_keyword_prop
+\prop_new:N \g__intexgral_pkg_differential_group_keyword_prop
+
+\int_new:N \l__intexgral_pkg_integral_sequence_int
+\int_gzero_new:N \g__intexgral_pkg_integral_number_int
+
+\cs_new_protected:Npn \__intexgral_pkg_new_integral_symbol:n #1 {
+  \cs_if_exist:cT { #1 }
+    {
+      \tl_new:c { c__intexgral_pkg_#1_symbol_tl }
+      \tl_set_eq:cc { c__intexgral_pkg_#1_symbol_tl } { #1 }
+    }
+}
+
+\prg_new_conditional:Npnn \__intexgral_pkg_symbol_if_exist:N #1 { T, F, TF }
+  {
+    \cs_if_exist:NTF #1
+      { \prg_return_true: }
+      { \prg_return_false: }
+  }
+
+\cs_new_protected:Nn \__intexgral_pkg_check_sequence_size: {
+  \int_compare:nNnTF
+    { \seq_count:N \l__intexgral_pkg_integral_symbol_seq }
+    =
+    { \seq_count:N \l__intexgral_pkg_integrand_seq }
+      {
+        \int_compare:nNnF
+          { \seq_count:N \l__intexgral_pkg_integrand_seq }
+          =
+          { \seq_count:N \l__intexgral_pkg_differential_seq }
+            {
+              \msg_warning:nneee { intexgral } { unequal-dim }
+                { \seq_count:N \l__intexgral_pkg_integral_symbol_seq }
+                { \seq_count:N \l__intexgral_pkg_integrand_seq       }
+                { \seq_count:N \l__intexgral_pkg_differential_seq    }
+            }
+      }
+      {
+        \msg_warning:nneee { intexgral } { unequal-dim }
+          { \seq_count:N \l__intexgral_pkg_integral_symbol_seq }
+          { \seq_count:N \l__intexgral_pkg_integrand_seq       }
+          { \seq_count:N \l__intexgral_pkg_differential_seq    }
+      }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_set_limits:nn #1#2 {
+  \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+    {
+      \tl_set:Nn \l__intexgral_pkg_lower_limit_tl { #2 }
+      \tl_set:Nn \l__intexgral_pkg_upper_limit_tl { #1 }
+    }
+    {
+      \tl_set:Nn \l__intexgral_pkg_lower_limit_tl { #1 }
+      \tl_set:Nn \l__intexgral_pkg_upper_limit_tl { #2 }
+    }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_parse_integral_symbol: {
+  \tl_use:N \l__intexgral_pkg_integral_symbol_tl
+  \tl_use:N \l__intexgral_pkg_limits_style_tl
+  \c_math_subscript_token
+    { \l__intexgral_pkg_lower_limit_tl }
+  \c_math_superscript_token
+    { \l__intexgral_pkg_upper_limit_tl }
+}
+
+\cs_new_protected:Nn \__intexgral_pkg_integral_preconfiguration: {
+  \int_gincr:N \g__intexgral_pkg_integral_number_int
+
+  \cs_set_protected:Npn \differentials {
+    \seq_if_empty:NTF \l__intexgral_pkg_differential_seq
+      { \msg_warning:nn { intexgral } { missing-var } }
+      {
+        \bool_if:NTF \l__intexgral_pkg_invert_differential_bool
+          {
+            \seq_gpop_left:NN \l__intexgral_pkg_differential_seq \l_tmpa_tl
+            \tl_use:N \l_tmpa_tl
+            \seq_if_empty:NF \l__intexgral_pkg_jacobian_seq
+              {
+                \seq_gpop_left:NN \l__intexgral_pkg_jacobian_seq \l_tmpb_tl
+                \tl_use:N \l_tmpb_tl
+              }
+          }
+          {
+            \seq_if_empty:NF \l__intexgral_pkg_jacobian_seq
+              {
+                \seq_gpop_left:NN \l__intexgral_pkg_jacobian_seq \l_tmpb_tl
+                \tl_use:N \l_tmpb_tl
+              }
+            \seq_gpop_left:NN \l__intexgral_pkg_differential_seq \l_tmpa_tl
+            \tl_use:N \l_tmpa_tl
+          }
+      }
+  }
+
+  \bool_if:NT \l__intexgral_pkg_separate_integral_bool
+    {
+      \seq_set_split:NnV
+        \l__intexgral_pkg_integrand_seq
+        { ; }
+        \l__intexgral_pkg_integrand_tl
+    }
+
+  \seq_if_empty:NT \l__intexgral_pkg_integral_symbol_seq
+    {
+      \seq_put_right:Nn \l__intexgral_pkg_integral_symbol_seq
+        { \__intexgral_pkg_parse_integral_symbol: }
+    }
+
+  \seq_if_empty:NT \l__intexgral_pkg_integrand_seq
+    {
+      \seq_put_right:NV \l__intexgral_pkg_integrand_seq \l__intexgral_pkg_integrand_tl
+    }
+
+  \__intexgral_pkg_parse_differentials:
+
+  \bool_if:NTF \l__intexgral_pkg_jacobian_bool
+    {
+      \seq_if_empty:NT \l__intexgral_pkg_jacobian_seq
+        { \msg_warning:nn { intexgral } { no-jacobian } }
+    }
+    { \seq_clear:N \l__intexgral_pkg_jacobian_seq }
+
+  \regex_if_match:nVTF { \c{differentials}+ } \l__intexgral_pkg_integrand_tl
+    { \bool_set_true:N \l__intexgral_pkg_manual_differentials_bool }
+    { \bool_set_false:N \l__intexgral_pkg_manual_differentials_bool }
+
+  \bool_if:NT \l__intexgral_pkg_manual_differentials_bool
+    {
+      \regex_count:nVN { \c{differentials} } \l__intexgral_pkg_integrand_tl \l_tmpa_int
+      \int_set:Nn \l_tmpb_int { \seq_count:N \l__intexgral_pkg_differential_seq }
+      \int_compare:nNnT
+        { \l_tmpa_int }
+        <
+        { \l_tmpb_int }
+        {
+          \msg_warning:nnee { intexgral } { missing-diff }
+            { \l_tmpa_int }
+            { \seq_count:N \l__intexgral_pkg_differential_seq }
+        }
+    }
+
+  \bool_if:NT \l__intexgral_pkg_separate_integral_bool
+    { \__intexgral_pkg_check_sequence_size: }
+}
+
+\cs_new_protected:Nn \__intexgral_pkg_print_integral: {
+
+  \__intexgral_pkg_integral_preconfiguration:
+
+  \int_step_inline:nn { \seq_count:N \l__intexgral_pkg_integral_symbol_seq }
+    {
+      \seq_item:Nn \l__intexgral_pkg_integral_symbol_seq { ##1 }
+
+      \bool_if:NT \l__intexgral_pkg_invert_differential_bool
+        {
+          \bool_if:NF \l__intexgral_pkg_manual_differentials_bool
+            {
+              \bool_if:NF \l__intexgral_pkg_deactivate_differential_bool
+                { \seq_item:Nn \l__intexgral_pkg_differential_seq { ##1 } }
+              \bool_if:NT \l__intexgral_pkg_jacobian_bool
+                { \seq_item:Nn \l__intexgral_pkg_jacobian_seq { ##1 } }
+            }
+        }
+
+      \seq_item:Nn \l__intexgral_pkg_integrand_seq { ##1 }
+
+      \bool_if:NT \l__intexgral_pkg_vectorial_differentials_bool
+        {
+          \bool_if:NTF \l__intexgral_pkg_separate_integral_bool
+            { \cdot }
+            {
+              \int_compare:nNnT { ##1 } = { 1 }
+                { \cdot }
+            }
+        }
+
+      \bool_if:NF \l__intexgral_pkg_invert_differential_bool
+        {
+          \bool_if:NF \l__intexgral_pkg_manual_differentials_bool
+            {
+              \bool_if:NT \l__intexgral_pkg_jacobian_bool
+                { \seq_item:Nn \l__intexgral_pkg_jacobian_seq { ##1 } }
+              \bool_if:NF \l__intexgral_pkg_deactivate_differential_bool
+                { \seq_item:Nn \l__intexgral_pkg_differential_seq { ##1 } }
+            }
+        }
+    }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_new_limits_group:nn #1#2 {
+  \prop_put:Nnn \g__intexgral_pkg_limits_keyword_prop { #1 } { #2 }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_new_differential_group:nnn #1#2#3 {
+  \prop_put:Nnn \g__intexgral_pkg_differential_group_keyword_prop
+    { #1 } { #2 }
+  \tl_if_blank:nF { #3 }
+    {
+      \clist_set:Nn \l_tmpa_clist { #3 }
+      \seq_set_from_clist:cN { g__intexgral_pkg_#1_jacobian_seq } \l_tmpa_clist
+    }
+}
+
+\cs_new:Npn \__intexgral_pkg_parse_integral_limit:n #1 {
+  \prop_if_in:NnTF \g__intexgral_pkg_limits_keyword_prop { #1 }
+    { \prop_item:Nn \g__intexgral_pkg_limits_keyword_prop { #1 } }
+    { #1 }
+}
+
+\cs_new:Npn \__intexgral_pkg_differentials:nn #1#2 {
+  \bool_if:NTF \l__intexgral_pkg_starred_differential_bool
+    { \odif*[#1]{#2} }
+    { \odif[#1]{#2} }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_extract_differential_order:n #1 {
+  \regex_extract_once:nnNT { order \s* = \s* \{ \s* (\d+ (?: \s* , \s* \d+ )* ) \s* \} }
+    { #1 } \l__intexgral_pkg_differential_order_i_seq
+    { \bool_set_true:N \l__intexgral_pkg_has_order_bool }
+    \clist_set:Ne \l_tmpa_clist
+      { \seq_item:Nn \l__intexgral_pkg_differential_order_i_seq { 2 } }
+    \seq_set_from_clist:NN \l__intexgral_pkg_differential_order_ii_seq \l_tmpa_clist
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_extract_differential_var:n #1 {
+  \regex_extract_once:nnNTF
+    { var\s*=\s*(none|all|\{\s*(\d+(?:\s*,\s*\d+)*\s*)\}) }
+    { #1 }
+    \l__intexgral_pkg_differential_var_i_seq
+    { \bool_set_true:N \l__intexgral_pkg_has_var_bool }
+    {
+      \str_if_in:nnT { #1 } { var }
+        {
+          \seq_put_left:Nn \l__intexgral_pkg_differential_var_i_seq { var }
+          \bool_set_true:N \l__intexgral_pkg_has_var_bool
+        }
+    }
+  \clist_set:Ne \l_tmpa_clist
+    { \seq_item:Nn \l__intexgral_pkg_differential_var_i_seq { 3 } }
+  \seq_set_from_clist:NN \l__intexgral_pkg_differential_var_ii_seq \l_tmpa_clist
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_remove_differential_order_and_var:n #1 {
+  \tl_set:Nn \l__intexgral_pkg_independent_differentials_options_tl { #1 }
+  \regex_replace_all:nnN
+    {
+      order\s*=\s*\{\s*\d+(\s*,\s*\d+)*\}\s*,?
+      |
+      [^-]var(?:\s*=\s*(?:none|all|\{\s*\d+(?:\s*,\s*\d+)*\s*\}))?,?
+    }
+    {  }
+    \l__intexgral_pkg_independent_differentials_options_tl
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_parse_variable:nn #1#2 {
+  \clist_set:Nn \l_tmpa_clist { #2 }
+  \seq_set_from_clist:NN \l_tmpa_seq \l_tmpa_clist
+  \bool_if:NTF \l__intexgral_pkg_separate_integral_bool
+    {
+      \__intexgral_pkg_extract_differential_order:n { #1 }
+      \__intexgral_pkg_extract_differential_var:n { #1 }
+      \__intexgral_pkg_remove_differential_order_and_var:n { #1 }
+      \seq_map_indexed_inline:Nn \l_tmpa_seq {
+        \tl_put_right:Ne \l__intexgral_pkg_differentials_options_ii_tl
+          { \l__intexgral_pkg_independent_differentials_options_tl }
+        \bool_if:NT \l__intexgral_pkg_has_order_bool
+          {
+            \tl_put_right:Ne \l__intexgral_pkg_differentials_options_ii_tl
+              { order=\seq_item:Nn \l__intexgral_pkg_differential_order_ii_seq { ##1 }, }
+          }
+        \bool_if:NT \l__intexgral_pkg_has_var_bool
+          {
+            \int_compare:nNnTF
+            { \seq_count:N \l__intexgral_pkg_differential_var_i_seq }
+            =
+            { 1 }
+            { \tl_put_right:Nn \l__intexgral_pkg_differentials_options_ii_tl { var } }
+            {
+              \str_if_eq:neF { none }
+                { \seq_item:Nn \l__intexgral_pkg_differential_var_i_seq { 2 } }
+                  {
+                    \str_if_eq:neTF { all }
+                      { \seq_item:Nn \l__intexgral_pkg_differential_var_i_seq { 2 } }
+                      {
+                        \tl_put_right:Nn \l__intexgral_pkg_differentials_options_ii_tl
+                        { var }
+                      }
+                      {
+                        \seq_if_in:NnT \l__intexgral_pkg_differential_var_ii_seq { ##1 }
+                          {
+                            \seq_pop_left:NN
+                              \l__intexgral_pkg_differential_var_ii_seq
+                              \l_tmpa_tl
+                            \tl_put_right:Nn
+                              \l__intexgral_pkg_differentials_options_ii_tl
+                              { var, }
+                          }
+                      }
+                  }
+            }
+          }
+        \seq_put_right:Ne \l__intexgral_pkg_differential_seq
+          {
+            \__intexgral_pkg_differentials:nn
+              { \l__intexgral_pkg_differentials_options_ii_tl }
+              { \seq_item:Nn \l_tmpa_seq { ##1 } }
+          }
+        \tl_clear:N \l__intexgral_pkg_differentials_options_ii_tl
+      }
+    }
+    {
+      \seq_put_right:Nn \l__intexgral_pkg_differential_seq
+        {
+          \__intexgral_pkg_differentials:nn { #1 } { #2 }
+        }
+    }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_parse_differentials: {
+  \bool_if:NTF \l__intexgral_pkg_vectorial_differentials_bool
+    {
+      \clist_map_inline:Nn \l__intexgral_pkg_variable_i_clist
+        {
+          \clist_put_right:Nn \l__intexgral_pkg_variable_ii_clist
+            { \l__intexgral_pkg_vectorial_differential_style_tl{##1} }
+        }
+      \bool_if:NTF \l__intexgral_pkg_custom_variables_bool
+        {
+          \__intexgral_pkg_parse_variable:oo
+            { \l__intexgral_pkg_differentials_options_i_tl }
+            { \l__intexgral_pkg_variable_ii_clist }
+        }
+        {
+          \__intexgral_pkg_parse_variable:oo
+            { \l__intexgral_pkg_differentials_options_i_tl }
+            {
+              \l__intexgral_pkg_vectorial_differential_style_tl
+                { \l__intexgral_pkg_default_vector_differential_tl }
+            }
+        }
+
+    }
+    {
+      \bool_if:NTF \l__intexgral_pkg_custom_variables_bool
+        {
+          \__intexgral_pkg_parse_variable:oo
+            { \l__intexgral_pkg_differentials_options_i_tl }
+            { \l__intexgral_pkg_variable_i_clist }
+        }
+        {
+          \__intexgral_pkg_parse_variable:oo
+            { \l__intexgral_pkg_differentials_options_i_tl }
+            { \l__intexgral_pkg_default_differential_tl }
+        }
+    }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_parse_limits:n #1 {
+  \tl_set:Nn \l_tmpa_tl { #1 }
+  \seq_clear:N \l__intexgral_pkg_lower_limits_seq
+  \seq_clear:N \l__intexgral_pkg_upper_limits_seq
+  \seq_set_split:NnV \l__intexgral_pkg_limits_seq { ; } \l_tmpa_tl
+}
+
+\cs_new_protected:Nn \__intexgral_pkg_set_limits_regular: {
+  \seq_map_inline:Nn \l__intexgral_pkg_limits_seq
+    {
+      \clist_set:Ne \l_tmpa_clist
+        { \__intexgral_pkg_parse_integral_limit:n { ##1 } }
+      \seq_put_right:Ne \l__intexgral_pkg_lower_limits_seq
+        { \clist_item:Nn \l_tmpa_clist { 1 } }
+      \seq_put_right:Ne \l__intexgral_pkg_upper_limits_seq
+        { \clist_item:Nn \l_tmpa_clist { 2 } }
+    }
+}
+
+\cs_new_protected:Npn \__intexgral_pkg_set_limits_starred: {
+  \seq_map_indexed_inline:Nn \l__intexgral_pkg_limits_seq
+    {
+      \clist_set:Ne \l_tmpa_clist { \__intexgral_pkg_parse_integral_limit:n { ##2 } }
+      \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+        {
+          \tl_set:Ne \l__intexgral_pkg_lower_limit_tl
+          {
+            \clist_item:Nn \l_tmpa_clist { 2 }
+            \tex_mathpunct:D,
+            \clist_item:Nn \l_tmpa_clist { 1 }
+          }
+        }
+        {
+          \tl_set:Ne \l__intexgral_pkg_lower_limit_tl
+          {
+            \clist_item:Nn \l_tmpa_clist { 1 }
+            \tex_mathpunct:D,
+            \clist_item:Nn \l_tmpa_clist { 2 }
+          }
+        }
+          \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+            { \seq_put_right:Ne \l__intexgral_pkg_upper_limits_seq }
+            { \seq_put_right:Ne \l__intexgral_pkg_lower_limits_seq }
+        {
+          \str_case_e:nnF { \clist_item:Nn \l_tmpa_clist { 1 } }
+            {
+              { -\infty } { \tex_left:D \c__intexgral_pkg_right_bracket_tl }
+            }
+            { \tex_left:D \c__intexgral_pkg_left_bracket_tl }
+          \tl_use:N \l__intexgral_pkg_lower_limit_tl
+          \str_case_e:nnF { \clist_item:Nn \l_tmpa_clist { 2 } }
+            {
+              { +\infty } { \tex_right:D \c__intexgral_pkg_left_bracket_tl }
+            }
+            { \tex_right:D \c__intexgral_pkg_right_bracket_tl }
+          }
+    }
+}
+
+\cs_new_protected:Nn \__intexgral_pkg_generate_integral_sequence: {
+  \int_set:Nn \l__intexgral_pkg_integral_sequence_int
+    {
+      \seq_if_empty:NTF \l__intexgral_pkg_lower_limits_seq
+        { \seq_count:N \l__intexgral_pkg_upper_limits_seq }
+        { \seq_count:N \l__intexgral_pkg_lower_limits_seq }
+    }
+  \bool_if:NTF \l__intexgral_pkg_separate_integral_bool
+    {
+      \int_step_inline:nn { \l__intexgral_pkg_integral_sequence_int }
+        {
+          \seq_put_right:Nn \l__intexgral_pkg_integral_symbol_seq
+            {
+              \__intexgral_pkg_set_limits:nn
+                { \seq_item:Nn \l__intexgral_pkg_lower_limits_seq { ##1 } }
+                { \seq_item:Nn \l__intexgral_pkg_upper_limits_seq { ##1 } }
+              \__intexgral_pkg_parse_integral_symbol:
+            }
+        }
+    }
+    {
+      \seq_put_right:Nn \l__intexgral_pkg_integral_symbol_seq
+        {
+          \int_step_inline:nn { \l__intexgral_pkg_integral_sequence_int }
+            {
+              \__intexgral_pkg_set_limits:nn
+                { \seq_item:Nn \l__intexgral_pkg_lower_limits_seq { ##1 } }
+                { \seq_item:Nn \l__intexgral_pkg_upper_limits_seq { ##1 } }
+              \__intexgral_pkg_parse_integral_symbol:
+            }
+        }
+    }
+}
+
+\keys_define:nn { integral } {
+
+  % LIMITS
+
+  int-split .bool_set:N = \l__intexgral_pkg_separate_integral_bool,
+
+  limits .code:n =
+    {
+      \__intexgral_pkg_parse_limits:n { #1 }
+      \__intexgral_pkg_set_limits_regular:
+      \__intexgral_pkg_generate_integral_sequence:
+    },
+
+  limits* .code:n =
+    {
+      \__intexgral_pkg_parse_limits:n { #1 }
+      \__intexgral_pkg_set_limits_starred:
+      \__intexgral_pkg_generate_integral_sequence:
+    },
+
+  limits-mode .choice:,
+    limits-mode / limits .code:n =
+      { \tl_set_eq:NN \l__intexgral_pkg_limits_style_tl \tex_limits:D },
+    limits-mode / nolimits .code:n =
+      { \tl_set_eq:NN \l__intexgral_pkg_limits_style_tl \tex_nolimits:D },
+  limits-mode .default:n = { nolimits },
+
+  lower-lim .tl_set:N = \l__intexgral_pkg_lower_limit_tl,
+
+  upper-lim .tl_set:N = \l__intexgral_pkg_upper_limit_tl,
+
+  int-symb .code:n =
+    {
+      \__intexgral_pkg_symbol_if_exist:NTF #1
+        { \tl_set:Nn \l__intexgral_pkg_integral_symbol_tl { #1 } }
+        {
+          \msg_warning:nnn { intexgral } { unknown-int-symb } { #1 }
+          \tl_set_eq:NN \l__intexgral_pkg_integral_symbol_tl \int
+        }
+    },
+
+  % SYMBOL SHORTCUT
+
+  nint .code:n =
+    {
+      \int_compare:nNnT { #1 } < { 5 }
+        { \msg_warning:nn { intexgral } { use-glyph-instead } }
+
+      \tl_clear:N \l__intexgral_pkg_integral_symbol_tl
+
+      \int_step_inline:nn { #1 }
+        {
+          \tl_put_right:Nn \l__intexgral_pkg_integral_symbol_tl
+            { \c__intexgral_pkg_int_symbol_tl }
+          \int_compare:nNnT { ##1 } < { #1 }
+            {
+              \tl_put_right:Nn \l__intexgral_pkg_integral_symbol_tl
+                {
+                  \__intexgral_pkg_mathchoice:nnnn
+                    { \tex_mkern:D -12mu \scan_stop: }
+                    { \tex_mkern:D -8mu \scan_stop: }
+                    { \tex_mkern:D -4mu \scan_stop: }
+                    { \tex_mkern:D -2mu \scan_stop: }
+                }
+            }
+        }
+    },
+
+  single .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_int_symbol_tl,
+      lower-lim=#1
+    },
+
+  double .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_iint_symbol_tl,
+      lower-lim=#1
+    },
+
+  triple .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_iiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  quadruple .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_iiiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  contour .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_oint_symbol_tl,
+      lower-lim=#1
+    },
+
+  surface .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_oiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  volume .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_oiiint_symbol_tl,
+      lower-lim=#1
+    },
+
+  single* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_int_symbol_tl,
+      upper-lim=#1
+    },
+
+  double* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_iint_symbol_tl,
+      upper-lim=#1
+    },
+
+  triple* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_iiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  quadruple* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_iiiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  contour* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_oint_symbol_tl,
+      upper-lim=#1
+    },
+
+  surface* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_oiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  volume* .meta:n =
+    {
+      int-symb=\c__intexgral_pkg_oiiint_symbol_tl,
+      upper-lim=#1
+    },
+
+  % LIMITS SHORTCUTS
+
+  domain .code:n =
+    {
+      \tl_set:Nn \l_tmpa_tl { #1 }
+      \seq_set_split:NnV \l__intexgral_pkg_domain_seq { * } \l_tmpa_tl
+      \seq_map_inline:Nn \l__intexgral_pkg_domain_seq
+        {
+          \tl_if_empty:NF \l__intexgral_pkg_lower_limit_tl
+            { \tl_put_right:Nn \l__intexgral_pkg_lower_limit_tl { \times } }
+          \tl_set:Ne \l__intexgral_pkg_domain_char_tl
+            { \exp_args:Ne \str_uppercase:n { \tl_head:n { ##1 } } }
+          \tl_set:Ne \l__intexgral_pkg_domain_dimension_tl
+            { \tl_tail:n { ##1 } }
+          \tl_put_right:Ne \l__intexgral_pkg_lower_limit_tl
+            {
+              \exp_not:N \mathbb { \l__intexgral_pkg_domain_char_tl }
+              \c_math_superscript_token { \l__intexgral_pkg_domain_dimension_tl }
+            }
+        }
+    },
+
+  boundary .code:n =
+    { \tl_set:Nn \l__intexgral_pkg_lower_limit_tl { \partial #1 } },
+
+  % DIFFERENTIALS
+
+  variable .code:n =
+    {
+      \bool_set_true:N \l__intexgral_pkg_custom_variables_bool
+      \str_if_eq:nnTF { #1 } { none }
+        { \bool_set_true:N \l__intexgral_pkg_deactivate_differential_bool }
+        {
+          \prop_get:NnNTF
+            \g__intexgral_pkg_differential_group_keyword_prop { #1 } \l_tmpa_tl
+              {
+                \clist_set:NV \l__intexgral_pkg_variable_i_clist \l_tmpa_tl
+                \seq_if_exist:cT { g__intexgral_pkg_#1_jacobian_seq }
+                  { \seq_set_eq:Nc \l__intexgral_pkg_jacobian_seq { g__intexgral_pkg_#1_jacobian_seq } }
+              }
+              { \clist_set:Nn \l__intexgral_pkg_variable_i_clist { #1 } }
+        }
+    },
+
+  jacobian .bool_set:N = \l__intexgral_pkg_jacobian_bool,
+
+  diff-vec .bool_set:N = \l__intexgral_pkg_vectorial_differentials_bool,
+
+  diff-symb .code:n =
+    {
+      \cs_set:Npn \__intexgral_pkg_differentials:nn ##1##2 {
+        \bool_if:NTF \l__intexgral_pkg_starred_differential_bool
+          { #1*[##1]{##2} }
+          { #1[##1]{##2} }
+      }
+    },
+
+  diff-star .bool_set:N = \l__intexgral_pkg_starred_differential_bool,
+
+  diff-options .tl_set:N = \l__intexgral_pkg_differentials_options_i_tl,
+
+}
+
+\NewDocumentCommand{\NewLimitsKeyword}{ m m }{
+  \prop_get:NnNTF \g__intexgral_pkg_limits_keyword_prop { #1 } \l_tmpa_tl
+    { \msg_error:nnn { intexgral } { lim-group-alr-def } { #1 } }
+    {
+      \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \__intexgral_pkg_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \__intexgral_pkg_new_limits_group:nn { #1 } { #2 } }
+    }
+}
+
+\NewDocumentCommand{\RenewLimitsKeyword}{ m m }{
+  \prop_pop:NnNTF \g__intexgral_pkg_limits_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \__intexgral_pkg_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \__intexgral_pkg_new_limits_group:nn { #1 } { #2 } }
+    }
+    { \msg_error:nnn { intexgral } { lim-group-not-def } }
+}
+
+\NewDocumentCommand{\ProvideLimitsKeyword}{ m m }{
+  \prop_get:NnNF \g__intexgral_pkg_limits_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \__intexgral_pkg_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \__intexgral_pkg_new_limits_group:nn { #1 } { #2 } }
+    }
+}
+
+\NewDocumentCommand{\DeclareLimitsKeyword}{ m m }{
+  \prop_pop:NnNT \g__intexgral_pkg_limits_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \bool_if:NTF \l__intexgral_pkg_invert_limits_bool
+        {
+          \clist_set:Nn \l_tmpa_clist { #2 }
+          \clist_reverse:N \l_tmpa_clist
+          \__intexgral_pkg_new_limits_group:nV { #1 } \l_tmpa_clist
+        }
+        { \__intexgral_pkg_new_limits_group:nn { #1 } { #2 } }
+    }
+}
+
+\NewDocumentCommand{\NewDifferentialKeyword}{ m m o }{
+  \prop_get:NnNTF \g__intexgral_pkg_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    { \msg_error:nnn { intexgral } { diff-group-alr-def } { #1 } }
+    { \__intexgral_pkg_new_differential_group:nnn { #1 } { #2 } { #3 } }
+}
+
+\NewDocumentCommand{\RenewDifferentialKeyword}{ m m o }{
+  \prop_pop:NnNTF \g__intexgral_pkg_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \seq_clear:c { g__intexgral_pkg_#1_jacobian_seq }
+      \__intexgral_pkg_new_differential_group:nnn { #1 } { #2 } { #3 }
+    }
+    { \msg_error:nnn { intexgral } { diff-group-alr-def } { #1 } }
+}
+
+\NewDocumentCommand{\ProvideDifferentialKeyword}{ m m o }{
+  \prop_get:NnNF \g__intexgral_pkg_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    { \__intexgral_pkg_new_differential_group:nnn { #1 } { #2 } { #3 } }
+}
+
+\NewDocumentCommand{\DeclareDifferentialKeyword}{ m m o }{
+  \prop_pop:NnNT \g__intexgral_pkg_differential_group_keyword_prop { #1 } \l_tmpa_tl
+    {
+      \seq_clear:c { g__intexgral_pkg_#1_jacobian_seq }
+      \__intexgral_pkg_new_differential_group:nnn { #1 } { #2 } { #3 }
+    }
+}
+
+\NewDocumentCommand{\NewIntegralSymbol}{ m }{
+  \AtBeginDocument{
+  \tl_if_exist:cTF { c__intexgral_pkg_#1_symbol_tl }
+    { \msg_warning:nnn { intexgral } { int-symb-alr-def } { #1 } }
+    { \__intexgral_pkg_new_integral_symbol:n { #1 } }
+  }
+}
+
+\NewDocumentCommand{\defaultdiff}{ m }{
+  \prop_get:NnNTF
+    \g__intexgral_pkg_differential_group_keyword_prop
+    { #1 }
+    \l_tmpa_tl
+    { \tl_set_eq:NN \l__intexgral_pkg_default_differential_tl \l_tmpa_tl }
+    { \tl_set:Nn \l__intexgral_pkg_default_differential_tl { #1 } }
+}
+
+\NewDocumentCommand{\defaultvdiff}{ m }{
+  \prop_get:NnNTF
+    \g__intexgral_pkg_differential_group_keyword_prop
+    { #1 }
+    \l_tmpa_tl
+    { \tl_set_eq:NN \l__intexgral_pkg_default_vector_differential_tl \l_tmpa_tl }
+    { \tl_set:Nn \l__intexgral_pkg_default_vector_differential_tl { #1 } }
+}
+
+\NewDocumentCommand{\vdiffstyle}{ m }{
+  \tl_set:Nn \l__intexgral_pkg_vectorial_differential_style_tl { #1 }
+}
+
+\NewDocumentCommand{\intexgralsetup}{ m }{
+  \keys_set:nn { intexgral } { #1 }
+}
+
+\@onlypreamble\intexgralsetup
+\@onlypreamble\NewIntegralSymbol
+
+\NewIntegralSymbol{int}
+\NewIntegralSymbol{iint}
+\NewIntegralSymbol{iiint}
+\NewIntegralSymbol{iiiint}
+\NewIntegralSymbol{oint}
+\NewIntegralSymbol{oiint}
+\NewIntegralSymbol{oiiint}
+\NewIntegralSymbol{idotsint}
+\NewIntegralSymbol{intclockwise}
+\NewIntegralSymbol{awint}
+\NewIntegralSymbol{varointclockwise}
+\NewIntegralSymbol{ointctrclockwise}
+\NewIntegralSymbol{sumint}
+\NewIntegralSymbol{intbar}
+\NewIntegralSymbol{intBar}
+\NewIntegralSymbol{fint}
+\NewIntegralSymbol{cirfnint}
+\NewIntegralSymbol{rppolint}
+\NewIntegralSymbol{scpolint}
+\NewIntegralSymbol{npolint}
+\NewIntegralSymbol{pointint}
+\NewIntegralSymbol{sqint}
+\NewIntegralSymbol{intlarhk}
+\NewIntegralSymbol{intx}
+\NewIntegralSymbol{intcap}
+\NewIntegralSymbol{intcup}
+\NewIntegralSymbol{upint}
+\NewIntegralSymbol{lowint}
+\NewIntegralSymbol{inttop}
+\NewIntegralSymbol{intbottom}
+\NewIntegralSymbol{intextender}
+
+\NewLimitsKeyword{ab}{a, b}
+\NewLimitsKeyword{real}{-\infty, +\infty}
+\NewLimitsKeyword{positive}{0, +\infty}
+\NewLimitsKeyword{negative}{-\infty, 0}
+\NewLimitsKeyword{unit}{0, 1}
+\NewLimitsKeyword{circle}{0, 2\pi}
+\NewLimitsKeyword{scircle}{0, \pi}
+\NewLimitsKeyword{qcircle}{0, \frac{\pi}{2}}
+\NewLimitsKeyword{height}{0, H}
+\NewLimitsKeyword{radius}{0, R}
+\NewLimitsKeyword{length}{0, L}
+\NewLimitsKeyword{time}{0, T}
+
+\NewDifferentialKeyword{cartesian}{x, y, z}
+\NewDifferentialKeyword{polar}{r, \theta}[r]
+\NewDifferentialKeyword{cylindrical}{r, \theta, z}[r]
+\NewDifferentialKeyword{spherical}{r, \theta, \phi}[r^2, \sin\theta]
+
+\defaultdiff{x}
+\defaultvdiff{r}
+\vdiffstyle{\vec}
+
+\NewDocumentCommand{\integral}{ O{} m }{
+  \group_begin:
+  \keys_set:nn { integral } { #1 }
+  \tl_set:Nn \l__intexgral_pkg_integrand_tl { #2 }
+  \__intexgral_pkg_print_integral:
+  \group_end:
+}
+
+\ExplSyntaxOff
+
+\endinput
+%%
+%% End of file `intexgral.sty'.

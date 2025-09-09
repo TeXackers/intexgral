@@ -1,0 +1,178 @@
+
+ \begin{theindex} 
+ \makeatletter\scan@allowedfalse
+{\bfseries\hfil B\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&boundary&}\pfill 
+		\hdpindex{usage}{MMMMI-8}
+
+  \indexspace
+{\bfseries\hfil C\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\cdot&}\pfill \hdpindex{usage}{MMMMI-11}
+  \item {\verbatim@font \verb*&contour&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil D\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\DeclareDifferentialKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\DeclareLimitsKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\defaultdiff&}\pfill 
+		\hdpindex{usage}{MMMMI-14, MMMMI-15}
+  \item {\verbatim@font \verb*&\defaultvdiff&}\pfill 
+		\hdpindex{usage}{MMMMI-14, MMMMI-15}
+  \item {\verbatim@font \verb*&diff-options&}\pfill 
+		\hdpindex{usage}{MMMMI-10}
+  \item {\verbatim@font \verb*&diff-star&}\pfill 
+		\hdpindex{usage}{MMMMI-10}
+  \item {\verbatim@font \verb*&diff-symb&}\pfill 
+		\hdpindex{usage}{MMMMI-9}
+  \item {\verbatim@font \verb*&diff-vec&}\pfill 
+		\hdpindex{usage}{MMMMI-11}
+  \item {\verbatim@font \verb*&\differentials&}\pfill 
+		\hdpindex{usage}{MMMMI-14}
+  \item {\verbatim@font \verb*&domain&}\pfill \hdpindex{usage}{MMMMI-8}
+  \item {\verbatim@font \verb*&double&}\pfill \hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil H\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&hide-differentials&}\pfill 
+		\hdpindex{usage}{MMMMI-3}
+
+  \indexspace
+{\bfseries\hfil I\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\iiiint&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\iiint&}\pfill \hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\iint&}\pfill \hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\infty&}\pfill \hdpindex{usage}{MMMMI-4}
+  \item {\verbatim@font \verb*&\int&}\pfill 
+		\hdpindex{usage}{MMMMI-6, MMMMI-7}
+  \item {\verbatim@font \verb*&int-split&}\pfill 
+		\hdpindex{usage}{MMMMI-5}
+  \item {\verbatim@font \verb*&int-symb&}\pfill 
+		\hdpindex{usage}{MMMMI-6}
+  \item {\verbatim@font \verb*&\integral&}\pfill 
+		\hdpindex{usage}{MMMMI-3}, \hdpindex{usage}{MMMMI-15}
+  \item {\verbatim@font \verb*&\intexgralsetup&}\pfill 
+		\hdpindex{usage}{MMMMI-11}, \hdpindex{usage}{MMMMI-15}
+  \item {\verbatim@font \verb*&invert-differentials&}\pfill 
+		\hdpindex{usage}{MMMMI-3}
+  \item {\verbatim@font \verb*&invert-limits&}\pfill 
+		\hdpindex{usage}{MMMMI-3}
+  \item {\verbatim@font \verb*&italic&}\pfill \hdpindex{usage}{MMMMI-3}
+
+  \indexspace
+{\bfseries\hfil J\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&jacobian&}\pfill 
+		\hdpindex{usage}{MMMMI-9}
+
+  \indexspace
+{\bfseries\hfil L\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\limits&}\pfill 
+		\hdpindex{usage}{MMMMI-5}
+  \item {\verbatim@font \verb*&limits&}\pfill \hdpindex{usage}{MMMMI-4}
+  \item {\verbatim@font \verb*&limits*&}\pfill 
+		\hdpindex{usage}{MMMMI-4}
+  \item {\verbatim@font \verb*&limits-mode&}\pfill 
+		\hdpindex{usage}{MMMMI-5}
+  \item {\verbatim@font \verb*&lower-lim&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil M\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\mathbb&}\pfill 
+		\hdpindex{usage}{MMMMI-8}
+
+  \indexspace
+{\bfseries\hfil N\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\NewDifferential&}\pfill 
+		\hdpindex{usage}{MMMMI-9}
+  \item {\verbatim@font \verb*&\NewDifferentialKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-9}, \hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\NewIntegralSymbol&}\pfill 
+		\hdpindex{usage}{MMMMI-11}
+  \item {\verbatim@font \verb*&\NewLimitsKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&nint&}\pfill \hdpindex{usage}{MMMMI-6}
+  \item {\verbatim@font \verb*&\nolimits&}\pfill 
+		\hdpindex{usage}{MMMMI-5}
+
+  \indexspace
+{\bfseries\hfil O\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\odif&}\pfill \hdpindex{usage}{MMMMI-10}
+  \item {\verbatim@font \bslash odif*{}}\pfill 
+		\hdpindex{usage}{MMMMI-10}
+  \item {\verbatim@font \verb*&\oiiint&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\oiint&}\pfill \hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\oint&}\pfill \hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil P\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\ProvideDifferentialKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\ProvideLimitsKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+
+  \indexspace
+{\bfseries\hfil Q\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&quadruple&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil R\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\RenewDifferentialKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\RenewLimitsKeyword&}\pfill 
+		\hdpindex{usage}{MMMMI-12}
+
+  \indexspace
+{\bfseries\hfil S\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&single&}\pfill \hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&surface&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil T\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&triple&}\pfill \hdpindex{usage}{MMMMI-7}
+
+  \indexspace
+{\bfseries\hfil U\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&upper-lim&}\pfill 
+		\hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\uppercase&}\pfill 
+		\hdpindex{usage}{MMMMI-8}
+  \item {\verbatim@font \verb*&upright&}\pfill 
+		\hdpindex{usage}{MMMMI-3}
+  \item {\verbatim@font \verb*&\usepackage&}\pfill 
+		\hdpindex{usage}{MMMMI-3}
+
+  \indexspace
+{\bfseries\hfil V\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&variable&}\pfill 
+		\hdpindex{usage}{MMMMI-9}
+  \item {\verbatim@font \verb*&\vdiffstyle&}\pfill 
+		\hdpindex{usage}{MMMMI-14, MMMMI-15}
+  \item {\verbatim@font \verb*&\vec&}\pfill \hdpindex{usage}{MMMMI-11}, 
+		\hdpindex{usage}{MMMMI-14}
+  \item {\verbatim@font \verb*&volume&}\pfill \hdpindex{usage}{MMMMI-7}
+
+ \end{theindex}

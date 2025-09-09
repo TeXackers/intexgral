@@ -1,0 +1,29 @@
+\xpg@aux {}{english}
+\contentsline {section}{\numberline {1}Package options}{3}{section.0.1}%
+\contentsline {section}{\numberline {2}Presentation of the main macro}{3}{section.0.2}%
+\contentsline {section}{\numberline {3}List of keys}{4}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Integration limits}{4}{subsection.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Defining the limits}{4}{subsubsection.0.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Separate the integral}{5}{subsubsection.0.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Symbol (and more about limits)}{5}{subsection.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Selecting a symbol}{6}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Generating many integrals}{6}{subsubsection.0.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Defining limits (when there is only one symbol)}{6}{subsubsection.0.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Combining symbol and limit}{7}{subsubsection.0.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Recurring limits motif}{7}{subsubsection.0.3.2.5}%
+\contentsline {subsection}{\numberline {3.3}Differentials}{8}{subsection.0.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Specifying the variables}{8}{subsubsection.0.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Including the Jacobian}{9}{subsubsection.0.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Modifying the symbol}{9}{subsubsection.0.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Opting for the starred variant}{10}{subsubsection.0.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Designating options}{10}{subsubsection.0.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}Creating a path integral}{10}{subsubsection.0.3.3.6}%
+\contentsline {section}{\numberline {4}Auxiliary macros}{11}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Package options}{11}{subsection.0.4.1}%
+\contentsline {subsection}{\numberline {4.2}Loading new symbols}{11}{subsection.0.4.2}%
+\contentsline {subsection}{\numberline {4.3}Looking back at the \texttt {limits} key}{11}{subsection.0.4.3}%
+\contentsline {subsection}{\numberline {4.4}Looking back at the \texttt {variable} key}{12}{subsection.0.4.4}%
+\contentsline {subsection}{\numberline {4.5}Custom differentials placement}{13}{subsection.0.4.5}%
+\contentsline {subsection}{\numberline {4.6}Default differentials configuration}{13}{subsection.0.4.6}%
+\contentsline {section}{Changelog}{15}{HD.57}%
+\contentsline {section}{Index}{15}{HD.57}%

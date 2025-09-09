@@ -1,0 +1,125 @@
+\input regression-test.tex
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{intexgral}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{equation}
+  \integral{x^2}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    limits={0, R; 0, H; 0, 2\pi},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    limits*={0, R; 0, H; 0, 2\pi},
+    variable={\rho, z, \phi}
+    ]{\rho z \phi}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    int-split=true,
+    limits={0, R; 0, H; 0, 2\pi},
+    variable={\rho, z, \phi}
+    ]{\rho; z; \phi}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    limits-mode=limits,
+    limits={a, b},
+    ]{f(x)}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    int-symb=\oint,
+    lower-lim=\mathcal{C},
+    diff-vec=true
+    ]{f(\vec{r})}
+\end{equation}
+
+\begin{equation}
+  \integral[int-symb=\oiiint]{} % warning expected
+\end{equation}
+
+\begin{equation}
+  \integral[
+    nint=5,
+    lower-lim=\Omega,
+    variable={x_1, x_2, x_3, x_4, x_5}
+    ]{f(x_1, x_2, x_3, x_4, x_5)}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    lower-lim={x^2 + y^2 \leq 1},
+    variable={x, y}
+    ]{f(x, y)}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    double=S,
+    variable={x, y}
+    ]{xy}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    double,
+    domain={r*r},
+    variable={x, y},
+    ]{xy}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    contour,
+    variable=r,
+    diff-vec=true,
+    boundary=S
+    ]{G(\vec{r})}
+\end{equation}
+
+\begin{equation}
+  \integral[
+    int-split=true,
+    limits={0, R; 0, 2\pi; 0, \pi},
+    variable=spherical,
+    jacobian=true
+    ]{;;}
+\end{equation}
+
+\begin{equation}
+  \integral[diff-vec=true]{r}
+\end{equation}
+
+\begin{equation}
+  \integral{1}+\integral{-\sin^2x}
+\end{equation}
+
+\defaultdiff{a}
+\defaultvdiff{b}
+\vdiffstyle{\mathrm}
+
+\begin{equation}
+  \integral{a}
+\end{equation}
+
+\begin{equation}
+  \integral[diff-vec=true]{b}
+\end{equation}
+
+\end{document}

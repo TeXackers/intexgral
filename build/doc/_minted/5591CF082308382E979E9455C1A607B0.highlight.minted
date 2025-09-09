@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+  \PYG{k}{\PYGZbs{}integral}[
+    contour,
+    variable=r,
+    diff\PYGZhy{}vec=true,
+    boundary=S
+    ]\PYG{n+nb}{\PYGZob{}}G(\PYG{k}{\PYGZbs{}vec}\PYG{n+nb}{\PYGZob{}}r\PYG{n+nb}{\PYGZcb{}})\PYG{n+nb}{\PYGZcb{}}
+\end{MintedVerbatim}

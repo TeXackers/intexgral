@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+  \PYG{k}{\PYGZbs{}integral}[
+    nint=5,
+    lower\PYGZhy{}lim=\PYG{k}{\PYGZbs{}Omega},
+    variable=\PYG{n+nb}{\PYGZob{}}x\PYG{n+nb}{\PYGZus{}}1, x\PYG{n+nb}{\PYGZus{}}2, x\PYG{n+nb}{\PYGZus{}}3, x\PYG{n+nb}{\PYGZus{}}4, x\PYG{n+nb}{\PYGZus{}}5\PYG{n+nb}{\PYGZcb{}}
+    ]\PYG{n+nb}{\PYGZob{}}f(x\PYG{n+nb}{\PYGZus{}}1, x\PYG{n+nb}{\PYGZus{}}2, x\PYG{n+nb}{\PYGZus{}}3, x\PYG{n+nb}{\PYGZus{}}4, x\PYG{n+nb}{\PYGZus{}}5)\PYG{n+nb}{\PYGZcb{}}
+\end{MintedVerbatim}
