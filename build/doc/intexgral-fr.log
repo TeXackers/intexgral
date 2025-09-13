@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.12)  13 SEP 2025 12:34
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.12)  13 SEP 2025 19:22
  system commands enabled.
 **\input intexgral-fr.tex
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
@@ -1812,10 +1812,10 @@ ndard glyph set (RS)
 \pydata@fh@0=\write10
 
 \openout10 = _BA1457F917A3F510EB41F70D205B5ED2.data.minted
-runsystem(latexminted config  --timestamp 20250913123425 BA1457F917A3F510EB41F70
+runsystem(latexminted config  --timestamp 20250913192237 BA1457F917A3F510EB41F70
 D205B5ED2)...executed.
  (./_BA1457F917A3F510EB41F70D205B5ED2.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250913123425 BA1457F917A3F510EB
+runsystem(latexminted cleanconfig  --timestamp 20250913192237 BA1457F917A3F510EB
 41F70D205B5ED2)...executed.
 
 (./_minted/tango.style.minted)
@@ -1924,7 +1924,7 @@ ern, 4 glyph, 112 attribute, 65 glue_spec, 58 attribute_list, 2 write nodes
    avail lists: 2:2424,3:1523,4:688,5:705,6:328,7:6823,8:43,9:1793,10:20,11:513,
 12:1
  76727 multiletter control sequences out of 65536+600000
- 136 fonts using 46166531 bytes
+ 136 fonts using 46166231 bytes
  116i,14n,114p,1171b,1210s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro.
 otf><c:/texlive/texmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-R

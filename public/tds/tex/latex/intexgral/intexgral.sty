@@ -36,11 +36,15 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{expl3}[2025-05-14]
-\RequirePackage{amsfonts}
 \ProvidesExplPackage
   {intexgral}{2025-09-13}{2.0.1}{A LaTeX package for typesetting integrals.}
 
 \@ifpackagelater{expl3}{2025-05-14}{}{\PackageError{expl3~version~too~old,~see~version~requirement~on~the~GitHub~page.}}
+
+\AtBeginDocument{
+  \cs_if_exist:NF \mathbb
+    { \RequirePackage{amsfonts} }
+}
 
 \bool_new:N \l__intexgral_pkg_invert_limits_bool
 \bool_new:N \l__intexgral_pkg_deactivate_differential_bool
@@ -714,7 +718,7 @@
   int-symb .code:n =
     {
       \__intexgral_pkg_symbol_if_exist:NTF #1
-        { \tl_set:Nn \l__intexgral_pkg_integral_symbol_tl { #1 } }
+        { \tl_set_eq:NN \l__intexgral_pkg_integral_symbol_tl #1 }
         {
           \msg_warning:nnn { intexgral } { unknown-int-symb } { #1 }
           \tl_set_eq:NN \l__intexgral_pkg_integral_symbol_tl \int
@@ -750,85 +754,85 @@
 
   single .meta:n =
     {
-      int-symb=\c__intexgral_pkg_int_symbol_tl,
+      int-symb=\int,
       lower-lim=#1
     },
 
   double .meta:n =
     {
-      int-symb=\c__intexgral_pkg_iint_symbol_tl,
+      int-symb=\iint,
       lower-lim=#1
     },
 
   triple .meta:n =
     {
-      int-symb=\c__intexgral_pkg_iiint_symbol_tl,
+      int-symb=\iiint,
       lower-lim=#1
     },
 
   quadruple .meta:n =
     {
-      int-symb=\c__intexgral_pkg_iiiint_symbol_tl,
+      int-symb=\iiiint,
       lower-lim=#1
     },
 
   contour .meta:n =
     {
-      int-symb=\c__intexgral_pkg_oint_symbol_tl,
+      int-symb=\oint,
       lower-lim=#1
     },
 
   surface .meta:n =
     {
-      int-symb=\c__intexgral_pkg_oiint_symbol_tl,
+      int-symb=\oiint,
       lower-lim=#1
     },
 
   volume .meta:n =
     {
-      int-symb=\c__intexgral_pkg_oiiint_symbol_tl,
+      int-symb=\oiiint,
       lower-lim=#1
     },
 
   single* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_int_symbol_tl,
+      int-symb=\int,
       upper-lim=#1
     },
 
   double* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_iint_symbol_tl,
+      int-symb=\iint,
       upper-lim=#1
     },
 
   triple* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_iiint_symbol_tl,
+      int-symb=\iiint,
       upper-lim=#1
     },
 
   quadruple* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_iiiint_symbol_tl,
+      int-symb=\iiiint,
       upper-lim=#1
     },
 
   contour* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_oint_symbol_tl,
+      int-symb=\oint,
       upper-lim=#1
     },
 
   surface* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_oiint_symbol_tl,
+      int-symb=\oiint,
       upper-lim=#1
     },
 
   volume* .meta:n =
     {
-      int-symb=\c__intexgral_pkg_oiiint_symbol_tl,
+      int-symb=\oiiint,
       upper-lim=#1
     },
 
@@ -979,9 +983,9 @@
 
 \NewDocumentCommand{\NewIntegralSymbol}{ m }{
   \AtBeginDocument{
-  \tl_if_exist:cTF { c__intexgral_pkg_#1_symbol_tl }
-    { \msg_warning:nnn { intexgral } { int-symb-alr-def } { #1 } }
-    { \__intexgral_pkg_new_integral_symbol:n { #1 } }
+    \tl_if_exist:cTF { c__intexgral_pkg_#1_symbol_tl }
+      { \msg_warning:nnn { intexgral } { int-symb-alr-def } { #1 } }
+      { \__intexgral_pkg_new_integral_symbol:n { #1 } }
   }
 }
 

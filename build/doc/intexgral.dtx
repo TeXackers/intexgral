@@ -1988,11 +1988,15 @@ La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les d
 
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{expl3}[2025-05-14]
-\RequirePackage{amsfonts}
 \ProvidesExplPackage
   {intexgral}{2025-09-13}{2.0.1}{A LaTeX package for typesetting integrals.}
 
 \@ifpackagelater{expl3}{2025-05-14}{}{\PackageError{expl3~version~too~old,~see~version~requirement~on~the~GitHub~page.}}
+
+\AtBeginDocument{
+  \cs_if_exist:NF \mathbb
+    { \RequirePackage{amsfonts} }
+}
 
 \bool_new:N \l_@@_invert_limits_bool
 \bool_new:N \l_@@_deactivate_differential_bool
@@ -2666,7 +2670,7 @@ La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les d
   int-symb .code:n = 
     {
       \@@_symbol_if_exist:NTF #1
-        { \tl_set:Nn \l_@@_integral_symbol_tl { #1 } }
+        { \tl_set_eq:NN \l_@@_integral_symbol_tl #1 }
         { 
           \msg_warning:nnn { intexgral } { unknown-int-symb } { #1 } 
           \tl_set_eq:NN \l_@@_integral_symbol_tl \int
@@ -2702,85 +2706,85 @@ La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les d
 
   single .meta:n =
     {
-      int-symb=\c_@@_int_symbol_tl,
+      int-symb=\int,
       lower-lim=#1
     },
 
   double .meta:n =
     {
-      int-symb=\c_@@_iint_symbol_tl,
+      int-symb=\iint,
       lower-lim=#1
     },
 
   triple .meta:n =
     {
-      int-symb=\c_@@_iiint_symbol_tl,
+      int-symb=\iiint,
       lower-lim=#1
     },
 
   quadruple .meta:n =
     {
-      int-symb=\c_@@_iiiint_symbol_tl,
+      int-symb=\iiiint,
       lower-lim=#1
     },
 
   contour .meta:n =
     {
-      int-symb=\c_@@_oint_symbol_tl,
+      int-symb=\oint,
       lower-lim=#1
     },
 
   surface .meta:n =
     {
-      int-symb=\c_@@_oiint_symbol_tl,
+      int-symb=\oiint,
       lower-lim=#1
     },
 
   volume .meta:n =
     {
-      int-symb=\c_@@_oiiint_symbol_tl,
+      int-symb=\oiiint,
       lower-lim=#1
     },
 
   single* .meta:n =
     {
-      int-symb=\c_@@_int_symbol_tl,
+      int-symb=\int,
       upper-lim=#1
     },
 
   double* .meta:n =
     {
-      int-symb=\c_@@_iint_symbol_tl,
+      int-symb=\iint,
       upper-lim=#1
     },
 
   triple* .meta:n =
     {
-      int-symb=\c_@@_iiint_symbol_tl,
+      int-symb=\iiint,
       upper-lim=#1
     },
 
   quadruple* .meta:n =
     {
-      int-symb=\c_@@_iiiint_symbol_tl,
+      int-symb=\iiiint,
       upper-lim=#1
     },
 
   contour* .meta:n =
     {
-      int-symb=\c_@@_oint_symbol_tl,
+      int-symb=\oint,
       upper-lim=#1
     },
 
   surface* .meta:n =
     {
-      int-symb=\c_@@_oiint_symbol_tl,
+      int-symb=\oiint,
       upper-lim=#1
     },
 
   volume* .meta:n =
     {
-      int-symb=\c_@@_oiiint_symbol_tl,
+      int-symb=\oiiint,
       upper-lim=#1
     },
 
@@ -2931,9 +2935,9 @@ La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les d
 
 \NewDocumentCommand{\NewIntegralSymbol}{ m }{
   \AtBeginDocument{
-  \tl_if_exist:cTF { c_@@_#1_symbol_tl }
-    { \msg_warning:nnn { intexgral } { int-symb-alr-def } { #1 } }
-    { \@@_new_integral_symbol:n { #1 } }
+    \tl_if_exist:cTF { c_@@_#1_symbol_tl }
+      { \msg_warning:nnn { intexgral } { int-symb-alr-def } { #1 } }
+      { \@@_new_integral_symbol:n { #1 } }
   }
 }
 
