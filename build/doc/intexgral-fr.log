@@ -1,6 +1,6 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.12)  13 SEP 2025 12:33
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.12)  13 SEP 2025 12:34
  system commands enabled.
-**\input intexgral-en.tex
+**\input intexgral-fr.tex
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
@@ -32,7 +32,7 @@ Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
 Inserting `tracingstacklevels' in `input_level_string'.
-(./intexgral-en.tex (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/l3doc.cls
+(./intexgral-fr.tex (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/l3doc.cls
 (c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count273
@@ -526,13 +526,13 @@ Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 75.
 \l__codedoc_syntax_dim=\dimen192
 \@glossaryfile=\write4
 
-\openout4 = intexgral-en.glo
+\openout4 = intexgral-fr.glo
 
-Writing glossary file intexgral-en.glo 
+Writing glossary file intexgral-fr.glo 
 \@indexfile=\write5
 
-\openout5 = intexgral-en.idx
-Writing index file intexgral-en.idx
+\openout5 = intexgral-fr.idx
+Writing index file intexgral-fr.idx
 ) (c:/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty
 (c:/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
@@ -912,13 +912,13 @@ atn;language=dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/ChronicleTextG3(1)/m/n on input line
- 104.
+ 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/ChronicleTextG3(1)/m/it on input li
-ne 104.
+ne 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/ChronicleTextG3(1)/b/n on input lin
-e 104.
+e 103.
 
 Package fontspec Info: 
 (fontspec)             Font family 'Whitney(0)' created for font 'Whitney'
@@ -990,9 +990,9 @@ guage=dflt;+ss01;+ss10;+ss11;+ss08;+ss09;"
 guage=dflt;+ss01;+ss10;+ss11;+ss08;+ss09;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Whitney(1)/m/n on input line 132.
+(Font)                  OT1/cmss/m/n --> TU/Whitney(1)/m/n on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Whitney(1)/b/n on input line 132.
+(Font)                  OT1/cmss/bx/n --> TU/Whitney(1)/b/n on input line 131.
 
 Package fontspec Info: 
 (fontspec)             Font family 'Whitney-Semibold.otf(0)' created for font
@@ -1039,16 +1039,16 @@ t=math;language=dflt;mathfontdimen=xetex;+ssty=0;"<-6>"[NewCMMath-Regular.otf]:
 mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 137.
+(Font)              `operators' in the math version `normal' on input line 136.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/NewCMMath-Regular.otf(1)/m/n on inpu
-t line 137.
+t line 136.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 137.
+(Font)              `operators' in the math version `bold' on input line 136.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/NewCMMath-Regular.otf(1)/b/n on inp
-ut line 137.
+ut line 136.
 
 Package fontspec Info: 
 (fontspec)             Font family 'NewCMMath-Regular.otf(2)' created for font
@@ -1069,15 +1069,15 @@ tf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;
 ontdimen=xetex;mathfontdimen=tex2;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 137.
+(Font)              `symbols' in the math version `normal' on input line 136.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> TU/NewCMMath-Regular.otf(2)/m/n on inp
-ut line 137.
+ut line 136.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 137.
+(Font)              `symbols' in the math version `bold' on input line 136.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> TU/NewCMMath-Regular.otf(2)/b/n on inp
-ut line 137.
+ut line 136.
 
 Package fontspec Info: 
 (fontspec)             Font family 'NewCMMath-Regular.otf(3)' created for font
@@ -1099,23 +1099,23 @@ ontdimen=xetex;mathfontdimen=tex3;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-37.
+36.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> TU/NewCMMath-Regular.otf(3)/m/n on inp
-ut line 137.
+ut line 136.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 137
+(Font)              `largesymbols' in the math version `bold' on input line 136
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> TU/NewCMMath-Regular.otf(3)/b/n on inp
-ut line 137.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 137
+ut line 136.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 136
 .
 
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 137
+LaTeX Font Info:    Trying to load font information for U+msb on input line 136
 .
 
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1207,11 +1207,21 @@ File: gloss-latex.ldf polyglossia: module for default language
 Package polyglossia Info: Setting LuaTeX font renderer to Harfbuzz
 
 )
-(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
-File: gloss-english.ldf polyglossia: module for English
-)
+(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-french.ldf
+File: gloss-french.ldf polyglossia: module for French
+Module polyglossia Info: Language data for french
+(polyglossia)            hyphenation	
+(polyglossia)            lefthyphenmin	2
+(polyglossia)            loader	loadhyph-fr.tex
+(polyglossia)            patterns	hyph-fr.pat.txt
+(polyglossia)            righthyphenmin	2
+(polyglossia)            synonyms	patois,francais on input line 17
+Module polyglossia Info: Language french was not yet loaded; created with id 2 o
+n input line 17
+Lua-only attribute polyglossia_punct = 4
+Inserting `polyglossia-punct.process' in `pre_shaping_filter'.)
 
-Package polyglossia Info: Default language is english
+Package polyglossia Info: Default language is french
 
 
 (c:/texlive/2025/texmf-dist/tex/lualatex/luacode/luacode.sty
@@ -1681,30 +1691,30 @@ LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'polyglossia' package.
 Package csquotes Info: Adjusting default style.
-Package csquotes Info: Redefining alias 'default' -> 'american'.
-(./intexgral-en.aux)
-\openout1 = intexgral-en.aux
+Package csquotes Info: Redefining alias 'default' -> 'french'.
+(./intexgral-fr.aux)
+\openout1 = intexgral-fr.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 215.
+LaTeX Font Info:    ... okay on input line 215.
 
 (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1728,29 +1738,29 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 213.
+Package hyperref Info: Link coloring ON on input line 215.
 
-(./intexgral-en.out) (./intexgral-en.out)
+(./intexgral-fr.out) (./intexgral-fr.out)
 \@outlinefile=\write7
 
-\openout7 = intexgral-en.out
- (./intexgral-en.hd)
+\openout7 = intexgral-fr.out
+ (./intexgral-fr.hd)
 \HD@savedest@out=\write8
 
-\openout8 = intexgral-en.hd
-Package doc Info: Made " a short reference for \verb on input line 213.
-Package doc Info: Made | a short reference for \verb on input line 213.
+\openout8 = intexgral-fr.hd
+Package doc Info: Made " a short reference for \verb on input line 215.
+Package doc Info: Made | a short reference for \verb on input line 215.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 213.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 215.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 213.
-LaTeX Info: Redefining \microtypecontext on input line 213.
-Package microtype Info: Applying patch `item' on input line 213.
-Package microtype Info: Applying patch `toc' on input line 213.
-Package microtype Info: Applying patch `eqnum' on input line 213.
-Package microtype Info: Applying patch `footnote' on input line 213.
-Package microtype Info: Applying patch `verbatim' on input line 213.
-LaTeX Info: Redefining \microtypesetup on input line 213.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 215.
+LaTeX Info: Redefining \microtypecontext on input line 215.
+Package microtype Info: Applying patch `item' on input line 215.
+Package microtype Info: Applying patch `toc' on input line 215.
+Package microtype Info: Applying patch `eqnum' on input line 215.
+Package microtype Info: Applying patch `footnote' on input line 215.
+Package microtype Info: Applying patch `verbatim' on input line 215.
+LaTeX Info: Redefining \microtypesetup on input line 215.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1784,14 +1794,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./intexgral-en.toc
+ (./intexgral-fr.toc
 
 [1
 
 {c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write9
 
-\openout9 = intexgral-en.toc
+\openout9 = intexgral-fr.toc
 
 (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-TU-empty.cfg
 File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonsta
@@ -1801,12 +1811,12 @@ ndard glyph set (RS)
 [2]
 \pydata@fh@0=\write10
 
-\openout10 = _FC147AC51A7F7C9848A4167F7FB3154E.data.minted
-runsystem(latexminted config  --timestamp 20250913123302 FC147AC51A7F7C9848A4167
-F7FB3154E)...executed.
- (./_FC147AC51A7F7C9848A4167F7FB3154E.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250913123302 FC147AC51A7F7C9848
-A4167F7FB3154E)...executed.
+\openout10 = _BA1457F917A3F510EB41F70D205B5ED2.data.minted
+runsystem(latexminted config  --timestamp 20250913123425 BA1457F917A3F510EB41F70
+D205B5ED2)...executed.
+ (./_BA1457F917A3F510EB41F70D205B5ED2.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20250913123425 BA1457F917A3F510EB
+41F70D205B5ED2)...executed.
 
 (./_minted/tango.style.minted)
 (./_minted/CDB84FDE0A49521D0A2C0A2F2710785F.highlight.minted
@@ -1828,18 +1838,18 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 [5] (./_minted/0F79ACEA637FA610DCD55A3D28F2276A.highlight.minted)
 (./_minted/E5D1665768871F658055781880D8E0E8.highlight.minted)
-(./_minted/569B275E17E9035FA3790E45149C11ED.highlight.minted)
 
-[6] (./_minted/F43AF23E9DA5AF424152DC7F6073BD92.highlight.minted)
+[6] (./_minted/569B275E17E9035FA3790E45149C11ED.highlight.minted)
+(./_minted/F43AF23E9DA5AF424152DC7F6073BD92.highlight.minted)
 
 [7] (./_minted/78202541CFFDC921A8F6D112F7B1F631.highlight.minted)
 (./_minted/5591CF082308382E979E9455C1A607B0.highlight.minted)
 (./_minted/F8E0E4D638147A82958569B2EED21BBB.highlight.minted)
 
 [8]
-Overfull \hbox (21.1864pt too wide) in paragraph at lines 644--649
-\TU/ChronicleTextG3(0)/m/n/10 This key en-ables/dis-ables the dis-play of the Ja
--co-bian when de-fined by []\TU/lmtt/m/n/10 \NewDifferentialKeyword[]
+Overfull \hbox (8.19626pt too wide) in paragraph at lines 655--660
+\TU/ChronicleTextG3(0)/m/n/10 Cette clé ac-tive/désac-tive l’af-fi-chage du ja-co-bien lorsque d
+é-fi-ni par []\TU/lmtt/m/n/10 \NewDifferentialKeyword[]
  []
 
 (./_minted/1245035A1978794A5628D31886DA0D7C.highlight.minted)
@@ -1851,7 +1861,7 @@ Overfull \hbox (21.1864pt too wide) in paragraph at lines 644--649
 
 [10]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 794.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 807.
  (./_minted/F6995211C4EB2AC4184F3670D8C0CB50.highlight.minted)
 
 [11] (./_minted/2658D20CD7116323AF5D840E768FDBF3.highlight.minted)
@@ -1862,7 +1872,9 @@ warning  (pdf backend): ignoring duplicate destination with the name 'table.1'
 
 [13
 warning  (pdf backend): ignoring duplicate destination with the name 'table.2'
-] (./intexgral-en.ind
+]
+
+[14] (./intexgral-fr.ind
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1873,54 +1885,47 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 
-[14]
+[15]
 
 
 
 
 
 )
-Package doc Info: Deleted " as a short reference for \verb(*) on input line 967
+Package doc Info: Deleted " as a short reference for \verb(*) on input line 977
 .
-Package doc Info: Deleted | as a short reference for \verb(*) on input line 967
+Package doc Info: Deleted | as a short reference for \verb(*) on input line 977
 .
 
-----
 
-\g__codedoc_func_iow=\write11
-
-\openout11 = intexgral-en.cmds
-----
-
-
-[15]
+[16]
 
 Package l3doc Info: Generate the index by executing
-(l3doc)                 makeindex -s gind.ist -o intexgral-en.ind
-(l3doc)                 intexgral-en.idx
+(l3doc)                 makeindex -s gind.ist -o intexgral-fr.ind
+(l3doc)                 intexgral-fr.idx
 
- (./intexgral-en.aux)
+ (./intexgral-fr.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
-Package rerunfilecheck Info: File `intexgral-en.out' has not changed.
-(rerunfilecheck)             Checksum: 82B762B2D797777F154ED5F329080317;6773.
-Package rerunfilecheck Info: File `intexgral-en.hd' has not changed.
+Package rerunfilecheck Info: File `intexgral-fr.out' has not changed.
+(rerunfilecheck)             Checksum: 50C82FD28A73B1A21D021436673E258E;7590.
+Package rerunfilecheck Info: File `intexgral-fr.hd' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 49435 strings out of 470117
+ 49528 strings out of 470117
  100000,2373549 words of node,token memory allocated
- 846 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 9 glue, 4 kern, 1 penalty, 3 glyph, 57
- attribute, 65 glue_spec, 57 attribute_list, 2 write nodes
-   avail lists: 1:1,2:1926,3:1523,4:688,5:733,6:328,7:6496,8:43,9:1793,10:12,11:
-478
- 76633 multiletter control sequences out of 65536+600000
- 136 fonts using 46166231 bytes
- 116i,14n,114p,1015b,1208s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 989 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 1 local_par, 10 glue, 6 kern, 2 penalty, 1 margin_k
+ern, 4 glyph, 112 attribute, 65 glue_spec, 58 attribute_list, 2 write nodes
+   avail lists: 2:2424,3:1523,4:688,5:705,6:328,7:6823,8:43,9:1793,10:20,11:513,
+12:1
+ 76727 multiletter control sequences out of 65536+600000
+ 136 fonts using 46166531 bytes
+ 116i,14n,114p,1171b,1210s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro.
 otf><c:/texlive/texmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-R
 egular.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Semibol
@@ -1939,10 +1944,10 @@ xlive/texmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-Regular.otf
 lar.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Medium.otf
 ><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro
 .otf>
-Output written on intexgral-en.pdf (15 pages, 136872 bytes).
+Output written on intexgral-fr.pdf (16 pages, 139583 bytes).
 
-PDF statistics: 597 PDF objects out of 1000 (max. 8388607)
- 523 compressed objects within 6 object streams
- 151 named destinations out of 1000 (max. 131072)
- 384 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 605 PDF objects out of 1000 (max. 8388607)
+ 530 compressed objects within 6 object streams
+ 152 named destinations out of 1000 (max. 131072)
+ 392 words of extra memory for PDF output out of 10000 (max. 100000000)
 

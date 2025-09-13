@@ -26,7 +26,7 @@
 %% This work consists of the files intexgral.ins and intexgral.dtx,
 %% along with the derived files intexgral-doc-en.pdf, and
 %% intexgral-doc-fr.pdf. In order to acquire the .tex master files
-%% producing the documentations and the .sty file, simply run this
+%% producing the documentations and the .sty file, simply run the
 %% installation file through any engine.
 %% 
 %% The repository of this work can be found at:
@@ -140,7 +140,6 @@
 \NewDifferential{\feynmandiff}{\mathcal{D}}
 \RenewDifferential{\odif}{\symup{d}}
 \usepackage{booktabs}
-\renewcommand{\arraystretch}{1.3}
 \usepackage{fontawesome5}
 \usepackage{microtype}
 \usepackage{polyglossia}
@@ -826,6 +825,7 @@ Using one of the previous examples, we could modify the expression of the integr
 \end{equation}
 
 \begin{table}[h!t]
+  \renewcommand{\arraystretch}{1.3}
   \centering
   \begin{tabular}{l c}
     \toprule
@@ -876,6 +876,7 @@ Using one of the previous examples, we could modify the expression of the integr
 \end{equation}
 
 \begin{table}[h!t]
+  \renewcommand{\arraystretch}{1.3}
   \centering
   \begin{tabular}{l c c}
     \toprule
@@ -932,6 +933,10 @@ Using one of the previous examples, we could modify the expression of the integr
 \addcontentsline{toc}{section}{Changelog}
 
 \begin{changelog}[sectioncmd=\section*]
+\begin{version}[v=2.0.1, date=2025-09-13]
+\fixed
+\item Compatibiliy issue between \pkg{unicode-math} and \pkg{amssyb} (previously required by \pkg{intexgral}) depending on the loading order (\href{https://github.com/ankaa3908/intexgral/issues/2}{issue \#2}).
+\end{version}
 \begin{version}[v=2.0.0, date=2025-09-09]
 \added
 \item Macro \cs{intexgralsetup}.

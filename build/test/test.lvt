@@ -2,8 +2,8 @@
 
 \documentclass{article}
 
-\usepackage{amsmath}
 \usepackage{intexgral}
+\usepackage{amsmath}
 
 \setlength{\parindent}{0pt}
 

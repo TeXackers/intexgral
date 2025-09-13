@@ -26,7 +26,7 @@
 %% This work consists of the files intexgral.ins and intexgral.dtx,
 %% along with the derived files intexgral-doc-en.pdf, and
 %% intexgral-doc-fr.pdf. In order to acquire the .tex master files
-%% producing the documentations and the .sty file, simply run this
+%% producing the documentations and the .sty file, simply run the
 %% installation file through any engine.
 %% 
 %% The repository of this work can be found at:
@@ -139,7 +139,6 @@
 \NewDifferential{\feynmandiff}{\mathcal{D}}
 \RenewDifferential{\odif}{\symup{d}}
 \usepackage{booktabs}
-\renewcommand{\arraystretch}{1.3}
 \usepackage{fontawesome5}
 \usepackage{microtype}
 \usepackage{polyglossia}
@@ -205,12 +204,6 @@ end
 \NewDocumentCommand{\sarg}{}{*}
 \NewDocumentCommand{\filecreationdate}{}{26-07-2025}
 
-\ExplSyntaxOn
-\seq_gset_split:Nne \g_tmpa_seq { - } { \filedate }
-\seq_reverse:N \g_tmpa_seq
-\gdef\filedate{ \seq_use:Nnnn \g_tmpa_seq {} { - } { - } }
-\ExplSyntaxOff
-
 \IndexPrologue{
   \section*{Index}
   \addcontentsline{toc}{section}{Index}
@@ -222,6 +215,12 @@ end
 \begin{document}
 
 \GetFileInfo{intexgral.sty}
+
+\ExplSyntaxOn
+\seq_gset_split:Nne \g_tmpa_seq { - } { \filedate }
+\seq_reverse:N \g_tmpa_seq
+\gdef\filedate{ \seq_use:Nnnn \g_tmpa_seq {} { - } { - } }
+\ExplSyntaxOff
 
 \title{^^A
   L'extension \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}}^^A
@@ -839,6 +838,7 @@ En reprenant l'un des exemples précédents, on pourrait modifier l'expression d
 \end{equation}
 
 \begin{table}[h!t]
+  \renewcommand{\arraystretch}{1.3}
   \centering
   \begin{tabular}{l c}
     \toprule
@@ -889,6 +889,7 @@ De façon similaire, les mêmes groupes de différentielles réapparaissent souv
 \end{equation}
 
 \begin{table}[h!t]
+  \renewcommand{\arraystretch}{1.3}
   \centering
   \begin{tabular}{l c c}
     \toprule
@@ -940,9 +941,14 @@ La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les d
 \end{function}
 
 \newpage
+
 \addcontentsline{toc}{section}{Historique des modifications}
 \begin{changelog}[sectioncmd=\section*]
-\begin{version}[v=2.0.0, date=2025-09-09]
+\begin{version}[v=v2.0.1, date=13-09-2025]
+\fixed
+\item Problème de compatibilité entre \pkg{unicode-math} et \pkg{amssymb} (précédemment requis par \pkg{intexgral}) selon l'ordre de chargement (\href{https://github.com/ankaa3908/intexgral/issues/2}{problème \#2}).
+\end{version}
+\begin{version}[v=2.0.0, date=09-09-2025]
 \added
 \item Macro \cs{intexgralsetup}.
 \item Macro \cs{defaultdiff}.
@@ -958,11 +964,11 @@ La clé \texttt{diff-vec} utilise \cs{vec} afin d'appliquer un vecteur sur les d
 \item Des restes de log \pkg{expl3} qui n'auraient pas dû être là.
 \end{version}
 
-\begin{version}[v=1.1.0, date=2025-07-29]
+\begin{version}[v=1.1.0, date=29-07-2025]
 \added
 \item Variantes étoilées pour les clés controlant symbole et borne (\cref{subsubsec:bornelim}).
 \end{version}
-\shortversion{v=1.0.0, date=2025-07-26, changes=Version initiale.}
+\shortversion{v=1.0.0, date=26-07-2025, changes=Version initiale.}
 \end{changelog}
 \PrintIndex
 

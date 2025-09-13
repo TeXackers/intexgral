@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.3)  20 MAY 2016 09:00
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.12)  20 MAY 2016 09:00
  restricted system commands enabled.
 **\input test.lvt
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
@@ -50,6 +50,35 @@ luaotfload | db : Font names database loaded from C:/texlive/2025/texmf-var/luat
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen147
+) (./intexgral.sty (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-08-13 L3 programming layer (loader) 
+ (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count282
+Inserting `l3color' in `luaotfload.parse_color'.)) (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks17
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+Package: intexgral 2025-09-13 v2.0.1 A LaTeX package for typesetting integrals.
+ (c:/texlive/2025/texmf-dist/tex/latex/derivative/derivative.sty (c:/texlive/2025/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+)
+Package: derivative 2024/02/08 v1.4 Nice and easy derivatives and differentials for LaTeX
+\l__deriv_gcd_counter_int=\count283
+\l__deriv_vmo_int=\count284
+\l__deriv_var_count_int=\count285
+\l__deriv_tmpa_int=\count286
+\l__deriv_tmpb_int=\count287
+\l__deriv_seq_pos_int=\count288
+\l__deriv_sort_max_int=\count289
+)
+\l__intexgral_pkg_integral_sequence_int=\count290
+\g__intexgral_pkg_integral_number_int=\count291
 ) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/06/16 v2.17y AMS math features
 \@mathmargin=\skip51
@@ -59,7 +88,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2024/11/17 v2.01 AMS text
  (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
+\@emptytoks=\toks18
 \ex@=\dimen148
 )) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -67,14 +96,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count282
+\inf@bad=\count292
 LaTeX Info: Redefining \frac on input line 235.
-\uproot@=\count283
-\leftroot@=\count284
+\uproot@=\count293
+\leftroot@=\count294
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count285
-\DOTSCASE@=\count286
+\classnum@=\count295
+\DOTSCASE@=\count296
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -87,63 +116,33 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen150
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count287
+\macc@depth=\count297
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count288
+\c@MaxMatrixCols=\count298
 \dotsspace@=\muskip17
-\c@parentequation=\count289
-\dspbrk@lvl=\count290
-\tag@help=\toks18
-\row@=\count291
-\column@=\count292
-\maxfields@=\count293
-\andhelp@=\toks19
+\c@parentequation=\count299
+\dspbrk@lvl=\count300
+\tag@help=\toks19
+\row@=\count301
+\column@=\count302
+\maxfields@=\count303
+\andhelp@=\toks20
 \eqnshift@=\dimen151
 \alignsep@=\dimen152
 \tagshift@=\dimen153
 \tagwidth@=\dimen154
 \totwidth@=\dimen155
 \lineht@=\dimen156
-\@envbody=\toks20
+\@envbody=\toks21
 \multlinegap=\skip52
 \multlinetaggap=\skip53
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2949.
 LaTeX Info: Redefining \] on input line 2950.
-) (./intexgral.sty (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-08-13 L3 programming layer (loader) 
- (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
-File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count294
-Inserting `l3color' in `luaotfload.parse_color'.)) (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-Package: intexgral 2025-09-09 v2.0.0 A LaTeX package for typesetting integrals.
- (c:/texlive/2025/texmf-dist/tex/latex/derivative/derivative.sty (c:/texlive/2025/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
-)
-Package: derivative 2024/02/08 v1.4 Nice and easy derivatives and differentials for LaTeX
-\l__deriv_gcd_counter_int=\count295
-\l__deriv_vmo_int=\count296
-\l__deriv_var_count_int=\count297
-\l__deriv_tmpa_int=\count298
-\l__deriv_tmpb_int=\count299
-\l__deriv_seq_pos_int=\count300
-\l__deriv_sort_max_int=\count301
-)
-\l__intexgral_pkg_integral_sequence_int=\count302
-\g__intexgral_pkg_integral_number_int=\count303
 )
 No file test.aux.
 
@@ -187,14 +186,14 @@ END-TEST-LOG
 )
 
 Here is how much of LuaTeX's memory you used:
- 4388 strings out of 470117
+ 3967 strings out of 470117
  100000,662416 words of node,token memory allocated
  615 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 40 attribute, 51 glue_spec, 40 attribute_list, 1 write nodes
    avail lists: 2:512,3:104,4:6,5:258,6:34,7:1174,8:36,9:694
- 32807 multiletter control sequences out of 65536+600000
+ 32391 multiletter control sequences out of 65536+600000
  33 fonts using 1839919 bytes
- 75i,5n,81p,289b,328s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,5n,81p,309b,330s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
 Output written on test.pdf (1 page, 94770 bytes).
 

@@ -21,9 +21,9 @@
   \item {\verbatim@font \verb*&\DeclareLimitsKeyword&}\pfill 
 		\hdpindex{usage}{MMMMI-11}
   \item {\verbatim@font \verb*&\defaultdiff&}\pfill 
-		\hdpindex{usage}{MMMMI-13, MMMMI-14}
+		\hdpindex{usage}{MMMMI-13}, \hdpindex{usage}{MMMMI-15}
   \item {\verbatim@font \verb*&\defaultvdiff&}\pfill 
-		\hdpindex{usage}{MMMMI-13, MMMMI-14}
+		\hdpindex{usage}{MMMMI-13}, \hdpindex{usage}{MMMMI-15}
   \item {\verbatim@font \verb*&diff-options&}\pfill 
 		\hdpindex{usage}{MMMMI-10}
   \item {\verbatim@font \verb*&diff-star&}\pfill 
@@ -58,9 +58,9 @@
   \item {\verbatim@font \verb*&int-symb&}\pfill 
 		\hdpindex{usage}{MMMMI-6}
   \item {\verbatim@font \verb*&\integral&}\pfill 
-		\hdpindex{usage}{MMMMI-3}, \hdpindex{usage}{MMMMI-14}
+		\hdpindex{usage}{MMMMI-3}, \hdpindex{usage}{MMMMI-15}
   \item {\verbatim@font \verb*&\intexgralsetup&}\pfill 
-		\hdpindex{usage}{MMMMI-11}, \hdpindex{usage}{MMMMI-14}
+		\hdpindex{usage}{MMMMI-11}, \hdpindex{usage}{MMMMI-15}
   \item {\verbatim@font \verb*&invert-differentials&}\pfill 
 		\hdpindex{usage}{MMMMI-3}
   \item {\verbatim@font \verb*&invert-limits&}\pfill 
@@ -84,7 +84,7 @@
   \item {\verbatim@font \verb*&limits-mode&}\pfill 
 		\hdpindex{usage}{MMMMI-5}
   \item {\verbatim@font \verb*&lower-lim&}\pfill 
-		\hdpindex{usage}{MMMMI-6}
+		\hdpindex{usage}{MMMMI-7}
 
   \indexspace
 {\bfseries\hfil M\hfil}\nopagebreak
@@ -156,7 +156,7 @@
 {\bfseries\hfil U\hfil}\nopagebreak
 
   \item {\verbatim@font \verb*&upper-lim&}\pfill 
-		\hdpindex{usage}{MMMMI-6}
+		\hdpindex{usage}{MMMMI-7}
   \item {\verbatim@font \verb*&\uppercase&}\pfill 
 		\hdpindex{usage}{MMMMI-8}
   \item {\verbatim@font \verb*&upright&}\pfill 
@@ -170,9 +170,9 @@
   \item {\verbatim@font \verb*&variable&}\pfill 
 		\hdpindex{usage}{MMMMI-8}
   \item {\verbatim@font \verb*&\vdiffstyle&}\pfill 
-		\hdpindex{usage}{MMMMI-13, MMMMI-14}
+		\hdpindex{usage}{MMMMI-14, MMMMI-15}
   \item {\verbatim@font \verb*&\vec&}\pfill \hdpindex{usage}{MMMMI-10}, 
-		\hdpindex{usage}{MMMMI-13}
+		\hdpindex{usage}{MMMMI-14}
   \item {\verbatim@font \verb*&volume&}\pfill \hdpindex{usage}{MMMMI-7}
 
  \end{theindex}

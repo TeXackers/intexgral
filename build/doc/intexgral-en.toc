@@ -25,5 +25,5 @@
 \contentsline {subsection}{\numberline {4.4}Looking back at the \texttt {variable} key}{12}{subsection.0.4.4}%
 \contentsline {subsection}{\numberline {4.5}Custom differentials placement}{13}{subsection.0.4.5}%
 \contentsline {subsection}{\numberline {4.6}Default differentials configuration}{13}{subsection.0.4.6}%
-\contentsline {section}{Changelog}{15}{HD.57}%
-\contentsline {section}{Index}{15}{HD.57}%
+\contentsline {section}{Changelog}{14}{HD.57}%
+\contentsline {section}{Index}{14}{HD.57}%
