@@ -1,6 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    limits\PYGZhy{}mode=limits,
-    limits=\PYG{n+nb}{\PYGZob{}}a, b\PYG{n+nb}{\PYGZcb{}},
-    ]\PYG{n+nb}{\PYGZob{}}f(x)\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}

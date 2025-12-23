@@ -1,5 +1,7 @@
 .vscode/
 package/
-public/ctan
+build/
+public/tds
 *.zip
 *.curlopt
+list.TODO

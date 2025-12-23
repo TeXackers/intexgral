@@ -1,6 +1,6 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.12)  13 SEP 2025 19:21
- system commands enabled.
-**\input intexgral-en.tex
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.12.18)  24 DEC 2025 00:46
+ restricted system commands enabled.
+**\input intexgral-en.dtx
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
@@ -32,7 +32,7 @@ Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
 Inserting `tracingstacklevels' in `input_level_string'.
-(./intexgral-en.tex (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/l3doc.cls
+(./intexgral-en.dtx (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/l3doc.cls
 (c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count273
@@ -46,7 +46,7 @@ LaTeX Info: Redefining \addtolength on input line 87.
 \calc@Ccount=\count275
 \calc@Cskip=\skip51
 )
-Document Class: l3doc 2025-08-13 L3 Experimental documentation class
+Document Class: l3doc 2025-11-14 L3 Experimental documentation class
 \l__codedoc_output_coffin=\box53
 \l__codedoc_functions_coffin=\box54
 \l__codedoc_descr_coffin=\box55
@@ -61,8 +61,8 @@ Document Class: l3doc 2025-08-13 L3 Experimental documentation class
 \l__codedoc_macro_int=\count279
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(c:/texlive/2025/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(c:/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 luaotfload | db : Font names database loaded from C:/texlive/2025/texmf-var/luat
 ex-cache/generic/names/luaotfload-names.luc.gz)
 \c@part=\count280
@@ -89,7 +89,7 @@ Package: doc 2024/12/25 v3.0q Standard LaTeX documentation package V3 (FMi)
 \c@IndexColumns=\count291
 
 (c:/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
+Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \c@tracingmulticols=\count292
 \mult@box=\box60
 \multicol@leftmargin=\dimen153
@@ -168,7 +168,7 @@ Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
 \@temptokenb=\toks18
 )
 (c:/texlive/2025/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen163
 \ar@mcellbox=\box106
 \extrarowheight=\dimen164
@@ -187,7 +187,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ))
 (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip60
 
 For additional information on amsmath, use the `?' option.
@@ -251,8 +251,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip61
 \multlinetaggap=\skip62
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 )
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -294,7 +294,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: luatex.def on input line 149.
 
 (c:/texlive/2025/texmf-dist/tex/latex/graphics-def/luatex.def
-File: luatex.def 2024/04/13 v1.2e Graphics/color driver for luatex
+File: luatex.def 2025/09/29 v1.2f Graphics/color driver for luatex
 )
 (c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 (c:/texlive/2025/texmf-dist/tex/latex/colortbl/colortbl.sty
@@ -304,7 +304,7 @@ Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
 \rownum=\count323
 )
 (c:/texlive/2025/texmf-dist/tex/generic/hologo/hologo.sty
-Package: hologo 2021-11-16 v1.15 A logo collection with bookmark support (HO)
+Package: hologo 2025-11-11 v1.16 A logo collection with bookmark support (HO)
 
 (c:/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
@@ -361,7 +361,6 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
 (c:/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 75.
 )
 (c:/texlive/2025/texmf-dist/tex/latex/tools/trace.sty
 Package: trace 2021/04/18 v1.1f trace LaTeX code
@@ -370,7 +369,7 @@ Package: trace 2021/04/18 v1.1f trace LaTeX code
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
 
 (c:/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count326
 )
 \csq@reset=\count327
@@ -536,18 +535,18 @@ Writing index file intexgral-en.idx
 ) (c:/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty
 (c:/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-08-13 L3 programming layer (loader) 
+Package: expl3 2025-11-14 L3 programming layer (loader) 
 
 (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
-File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
+File: l3backend-luatex.def 2025-10-09 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count349
 Inserting `l3color' in `luaotfload.parse_color'.))
-Package: xparse 2024-08-16 L3 Experimental document command parser
+Package: xparse 2025-10-09 L3 Experimental document command parser
 )
-Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
-Lua module: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 (c:/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
-Package: fontspec-luatex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaT
+Package: fontspec-luatex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaT
 eX
 \l__fontspec_script_int=\count350
 \l__fontspec_language_int=\count351
@@ -565,7 +564,7 @@ eX
 \l__fontspec_tmpc_dim=\dimen195
 
 (c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
 (c:/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 (c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math.sty
@@ -576,7 +575,7 @@ Package: unicode-math-luatex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaL
 aTeX
 
 (c:/texlive/2025/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
 (c:/texlive/2025/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
@@ -912,19 +911,19 @@ atn;language=dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/ChronicleTextG3(1)/m/n on input line
- 104.
+ 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/ChronicleTextG3(1)/m/it on input li
-ne 104.
+ne 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/ChronicleTextG3(1)/b/n on input lin
-e 104.
+e 40.
 
 Package fontspec Info: 
 (fontspec)             Font family 'Whitney(0)' created for font 'Whitney'
 (fontspec)             with options [Ligatures=TeX,Extension =
 (fontspec)             .otf,UprightFont = *-Medium,ItalicFont =
-(fontspec)             *-MediumItalic,BoldFont = *-Bold,BoldItalic =
+(fontspec)             *-MediumItalic,BoldFont = *-Bold,BoldItalicFont =
 (fontspec)             *-BoldItalic,UprightFeatures = { StylisticSet = 1,
 (fontspec)             StylisticSet = 10, StylisticSet = 11, },BoldFeatures =
 (fontspec)             { StylisticSet = 1, StylisticSet = 10, StylisticSet =
@@ -953,13 +952,19 @@ guage=dflt;+tlig;+ss01;+ss10;+ss11;+ss08;+ss09;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
 (fontspec)             <->"[Whitney-MediumItalic.otf]:mode=node;script=latn;lan
 guage=dflt;+tlig;+ss01;+ss10;+ss11;+ss08;+ss09;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[Whitney-BoldItalic.otf]:mode=node;script=latn;langu
+age=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"[Whitney-BoldItalic.otf]:mode=node;script=latn;langu
+age=dflt;+tlig;+smcp;"
 
 
 Package fontspec Info: 
 (fontspec)             Font family 'Whitney(1)' created for font 'Whitney'
 (fontspec)             with options [Renderer=Basic,Extension =
 (fontspec)             .otf,UprightFont = *-Medium,ItalicFont =
-(fontspec)             *-MediumItalic,BoldFont = *-Bold,BoldItalic =
+(fontspec)             *-MediumItalic,BoldFont = *-Bold,BoldItalicFont =
 (fontspec)             *-BoldItalic,UprightFeatures = { StylisticSet = 1,
 (fontspec)             StylisticSet = 10, StylisticSet = 11, },BoldFeatures =
 (fontspec)             { StylisticSet = 1, StylisticSet = 10, StylisticSet =
@@ -988,11 +993,17 @@ guage=dflt;+ss01;+ss10;+ss11;+ss08;+ss09;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
 (fontspec)             <->"[Whitney-MediumItalic.otf]:mode=base;script=latn;lan
 guage=dflt;+ss01;+ss10;+ss11;+ss08;+ss09;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[Whitney-BoldItalic.otf]:mode=base;script=latn;langu
+age=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"[Whitney-BoldItalic.otf]:mode=base;script=latn;langu
+age=dflt;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Whitney(1)/m/n on input line 132.
+(Font)                  OT1/cmss/m/n --> TU/Whitney(1)/m/n on input line 68.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Whitney(1)/b/n on input line 132.
+(Font)                  OT1/cmss/bx/n --> TU/Whitney(1)/b/n on input line 68.
 
 Package fontspec Info: 
 (fontspec)             Font family 'Whitney-Semibold.otf(0)' created for font
@@ -1006,6 +1017,112 @@ Package fontspec Info:
 (fontspec)             <->"[Whitney-Semibold.otf]:mode=node;script=latn;languag
 e=dflt;"
 
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-Medium scale = 0.8.
+
+
+(c:/texlive/2025/texmf-dist/tex/latex/monaspace-otf/MonaspaceArgon-Medium.fonts
+pec)
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-Medium scale = 0.8.
+
+
+(c:/texlive/2025/texmf-dist/tex/latex/monaspace-otf/MonaspaceArgon-SemiBold.fon
+tspec)
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-SemiBold scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-MediumItalic scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-SemiBoldItalic scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'MonaspaceArgon(0)' created for font
+(fontspec)             'MonaspaceArgon' with options
+(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=Word
+Space,Scale
+(fontspec)             = 0.8,Extension = .otf,UprightFont =
+(fontspec)             *-Medium,UprightFeatures = { CharacterVariant =
+(fontspec)             {1:0,31:1}, Ligatures = Common, Contextuals = Alternate
+(fontspec)             },BoldFont = *-SemiBold,ItalicFont =
+(fontspec)             *-MediumItalic,BoldItalicFont = *-SemiBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-Medium.otf]:mode=node;script=
+latn;language=dflt;+cv01=0;+cv31=1;+liga;+calt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-SemiBold.otf]:mode=node;scrip
+t=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-MediumItalic.otf]:mode=node;s
+cript=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-SemiBoldItalic.otf]:mode=node
+;script=latn;language=dflt;"
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-Medium scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-Medium scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-SemiBold scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-MediumItalic scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             MonaspaceArgon-SemiBoldItalic scale = 0.8.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'MonaspaceArgon(1)' created for font
+(fontspec)             'MonaspaceArgon' with options [Renderer=Basic,Scale =
+(fontspec)             0.8,Extension = .otf,UprightFont =
+(fontspec)             *-Medium,UprightFeatures = { CharacterVariant =
+(fontspec)             {1:0,31:1}, Ligatures = Common, Contextuals = Alternate
+(fontspec)             },BoldFont = *-SemiBold,ItalicFont =
+(fontspec)             *-MediumItalic,BoldItalicFont = *-SemiBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-Medium.otf]:mode=base;script=
+latn;language=dflt;+cv01=0;+cv31=1;+liga;+calt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-SemiBold.otf]:mode=base;scrip
+t=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-MediumItalic.otf]:mode=base;s
+cript=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[MonaspaceArgon-SemiBoldItalic.otf]:mode=base
+;script=latn;language=dflt;"
+
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/MonaspaceArgon(1)/m/n on input line
+ 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/MonaspaceArgon(1)/b/n on input line
+ 85.
 
 Package fontspec Info: 
 (fontspec)             Font family 'NewCMMath-Regular.otf(0)' created for font
@@ -1025,104 +1142,108 @@ Package fontspec Info:
 (fontspec)             Font family 'NewCMMath-Regular.otf(1)' created for font
 (fontspec)             'NewCMMath-Regular.otf' with options
 (fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
-sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=NewCMMath-Regul
-ar.otf,Style=MathScript},{Size=-6,Font=NewCMMath-Regular.otf,Style=MathScriptSc
-ript}},RawFeature={mathfontdimen=xetex}].
+sFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=NewCMM
+ath-Regular.otf,Style=MathScript},{Size=-6.57,Font=NewCMMath-Regular.otf,Style=
+MathScriptScript}},RawFeature={mathfontdimen=xetex}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[NewCMMath-Regular.otf]:mode=base;script=math;lan
-guage=dflt;mathfontdimen=xetex;"<6-8.5>"[NewCMMath-Regular.otf]:mode=base;scrip
-t=math;language=dflt;mathfontdimen=xetex;+ssty=0;"<-6>"[NewCMMath-Regular.otf]:
-mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
+(fontspec)             <9.3075->"[NewCMMath-Regular.otf]:mode=base;script=math;
+language=dflt;mathfontdimen=xetex;"<6.57-9.3075>"[NewCMMath-Regular.otf]:mode=b
+ase;script=math;language=dflt;mathfontdimen=xetex;+ssty=0;"<-6.57>"[NewCMMath-R
+egular.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 137.
-
+(Font)              `operators' in the math version `normal' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/NewCMMath-Regular.otf(1)/m/n on inpu
-t line 137.
+t line 88.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 137.
+(Font)              `operators' in the math version `bold' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/NewCMMath-Regular.otf(1)/b/n on inp
-ut line 137.
+ut line 88.
 
 Package fontspec Info: 
 (fontspec)             Font family 'NewCMMath-Regular.otf(2)' created for font
 (fontspec)             'NewCMMath-Regular.otf' with options
 (fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
-sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=NewCMMath-Regul
-ar.otf,Style=MathScript},{Size=-6,Font=NewCMMath-Regular.otf,Style=MathScriptSc
-ript}},RawFeature={mathfontdimen=xetex},RawFeature={mathfontdimen=tex2}].
+sFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=NewCMM
+ath-Regular.otf,Style=MathScript},{Size=-6.57,Font=NewCMMath-Regular.otf,Style=
+MathScriptScript}},RawFeature={mathfontdimen=xetex},RawFeature={mathfontdimen=t
+ex2}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[NewCMMath-Regular.otf]:mode=base;script=math;lan
-guage=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"<6-8.5>"[NewCMMath-Regular.o
-tf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;
-+ssty=0;"<-6>"[NewCMMath-Regular.otf]:mode=base;script=math;language=dflt;mathf
-ontdimen=xetex;mathfontdimen=tex2;+ssty=1;"
+(fontspec)             <9.3075->"[NewCMMath-Regular.otf]:mode=base;script=math;
+language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"<6.57-9.3075>"[NewCMMath-
+Regular.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdi
+men=tex2;+ssty=0;"<-6.57>"[NewCMMath-Regular.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;mathfontdimen=tex2;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 137.
+(Font)              `symbols' in the math version `normal' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> TU/NewCMMath-Regular.otf(2)/m/n on inp
-ut line 137.
+ut line 88.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 137.
+(Font)              `symbols' in the math version `bold' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> TU/NewCMMath-Regular.otf(2)/b/n on inp
-ut line 137.
+ut line 88.
 
 Package fontspec Info: 
 (fontspec)             Font family 'NewCMMath-Regular.otf(3)' created for font
 (fontspec)             'NewCMMath-Regular.otf' with options
 (fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
-sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=NewCMMath-Regul
-ar.otf,Style=MathScript},{Size=-6,Font=NewCMMath-Regular.otf,Style=MathScriptSc
-ript}},RawFeature={mathfontdimen=xetex},RawFeature={mathfontdimen=tex3}].
+sFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=NewCMM
+ath-Regular.otf,Style=MathScript},{Size=-6.57,Font=NewCMMath-Regular.otf,Style=
+MathScriptScript}},RawFeature={mathfontdimen=xetex},RawFeature={mathfontdimen=t
+ex3}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[NewCMMath-Regular.otf]:mode=base;script=math;lan
-guage=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"<6-8.5>"[NewCMMath-Regular.o
-tf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;
-+ssty=0;"<-6>"[NewCMMath-Regular.otf]:mode=base;script=math;language=dflt;mathf
-ontdimen=xetex;mathfontdimen=tex3;+ssty=1;"
+(fontspec)             <9.3075->"[NewCMMath-Regular.otf]:mode=base;script=math;
+language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"<6.57-9.3075>"[NewCMMath-
+Regular.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdi
+men=tex3;+ssty=0;"<-6.57>"[NewCMMath-Regular.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;mathfontdimen=tex3;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 1
-37.
+(Font)              `largesymbols' in the math version `normal' on input line 8
+8.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> TU/NewCMMath-Regular.otf(3)/m/n on inp
-ut line 137.
+ut line 88.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 137
-.
+(Font)              `largesymbols' in the math version `bold' on input line 88.
+
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> TU/NewCMMath-Regular.otf(3)/b/n on inp
-ut line 137.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 137
-.
+ut line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
 
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 137
-.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+
 
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (c:/texlive/texmf-local/tex/latex/package/intexgral/build/local/intexgral.sty
-Package: intexgral 2025-09-13 v2.0.1 A LaTeX package for typesetting integrals.
+(c:/texlive/2025/texmf-dist/tex/latex/pkginfograb/pkginfograb.sty
+Package: pkginfograb 2025/11/16 v1.2 Collecting~ package's~ info~ in~ a~ regula
+r~ way
+)
+Package: intexgral 2025-12-24 v3.0.0 A LaTeX package for typesetting integrals.
 
 
 (c:/texlive/2025/texmf-dist/tex/latex/derivative/derivative.sty
@@ -1136,8 +1257,46 @@ Package: derivative 2024/02/08 v1.4 Nice and easy derivatives and differentials
 \l__deriv_seq_pos_int=\count369
 \l__deriv_sort_max_int=\count370
 )
-\l__intexgral_pkg_integral_sequence_int=\count371
-\g__intexgral_pkg_integral_number_int=\count372
+\l__intexgral_inline_symbol_muskip=\muskip20
+\l__intexgral_integral_sequence_int=\count371
+\g__intexgral_integral_number_int=\count372
+)
+(c:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(c:/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count373
+\Gm@cntv=\count374
+\c@Gm@tempcnt=\count375
+\Gm@bindingoffset=\dimen196
+\Gm@wd@mp=\dimen197
+\Gm@odd@mp=\dimen198
+\Gm@even@mp=\dimen199
+\Gm@layoutwidth=\dimen256
+\Gm@layoutheight=\dimen257
+\Gm@layouthoffset=\dimen258
+\Gm@layoutvoffset=\dimen259
+\Gm@dimlist=\toks32
+)
+(c:/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip67
+\f@nch@offset@elh=\skip68
+\f@nch@offset@erh=\skip69
+\f@nch@offset@olh=\skip70
+\f@nch@offset@orh=\skip71
+\f@nch@offset@elf=\skip72
+\f@nch@offset@erf=\skip73
+\f@nch@offset@olf=\skip74
+\f@nch@offset@orf=\skip75
+\f@nch@height=\skip76
+\f@nch@footalignment=\skip77
+\f@nch@widthL=\skip78
+\f@nch@widthC=\skip79
+\f@nch@widthR=\skip80
 )
 (c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
 Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
@@ -1150,7 +1309,7 @@ Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX
 
 (c:/texlive/2025/texmf-dist/tex/luatex/ctablestack/ctablestack.sty
 Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
-\@catcodetablestackcnt=\count373
+\@catcodetablestackcnt=\count376
 )
 \CatcodeTableOther=\catcodetable14
 \CatcodeTableExpl=\catcodetable15
@@ -1165,18 +1324,18 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on
 (c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
 (c:/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
-\MT@toks=\toks32
+\MT@toks=\toks33
 \MT@tempbox=\box112
-\MT@count=\count374
+\MT@count=\count377
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
-\MT@prot@toks=\toks33
+\MT@prot@toks=\toks34
 LaTeX Info: Redefining \rightprotrusion on input line 1107.
 LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen196
+\MT@outer@kern=\dimen260
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count375
+\MT@listname@count=\count378
 
 (c:/texlive/2025/texmf-dist/tex/latex/microtype/microtype-luatex.def
 File: microtype-luatex.def 2025/07/09 v3.2b Definitions specific to luatex (RS)
@@ -1185,7 +1344,7 @@ Lua module: microtype 2025/07/09 v3.2b microtype module.
 Module microtype Info: overwriting function `keepligature' on input line 63
 LaTeX Info: Redefining \lsstyle on input line 779.
 LaTeX Info: Redefining \lslig on input line 779.
-\MT@outer@space=\skip67
+\MT@outer@space=\skip81
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -1194,42 +1353,17 @@ File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
 )
-(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/polyglossia.sty
-Package: polyglossia 2025/06/30 v2.6 Modern multilingual typesetting with XeLaT
-eX and LuaLaTeX
-Lua module: polyglossia 2013/05/11 v1.3 Polyglossia
-\l_xpg_alias_keyvals_int=\count376
-
-(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf
-File: gloss-latex.ldf polyglossia: module for default language
+(c:/texlive/2025/texmf-dist/tex/latex/abstract/abstract.sty
+Package: abstract 2009/06/08 v1.2a configurable abstracts
+\abstitleskip=\skip82
+\absleftindent=\skip83
+\absrightindent=\skip84
+\absparindent=\skip85
+\absparsep=\skip86
 )
+(c:/texlive/2025/texmf-dist/tex/latex/codedescribe/codedescribe.sty
+Package: codedescribe 2025/12/17 v1.20 LaTeX Code Description/Documentation
 
-Package polyglossia Info: Setting LuaTeX font renderer to Harfbuzz
-
-)
-(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
-File: gloss-english.ldf polyglossia: module for English
-)
-
-Package polyglossia Info: Default language is english
-
-
-(c:/texlive/2025/texmf-dist/tex/lualatex/luacode/luacode.sty
-Package: luacode 2012/01/23 v1.2a lua-in-tex helpers (mpg)
-
-(c:/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
-\luacode@lines=\toks34
-\luacode@table@soft=\catcodetable16
-)
-(c:/texlive/2025/texmf-dist/tex/latex/changelog/changelog.sty
-Package: changelog 2024/12/18 v2.6.0 Typesetting changelogs
-
-(c:/texlive/2025/texmf-dist/tex/latex/translations/translations.sty
-Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
- (CN)
-))
 (c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
@@ -1250,420 +1384,242 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
+(c:/texlive/2025/texmf-dist/tex/latex/xpeekahead/xpeekahead.sty
+Package: xpeekahead 2025/11/01 v1.3a A simple peek ahead set up
+)
+(c:/texlive/2025/texmf-dist/tex/latex/codedescribe/codecmm.sty
+Package: codecmm 2025/12/17 v1.20 codedescribe/list common commands
+\l__codecmm_null_skip=\skip87
+\l__codecmm_tiny_skip=\skip88
+\l__codecmm_small_skip=\skip89
+\l__codecmm_mid_skip=\skip90
+\l__codecmm_large_skip=\skip91
+\l__codecmm_larger_skip=\skip92
+\l__codecmm_largeline_skip=\skip93
+\l__codecmm_neg_skip=\skip94
+\l__codecmm_bigneg_skip=\skip95
+\l__codecmm_min_skip=\skip96
+\l__codecmm_verythin_skip=\skip97
+\l__codecmm_thin_skip=\skip98
+\l__codecmm_midthin_skip=\skip99
+\l__codecmm_verytinyskip_dim=\dimen261
+\l__codecmm_tinyskip_dim=\dimen262
+\l__codecmm_nullskip_dim=\dimen263
+\l__codecmm_smallskip_dim=\dimen264
+\l__codecmm_smallerskip_dim=\dimen265
+\l__codecmm_midskip_dim=\dimen266
+\l__codecmm_largeskip_dim=\dimen267
+\l__codecmm_largerskip_dim=\dimen268
+\l__codecmm_baselineskip_dim=\dimen269
+\l__codecmm_largelineskip_dim=\dimen270
+\l__codecmm_coffinskip_dim=\dimen271
+\l__codecmm_marginminsep_dim=\dimen272
+\l__codecmm_midlineskip_dim=\dimen273
+\l__codecmm_textcolwidth_dim=\dimen274
+)
+\l__codedesc_tmpa_coffin=\box113
+\l__codedesc_tmpb_coffin=\box114
+
+(c:/texlive/2025/texmf-dist/tex/latex/codedescribe/codedescsets.sty
+Package: codedescsets 2025/12/17 v1.20 codedescribe label sets
+)
+(c:/texlive/2025/texmf-dist/tex/latex/codedescribe/codelisting.sty
+Package: codelisting 2025/12/17 v1.20 LaTeX Code Listing
+
+(c:/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count379
+\lst@gtempboxa=\box115
+\lst@token=\toks35
+\lst@length=\count380
+\lst@currlwidth=\dimen275
+\lst@column=\count381
+\lst@pos=\count382
+\lst@lostspace=\dimen276
+\lst@width=\dimen277
+\lst@newlines=\count383
+\lst@lineno=\count384
+\lst@maxwidth=\dimen278
+
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count385
+\lst@skipnumbers=\count386
+\lst@framebox=\box116
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(c:/texlive/2025/texmf-dist/tex/latex/scontents/scontents.sty
+Package: scontents 2025-11-20 v2.6 Stores LaTeX contents in memory or files
+
+(c:/texlive/2025/texmf-dist/tex/generic/scontents/scontents-code.tex
+\l__scontents_tab_width_int=\count387
+\l__scontents_nesting_env_int=\count388
+\l__scontents_nesting_aux_int=\count389
+\l__scontents_foreach_stop_int=\count390
+\l__scontents_save_sf_int=\count391
+\l__scontents_save_skip=\skip100
+\l__scontents_foreach_start_int=\count392
+\l__scontents_foreach_step_int=\count393
+))
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2025/11/14 1.11b listings language file
+)
+\l__codelist_demo_parindent_dim=\dimen279
+\l__codelist_org_parindent_dim=\dimen280
+
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2025/11/14 1.11b listings language file
+)
+(c:/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+\__codelist_code_coffin=\box117
+\__codelist_code_label_coffin=\box118
+\__codelist_demo_coffin=\box119
+\__codelist_demo_label_coffin=\box120
+\__codelist_code_demo_coffin=\box121
+\l__codelist_width_dim=\dimen281
+\l__codelist_offset_dim=\dimen282
+\l__codelist_code_height_dim=\dimen283
+\l__codelist_demo_height_dim=\dimen284
+)
+\l__codedesc_margin_coffin=\box122
+\l__codedesc_text_coffin=\box123
+\l__codedesc_syntax_coffin=\box124
+\l__codedesc_syntax_wd_dim=\dimen285
+\l__codedesc_margin_wd_dim=\dimen286
+\l__codedesc_describe_coffin=\box125
+\l__codedesc_describelabel_wd_dim=\dimen287
+\l__codedesc_describelist_wd_dim=\dimen288
+\__codedesc_paradvance_dim=\dimen289
+\l__codedesc_tmpa_dim=\dimen290
+\l__codedesc_tmpb_dim=\dimen291
+\l__codedesc_tsremark_coffin=\box126
+\g__codedesc_footnote_int=\count394
+)
+(c:/texlive/2025/texmf-dist/tex/lualatex/luacode/luacode.sty
+Package: luacode 2012/01/23 v1.2a lua-in-tex helpers (mpg)
+
+(c:/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+\luacode@lines=\toks36
+\luacode@table@soft=\catcodetable16
+)
+(c:/texlive/2025/texmf-dist/tex/latex/changelog/changelog.sty
+Package: changelog 2024/12/18 v2.6.0 Typesetting changelogs
+
+(c:/texlive/2025/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
+))
+(c:/texlive/2025/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box127
+\UL@hyphenbox=\box128
+\UL@skip=\skip101
+\UL@hook=\toks37
+\UL@height=\dimen292
+\UL@pe=\count395
+\UL@pixel=\dimen293
+\ULC@box=\box129
+Package: ulem 2019/11/18
+\ULdepth=\dimen294
+)
+(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2025/12/01 v2.9 Modern multilingual typesetting with XeLaT
+eX and LuaLaTeX
+Lua module: polyglossia 2013/05/11 v1.3 Polyglossia
+\l_xpg_alias_keyvals_int=\count396
+
+(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf
+File: gloss-latex.ldf polyglossia: module for default language
+)
+
+Package polyglossia Info: Setting LuaTeX font renderer to Harfbuzz
+
+)
+(c:/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
+File: gloss-english.ldf polyglossia: module for English
+)
+
+Package polyglossia Info: Default language is english
+
+
+(c:/texlive/2025/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2025/05/09 v7.0b a miscellany of footnote facilities
+\FN@temptoken=\toks38
+\footnotemargin=\dimen295
+
+(c:/texlive/2025/texmf-dist/tex/latex/bigfoot/perpage.sty
+Package: perpage 2014/10/25 2.0 Reset/sort counters per page
+\c@abspage=\count397
+)
+\c@pp@a@footnote=\count398
+Package footmisc Info: Declaring symbol style bringhurst on input line 549.
+Package footmisc Info: Declaring symbol style chicago on input line 557.
+Package footmisc Info: Declaring symbol style wiley on input line 566.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 577.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 597.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 618
+.
+)
 (c:/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box113
-\beforetitleunit=\skip68
-\aftertitleunit=\skip69
-\ttl@plus=\dimen197
-\ttl@minus=\dimen198
-\ttl@toksa=\toks35
-\titlewidth=\dimen199
-\titlewidthlast=\dimen256
-\titlewidthfirst=\dimen257
+\ttl@box=\box130
+\beforetitleunit=\skip102
+\aftertitleunit=\skip103
+\ttl@plus=\dimen296
+\ttl@minus=\dimen297
+\ttl@toksa=\toks39
+\titlewidth=\dimen298
+\titlewidthlast=\dimen299
+\titlewidthfirst=\dimen300
 )
-(c:/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
-Package: minted 2025/05/14 v3.7.0 Yet another Pygments shim for LaTeX
+(c:/texlive/2025/texmf-dist/tex/latex/idxlayout/idxlayout.sty
+Package: idxlayout 2012/03/30 v0.4d Configurable index layout
+\c@idxcols=\count399
+\indexcolsep=\skip104
+\indexrule=\skip105
+\ila@indentunit=\skip106
+\ila@initsep=\skip107
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 259.
 
-(c:/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
-Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
-
-(c:/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-))
-(c:/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
-Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyv
-rb
-
-(c:/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-)
-(c:/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
-Package: lineno 2025/05/13 line numbers on paragraphs v5.5
-\linenopenalty=\count377
-\output=\toks36
-\linenoprevgraf=\count378
-\linenumbersep=\dimen258
-\linenumberwidth=\dimen259
-\c@linenumber=\count379
-\c@pagewiselinenumber=\count380
-\c@LN@truepage=\count381
-\c@internallinenumber=\count382
-\c@internallinenumbers=\count383
-\quotelinenumbersep=\dimen260
-\bframerule=\dimen261
-\bframesep=\dimen262
-\bframebox=\box114
-\@LN@amsmath@ams@eqpen=\count384
-
-
-LaTeX Warning: Command \@parboxrestore  has changed.
-               Check if current package is valid.
-
-)
-
-Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a wa
-rning from the lineno package on input line 37.
-
-\c@FancyVerbWriteLine=\count385
-\c@FancyVerbBufferLine=\count386
-\c@FV@TrueTabGroupLevel=\count387
-\c@FV@TrueTabCounter=\count388
-\FV@TabBox@Group=\box115
-\FV@bgcolorstructbox=\box116
-\FV@TmpLength=\skip70
-\c@FV@HighlightLinesStart=\count389
-\c@FV@HighlightLinesStop=\count390
-\FV@LoopCount=\count391
-\FV@NCharsBox=\box117
-\FV@BreakIndent=\dimen263
-\FV@BreakIndentNChars=\count392
-\FV@BreakSymbolSepLeft=\dimen264
-\FV@BreakSymbolSepLeftNChars=\count393
-\FV@BreakSymbolSepRight=\dimen265
-\FV@BreakSymbolSepRightNChars=\count394
-\FV@BreakSymbolIndentLeft=\dimen266
-\FV@BreakSymbolIndentLeftNChars=\count395
-\FV@BreakSymbolIndentRight=\dimen267
-\FV@BreakSymbolIndentRightNChars=\count396
-\c@FancyVerbLineBreakLast=\count397
-\FV@LineBox=\box118
-\FV@LineIndentBox=\box119
-\c@FV@BreakBufferDepth=\count398
-\FV@LineWidth=\dimen268
-) (c:/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
-Package: latex2pydata 2025/03/26 v0.6.0 latex2pydata - write data to file in Py
-thon literal format
-)
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks37
-\pgfkeys@temptoks=\toks38
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.co
-de.tex
-\pgfkeys@tmptoks=\toks39
-))) (c:/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
-Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks40
-\pgfopts@list@add@b@toks=\toks41
-)
-(c:/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
-)
-(c:/texlive/2025/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count399
-\float@exts=\toks42
-\float@box=\box120
-\@float@everytoks=\toks43
-\@floatcapt=\box121
-)
-\c@minted@FancyVerbLineTemp=\count400
-\@float@every@listing=\toks44
-\c@listing=\count401
-)
-(c:/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2025/09/09 version 6.8.0 text color boxes
-
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks45
-\pgfutil@tempdima=\dimen269
-\pgfutil@tempdimb=\dimen270
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box122
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
-))
-Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
-
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
-(c:/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
-
-(c:/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(c:/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: luatex.def on input line 106.
-)
-\Gin@req@height=\dimen271
-\Gin@req@width=\dimen272
-)
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@x=\dimen273
-\pgf@y=\dimen274
-\pgf@xa=\dimen275
-\pgf@ya=\dimen276
-\pgf@xb=\dimen277
-\pgf@yb=\dimen278
-\pgf@xc=\dimen279
-\pgf@yc=\dimen280
-\pgf@xd=\dimen281
-\pgf@yd=\dimen282
-\w@pgf@writea=\write6
-\r@pgf@reada=\read4
-\c@pgf@counta=\count402
-\c@pgf@countb=\count403
-\c@pgf@countc=\count404
-\c@pgf@countd=\count405
-\t@pgf@toka=\toks46
-\t@pgf@tokb=\toks47
-\t@pgf@tokc=\toks48
-\pgf@sys@id@count=\count406
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
-)
-Driver file for pgf: pgfsys-luatex.def
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
-File: pgfsys-luatex.def 2025-08-29 v3.1.11a (3.1.11a)
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
-)))
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count407
-\pgfsyssoftpath@bigbuffer@items=\count408
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen283
-\pgfmath@count=\count409
-\pgfmath@box=\box123
-\pgfmath@toks=\toks49
-\pgfmath@stack@operand=\toks50
-\pgfmath@stack@operation=\toks51
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.te
-x)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric
-.code.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.t
-ex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.co
-de.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.te
-x)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithm
-etics.code.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count410
-))
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen284
-\pgf@picmaxx=\dimen285
-\pgf@picminy=\dimen286
-\pgf@picmaxy=\dimen287
-\pgf@pathminx=\dimen288
-\pgf@pathmaxx=\dimen289
-\pgf@pathminy=\dimen290
-\pgf@pathmaxy=\dimen291
-\pgf@xx=\dimen292
-\pgf@xy=\dimen293
-\pgf@yx=\dimen294
-\pgf@yy=\dimen295
-\pgf@zx=\dimen296
-\pgf@zy=\dimen297
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.cod
-e.tex
-File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen298
-\pgf@path@lasty=\dimen299
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.te
-x
-File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen300
-\pgf@shorten@start@additional=\dimen301
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfpic=\box124
-\pgf@hbox=\box125
-\pgf@layerbox@main=\box126
-\pgf@picture@serial@count=\count411
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
-.tex
-File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen302
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.c
-ode.tex
-File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen303
-\pgf@pt@y=\dimen304
-\pgf@pt@temp=\dimen305
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.co
-de.tex
-File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen306
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen307
-\pgf@sys@shading@range@num=\count412
-\pgf@shadingcount=\count413
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfexternal@startupbox=\box127
-) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code
-.tex
-File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.te
-x
-File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box128
-)
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.st
-y
-Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen308
-\pgf@nodesepend=\dimen309
-)
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.st
-y
-Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
-)) (c:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
-(c:/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen310
-\pgffor@skip=\dimen311
-\pgffor@stack=\toks52
-\pgffor@toks=\toks53
-))
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
-de.tex
-File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count414
-\pgfplotmarksize=\dimen312
-)
-\tikz@lastx=\dimen313
-\tikz@lasty=\dimen314
-\tikz@lastxsaved=\dimen315
-\tikz@lastysaved=\dimen316
-\tikz@lastmovetox=\dimen317
-\tikz@lastmovetoy=\dimen318
-\tikzleveldistance=\dimen319
-\tikzsiblingdistance=\dimen320
-\tikz@figbox=\box129
-\tikz@figbox@bg=\box130
-\tikz@tempbox=\box131
-\tikz@tempbox@bg=\box132
-\tikztreelevel=\count415
-\tikznumberofchildren=\count416
-\tikznumberofcurrentchild=\count417
-\tikz@fig@count=\count418
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count419
-\pgfmatrixcurrentcolumn=\count420
-\pgf@matrix@numberofcolumns=\count421
-)
-\tikz@expandcount=\count422
-
-(c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
-brarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)))
-(c:/texlive/2025/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-
-(c:/texlive/2025/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-\tcb@titlebox=\box133
-\tcb@upperbox=\box134
-\tcb@lowerbox=\box135
-\tcb@phantombox=\box136
-\c@tcbbreakpart=\count423
-\c@tcblayer=\count424
-\c@tcolorbox@number=\count425
-\l__tcobox_tmpa_box=\box137
-\l__tcobox_tmpa_dim=\dimen321
-\tcb@temp=\box138
-\tcb@temp=\box139
-\tcb@temp=\box140
-\tcb@temp=\box141
-)
-(c:/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '6.8.0'
-(c:/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
-Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
-
-(c:/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
-Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
-)
-(c:/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
-File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box142
-)) (c:/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.8.0'
-)) (c:/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty
+(c:/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
 LaTeX Info: Redefining \cref on input line 2370.
@@ -1676,81 +1632,121 @@ LaTeX Info: Redefining \cpagerefrange on input line 2370.
 LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `listings' support loaded on input line 3131.
 )
 ==> First Aid for cleveref.sty applied!
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'polyglossia' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'american'.
+(c:/texlive/2025/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip108
+\RaggedLeftLeftskip=\skip109
+\RaggedRightLeftskip=\skip110
+\CenteringRightskip=\skip111
+\RaggedLeftRightskip=\skip112
+\RaggedRightRightskip=\skip113
+\CenteringParfillskip=\skip114
+\RaggedLeftParfillskip=\skip115
+\RaggedRightParfillskip=\skip116
+\JustifyingParfillskip=\skip117
+\CenteringParindent=\skip118
+\RaggedLeftParindent=\skip119
+\RaggedRightParindent=\skip120
+\JustifyingParindent=\skip121
+)
 (./intexgral-en.aux)
 \openout1 = intexgral-en.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
 
 (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count426
-\scratchdimen=\dimen322
-\scratchbox=\box143
-\nofMPsegments=\count427
-\nofMParguments=\count428
-\everyMPshowfont=\toks54
-\MPscratchCnt=\count429
-\MPscratchDim=\dimen323
-\MPnumerator=\count430
-\makeMPintoPDFobject=\count431
-\everyMPtoPDFconversion=\toks55
-) (c:/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
+\scratchcounter=\count400
+\scratchdimen=\dimen301
+\scratchbox=\box131
+\nofMPsegments=\count401
+\nofMParguments=\count402
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count403
+\MPscratchDim=\dimen302
+\MPnumerator=\count404
+\makeMPintoPDFobject=\count405
+\everyMPtoPDFconversion=\toks41
+)
+Package hyperref Info: Link coloring ON on input line 265.
+ (./intexgral-en.out) (./intexgral-en.out)
+\@outlinefile=\write6
 
-(c:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-Package hyperref Info: Link coloring ON on input line 213.
-
-(./intexgral-en.out) (./intexgral-en.out)
-\@outlinefile=\write7
-
-\openout7 = intexgral-en.out
+\openout6 = intexgral-en.out
  (./intexgral-en.hd)
-\HD@savedest@out=\write8
+\HD@savedest@out=\write7
 
-\openout8 = intexgral-en.hd
-Package doc Info: Made " a short reference for \verb on input line 213.
-Package doc Info: Made | a short reference for \verb on input line 213.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 213.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 213.
-LaTeX Info: Redefining \microtypecontext on input line 213.
-Package microtype Info: Applying patch `item' on input line 213.
-Package microtype Info: Applying patch `toc' on input line 213.
-Package microtype Info: Applying patch `eqnum' on input line 213.
-Package microtype Info: Applying patch `footnote' on input line 213.
-Package microtype Info: Applying patch `verbatim' on input line 213.
-LaTeX Info: Redefining \microtypesetup on input line 213.
+\openout7 = intexgral-en.hd
+Package doc Info: Made " a short reference for \verb on input line 265.
+Package doc Info: Made | a short reference for \verb on input line 265.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(125.19212pt, 386.95749pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 702.78308pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=386.95749pt
+* \textheight=702.78308pt
+* \oddsidemargin=52.92213pt
+* \evensidemargin=52.92213pt
+* \topmargin=-23.91173pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=85.35826pt
+* \marginparsep=5.69054pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemargintrue
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \microtypecontext on input line 265.
+Package microtype Info: Applying patch `item' on input line 265.
+Package microtype Info: Applying patch `toc' on input line 265.
+Package microtype Info: Applying patch `eqnum' on input line 265.
+Package microtype Info: Applying patch `footnote' on input line 265.
+Package microtype Info: Applying patch `verbatim' on input line 265.
+LaTeX Info: Redefining \microtypesetup on input line 265.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1765,6 +1761,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ChronicleTextG3' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+\c@lstlisting=\count406
+
+(c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionar
+y-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 265.
+ (./intexgral-en.dtx
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `Whitney' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1780,169 +1786,683 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/n' will be
+(Font)              scaled to size 7.20003pt on input line 289.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: TU).
+(microtype)             `MonaspaceArgon' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./intexgral-en.toc
+LaTeX Font Info:    Font shape `TU/Whitney(0)/m/sl' in size <10> not available
+(Font)              Font shape `TU/Whitney(0)/m/it' tried instead on input line
+ 291.
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/n' will be
+(Font)              scaled to size 8.00003pt on input line 291.
+ [1
 
-[1
+{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./intexgral-en
+.toc)
+\tf@toc=\write8
 
-{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
-\tf@toc=\write9
-
-\openout9 = intexgral-en.toc
+\openout8 = intexgral-en.toc
+ [2]
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/n' will be
+(Font)              scaled to size 8.76003pt on input line 316.
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/it' will be
+(Font)              scaled to size 8.76003pt on input line 1.
 
 (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-TU-empty.cfg
 File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonsta
 ndard glyph set (RS)
-)
-
-[2]
-\pydata@fh@0=\write10
-
-\openout10 = _FC147AC51A7F7C9848A4167F7FB3154E.data.minted
-runsystem(latexminted config  --timestamp 20250913192153 FC147AC51A7F7C9848A4167
-F7FB3154E)...executed.
- (./_FC147AC51A7F7C9848A4167F7FB3154E.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250913192153 FC147AC51A7F7C9848
-A4167F7FB3154E)...executed.
-
-(./_minted/tango.style.minted)
-(./_minted/CDB84FDE0A49521D0A2C0A2F2710785F.highlight.minted
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2.
-)
+) [3]
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/n' will be
+(Font)              scaled to size 6.40002pt on input line 333.
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral{x}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral{x}
+%   \end{equation}
+% .
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/b/n' will be
+(Font)              scaled to size 7.20003pt on input line 1.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `Whitney-Semibold.otf' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+ [4]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={1, 10}]{f(x)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={1, 10}]{f(x)}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4}, variables={x, y}]{f(x, y)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4}, variables={x, y}]{f(x, y)}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits*={1, 10}]{f(x)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits*={1, 10}]{f(x)}
+%   \end{equation}
+% .
+LaTeX Font Info:    Font shape `TU/ChronicleTextG3(0)/m/sl' in size <10> not av
+ailable
+(Font)              Font shape `TU/ChronicleTextG3(0)/m/it' tried instead on in
+put line 445.
+LaTeX Font Info:    Font shape `TU/ChronicleTextG3(0)/b/sl' in size <10> not av
+ailable
+(Font)              Font shape `TU/ChronicleTextG3(0)/b/it' tried instead on in
+put line 445.
 
-
-[3] (./_minted/C62D1EB35859FB98F9892CE47E13A82B.highlight.minted)
-(./_minted/40BB30E6232E51D1C622E9E2788ABF30.highlight.minted)
-(./_minted/C6E26806FFD2D5F7B4C0D4994D13C7D7.highlight.minted)
-
-[4] (./_minted/EB115975FD2198D5672E8C53BD64B6A9.highlight.minted)
-(./_minted/A9E890059A4794A5821B9538DBA10A4B.highlight.minted)
-
-[5] (./_minted/0F79ACEA637FA610DCD55A3D28F2276A.highlight.minted)
-(./_minted/E5D1665768871F658055781880D8E0E8.highlight.minted)
-(./_minted/569B275E17E9035FA3790E45149C11ED.highlight.minted)
-
-[6] (./_minted/F43AF23E9DA5AF424152DC7F6073BD92.highlight.minted)
-
-[7] (./_minted/78202541CFFDC921A8F6D112F7B1F631.highlight.minted)
-(./_minted/5591CF082308382E979E9455C1A607B0.highlight.minted)
-(./_minted/F8E0E4D638147A82958569B2EED21BBB.highlight.minted)
-
-[8]
-Overfull \hbox (21.1864pt too wide) in paragraph at lines 644--649
-\TU/ChronicleTextG3(0)/m/n/10 This key en-ables/dis-ables the dis-play of the Ja
--co-bian when de-fined by []\TU/lmtt/m/n/10 \NewDifferentialKeyword[]
- []
-
-(./_minted/1245035A1978794A5628D31886DA0D7C.highlight.minted)
-(./_minted/B529C096715D9508B44173FB5DA3AC7B.highlight.minted)
-
-[9] (./_minted/4981BA52239241768D397750AB36D917.highlight.minted)
-(./_minted/5B0EBCFE20A0AE48203FD8717DF9B0A4.highlight.minted)
-(./_minted/0E4024EC5F0AF5CE5BEF49C3A654B48D.highlight.minted)
-
-[10]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 794.
- (./_minted/F6995211C4EB2AC4184F3670D8C0CB50.highlight.minted)
-
-[11] (./_minted/2658D20CD7116323AF5D840E768FDBF3.highlight.minted)
-
-[12
-warning  (pdf backend): ignoring duplicate destination with the name 'table.1'
-] (./_minted/3DDA00F4337B85C859C596198F10F1A2.highlight.minted)
-
-[13
-warning  (pdf backend): ignoring duplicate destination with the name 'table.2'
-] (./intexgral-en.ind
+[5]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z},
+mode=default]{xyz}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z},
+mode=default]{xyz}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4; 5, 6}, variables={z, y, x},
+mode=nested]{x;y;z}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4; 5, 6}, variables={z, y, x},
+mode=nested]{x;y;z}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z},
+mode=product]{x;y;z}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z},
+mode=product]{x;y;z}
+%   \end{equation}
+% .
+ [6]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[symbol=\iint, llimit=S, variables={x, y}]{f(x, y)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[symbol=\iint, llimit=S, variables={x, y}]{f(x, y)}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[nint=5, llimit=\Omega, variables={x_1, x_2, x_3, x_4,
+x_5}]{f(x_1, x_2, x_3, x_4, x_5)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[nint=5, llimit=\Omega, variables={x_1, x_2, x_3, x_4,
+x_5}]{f(x_1, x_2, x_3, x_4, x_5)}
+%   \end{equation}
+% .
+ [7]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[llimit={x^2 + y^2 \leq 1}, variables={x, y}]{f(x, y)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[llimit={x^2 + y^2 \leq 1}, variables={x, y}]{f(x, y)}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[symbol=\iint, domain={r*r}, variables={x, y}]{xy}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[symbol=\iint, domain={r*r}, variables={x, y}]{xy}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[symbol=\oint, boundary=S, diff-vec]{G(\vec r)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[symbol=\oint, boundary=S, diff-vec]{G(\vec r)}
+%   \end{equation}
+% .
+ [8]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[variables=t]{t^2}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[variables=t]{t^2}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical,
+mode=product, jacobian]{;;}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical,
+mode=product, jacobian]{;;}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%  
+\NewDifferential{\feynmandiff}{\mathcal{D}}
+%   \begin{equation}
+%     \integral[variables={q(t)}, diff-symb=\feynmandiff]{e^{+\dfrac{\imath
+S[q(t)]}{\hbar}}}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%  
+\NewDifferential{\feynmandiff}{\mathcal{D}}
+%   \begin{equation}
+%     \integral[variables={q(t)}, diff-symb=\feynmandiff]{e^{+\dfrac{\imath
+S[q(t)]}{\hbar}}}
+%   \end{equation}
+% .
+ [9]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[double=S, variables=S, diff-vec]{\vec F}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[double=S, variables=S, diff-vec]{\vec F}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[double, variables={x, y}, diff-star]{x^2 \exp(y)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[double, variables={x, y}, diff-star]{x^2 \exp(y)}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%    
+\integral[diff-options={order=4}]{\bar\psi(x)(\imath\gamma^\mu\partial_\mu-m)\p
+si(x)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%    
+\integral[diff-options={order=4}]{\bar\psi(x)(\imath\gamma^\mu\partial_\mu-m)\p
+si(x)}
+%   \end{equation}
+% .
+ [10]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral{\frac{\differentials}{x}}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral{\frac{\differentials}{x}}
+%   \end{equation}
+% .
+ [11]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={radius;circle;scircle}, variables={\rho, z,
+\phi}]{\rho z \phi}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={radius;circle;scircle}, variables={\rho, z,
+\phi}]{\rho z \phi}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[limits={time; 34, 40; height}, variables={h, \omega, t}]{h
+\omega t}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[limits={time; 34, 40; height}, variables={h, \omega, t}]{h
+\omega t}
+%   \end{equation}
+% .
+ [12]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[triple=V, variables=spherical]{f(x, y, z)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[triple=V, variables=spherical]{f(x, y, z)}
+%   \end{equation}
+% .
+ [13]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[contour=\mathcal{C}, diff-vec]{f(\vec r)}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[contour=\mathcal{C}, diff-vec]{f(\vec r)}
+%   \end{equation}
+% .
+ [14]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[1, 2; 4, 5:y, x:nested]{x; y}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[1, 2; 4, 5:y, x:nested]{x; y}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[radius;circle;scircle:spherical:product]{r;\theta;\phi}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[radius;circle;scircle:spherical:product]{r;\theta;\phi}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[radius;circle;scircle:spherical+j:p]{;;}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[radius;circle;scircle:spherical+j:p]{;;}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[1, 2; 3, 4:x, y]{xy}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[1, 2; 3, 4:x, y]{xy}
+%   \end{equation}
+% .
+ [15]
+> \l__scontents_processed_body_lines_tl=%   \begin{equation}
+%     \integral[1, 10]{x}
+%   \end{equation}
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \begin{equation}
+%     \integral[1, 10]{x}
+%   \end{equation}
+% .
+> \l__scontents_processed_body_lines_tl=%   \IntegralSetup
+%     {
+%       defaultvar  = {x},
+%       defaultvar* = {r},
+%       vectorstyle = \vec,
+%       domainstyle = \mathbb,
+%       symbolskip  = {-6mu},
+%       hide-diff   = false
+%     }
+% %^^Ascheol%.
+> \l__scontents_typestored_arg_tl=%   \IntegralSetup
+%     {
+%       defaultvar  = {x},
+%       defaultvar* = {r},
+%       vectorstyle = \vec,
+%       domainstyle = \mathbb,
+%       symbolskip  = {-6mu},
+%       hide-diff   = false
+%     }
+% .
+ [16] [17] [18] [19]
+(./intexgral-en.ind
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+ [20]
+Underfull \hbox (badness 10000) in paragraph at lines 357--360
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]check_-[]sequence_-
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 366--371
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]deactivate_-
+ []
 
 
+Overfull \hbox (31.82933pt too wide) in paragraph at lines 371--377
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]default_-[]differenti
+al_-
+ []
 
 
-[14]
+Underfull \hbox (badness 10000) in paragraph at lines 377--382
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]default_-[]vector_-
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 382--392
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \g_-_-[]intexgral_-[]differential_-
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 392--399
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
 
-)
-Package doc Info: Deleted " as a short reference for \verb(*) on input line 967
+
+Underfull \hbox (badness 10000) in paragraph at lines 399--408
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--412
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--416
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--431
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--439
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--444
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]differential_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--454
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]display_-[]mode_-
+ []
+
+
+Overfull \hbox (26.39812pt too wide) in paragraph at lines 477--480
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]extract_-[]differentia
+l_-
+ []
+
+
+Overfull \hbox (26.39812pt too wide) in paragraph at lines 480--483
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]extract_-[]differentia
+l_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--486
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]extract_-[]first_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--506
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]independent_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--510
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]inline_-[]symbol_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--514
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \g_-_-[]intexgral_-[]integral_-
+ []
+
+
+Overfull \hbox (52.18178pt too wide) in paragraph at lines 514--517
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]integral_-[]preconfigu
+ration:  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--521
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]integral_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--534
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]integral_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--543
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]integral_-
+ []
+
+[21]
+Overfull \hbox (31.82933pt too wide) in paragraph at lines 562--571
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]invert_-[]differentia
+ls_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--581
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]invert_-[]l󰃎󰂾
+󰃮ts_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--616
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \g_-_-[]intexgral_-[]l󰃎󰂾󰃮ts_-[]ke
+yword_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 642--650
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]lower_-[]l󰃎󰂾
+󰃮ts_-
+ []
+
+
+Overfull \hbox (31.82933pt too wide) in paragraph at lines 650--664
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]manual_-[]differentia
+ls_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--687
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]new_-[]l󰃎󰂾󰃮ts
+_-
+ []
+
+
+Overfull \hbox (19.5945pt too wide) in paragraph at lines 687--690
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]parse_-[]differentials
+:  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--694
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]parse_-[]integral_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--698
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]parse_-[]integral_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 702--705
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]parse_-[]macro_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--715
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]print_-[]default_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 718--721
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]print_-[]nested_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 721--724
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]print_-[]product_-
+ []
+
+
+Overfull \hbox (20.9669pt too wide) in paragraph at lines 724--727
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]remove_-[]differential
+_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--730
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]retrieve_-[]key_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--734
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \c_-_-[]intexgral_-[]right_-[]bracket_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 734--742
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]separate_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 745--748
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]set_-[]l󰃎󰂾󰃮ts
+_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 748--751
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]set_-[]l󰃎󰂾󰃮ts
+_-
+ []
+
+
+Overfull \hbox (31.82933pt too wide) in paragraph at lines 751--756
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]starred_-[]differenti
+al_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 762--769
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]upper_-[]l󰃎󰂾
+󰃮ts_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 769--775
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]variable_-[]i_-
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 775--779
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]variable_-[]ii_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--788
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]vectorial_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 788--793
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \l_-_-[]intexgral_-[]vectorial_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 793--802
+[]| []\TU/MonaspaceArgon(0)/m/n/10.95 \_-_-[]intexgral_-[]warning_-[]msg_-
+ []
+
+[23] [24]) [25]
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/n' will be
+(Font)              scaled to size 5.60002pt on input line 2314.
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/n' will be
+(Font)              scaled to size 4.00002pt on input line 2314.
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/sl' in size <10> not ava
+ilable
+(Font)              Font shape `TU/MonaspaceArgon(0)/m/it' tried instead on inp
+ut line 2314.
+LaTeX Font Info:    Font shape `TU/MonaspaceArgon(0)/m/it' will be
+(Font)              scaled to size 8.00003pt on input line 2314.
+LaTeX Font Info:    Font shape `TU/Whitney(0)/m/sl' in size <6> not available
+(Font)              Font shape `TU/Whitney(0)/m/it' tried instead on input line
+ 2314.
+ [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
+[38] [39] [40] [41] [42] [43] [44] [45] [46] [47])
+Package doc Info: Deleted " as a short reference for \verb(*) on input line 267
 .
-Package doc Info: Deleted | as a short reference for \verb(*) on input line 967
+Package doc Info: Deleted | as a short reference for \verb(*) on input line 267
 .
-
-----
-
-\g__codedoc_func_iow=\write11
-
-\openout11 = intexgral-en.cmds
-----
-
-
-[15]
 
 Package l3doc Info: Generate the index by executing
 (l3doc)                 makeindex -s gind.ist -o intexgral-en.ind
 (l3doc)                 intexgral-en.idx
 
- (./intexgral-en.aux)
+ [48] (./intexgral-en.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-14>
  ***********
 Package rerunfilecheck Info: File `intexgral-en.out' has not changed.
-(rerunfilecheck)             Checksum: 82B762B2D797777F154ED5F329080317;6773.
+(rerunfilecheck)             Checksum: 4395561584FEF95317D513BA92E39A08;6225.
 Package rerunfilecheck Info: File `intexgral-en.hd' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: B502DE35C81EF53F975033BE439CAEE6;5546.
 )
 
 Here is how much of LuaTeX's memory you used:
- 49435 strings out of 470117
- 100000,2373549 words of node,token memory allocated
- 846 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 9 glue, 4 kern, 1 penalty, 3 glyph, 57
- attribute, 65 glue_spec, 57 attribute_list, 2 write nodes
-   avail lists: 1:1,2:1926,3:1523,4:688,5:733,6:328,7:6496,8:43,9:1793,10:12,11:
-478
- 76633 multiletter control sequences out of 65536+600000
- 136 fonts using 46166231 bytes
- 116i,14n,114p,1015b,1208s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro.
-otf><c:/texlive/texmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-R
-egular.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Semibol
-d.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf><
-c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf><c:/texl
-ive/2025/texmf-dist/fonts/opentype/public/fontawesome5/FontAwesome5Brands-Regula
-r-400.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-MediumIt
-alic.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-I
-talic-Pro.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono10-regu
-lar.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Bold.otf><
-c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf><c:/texl
-ive/2025/texmf-dist/fonts/opentype/public/lm/lmmonoslant10-regular.otf><c:/Users
-/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Bold-Pro.otf><c:/te
-xlive/texmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-Regular.otf
-><c:/texlive/texmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-Regu
-lar.otf><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Medium.otf
-><c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro
-.otf>
-Output written on intexgral-en.pdf (15 pages, 136872 bytes).
+ 40272 strings out of 476081
+ 244342,1977958 words of node,token memory allocated
+ 6128 words of node memory still in use:
+   38 hlist, 6 vlist, 15 rule, 1 ins, 23 disc, 5 local_par, 12 math, 130 glue, 3
+4 kern, 15 penalty, 2 margin_kern, 393 glyph, 157 attribute, 105 glue_spec, 157 
+attribute_list, 2 write, 1 pdf_start_link, 1 pdf_end_link, 1 pdf_dest, 1 pdf_act
+ion, 22 pdf_colorstack nodes
+   avail lists: 1:14,2:3907,3:2136,4:4806,5:3542,6:436,7:10532,8:49,9:10763,10:4
+7,11:671,12:3
+ 60537 multiletter control sequences out of 65536+600000
+ 186 fonts using 68151111 bytes
+ 89i,12n,110p,1332b,2431s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-PDF statistics: 597 PDF objects out of 1000 (max. 8388607)
- 523 compressed objects within 6 object streams
- 151 named destinations out of 1000 (max. 131072)
- 384 words of extra memory for PDF output out of 10000 (max. 100000000)
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.8'
+
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.6'
+
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.5'
+
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
+
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
+
+warning  (pdf backend): unreferenced destination with name 'lstnumber.-29.123'
+<c:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Medium.otf><c:/tex
+live/texmf-local/fonts/opentype/sans-serif/Whitney/Whitney-BoldItalic.otf><c:/Us
+ers/valen/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro.otf><c
+:/Users/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Semibold.otf><c:/tex
+live/2025/texmf-dist/fonts/opentype/public/monaspace-otf/MonaspaceArgon-SemiBold
+.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/fontawesome5/FontAwesome5
+Brands-Regular-400.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/monaspa
+ce-otf/MonaspaceArgon-MediumItalic.otf><c:/Users/valen/AppData/Local/Microsoft/W
+indows/Fonts/ChronicleTextG3-BoldIta-Pro.otf><c:/Users/valen/AppData/Local/Micro
+soft/Windows/Fonts/ChronicleTextG3-Italic-Pro.otf><c:/Users/valen/AppData/Local/
+Microsoft/Windows/Fonts/Whitney-Bold.otf><c:/texlive/texmf-local/fonts/opentype/
+serif/New Computer Modern/NewCMMath-Regular.otf><c:/texlive/2025/texmf-dist/font
+s/opentype/public/monaspace-otf/MonaspaceArgon-Medium.otf><c:/Users/valen/AppDat
+a/Local/Microsoft/Windows/Fonts/Whitney-MediumItalic.otf><c:/Users/valen/AppData
+/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Bold-Pro.otf><c:/texlive/texmf-lo
+cal/fonts/opentype/serif/New Computer Modern/NewCMMath-Regular.otf><c:/texlive/t
+exmf-local/fonts/opentype/serif/New Computer Modern/NewCMMath-Regular.otf><c:/Us
+ers/valen/AppData/Local/Microsoft/Windows/Fonts/Whitney-Medium.otf><c:/Users/val
+en/AppData/Local/Microsoft/Windows/Fonts/ChronicleTextG3-Roman-Pro.otf><c:/texli
+ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on intexgral-en.pdf (48 pages, 292320 bytes).
+
+PDF statistics: 3148 PDF objects out of 3580 (max. 8388607)
+ 3012 compressed objects within 31 object streams
+ 1538 named destinations out of 1728 (max. 131072)
+ 257 words of extra memory for PDF output out of 10000 (max. 100000000)
 

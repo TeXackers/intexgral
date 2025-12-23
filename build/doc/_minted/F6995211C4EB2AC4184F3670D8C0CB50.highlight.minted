@@ -1,6 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    limits=\PYG{n+nb}{\PYGZob{}}radius; height; circle\PYG{n+nb}{\PYGZcb{}},
-    variable=\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}rho}, z, \PYG{k}{\PYGZbs{}phi}\PYG{n+nb}{\PYGZcb{}}
-    ]\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}rho} z \PYG{k}{\PYGZbs{}phi}\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}

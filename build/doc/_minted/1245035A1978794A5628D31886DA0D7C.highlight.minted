@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  V\PYG{n+nb}{\PYGZus{}}\PYG{k}{\PYGZbs{}textrm}\PYG{n+nb}{\PYGZob{}}sphère\PYG{n+nb}{\PYGZcb{}} =
-  \PYG{k}{\PYGZbs{}integral}[
-    int\PYGZhy{}split=true,
-    limits=\PYG{n+nb}{\PYGZob{}}0, R; 0, 2\PYG{k}{\PYGZbs{}pi}; 0, \PYG{k}{\PYGZbs{}pi}\PYG{n+nb}{\PYGZcb{}},
-    variable=spherical,
-    jacobian=true
-    ]\PYG{n+nb}{\PYGZob{}};;\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}

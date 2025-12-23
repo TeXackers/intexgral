@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    double,
-    variable=\PYG{n+nb}{\PYGZob{}}x, y\PYG{n+nb}{\PYGZcb{}},
-    diff\PYGZhy{}star=true,
-    ]\PYG{n+nb}{\PYGZob{}}x\PYG{n+nb}{\PYGZca{}}2 \PYG{k}{\PYGZbs{}exp}(y)\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}

@@ -1,178 +1,1423 @@
 
  \begin{theindex} 
  \makeatletter\scan@allowedfalse
+{\bfseries\hfil Symbols\hfil}\nopagebreak
+
+  \item \verb*&\!&\pfill \hdclindex{742}{code}{MMMMV-742}, 
+		\hdclindex{782}{code}{MMMMV-782}, 
+		\hdclindex{830}{code}{MMMMV-830}
+  \item {\verbatim@font \verb*&\:&}\pfill 
+		\hdclindex{743}{}{MMMMV-743-MMMD-743-M}
+  \item \verb*&\{&\iffalse }\fi \pfill \hdclindex{419}{code}{MMMMV-419}, 
+		\hdclindex{434}{code}{MMMMV-434}, 
+		\hdclindex{459}{code}{MMMMV-459}, 
+		\hdclindex{461}{code}{MMMMV-461}
+  \item \iffalse {\fi \verb*&\}&\pfill \hdclindex{419}{code}{MMMMV-419}, 
+		\hdclindex{434}{code}{MMMMV-434}, 
+		\hdclindex{459}{code}{MMMMV-459}, 
+		\hdclindex{461}{code}{MMMMV-461}
+  \item \verb*&\ &\pfill \hdclindex{97}{code}{MMMMV-97}, 
+		\hdclindex{101}{code}{MMMMV-101}, 
+		\hdclindex{105}{code}{MMMMV-105}, 
+		\hdclindex{109}{code}{MMMMV-109}, 
+		\hdclindex{113}{code}{MMMMV-113}, 
+		\hdclindex{117}{code}{MMMMV-117}, 
+		\hdclindex{122}{code}{MMMMV-122}, 
+		\hdclindex{150}{code}{MMMMV-150}, 
+		\hdclindex{152}{code}{MMMMV-152}
+
+  \indexspace
 {\bfseries\hfil B\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&boundary&}\pfill 
-		\hdpindex{usage}{MMMMI-8}
+  \item \pkg{bool} commands:\efill 
+ \subitem {\verbatim@font \verb*&\bool&\_\verb*&if:NTF&}\pfill 
+		\hdclindex{294}{}{MMMMV-294-MMMD-294-M}, 
+		\hdclindex{352}{}{MMMMV-352-MMMD-352-M}, 
+		\hdclindex{369}{}{MMMMV-369-MMMD-369-M}, 
+		\hdclindex{409}{}{MMMMV-409-MMMD-409-M}, 
+		\hdclindex{485}{}{MMMMV-485-MMMD-485-M}, 
+		\hdclindex{493}{}{MMMMV-493-MMMD-493-M}, 
+		\hdclindex{549}{}{MMMMV-549-MMMD-549-M}, 
+		\hdclindex{556}{}{MMMMV-556-MMMD-556-M}, 
+		\hdclindex{572}{}{MMMMV-572-MMMD-572-M}, 
+		\hdclindex{692}{}{MMMMV-692-MMMD-692-M}, 
+		\hdclindex{713}{}{MMMMV-713-MMMD-713-M}, 
+		\hdclindex{720}{}{MMMMV-720-MMMD-720-M}, 
+		\hdclindex{728}{}{MMMMV-728-MMMD-728-M}, 
+		\hdclindex{743}{}{MMMMV-743-MMMD-743-M}, 
+		\hdclindex{746}{}{MMMMV-746-MMMD-746-M}, 
+		\hdclindex{755}{}{MMMMV-755-MMMD-755-M}, 
+		\hdclindex{764}{}{MMMMV-764-MMMD-764-M}, 
+		\hdclindex{769}{}{MMMMV-769-MMMD-769-M}, 
+		\hdclindex{774}{}{MMMMV-774-MMMD-774-M}, 
+		\hdclindex{776}{}{MMMMV-776-MMMD-776-M}, 
+		\hdclindex{786}{}{MMMMV-786-MMMD-786-M}, 
+		\hdclindex{790}{}{MMMMV-790-MMMD-790-M}, 
+		\hdclindex{793}{}{MMMMV-793-MMMD-793-M}, 
+		\hdclindex{797}{}{MMMMV-797-MMMD-797-M}, 
+		\hdclindex{808}{}{MMMMV-808-MMMD-808-M}, 
+		\hdclindex{816}{}{MMMMV-816-MMMD-816-M}, 
+		\hdclindex{833}{}{MMMMV-833-MMMD-833-M}, 
+		\hdclindex{1020}{}{MMMMV-1020-MMMD-1020-M}, 
+		\hdclindex{1072}{}{MMMMV-1072-MMMD-1072-M}, 
+		\hdclindex{1086}{}{MMMMV-1086-MMMD-1086-M}, 
+		\hdclindex{1101}{}{MMMMV-1101-MMMD-1101-M}, 
+		\hdclindex{1115}{}{MMMMV-1115-MMMD-1115-M}
+    \subitem {\verbatim@font \verb*&\bool&\_\verb*&if:nTF&}\pfill 
+		\hdclindex{645}{}{MMMMV-645-MMMD-645-M}, 
+		\hdclindex{735}{}{MMMMV-735-MMMD-735-M}, 
+		\hdclindex{748}{}{MMMMV-748-MMMD-748-M}, 
+		\hdclindex{821}{}{MMMMV-821-MMMD-821-M}, 
+		\hdclindex{835}{}{MMMMV-835-MMMD-835-M}
+    \subitem {\verbatim@font \verb*&\bool&\_\verb*&new:N&}\pfill 
+		\hdclindex{39}{}{MMMMV-39-MMMD-39-M}, 
+		\hdclindex{40}{}{MMMMV-40-MMMD-40-M}, 
+		\hdclindex{41}{}{MMMMV-41-MMMD-41-M}, 
+		\hdclindex{201}{}{MMMMV-201-MMMD-201-M}, 
+		\hdclindex{202}{}{MMMMV-202-MMMD-202-M}, 
+		\hdclindex{203}{}{MMMMV-203-MMMD-203-M}, 
+		\hdclindex{204}{}{MMMMV-204-MMMD-204-M}, 
+		\hdclindex{205}{}{MMMMV-205-MMMD-205-M}, 
+		\hdclindex{206}{}{MMMMV-206-MMMD-206-M}, 
+		\hdclindex{207}{}{MMMMV-207-MMMD-207-M}, 
+		\hdclindex{208}{}{MMMMV-208-MMMD-208-M}
+    \subitem {\verbatim@font \verb*&\bool&\_\verb*&set&\_\verb*&false:N&}\pfill 
+		\hdclindex{210}{}{MMMMV-210-MMMD-210-M}, 
+		\hdclindex{211}{}{MMMMV-211-MMMD-211-M}, 
+		\hdclindex{212}{}{MMMMV-212-MMMD-212-M}, 
+		\hdclindex{213}{}{MMMMV-213-MMMD-213-M}, 
+		\hdclindex{214}{}{MMMMV-214-MMMD-214-M}, 
+		\hdclindex{215}{}{MMMMV-215-MMMD-215-M}, 
+		\hdclindex{718}{}{MMMMV-718-MMMD-718-M}, 
+		\hdclindex{869}{}{MMMMV-869-MMMD-869-M}
+    \subitem {\verbatim@font \verb*&\bool&\_\verb*&set&\_\verb*&true:N&}\pfill 
+		\hdclindex{421}{}{MMMMV-421-MMMD-421-M}, 
+		\hdclindex{437}{}{MMMMV-437-MMMD-437-M}, 
+		\hdclindex{442}{}{MMMMV-442-MMMD-442-M}, 
+		\hdclindex{717}{}{MMMMV-717-MMMD-717-M}, 
+		\hdclindex{874}{}{MMMMV-874-MMMD-874-M}, 
+		\hdclindex{879}{}{MMMMV-879-MMMD-879-M}, 
+		\hdclindex{990}{}{MMMMV-990-MMMD-990-M}, 
+		\hdclindex{992}{}{MMMMV-992-MMMD-992-M}, 
+		\hdclindex{1011}{}{MMMMV-1011-MMMD-1011-M}, 
+		\hdclindex{1013}{}{MMMMV-1013-MMMD-1013-M}, 
+		\hdclindex{1015}{}{MMMMV-1015-MMMD-1015-M}
 
   \indexspace
 {\bfseries\hfil C\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&\cdot&}\pfill \hdpindex{usage}{MMMMI-10}
-  \item {\verbatim@font \verb*&contour&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\c&}\pfill 
+		\hdclindex{716}{}{MMMMV-716-MMMD-716-M}
+  \item {\verbatim@font \verb*&\cdot&}\pfill 
+		\hdclindex{743}{}{MMMMV-743-MMMD-743-M}, 
+		\hdclindex{755}{}{MMMMV-755-MMMD-755-M}
+  \item \pkg{clist} commands:\efill 
+ \subitem {\verbatim@font \verb*&\clist&\_\verb*&item:Nn&}\pfill 
+		\hdclindex{338}{}{MMMMV-338-MMMD-338-M}, 
+		\hdclindex{340}{}{MMMMV-340-MMMD-340-M}, 
+		\hdclindex{356}{}{MMMMV-356-MMMD-356-M}, 
+		\hdclindex{358}{}{MMMMV-358-MMMD-358-M}, 
+		\hdclindex{364}{}{MMMMV-364-MMMD-364-M}, 
+		\hdclindex{366}{}{MMMMV-366-MMMD-366-M}, 
+		\hdclindex{373}{}{MMMMV-373-MMMD-373-M}, 
+		\hdclindex{379}{}{MMMMV-379-MMMD-379-M}, 
+		\hdclindex{597}{}{MMMMV-597-MMMD-597-M}
+    \subitem {\verbatim@font \verb*&\clist&\_\verb*&map&\_\verb*&inline:Nn&}\pfill 
+		\hdclindex{551}{}{MMMMV-551-MMMD-551-M}
+    \subitem {\verbatim@font \verb*&\clist&\_\verb*&new:N&}\pfill 
+		\hdclindex{217}{}{MMMMV-217-MMMD-217-M}, 
+		\hdclindex{218}{}{MMMMV-218-MMMD-218-M}
+    \subitem {\verbatim@font \verb*&\clist&\_\verb*&put&\_\verb*&right:Nn&}\pfill 
+		\hdclindex{553}{}{MMMMV-553-MMMD-553-M}
+    \subitem {\verbatim@font \verb*&\clist&\_\verb*&reverse:N&}\pfill 
+		\hdclindex{1075}{}{MMMMV-1075-MMMD-1075-M}, 
+		\hdclindex{1089}{}{MMMMV-1089-MMMD-1089-M}, 
+		\hdclindex{1104}{}{MMMMV-1104-MMMD-1104-M}, 
+		\hdclindex{1118}{}{MMMMV-1118-MMMD-1118-M}
+    \subitem {\verbatim@font \verb*&\clist&\_\verb*&set:Nn&}\pfill 
+		\hdclindex{335}{}{MMMMV-335-MMMD-335-M}, 
+		\hdclindex{350}{}{MMMMV-350-MMMD-350-M}, 
+		\hdclindex{398}{}{MMMMV-398-MMMD-398-M}, 
+		\hdclindex{422}{}{MMMMV-422-MMMD-422-M}, 
+		\hdclindex{445}{}{MMMMV-445-MMMD-445-M}, 
+		\hdclindex{471}{}{MMMMV-471-MMMD-471-M}, 
+		\hdclindex{596}{}{MMMMV-596-MMMD-596-M}, 
+		\hdclindex{997}{}{MMMMV-997-MMMD-997-M}, 
+		\hdclindex{1006}{}{MMMMV-1006-MMMD-1006-M}, 
+		\hdclindex{1074}{}{MMMMV-1074-MMMD-1074-M}, 
+		\hdclindex{1088}{}{MMMMV-1088-MMMD-1088-M}, 
+		\hdclindex{1103}{}{MMMMV-1103-MMMD-1103-M}, 
+		\hdclindex{1117}{}{MMMMV-1117-MMMD-1117-M}
+    \subitem {\verbatim@font \verb*&\l&\_\verb*&tmpa&\_\verb*&clist&}\pfill 
+		\hdclindex{335}{}{MMMMV-335-MMMD-335-M}, 
+		\hdclindex{338}{}{MMMMV-338-MMMD-338-M}, 
+		\hdclindex{340}{}{MMMMV-340-MMMD-340-M}, 
+		\hdclindex{350}{}{MMMMV-350-MMMD-350-M}, 
+		\hdclindex{356}{}{MMMMV-356-MMMD-356-M}, 
+		\hdclindex{358}{}{MMMMV-358-MMMD-358-M}, 
+		\hdclindex{364}{}{MMMMV-364-MMMD-364-M}, 
+		\hdclindex{366}{}{MMMMV-366-MMMD-366-M}, 
+		\hdclindex{373}{}{MMMMV-373-MMMD-373-M}, 
+		\hdclindex{379}{}{MMMMV-379-MMMD-379-M}, 
+		\hdclindex{398}{}{MMMMV-398-MMMD-398-M}, 
+		\hdclindex{401}{}{MMMMV-401-MMMD-401-M}, 
+		\hdclindex{422}{}{MMMMV-422-MMMD-422-M}, 
+		\hdclindex{426}{}{MMMMV-426-MMMD-426-M}, 
+		\hdclindex{445}{}{MMMMV-445-MMMD-445-M}, 
+		\hdclindex{449}{}{MMMMV-449-MMMD-449-M}, 
+		\hdclindex{471}{}{MMMMV-471-MMMD-471-M}, 
+		\hdclindex{472}{}{MMMMV-472-MMMD-472-M}, 
+		\hdclindex{596}{}{MMMMV-596-MMMD-596-M}, 
+		\hdclindex{597}{}{MMMMV-597-MMMD-597-M}, 
+		\hdclindex{1074}{}{MMMMV-1074-MMMD-1074-M}, 
+		\hdclindex{1075}{}{MMMMV-1075-MMMD-1075-M}, 
+		\hdclindex{1076}{}{MMMMV-1076-MMMD-1076-M}, 
+		\hdclindex{1088}{}{MMMMV-1088-MMMD-1088-M}, 
+		\hdclindex{1089}{}{MMMMV-1089-MMMD-1089-M}, 
+		\hdclindex{1090}{}{MMMMV-1090-MMMD-1090-M}, 
+		\hdclindex{1103}{}{MMMMV-1103-MMMD-1103-M}, 
+		\hdclindex{1104}{}{MMMMV-1104-MMMD-1104-M}, 
+		\hdclindex{1105}{}{MMMMV-1105-MMMD-1105-M}, 
+		\hdclindex{1117}{}{MMMMV-1117-MMMD-1117-M}, 
+		\hdclindex{1118}{}{MMMMV-1118-MMMD-1118-M}, 
+		\hdclindex{1119}{}{MMMMV-1119-MMMD-1119-M}
+  \item \pkg{cs} commands:\efill 
+ \subitem {\verbatim@font \verb*&\cs&\_\verb*&generate&\_\verb*&variant:Nn&}\pfill 
+		\hdclindex{172}{}{MMMMV-172-MMMD-172-M}, 
+		\hdclindex{173}{}{MMMMV-173-MMMD-173-M}, 
+		\hdclindex{174}{}{MMMMV-174-MMMD-174-M}, 
+		\hdclindex{175}{}{MMMMV-175-MMMD-175-M}, 
+		\hdclindex{176}{}{MMMMV-176-MMMD-176-M}, 
+		\hdclindex{177}{}{MMMMV-177-MMMD-177-M}, 
+		\hdclindex{178}{}{MMMMV-178-MMMD-178-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&if&\_\verb*&exist:NTF&}\pfill 
+		\hdclindex{35}{}{MMMMV-35-MMMD-35-M}, 
+		\hdclindex{904}{}{MMMMV-904-MMMD-904-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&new:Nn&}\pfill 
+		\hdclindex{86}{}{MMMMV-86-MMMD-86-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&new:Npn&}\pfill 
+		\hdclindex{312}{}{MMMMV-312-MMMD-312-M}, 
+		\hdclindex{407}{}{MMMMV-407-MMMD-407-M}, 
+		\hdclindex{590}{}{MMMMV-590-MMMD-590-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&new&\_\verb*&protected:Nn&}\pfill 
+		\hdclindex{267}{}{MMMMV-267-MMMD-267-M}, 
+		\hdclindex{331}{}{MMMMV-331-MMMD-331-M}, 
+		\hdclindex{660}{}{MMMMV-660-MMMD-660-M}, 
+		\hdclindex{688}{}{MMMMV-688-MMMD-688-M}, 
+		\hdclindex{726}{}{MMMMV-726-MMMD-726-M}, 
+		\hdclindex{762}{}{MMMMV-762-MMMD-762-M}, 
+		\hdclindex{806}{}{MMMMV-806-MMMD-806-M}, 
+		\hdclindex{847}{}{MMMMV-847-MMMD-847-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&new&\_\verb*&protected:Npn&}\pfill 
+		\hdclindex{245}{}{MMMMV-245-MMMD-245-M}, 
+		\hdclindex{248}{}{MMMMV-248-MMMD-248-M}, 
+		\hdclindex{255}{}{MMMMV-255-MMMD-255-M}, 
+		\hdclindex{292}{}{MMMMV-292-MMMD-292-M}, 
+		\hdclindex{307}{}{MMMMV-307-MMMD-307-M}, 
+		\hdclindex{321}{}{MMMMV-321-MMMD-321-M}, 
+		\hdclindex{346}{}{MMMMV-346-MMMD-346-M}, 
+		\hdclindex{392}{}{MMMMV-392-MMMD-392-M}, 
+		\hdclindex{416}{}{MMMMV-416-MMMD-416-M}, 
+		\hdclindex{431}{}{MMMMV-431-MMMD-431-M}, 
+		\hdclindex{454}{}{MMMMV-454-MMMD-454-M}, 
+		\hdclindex{469}{}{MMMMV-469-MMMD-469-M}, 
+		\hdclindex{547}{}{MMMMV-547-MMMD-547-M}, 
+		\hdclindex{594}{}{MMMMV-594-MMMD-594-M}, 
+		\hdclindex{611}{}{MMMMV-611-MMMD-611-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&set:Npn&}\pfill 
+		\hdclindex{1019}{}{MMMMV-1019-MMMD-1019-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&set&\_\verb*&eq:NN&}\pfill 
+		\hdclindex{779}{}{MMMMV-779-MMMD-779-M}
+    \subitem {\verbatim@font \verb*&\cs&\_\verb*&set&\_\verb*&protected:Npn&}\pfill 
+		\hdclindex{730}{}{MMMMV-730-MMMD-730-M}, 
+		\hdclindex{766}{}{MMMMV-766-MMMD-766-M}, 
+		\hdclindex{810}{}{MMMMV-810-MMMD-810-M}
 
   \indexspace
 {\bfseries\hfil D\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&\DeclareDifferentialKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\d&}\pfill 
+		\hdclindex{419}{}{MMMMV-419-MMMD-419-M}, 
+		\hdclindex{434}{}{MMMMV-434-MMMD-434-M}, 
+		\hdclindex{459}{}{MMMMV-459-MMMD-459-M}, 
+		\hdclindex{461}{}{MMMMV-461-MMMD-461-M}
   \item {\verbatim@font \verb*&\DeclareLimitsKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-11}
-  \item {\verbatim@font \verb*&\defaultdiff&}\pfill 
-		\hdpindex{usage}{MMMMI-13}, \hdpindex{usage}{MMMMI-15}
-  \item {\verbatim@font \verb*&\defaultvdiff&}\pfill 
-		\hdpindex{usage}{MMMMI-13}, \hdpindex{usage}{MMMMI-15}
-  \item {\verbatim@font \verb*&diff-options&}\pfill 
-		\hdpindex{usage}{MMMMI-10}
-  \item {\verbatim@font \verb*&diff-star&}\pfill 
-		\hdpindex{usage}{MMMMI-10}
-  \item {\verbatim@font \verb*&diff-symb&}\pfill 
-		\hdpindex{usage}{MMMMI-9}
-  \item {\verbatim@font \verb*&diff-vec&}\pfill 
-		\hdpindex{usage}{MMMMI-10}
+		\hdclindex{1111}{}{MMMMV-1111-MMMD-1111-M}
+  \item {\verbatim@font \verb*&\DeclareSymbolKeyword&}\pfill 
+		\hdclindex{1219}{}{MMMMV-1219-MMMD-1219-M}
+  \item {\verbatim@font \verb*&\DeclareVariableKeyword&}\pfill 
+		\hdclindex{1153}{}{MMMMV-1153-MMMD-1153-M}
   \item {\verbatim@font \verb*&\differentials&}\pfill 
-		\hdpindex{usage}{MMMMI-13}
-  \item {\verbatim@font \verb*&domain&}\pfill \hdpindex{usage}{MMMMI-8}
-  \item {\verbatim@font \verb*&double&}\pfill \hdpindex{usage}{MMMMI-7}
+		\hdclindex{150}{}{MMMMV-150-MMMD-150-M}, 
+		\hdclindex{152}{}{MMMMV-152-MMMD-152-M}, 
+		\hdclindex{730}{}{MMMMV-730-MMMD-730-M}, 
+		\hdclindex{766}{}{MMMMV-766-MMMD-766-M}, 
+		\hdclindex{779}{}{MMMMV-779-MMMD-779-M}, 
+		\hdclindex{810}{}{MMMMV-810-MMMD-810-M}
+
+  \indexspace
+{\bfseries\hfil E\hfil}\nopagebreak
+
+  \item \pkg{exp} commands:\efill 
+ \subitem {\verbatim@font \verb*&\exp&\_\verb*&args:Ne&}\pfill 
+		\hdclindex{950}{}{MMMMV-950-MMMD-950-M}, 
+		\hdclindex{971}{}{MMMMV-971-MMMD-971-M}
+    \subitem {\verbatim@font \verb*&\exp&\_\verb*&args:NV&}\pfill 
+		\hdclindex{275}{}{MMMMV-275-MMMD-275-M}, 
+		\hdclindex{563}{}{MMMMV-563-MMMD-563-M}, 
+		\hdclindex{579}{}{MMMMV-579-MMMD-579-M}
+    \subitem {\verbatim@font \verb*&\exp&\_\verb*&args:NVV&}\pfill 
+		\hdclindex{558}{}{MMMMV-558-MMMD-558-M}, 
+		\hdclindex{574}{}{MMMMV-574-MMMD-574-M}
+    \subitem {\verbatim@font \verb*&\exp&\_\verb*&last&\_\verb*&unbraced:NV&}\pfill 
+		\hdclindex{602}{}{MMMMV-602-MMMD-602-M}
+    \subitem {\verbatim@font \verb*&\exp&\_\verb*&not:N&}\pfill 
+		\hdclindex{955}{}{MMMMV-955-MMMD-955-M}, 
+		\hdclindex{976}{}{MMMMV-976-MMMD-976-M}
+    \subitem {\verbatim@font \verb*&\exp&\_\verb*&not:n&}\pfill 
+		\hdclindex{538}{}{MMMMV-538-MMMD-538-M}
+  \item {\verbatim@font \verb*&\ExplSyntaxOff&}\pfill 
+		\hdclindex{1296}{}{MMMMV-1296-MMMD-1296-M}
+
+  \indexspace
+{\bfseries\hfil F\hfil}\nopagebreak
+
+  \item {\verbatim@font \verb*&\frac&}\pfill 
+		\hdclindex{1271}{}{MMMMV-1271-MMMD-1271-M}
+
+  \indexspace
+{\bfseries\hfil G\hfil}\nopagebreak
+
+  \item \pkg{group} commands:\efill 
+ \subitem {\verbatim@font \verb*&\group&\_\verb*&begin:&}\pfill 
+		\hdclindex{1237}{}{MMMMV-1237-MMMD-1237-M}
+    \subitem {\verbatim@font \verb*&\group&\_\verb*&end:&}\pfill 
+		\hdclindex{1245}{}{MMMMV-1245-MMMD-1245-M}
 
   \indexspace
 {\bfseries\hfil H\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&hide-differentials&}\pfill 
-		\hdpindex{usage}{MMMMI-3}
+  \item \pkg{hook} commands:\efill 
+ \subitem {\verbatim@font \verb*&\hook&\_\verb*&gput&\_\verb*&code:nnn&}\pfill 
+		\hdclindex{34}{}{MMMMV-34-MMMD-34-M}
 
   \indexspace
 {\bfseries\hfil I\hfil}\nopagebreak
 
   \item {\verbatim@font \verb*&\iiiint&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&\iiint&}\pfill \hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&\iint&}\pfill \hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&\infty&}\pfill \hdpindex{usage}{MMMMI-4}
+		\hdclindex{1258}{}{MMMMV-1258-MMMD-1258-M}
+  \item {\verbatim@font \verb*&\iiint&}\pfill 
+		\hdclindex{1257}{}{MMMMV-1257-MMMD-1257-M}
+  \item {\verbatim@font \verb*&\iint&}\pfill 
+		\hdclindex{1256}{}{MMMMV-1256-MMMD-1256-M}
+  \item {\verbatim@font \verb*&\infty&}\pfill 
+		\hdclindex{375}{}{MMMMV-375-MMMD-375-M}, 
+		\hdclindex{381}{}{MMMMV-381-MMMD-381-M}, 
+		\hdclindex{1265}{}{MMMMV-1265-MMMD-1265-M}, 
+		\hdclindex{1266}{}{MMMMV-1266-MMMD-1266-M}, 
+		\hdclindex{1267}{}{MMMMV-1267-MMMD-1267-M}
   \item {\verbatim@font \verb*&\int&}\pfill 
-		\hdpindex{usage}{MMMMI-6, MMMMI-7}
-  \item {\verbatim@font \verb*&int-split&}\pfill 
-		\hdpindex{usage}{MMMMI-5}
-  \item {\verbatim@font \verb*&int-symb&}\pfill 
-		\hdpindex{usage}{MMMMI-6}
+		\hdclindex{131}{}{MMMMV-131-MMMD-131-M}, 
+		\hdclindex{199}{}{MMMMV-199-MMMD-199-M}, 
+		\hdclindex{908}{}{MMMMV-908-MMMD-908-M}, 
+		\hdclindex{924}{}{MMMMV-924-MMMD-924-M}, 
+		\hdclindex{1255}{}{MMMMV-1255-MMMD-1255-M}
+  \item \pkg{int} commands:\efill 
+ \subitem {\verbatim@font \verb*&\int&\_\verb*&compare:nNnTF&}\pfill 
+		\hdclindex{495}{}{MMMMV-495-MMMD-495-M}, 
+		\hdclindex{617}{}{MMMMV-617-MMMD-617-M}, 
+		\hdclindex{623}{}{MMMMV-623-MMMD-623-M}, 
+		\hdclindex{662}{}{MMMMV-662-MMMD-662-M}, 
+		\hdclindex{667}{}{MMMMV-667-MMMD-667-M}, 
+		\hdclindex{916}{}{MMMMV-916-MMMD-916-M}, 
+		\hdclindex{925}{}{MMMMV-925-MMMD-925-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&compare&\_\verb*&p:nNn&}\pfill 
+		\hdclindex{647}{}{MMMMV-647-MMMD-647-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&gincr:N&}\pfill 
+		\hdclindex{690}{}{MMMMV-690-MMMD-690-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&gzero&\_\verb*&new:N&}\pfill 
+		\hdclindex{241}{}{MMMMV-241-MMMD-241-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&new:N&}\pfill 
+		\hdclindex{240}{}{MMMMV-240-MMMD-240-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&set:Nn&}\pfill 
+		\hdclindex{269}{}{MMMMV-269-MMMD-269-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&step&\_\verb*&inline:nn&}\pfill 
+		\hdclindex{276}{}{MMMMV-276-MMMD-276-M}, 
+		\hdclindex{771}{}{MMMMV-771-MMMD-771-M}, 
+		\hdclindex{818}{}{MMMMV-818-MMMD-818-M}, 
+		\hdclindex{921}{}{MMMMV-921-MMMD-921-M}
+    \subitem {\verbatim@font \verb*&\int&\_\verb*&use:N&}\pfill 
+		\hdclindex{89}{}{MMMMV-89-MMMD-89-M}
   \item {\verbatim@font \verb*&\integral&}\pfill 
-		\hdpindex{usage}{MMMMI-3}, \hdpindex{usage}{MMMMI-15}
+		\hdclindex{1235}{}{MMMMV-1235-MMMD-1235-M}
+  \item {\verbatim@font \verb*&\IntegralSetup&}\pfill 
+		\hdclindex{1232}{}{MMMMV-1232-MMMD-1232-M}, 
+		\hdclindex{1286}{}{MMMMV-1286-MMMD-1286-M}
+  \item \pkg{intexgral} internal commands:\efill 
+ \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&check&\_\verb*&sequence&\_\verb*&size:&}\pfill 
+		\hdclindex{660}{}{MMMMV-660-MMMD-660-M}, 
+		\hdclindex{721}{}{MMMMV-721-MMMD-721-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&custom&\_\verb*&variables&\_\verb*&bool&}\pfill 
+		\hdclindex{202}{}{MMMMV-202-MMMD-202-M}, 
+		\hdclindex{212}{}{MMMMV-212-MMMD-212-M}, 
+		\hdclindex{556}{}{MMMMV-556-MMMD-556-M}, 
+		\hdclindex{572}{}{MMMMV-572-MMMD-572-M}, 
+		\hdclindex{990}{}{MMMMV-990-MMMD-990-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&deactivate&\_\verb*&differentials&\_\verb*&bool&}\pfill 
+		\hdclindex{40}{}{MMMMV-40-MMMD-40-M}, 
+		\hdclindex{713}{}{MMMMV-713-MMMD-713-M}, 
+		\hdclindex{992}{}{MMMMV-992-MMMD-992-M}, 
+		\hdclindex{1060}{}{MMMMV-1060-MMMD-1060-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&default&\_\verb*&differential&\_\verb*&tl&}\pfill 
+		\hdclindex{194}{}{MMMMV-194-MMMD-194-M}, 
+		\hdclindex{581}{}{MMMMV-581-MMMD-581-M}, 
+		\hdclindex{621}{}{MMMMV-621-MMMD-621-M}, 
+		\hdclindex{1039}{}{MMMMV-1039-MMMD-1039-M}, 
+		\hdclindex{1042}{}{MMMMV-1042-MMMD-1042-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&default&\_\verb*&vector&\_\verb*&differential&\_\verb*&tl&}\pfill 
+		\hdclindex{195}{}{MMMMV-195-MMMD-195-M}, 
+		\hdclindex{567}{}{MMMMV-567-MMMD-567-M}, 
+		\hdclindex{1052}{}{MMMMV-1052-MMMD-1052-M}, 
+		\hdclindex{1055}{}{MMMMV-1055-MMMD-1055-M}
+    \subitem {\verbatim@font \verb*&\g&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&group&\_\verb*&keyword&\_\verb*&prop&}\pfill 
+		\hdclindex{238}{}{MMMMV-238-MMMD-238-M}, 
+		\hdclindex{394}{}{MMMMV-394-MMMD-394-M}, 
+		\hdclindex{995}{}{MMMMV-995-MMMD-995-M}, 
+		\hdclindex{1034}{}{MMMMV-1034-MMMD-1034-M}, 
+		\hdclindex{1047}{}{MMMMV-1047-MMMD-1047-M}, 
+		\hdclindex{1129}{}{MMMMV-1129-MMMD-1129-M}, 
+		\hdclindex{1137}{}{MMMMV-1137-MMMD-1137-M}, 
+		\hdclindex{1148}{}{MMMMV-1148-MMMD-1148-M}, 
+		\hdclindex{1155}{}{MMMMV-1155-MMMD-1155-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&options&\_\verb*&i&\_\verb*&tl&}\pfill 
+		\hdclindex{188}{}{MMMMV-188-MMMD-188-M}, 
+		\hdclindex{559}{}{MMMMV-559-MMMD-559-M}, 
+		\hdclindex{564}{}{MMMMV-564-MMMD-564-M}, 
+		\hdclindex{575}{}{MMMMV-575-MMMD-575-M}, 
+		\hdclindex{580}{}{MMMMV-580-MMMD-580-M}, 
+		\hdclindex{1026}{}{MMMMV-1026-MMMD-1026-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&options&\_\verb*&ii&\_\verb*&tl&}\pfill 
+		\hdclindex{189}{}{MMMMV-189-MMMD-189-M}, 
+		\hdclindex{483}{}{MMMMV-483-MMMD-483-M}, 
+		\hdclindex{487}{}{MMMMV-487-MMMD-487-M}, 
+		\hdclindex{501}{}{MMMMV-501-MMMD-501-M}, 
+		\hdclindex{515}{}{MMMMV-515-MMMD-515-M}, 
+		\hdclindex{527}{}{MMMMV-527-MMMD-527-M}, 
+		\hdclindex{538}{}{MMMMV-538-MMMD-538-M}, 
+		\hdclindex{541}{}{MMMMV-541-MMMD-541-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&order&\_\verb*&i&\_\verb*&seq&}\pfill 
+		\hdclindex{229}{}{MMMMV-229-MMMD-229-M}, 
+		\hdclindex{420}{}{MMMMV-420-MMMD-420-M}, 
+		\hdclindex{423}{}{MMMMV-423-MMMD-423-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&order&\_\verb*&ii&\_\verb*&seq&}\pfill 
+		\hdclindex{230}{}{MMMMV-230-MMMD-230-M}, 
+		\hdclindex{425}{}{MMMMV-425-MMMD-425-M}, 
+		\hdclindex{490}{}{MMMMV-490-MMMD-490-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&seq&}\pfill 
+		\hdclindex{223}{}{MMMMV-223-MMMD-223-M}, 
+		\hdclindex{535}{}{MMMMV-535-MMMD-535-M}, 
+		\hdclindex{670}{}{MMMMV-670-MMMD-670-M}, 
+		\hdclindex{675}{}{MMMMV-675-MMMD-675-M}, 
+		\hdclindex{682}{}{MMMMV-682-MMMD-682-M}, 
+		\hdclindex{731}{}{MMMMV-731-MMMD-731-M}, 
+		\hdclindex{742}{}{MMMMV-742-MMMD-742-M}, 
+		\hdclindex{756}{}{MMMMV-756-MMMD-756-M}, 
+		\hdclindex{767}{}{MMMMV-767-MMMD-767-M}, 
+		\hdclindex{781}{}{MMMMV-781-MMMD-781-M}, 
+		\hdclindex{799}{}{MMMMV-799-MMMD-799-M}, 
+		\hdclindex{829}{}{MMMMV-829-MMMD-829-M}, 
+		\hdclindex{841}{}{MMMMV-841-MMMD-841-M}, 
+		\hdclindex{857}{}{MMMMV-857-MMMD-857-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&var&\_\verb*&i&\_\verb*&seq&}\pfill 
+		\hdclindex{227}{}{MMMMV-227-MMMD-227-M}, 
+		\hdclindex{436}{}{MMMMV-436-MMMD-436-M}, 
+		\hdclindex{441}{}{MMMMV-441-MMMD-441-M}, 
+		\hdclindex{446}{}{MMMMV-446-MMMD-446-M}, 
+		\hdclindex{496}{}{MMMMV-496-MMMD-496-M}, 
+		\hdclindex{506}{}{MMMMV-506-MMMD-506-M}, 
+		\hdclindex{510}{}{MMMMV-510-MMMD-510-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&differential&\_\verb*&var&\_\verb*&ii&\_\verb*&seq&}\pfill 
+		\hdclindex{228}{}{MMMMV-228-MMMD-228-M}, 
+		\hdclindex{448}{}{MMMMV-448-MMMD-448-M}, 
+		\hdclindex{520}{}{MMMMV-520-MMMD-520-M}, 
+		\hdclindex{524}{}{MMMMV-524-MMMD-524-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&differentials:nn&}\pfill 
+		\hdclindex{407}{}{MMMMV-407-MMMD-407-M}, 
+		\hdclindex{537}{}{MMMMV-537-MMMD-537-M}, 
+		\hdclindex{1019}{}{MMMMV-1019-MMMD-1019-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&display&\_\verb*&mode&\_\verb*&str&}\pfill 
+		\hdclindex{233}{}{MMMMV-233-MMMD-233-M}, 
+		\hdclindex{850}{}{MMMMV-850-MMMD-850-M}, 
+		\hdclindex{870}{}{MMMMV-870-MMMD-870-M}, 
+		\hdclindex{875}{}{MMMMV-875-MMMD-875-M}, 
+		\hdclindex{880}{}{MMMMV-880-MMMD-880-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&domain&\_\verb*&char&\_\verb*&tl&}\pfill 
+		\hdclindex{192}{}{MMMMV-192-MMMD-192-M}, 
+		\hdclindex{949}{}{MMMMV-949-MMMD-949-M}, 
+		\hdclindex{956}{}{MMMMV-956-MMMD-956-M}, 
+		\hdclindex{970}{}{MMMMV-970-MMMD-970-M}, 
+		\hdclindex{977}{}{MMMMV-977-MMMD-977-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&domain&\_\verb*&dimension&\_\verb*&tl&}\pfill 
+		\hdclindex{193}{}{MMMMV-193-MMMD-193-M}, 
+		\hdclindex{951}{}{MMMMV-951-MMMD-951-M}, 
+		\hdclindex{957}{}{MMMMV-957-MMMD-957-M}, 
+		\hdclindex{972}{}{MMMMV-972-MMMD-972-M}, 
+		\hdclindex{978}{}{MMMMV-978-MMMD-978-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&domain&\_\verb*&seq&}\pfill 
+		\hdclindex{231}{}{MMMMV-231-MMMD-231-M}, 
+		\hdclindex{944}{}{MMMMV-944-MMMD-944-M}, 
+		\hdclindex{945}{}{MMMMV-945-MMMD-945-M}, 
+		\hdclindex{965}{}{MMMMV-965-MMMD-965-M}, 
+		\hdclindex{966}{}{MMMMV-966-MMMD-966-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&domain&\_\verb*&style&\_\verb*&tl&}\pfill 
+		\hdclindex{184}{}{MMMMV-184-MMMD-184-M}, 
+		\hdclindex{955}{}{MMMMV-955-MMMD-955-M}, 
+		\hdclindex{976}{}{MMMMV-976-MMMD-976-M}, 
+		\hdclindex{1058}{}{MMMMV-1058-MMMD-1058-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&extract&\_\verb*&differential&\_\verb*&order:n&}\pfill 
+		\hdclindex{416}{}{MMMMV-416-MMMD-416-M}, 
+		\hdclindex{475}{}{MMMMV-475-MMMD-475-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&extract&\_\verb*&differential&\_\verb*&var:n&}\pfill 
+		\hdclindex{431}{}{MMMMV-431-MMMD-431-M}, 
+		\hdclindex{476}{}{MMMMV-476-MMMD-476-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&extract&\_\verb*&first&\_\verb*&key&\_\verb*&name:n&}\pfill 
+		\hdclindex{594}{}{MMMMV-594-MMMD-594-M}, 
+		\hdclindex{1240}{}{MMMMV-1240-MMMD-1240-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&generate&\_\verb*&integral&\_\verb*&sequence:&}\pfill 
+		\hdclindex{267}{}{MMMMV-267-MMMD-267-M}, 
+		\hdclindex{888}{}{MMMMV-888-MMMD-888-M}, 
+		\hdclindex{895}{}{MMMMV-895-MMMD-895-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&has&\_\verb*&order&\_\verb*&bool&}\pfill 
+		\hdclindex{207}{}{MMMMV-207-MMMD-207-M}, 
+		\hdclindex{214}{}{MMMMV-214-MMMD-214-M}, 
+		\hdclindex{421}{}{MMMMV-421-MMMD-421-M}, 
+		\hdclindex{485}{}{MMMMV-485-MMMD-485-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&has&\_\verb*&var&\_\verb*&bool&}\pfill 
+		\hdclindex{208}{}{MMMMV-208-MMMD-208-M}, 
+		\hdclindex{215}{}{MMMMV-215-MMMD-215-M}, 
+		\hdclindex{437}{}{MMMMV-437-MMMD-437-M}, 
+		\hdclindex{442}{}{MMMMV-442-MMMD-442-M}, 
+		\hdclindex{493}{}{MMMMV-493-MMMD-493-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&independent&\_\verb*&differential&\_\verb*&options&\_\verb*&tl&}\pfill 
+		\hdclindex{191}{}{MMMMV-191-MMMD-191-M}, 
+		\hdclindex{456}{}{MMMMV-456-MMMD-456-M}, 
+		\hdclindex{464}{}{MMMMV-464-MMMD-464-M}, 
+		\hdclindex{484}{}{MMMMV-484-MMMD-484-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&inline&\_\verb*&symbol&\_\verb*&muskip&}\pfill 
+		\hdclindex{235}{}{MMMMV-235-MMMD-235-M}, 
+		\hdclindex{734}{}{MMMMV-734-MMMD-734-M}, 
+		\hdclindex{1059}{}{MMMMV-1059-MMMD-1059-M}
+    \subitem {\verbatim@font \verb*&\g&\_\_\verb*&intexgral&\_\verb*&integral&\_\verb*&number&\_\verb*&int&}\pfill 
+		\hdclindex{89}{}{MMMMV-89-MMMD-89-M}, 
+		\hdclindex{241}{}{MMMMV-241-MMMD-241-M}, 
+		\hdclindex{690}{}{MMMMV-690-MMMD-690-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&integral&\_\verb*&preconfiguration:&}\pfill 
+		\hdclindex{688}{}{MMMMV-688-MMMD-688-M}, 
+		\hdclindex{849}{}{MMMMV-849-MMMD-849-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&integral&\_\verb*&sequence&\_\verb*&int&}\pfill 
+		\hdclindex{240}{}{MMMMV-240-MMMD-240-M}, 
+		\hdclindex{269}{}{MMMMV-269-MMMD-269-M}, 
+		\hdclindex{276}{}{MMMMV-276-MMMD-276-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&integral&\_\verb*&symbol&\_\verb*&seq&}\pfill 
+		\hdclindex{221}{}{MMMMV-221-MMMD-221-M}, 
+		\hdclindex{278}{}{MMMMV-278-MMMD-278-M}, 
+		\hdclindex{663}{}{MMMMV-663-MMMD-663-M}, 
+		\hdclindex{673}{}{MMMMV-673-MMMD-673-M}, 
+		\hdclindex{680}{}{MMMMV-680-MMMD-680-M}, 
+		\hdclindex{700}{}{MMMMV-700-MMMD-700-M}, 
+		\hdclindex{702}{}{MMMMV-702-MMMD-702-M}, 
+		\hdclindex{733}{}{MMMMV-733-MMMD-733-M}, 
+		\hdclindex{771}{}{MMMMV-771-MMMD-771-M}, 
+		\hdclindex{773}{}{MMMMV-773-MMMD-773-M}, 
+		\hdclindex{818}{}{MMMMV-818-MMMD-818-M}, 
+		\hdclindex{820}{}{MMMMV-820-MMMD-820-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&integral&\_\verb*&symbol&\_\verb*&tl&}\pfill 
+		\hdclindex{187}{}{MMMMV-187-MMMD-187-M}, 
+		\hdclindex{199}{}{MMMMV-199-MMMD-199-M}, 
+		\hdclindex{257}{}{MMMMV-257-MMMD-257-M}, 
+		\hdclindex{905}{}{MMMMV-905-MMMD-905-M}, 
+		\hdclindex{908}{}{MMMMV-908-MMMD-908-M}, 
+		\hdclindex{919}{}{MMMMV-919-MMMD-919-M}, 
+		\hdclindex{923}{}{MMMMV-923-MMMD-923-M}, 
+		\hdclindex{927}{}{MMMMV-927-MMMD-927-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&integrand&\_\verb*&seq&}\pfill 
+		\hdclindex{220}{}{MMMMV-220-MMMD-220-M}, 
+		\hdclindex{665}{}{MMMMV-665-MMMD-665-M}, 
+		\hdclindex{668}{}{MMMMV-668-MMMD-668-M}, 
+		\hdclindex{674}{}{MMMMV-674-MMMD-674-M}, 
+		\hdclindex{681}{}{MMMMV-681-MMMD-681-M}, 
+		\hdclindex{695}{}{MMMMV-695-MMMD-695-M}, 
+		\hdclindex{706}{}{MMMMV-706-MMMD-706-M}, 
+		\hdclindex{709}{}{MMMMV-709-MMMD-709-M}, 
+		\hdclindex{745}{}{MMMMV-745-MMMD-745-M}, 
+		\hdclindex{785}{}{MMMMV-785-MMMD-785-M}, 
+		\hdclindex{792}{}{MMMMV-792-MMMD-792-M}, 
+		\hdclindex{832}{}{MMMMV-832-MMMD-832-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&integrand&\_\verb*&tl&}\pfill 
+		\hdclindex{183}{}{MMMMV-183-MMMD-183-M}, 
+		\hdclindex{697}{}{MMMMV-697-MMMD-697-M}, 
+		\hdclindex{710}{}{MMMMV-710-MMMD-710-M}, 
+		\hdclindex{716}{}{MMMMV-716-MMMD-716-M}, 
+		\hdclindex{1243}{}{MMMMV-1243-MMMD-1243-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&invert&\_\verb*&differentials&\_\verb*&bool&}\pfill 
+		\hdclindex{41}{}{MMMMV-41-MMMD-41-M}, 
+		\hdclindex{52}{}{MMMMV-52-MMMD-52-M}, 
+		\hdclindex{737}{}{MMMMV-737-MMMD-737-M}, 
+		\hdclindex{750}{}{MMMMV-750-MMMD-750-M}, 
+		\hdclindex{774}{}{MMMMV-774-MMMD-774-M}, 
+		\hdclindex{790}{}{MMMMV-790-MMMD-790-M}, 
+		\hdclindex{823}{}{MMMMV-823-MMMD-823-M}, 
+		\hdclindex{837}{}{MMMMV-837-MMMD-837-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&invert&\_\verb*&limits&\_\verb*&bool&}\pfill 
+		\hdclindex{39}{}{MMMMV-39-MMMD-39-M}, 
+		\hdclindex{48}{}{MMMMV-48-MMMD-48-M}, 
+		\hdclindex{294}{}{MMMMV-294-MMMD-294-M}, 
+		\hdclindex{352}{}{MMMMV-352-MMMD-352-M}, 
+		\hdclindex{369}{}{MMMMV-369-MMMD-369-M}, 
+		\hdclindex{1072}{}{MMMMV-1072-MMMD-1072-M}, 
+		\hdclindex{1086}{}{MMMMV-1086-MMMD-1086-M}, 
+		\hdclindex{1101}{}{MMMMV-1101-MMMD-1101-M}, 
+		\hdclindex{1115}{}{MMMMV-1115-MMMD-1115-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&jacobian&\_\verb*&bool&}\pfill 
+		\hdclindex{205}{}{MMMMV-205-MMMD-205-M}, 
+		\hdclindex{746}{}{MMMMV-746-MMMD-746-M}, 
+		\hdclindex{786}{}{MMMMV-786-MMMD-786-M}, 
+		\hdclindex{793}{}{MMMMV-793-MMMD-793-M}, 
+		\hdclindex{833}{}{MMMMV-833-MMMD-833-M}, 
+		\hdclindex{1011}{}{MMMMV-1011-MMMD-1011-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&jacobian&\_\verb*&seq&}\pfill 
+		\hdclindex{222}{}{MMMMV-222-MMMD-222-M}, 
+		\hdclindex{747}{}{MMMMV-747-MMMD-747-M}, 
+		\hdclindex{787}{}{MMMMV-787-MMMD-787-M}, 
+		\hdclindex{794}{}{MMMMV-794-MMMD-794-M}, 
+		\hdclindex{834}{}{MMMMV-834-MMMD-834-M}, 
+		\hdclindex{1001}{}{MMMMV-1001-MMMD-1001-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&key&\_\verb*&name&\_\verb*&tl&}\pfill 
+		\hdclindex{182}{}{MMMMV-182-MMMD-182-M}, 
+		\hdclindex{600}{}{MMMMV-600-MMMD-600-M}, 
+		\hdclindex{606}{}{MMMMV-606-MMMD-606-M}, 
+		\hdclindex{613}{}{MMMMV-613-MMMD-613-M}
+    \subitem {\verbatim@font \verb*&\c&\_\_\verb*&intexgral&\_\verb*&left&\_\verb*&bracket&\_\verb*&tl&}\pfill 
+		\hdclindex{196}{}{MMMMV-196-MMMD-196-M}, 
+		\hdclindex{377}{}{MMMMV-377-MMMD-377-M}, 
+		\hdclindex{381}{}{MMMMV-381-MMMD-381-M}
+    \subitem {\verbatim@font \verb*&\g&\_\_\verb*&intexgral&\_\verb*&limits&\_\verb*&keyword&\_\verb*&prop&}\pfill 
+		\hdclindex{237}{}{MMMMV-237-MMMD-237-M}, 
+		\hdclindex{308}{}{MMMMV-308-MMMD-308-M}, 
+		\hdclindex{314}{}{MMMMV-314-MMMD-314-M}, 
+		\hdclindex{315}{}{MMMMV-315-MMMD-315-M}, 
+		\hdclindex{1069}{}{MMMMV-1069-MMMD-1069-M}, 
+		\hdclindex{1084}{}{MMMMV-1084-MMMD-1084-M}, 
+		\hdclindex{1099}{}{MMMMV-1099-MMMD-1099-M}, 
+		\hdclindex{1113}{}{MMMMV-1113-MMMD-1113-M}, 
+		\hdclindex{1167}{}{MMMMV-1167-MMMD-1167-M}, 
+		\hdclindex{1185}{}{MMMMV-1185-MMMD-1185-M}, 
+		\hdclindex{1204}{}{MMMMV-1204-MMMD-1204-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&limits&\_\verb*&seq&}\pfill 
+		\hdclindex{224}{}{MMMMV-224-MMMD-224-M}, 
+		\hdclindex{326}{}{MMMMV-326-MMMD-326-M}, 
+		\hdclindex{333}{}{MMMMV-333-MMMD-333-M}, 
+		\hdclindex{348}{}{MMMMV-348-MMMD-348-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&limits&\_\verb*&style&\_\verb*&tl&}\pfill 
+		\hdclindex{42}{}{MMMMV-42-MMMD-42-M}, 
+		\hdclindex{58}{}{MMMMV-58-MMMD-58-M}, 
+		\hdclindex{60}{}{MMMMV-60-MMMD-60-M}, 
+		\hdclindex{258}{}{MMMMV-258-MMMD-258-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&lower&\_\verb*&limit&\_\verb*&tl&}\pfill 
+		\hdclindex{185}{}{MMMMV-185-MMMD-185-M}, 
+		\hdclindex{260}{}{MMMMV-260-MMMD-260-M}, 
+		\hdclindex{296}{}{MMMMV-296-MMMD-296-M}, 
+		\hdclindex{300}{}{MMMMV-300-MMMD-300-M}, 
+		\hdclindex{354}{}{MMMMV-354-MMMD-354-M}, 
+		\hdclindex{362}{}{MMMMV-362-MMMD-362-M}, 
+		\hdclindex{378}{}{MMMMV-378-MMMD-378-M}, 
+		\hdclindex{898}{}{MMMMV-898-MMMD-898-M}, 
+		\hdclindex{947}{}{MMMMV-947-MMMD-947-M}, 
+		\hdclindex{948}{}{MMMMV-948-MMMD-948-M}, 
+		\hdclindex{953}{}{MMMMV-953-MMMD-953-M}, 
+		\hdclindex{968}{}{MMMMV-968-MMMD-968-M}, 
+		\hdclindex{969}{}{MMMMV-969-MMMD-969-M}, 
+		\hdclindex{974}{}{MMMMV-974-MMMD-974-M}, 
+		\hdclindex{984}{}{MMMMV-984-MMMD-984-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&lower&\_\verb*&limits&\_\verb*&seq&}\pfill 
+		\hdclindex{226}{}{MMMMV-226-MMMD-226-M}, 
+		\hdclindex{271}{}{MMMMV-271-MMMD-271-M}, 
+		\hdclindex{273}{}{MMMMV-273-MMMD-273-M}, 
+		\hdclindex{281}{}{MMMMV-281-MMMD-281-M}, 
+		\hdclindex{324}{}{MMMMV-324-MMMD-324-M}, 
+		\hdclindex{337}{}{MMMMV-337-MMMD-337-M}, 
+		\hdclindex{371}{}{MMMMV-371-MMMD-371-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&manual&\_\verb*&differentials&\_\verb*&bool&}\pfill 
+		\hdclindex{201}{}{MMMMV-201-MMMD-201-M}, 
+		\hdclindex{211}{}{MMMMV-211-MMMD-211-M}, 
+		\hdclindex{717}{}{MMMMV-717-MMMD-717-M}, 
+		\hdclindex{718}{}{MMMMV-718-MMMD-718-M}, 
+		\hdclindex{728}{}{MMMMV-728-MMMD-728-M}, 
+		\hdclindex{739}{}{MMMMV-739-MMMD-739-M}, 
+		\hdclindex{752}{}{MMMMV-752-MMMD-752-M}, 
+		\hdclindex{764}{}{MMMMV-764-MMMD-764-M}, 
+		\hdclindex{776}{}{MMMMV-776-MMMD-776-M}, 
+		\hdclindex{797}{}{MMMMV-797-MMMD-797-M}, 
+		\hdclindex{808}{}{MMMMV-808-MMMD-808-M}, 
+		\hdclindex{825}{}{MMMMV-825-MMMD-825-M}, 
+		\hdclindex{839}{}{MMMMV-839-MMMD-839-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&mathchoice:nnnn&}\pfill 
+		\hdclindex{248}{}{MMMMV-248-MMMD-248-M}, 
+		\hdclindex{929}{}{MMMMV-929-MMMD-929-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&mkern:N&}\pfill 
+		\hdclindex{245}{}{MMMMV-245-MMMD-245-M}, 
+		\hdclindex{734}{}{MMMMV-734-MMMD-734-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&new&\_\verb*&differential&\_\verb*&group:nnn&}\pfill 
+		\hdclindex{392}{}{MMMMV-392-MMMD-392-M}, 
+		\hdclindex{1132}{}{MMMMV-1132-MMMD-1132-M}, 
+		\hdclindex{1141}{}{MMMMV-1141-MMMD-1141-M}, 
+		\hdclindex{1150}{}{MMMMV-1150-MMMD-1150-M}, 
+		\hdclindex{1159}{}{MMMMV-1159-MMMD-1159-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&new&\_\verb*&limits&\_\verb*&group:nn&}\pfill 
+		\hdclindex{173}{}{MMMMV-173-MMMD-173-M}, 
+		\hdclindex{307}{}{MMMMV-307-MMMD-307-M}, 
+		\hdclindex{1076}{}{MMMMV-1076-MMMD-1076-M}, 
+		\hdclindex{1078}{}{MMMMV-1078-MMMD-1078-M}, 
+		\hdclindex{1090}{}{MMMMV-1090-MMMD-1090-M}, 
+		\hdclindex{1092}{}{MMMMV-1092-MMMD-1092-M}, 
+		\hdclindex{1105}{}{MMMMV-1105-MMMD-1105-M}, 
+		\hdclindex{1107}{}{MMMMV-1107-MMMD-1107-M}, 
+		\hdclindex{1119}{}{MMMMV-1119-MMMD-1119-M}, 
+		\hdclindex{1121}{}{MMMMV-1121-MMMD-1121-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&parse&\_\verb*&differentials:&}\pfill 
+		\hdclindex{547}{}{MMMMV-547-MMMD-547-M}, 
+		\hdclindex{714}{}{MMMMV-714-MMMD-714-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&parse&\_\verb*&integral&\_\verb*&limit:n&}\pfill 
+		\hdclindex{312}{}{MMMMV-312-MMMD-312-M}, 
+		\hdclindex{336}{}{MMMMV-336-MMMD-336-M}, 
+		\hdclindex{351}{}{MMMMV-351-MMMD-351-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&parse&\_\verb*&integral&\_\verb*&symbol:&}\pfill 
+		\hdclindex{255}{}{MMMMV-255-MMMD-255-M}, 
+		\hdclindex{283}{}{MMMMV-283-MMMD-283-M}, 
+		\hdclindex{703}{}{MMMMV-703-MMMD-703-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&parse&\_\verb*&limits:n&}\pfill 
+		\hdclindex{321}{}{MMMMV-321-MMMD-321-M}, 
+		\hdclindex{886}{}{MMMMV-886-MMMD-886-M}, 
+		\hdclindex{893}{}{MMMMV-893-MMMD-893-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&parse&\_\verb*&macro&\_\verb*&keys:n&}\pfill 
+		\hdclindex{611}{}{MMMMV-611-MMMD-611-M}, 
+		\hdclindex{1241}{}{MMMMV-1241-MMMD-1241-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&parse&\_\verb*&variable:nn&}\pfill 
+		\hdclindex{469}{}{MMMMV-469-MMMD-469-M}, 
+		\hdclindex{558}{}{MMMMV-558-MMMD-558-M}, 
+		\hdclindex{563}{}{MMMMV-563-MMMD-563-M}, 
+		\hdclindex{574}{}{MMMMV-574-MMMD-574-M}, 
+		\hdclindex{579}{}{MMMMV-579-MMMD-579-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&print&\_\verb*&default&\_\verb*&integral:&}\pfill 
+		\hdclindex{726}{}{MMMMV-726-MMMD-726-M}, 
+		\hdclindex{852}{}{MMMMV-852-MMMD-852-M}, 
+		\hdclindex{856}{}{MMMMV-856-MMMD-856-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&print&\_\verb*&integral:&}\pfill 
+		\hdclindex{847}{}{MMMMV-847-MMMD-847-M}, 
+		\hdclindex{1244}{}{MMMMV-1244-MMMD-1244-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&print&\_\verb*&nested&\_\verb*&integral:&}\pfill 
+		\hdclindex{762}{}{MMMMV-762-MMMD-762-M}, 
+		\hdclindex{853}{}{MMMMV-853-MMMD-853-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&print&\_\verb*&product&\_\verb*&integral:&}\pfill 
+		\hdclindex{806}{}{MMMMV-806-MMMD-806-M}, 
+		\hdclindex{854}{}{MMMMV-854-MMMD-854-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&remove&\_\verb*&differential&\_\verb*&order&\_\verb*&and&\_\verb*&var:n&}\pfill 
+		\hdclindex{454}{}{MMMMV-454-MMMD-454-M}, 
+		\hdclindex{477}{}{MMMMV-477-MMMD-477-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&retrieve&\_\verb*&key&\_\verb*&name:w&}\pfill 
+		\hdclindex{590}{}{MMMMV-590-MMMD-590-M}, 
+		\hdclindex{603}{}{MMMMV-603-MMMD-603-M}
+    \subitem {\verbatim@font \verb*&\c&\_\_\verb*&intexgral&\_\verb*&right&\_\verb*&bracket&\_\verb*&tl&}\pfill 
+		\hdclindex{197}{}{MMMMV-197-MMMD-197-M}, 
+		\hdclindex{375}{}{MMMMV-375-MMMD-375-M}, 
+		\hdclindex{383}{}{MMMMV-383-MMMD-383-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&separate&\_\verb*&integral&\_\verb*&bool&}\pfill 
+		\hdclindex{203}{}{MMMMV-203-MMMD-203-M}, 
+		\hdclindex{213}{}{MMMMV-213-MMMD-213-M}, 
+		\hdclindex{692}{}{MMMMV-692-MMMD-692-M}, 
+		\hdclindex{720}{}{MMMMV-720-MMMD-720-M}, 
+		\hdclindex{869}{}{MMMMV-869-MMMD-869-M}, 
+		\hdclindex{874}{}{MMMMV-874-MMMD-874-M}, 
+		\hdclindex{879}{}{MMMMV-879-MMMD-879-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&set&\_\verb*&limits:nn&}\pfill 
+		\hdclindex{280}{}{MMMMV-280-MMMD-280-M}, 
+		\hdclindex{292}{}{MMMMV-292-MMMD-292-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&set&\_\verb*&limits&\_\verb*&regular:&}\pfill 
+		\hdclindex{331}{}{MMMMV-331-MMMD-331-M}, 
+		\hdclindex{887}{}{MMMMV-887-MMMD-887-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&set&\_\verb*&limits&\_\verb*&starred:&}\pfill 
+		\hdclindex{346}{}{MMMMV-346-MMMD-346-M}, 
+		\hdclindex{894}{}{MMMMV-894-MMMD-894-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&starred&\_\verb*&differential&\_\verb*&bool&}\pfill 
+		\hdclindex{206}{}{MMMMV-206-MMMD-206-M}, 
+		\hdclindex{409}{}{MMMMV-409-MMMD-409-M}, 
+		\hdclindex{1015}{}{MMMMV-1015-MMMD-1015-M}, 
+		\hdclindex{1020}{}{MMMMV-1020-MMMD-1020-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&upper&\_\verb*&limit&\_\verb*&tl&}\pfill 
+		\hdclindex{186}{}{MMMMV-186-MMMD-186-M}, 
+		\hdclindex{262}{}{MMMMV-262-MMMD-262-M}, 
+		\hdclindex{297}{}{MMMMV-297-MMMD-297-M}, 
+		\hdclindex{301}{}{MMMMV-301-MMMD-301-M}, 
+		\hdclindex{900}{}{MMMMV-900-MMMD-900-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&upper&\_\verb*&limits&\_\verb*&seq&}\pfill 
+		\hdclindex{225}{}{MMMMV-225-MMMD-225-M}, 
+		\hdclindex{272}{}{MMMMV-272-MMMD-272-M}, 
+		\hdclindex{282}{}{MMMMV-282-MMMD-282-M}, 
+		\hdclindex{325}{}{MMMMV-325-MMMD-325-M}, 
+		\hdclindex{339}{}{MMMMV-339-MMMD-339-M}, 
+		\hdclindex{370}{}{MMMMV-370-MMMD-370-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&variable&\_\verb*&i&\_\verb*&clist&}\pfill 
+		\hdclindex{217}{}{MMMMV-217-MMMD-217-M}, 
+		\hdclindex{551}{}{MMMMV-551-MMMD-551-M}, 
+		\hdclindex{576}{}{MMMMV-576-MMMD-576-M}, 
+		\hdclindex{997}{}{MMMMV-997-MMMD-997-M}, 
+		\hdclindex{1006}{}{MMMMV-1006-MMMD-1006-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&variable&\_\verb*&ii&\_\verb*&clist&}\pfill 
+		\hdclindex{218}{}{MMMMV-218-MMMD-218-M}, 
+		\hdclindex{553}{}{MMMMV-553-MMMD-553-M}, 
+		\hdclindex{560}{}{MMMMV-560-MMMD-560-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&vectorial&\_\verb*&differential&\_\verb*&bool&}\pfill 
+		\hdclindex{204}{}{MMMMV-204-MMMD-204-M}, 
+		\hdclindex{210}{}{MMMMV-210-MMMD-210-M}, 
+		\hdclindex{549}{}{MMMMV-549-MMMD-549-M}, 
+		\hdclindex{743}{}{MMMMV-743-MMMD-743-M}, 
+		\hdclindex{755}{}{MMMMV-755-MMMD-755-M}, 
+		\hdclindex{769}{}{MMMMV-769-MMMD-769-M}, 
+		\hdclindex{816}{}{MMMMV-816-MMMD-816-M}, 
+		\hdclindex{1013}{}{MMMMV-1013-MMMD-1013-M}
+    \subitem {\verbatim@font \verb*&\l&\_\_\verb*&intexgral&\_\verb*&vectorial&\_\verb*&differential&\_\verb*&style&\_\verb*&tl&}\pfill 
+		\hdclindex{190}{}{MMMMV-190-MMMD-190-M}, 
+		\hdclindex{554}{}{MMMMV-554-MMMD-554-M}, 
+		\hdclindex{566}{}{MMMMV-566-MMMD-566-M}, 
+		\hdclindex{1057}{}{MMMMV-1057-MMMD-1057-M}
+    \subitem {\verbatim@font \verb*&\&\_\_\verb*&intexgral&\_\verb*&warning&\_\verb*&msg&\_\verb*&header:&}\pfill 
+		\hdclindex{86}{}{MMMMV-86-MMMD-86-M}, 
+		\hdclindex{122}{}{MMMMV-122-MMMD-122-M}, 
+		\hdclindex{129}{}{MMMMV-129-MMMD-129-M}, 
+		\hdclindex{136}{}{MMMMV-136-MMMD-136-M}, 
+		\hdclindex{143}{}{MMMMV-143-MMMD-143-M}, 
+		\hdclindex{151}{}{MMMMV-151-MMMD-151-M}, 
+		\hdclindex{159}{}{MMMMV-159-MMMD-159-M}, 
+		\hdclindex{165}{}{MMMMV-165-MMMD-165-M}
   \item {\verbatim@font \verb*&\intexgralsetup&}\pfill 
-		\hdpindex{usage}{MMMMI-11}, \hdpindex{usage}{MMMMI-15}
-  \item {\verbatim@font \verb*&invert-differentials&}\pfill 
-		\hdpindex{usage}{MMMMI-3}
-  \item {\verbatim@font \verb*&invert-limits&}\pfill 
-		\hdpindex{usage}{MMMMI-3}
-  \item {\verbatim@font \verb*&italic&}\pfill \hdpindex{usage}{MMMMI-3}
+		\hdclindex{1250}{}{MMMMV-1250-MMMD-1250-M}
+  \item \pkg{iow} commands:\efill 
+ \subitem {\verbatim@font \verb*&\iow&\_\verb*&newline:&}\pfill 
+		\hdclindex{22}{}{MMMMV-22-MMMD-22-M}, 
+		\hdclindex{23}{}{MMMMV-23-MMMD-23-M}, 
+		\hdclindex{92}{}{MMMMV-92-MMMD-92-M}
 
   \indexspace
-{\bfseries\hfil J\hfil}\nopagebreak
+{\bfseries\hfil K\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&jacobian&}\pfill 
-		\hdpindex{usage}{MMMMI-9}
-
-  \indexspace
-{\bfseries\hfil L\hfil}\nopagebreak
-
-  \item {\verbatim@font \verb*&\limits&}\pfill 
-		\hdpindex{usage}{MMMMI-5}
-  \item {\verbatim@font \verb*&limits&}\pfill \hdpindex{usage}{MMMMI-4}
-  \item {\verbatim@font \verb*&limits*&}\pfill 
-		\hdpindex{usage}{MMMMI-4}
-  \item {\verbatim@font \verb*&limits-mode&}\pfill 
-		\hdpindex{usage}{MMMMI-5}
-  \item {\verbatim@font \verb*&lower-lim&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
+  \item \pkg{keys} commands:\efill 
+ \subitem {\verbatim@font \verb*&\keys&\_\verb*&define:nn&}\pfill 
+		\hdclindex{46}{}{MMMMV-46-MMMD-46-M}, 
+		\hdclindex{862}{}{MMMMV-862-MMMD-862-M}, 
+		\hdclindex{1029}{}{MMMMV-1029-MMMD-1029-M}, 
+		\hdclindex{1172}{}{MMMMV-1172-MMMD-1172-M}, 
+		\hdclindex{1189}{}{MMMMV-1189-MMMD-1189-M}, 
+		\hdclindex{1208}{}{MMMMV-1208-MMMD-1208-M}, 
+		\hdclindex{1221}{}{MMMMV-1221-MMMD-1221-M}
+    \subitem {\verbatim@font \verb*&\keys&\_\verb*&if&\_\verb*&exist:nnTF&}\pfill 
+		\hdclindex{176}{}{MMMMV-176-MMMD-176-M}, 
+		\hdclindex{613}{}{MMMMV-613-MMMD-613-M}, 
+		\hdclindex{1169}{}{MMMMV-1169-MMMD-1169-M}, 
+		\hdclindex{1187}{}{MMMMV-1187-MMMD-1187-M}, 
+		\hdclindex{1206}{}{MMMMV-1206-MMMD-1206-M}
+    \subitem {\verbatim@font \verb*&\keys&\_\verb*&set:nn&}\pfill 
+		\hdclindex{614}{}{MMMMV-614-MMMD-614-M}, 
+		\hdclindex{628}{}{MMMMV-628-MMMD-628-M}, 
+		\hdclindex{1233}{}{MMMMV-1233-MMMD-1233-M}
 
   \indexspace
 {\bfseries\hfil M\hfil}\nopagebreak
 
   \item {\verbatim@font \verb*&\mathbb&}\pfill 
-		\hdpindex{usage}{MMMMI-8}
+		\hdclindex{32}{}{MMMMV-32-MMMD-32-M}, 
+		\hdclindex{35}{}{MMMMV-35-MMMD-35-M}, 
+		\hdclindex{1291}{}{MMMMV-1291-MMMD-1291-M}
+  \item {\verbatim@font \verb*&\mathchoice&}\pfill 
+		\hdclindex{249}{}{MMMMV-249-MMMD-249-M}
+  \item \pkg{msg} commands:\efill 
+ \subitem {\verbatim@font \verb*&\msg&\_\verb*&critical:nn&}\pfill 
+		\hdclindex{30}{}{MMMMV-30-MMMD-30-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&error:nnn&}\pfill 
+		\hdclindex{1070}{}{MMMMV-1070-MMMD-1070-M}, 
+		\hdclindex{1094}{}{MMMMV-1094-MMMD-1094-M}, 
+		\hdclindex{1131}{}{MMMMV-1131-MMMD-1131-M}, 
+		\hdclindex{1143}{}{MMMMV-1143-MMMD-1143-M}, 
+		\hdclindex{1170}{}{MMMMV-1170-MMMD-1170-M}, 
+		\hdclindex{1199}{}{MMMMV-1199-MMMD-1199-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&line&\_\verb*&context:&}\pfill 
+		\hdclindex{90}{}{MMMMV-90-MMMD-90-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&new:nnn&}\pfill 
+		\hdclindex{19}{}{MMMMV-19-MMMD-19-M}, 
+		\hdclindex{119}{}{MMMMV-119-MMMD-119-M}, 
+		\hdclindex{127}{}{MMMMV-127-MMMD-127-M}, 
+		\hdclindex{134}{}{MMMMV-134-MMMD-134-M}, 
+		\hdclindex{141}{}{MMMMV-141-MMMD-141-M}, 
+		\hdclindex{148}{}{MMMMV-148-MMMD-148-M}, 
+		\hdclindex{157}{}{MMMMV-157-MMMD-157-M}, 
+		\hdclindex{163}{}{MMMMV-163-MMMD-163-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&new:nnnn&}\pfill 
+		\hdclindex{95}{}{MMMMV-95-MMMD-95-M}, 
+		\hdclindex{99}{}{MMMMV-99-MMMD-99-M}, 
+		\hdclindex{103}{}{MMMMV-103-MMMD-103-M}, 
+		\hdclindex{107}{}{MMMMV-107-MMMD-107-M}, 
+		\hdclindex{111}{}{MMMMV-111-MMMD-111-M}, 
+		\hdclindex{115}{}{MMMMV-115-MMMD-115-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&see&\_\verb*&documentation&\_\verb*&text:n&}\pfill 
+		\hdclindex{24}{}{MMMMV-24-MMMD-24-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&warning:nn&}\pfill 
+		\hdclindex{778}{}{MMMMV-778-MMMD-778-M}, 
+		\hdclindex{917}{}{MMMMV-917-MMMD-917-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&warning:nnn&}\pfill 
+		\hdclindex{770}{}{MMMMV-770-MMMD-770-M}, 
+		\hdclindex{817}{}{MMMMV-817-MMMD-817-M}, 
+		\hdclindex{907}{}{MMMMV-907-MMMD-907-M}, 
+		\hdclindex{1004}{}{MMMMV-1004-MMMD-1004-M}, 
+		\hdclindex{1168}{}{MMMMV-1168-MMMD-1168-M}, 
+		\hdclindex{1186}{}{MMMMV-1186-MMMD-1186-M}, 
+		\hdclindex{1205}{}{MMMMV-1205-MMMD-1205-M}
+    \subitem {\verbatim@font \verb*&\msg&\_\verb*&warning:nnnnn&}\pfill 
+		\hdclindex{672}{}{MMMMV-672-MMMD-672-M}, 
+		\hdclindex{679}{}{MMMMV-679-MMMD-679-M}
+  \item \pkg{muskip} commands:\efill 
+ \subitem {\verbatim@font \verb*&\muskip&\_\verb*&new:N&}\pfill 
+		\hdclindex{235}{}{MMMMV-235-MMMD-235-M}
 
   \indexspace
 {\bfseries\hfil N\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&\NewDifferential&}\pfill 
-		\hdpindex{usage}{MMMMI-9}
-  \item {\verbatim@font \verb*&\NewDifferentialKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-9}, \hdpindex{usage}{MMMMI-12}
-  \item {\verbatim@font \verb*&\NewIntegralSymbol&}\pfill 
-		\hdpindex{usage}{MMMMI-11}
+  \item {\verbatim@font \verb*&\NeedsTeXFormat&}\pfill 
+		\hdclindex{3}{}{MMMMV-3-MMMD-3-M}
+  \item {\verbatim@font \verb*&\NewDocumentCommand&}\pfill 
+		\hdclindex{1067}{}{MMMMV-1067-MMMD-1067-M}, 
+		\hdclindex{1082}{}{MMMMV-1082-MMMD-1082-M}, 
+		\hdclindex{1097}{}{MMMMV-1097-MMMD-1097-M}, 
+		\hdclindex{1111}{}{MMMMV-1111-MMMD-1111-M}, 
+		\hdclindex{1127}{}{MMMMV-1127-MMMD-1127-M}, 
+		\hdclindex{1135}{}{MMMMV-1135-MMMD-1135-M}, 
+		\hdclindex{1146}{}{MMMMV-1146-MMMD-1146-M}, 
+		\hdclindex{1153}{}{MMMMV-1153-MMMD-1153-M}, 
+		\hdclindex{1165}{}{MMMMV-1165-MMMD-1165-M}, 
+		\hdclindex{1183}{}{MMMMV-1183-MMMD-1183-M}, 
+		\hdclindex{1202}{}{MMMMV-1202-MMMD-1202-M}, 
+		\hdclindex{1219}{}{MMMMV-1219-MMMD-1219-M}, 
+		\hdclindex{1232}{}{MMMMV-1232-MMMD-1232-M}, 
+		\hdclindex{1235}{}{MMMMV-1235-MMMD-1235-M}
   \item {\verbatim@font \verb*&\NewLimitsKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-11, MMMMI-12}
-  \item {\verbatim@font \verb*&nint&}\pfill \hdpindex{usage}{MMMMI-6}
-  \item {\verbatim@font \verb*&\nolimits&}\pfill 
-		\hdpindex{usage}{MMMMI-5}
+		\hdclindex{117}{}{MMMMV-117-MMMD-117-M}, 
+		\hdclindex{122}{}{MMMMV-122-MMMD-122-M}, 
+		\hdclindex{1067}{}{MMMMV-1067-MMMD-1067-M}, 
+		\hdclindex{1264}{}{MMMMV-1264-MMMD-1264-M}, 
+		\hdclindex{1265}{}{MMMMV-1265-MMMD-1265-M}, 
+		\hdclindex{1266}{}{MMMMV-1266-MMMD-1266-M}, 
+		\hdclindex{1267}{}{MMMMV-1267-MMMD-1267-M}, 
+		\hdclindex{1268}{}{MMMMV-1268-MMMD-1268-M}, 
+		\hdclindex{1269}{}{MMMMV-1269-MMMD-1269-M}, 
+		\hdclindex{1270}{}{MMMMV-1270-MMMD-1270-M}, 
+		\hdclindex{1271}{}{MMMMV-1271-MMMD-1271-M}, 
+		\hdclindex{1272}{}{MMMMV-1272-MMMD-1272-M}, 
+		\hdclindex{1273}{}{MMMMV-1273-MMMD-1273-M}, 
+		\hdclindex{1274}{}{MMMMV-1274-MMMD-1274-M}, 
+		\hdclindex{1275}{}{MMMMV-1275-MMMD-1275-M}
+  \item {\verbatim@font \verb*&\NewSymbolKeyword&}\pfill 
+		\hdclindex{101}{}{MMMMV-101-MMMD-101-M}, 
+		\hdclindex{1165}{}{MMMMV-1165-MMMD-1165-M}, 
+		\hdclindex{1255}{}{MMMMV-1255-MMMD-1255-M}, 
+		\hdclindex{1256}{}{MMMMV-1256-MMMD-1256-M}, 
+		\hdclindex{1257}{}{MMMMV-1257-MMMD-1257-M}, 
+		\hdclindex{1258}{}{MMMMV-1258-MMMD-1258-M}, 
+		\hdclindex{1259}{}{MMMMV-1259-MMMD-1259-M}, 
+		\hdclindex{1260}{}{MMMMV-1260-MMMD-1260-M}, 
+		\hdclindex{1261}{}{MMMMV-1261-MMMD-1261-M}
+  \item {\verbatim@font \verb*&\NewVariableKeyword&}\pfill 
+		\hdclindex{1127}{}{MMMMV-1127-MMMD-1127-M}, 
+		\hdclindex{1278}{}{MMMMV-1278-MMMD-1278-M}, 
+		\hdclindex{1279}{}{MMMMV-1279-MMMD-1279-M}, 
+		\hdclindex{1280}{}{MMMMV-1280-MMMD-1280-M}, 
+		\hdclindex{1281}{}{MMMMV-1281-MMMD-1281-M}, 
+		\hdclindex{1282}{}{MMMMV-1282-MMMD-1282-M}
+  \item {\verbatim@font \verb*&\NewVarKeyword&}\pfill 
+		\hdclindex{109}{}{MMMMV-109-MMMD-109-M}
 
   \indexspace
 {\bfseries\hfil O\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&\odif&}\pfill \hdpindex{usage}{MMMMI-10}
-  \item {\verbatim@font \bslash odif*{}}\pfill 
-		\hdpindex{usage}{MMMMI-10}
+  \item {\verbatim@font \verb*&\odif&}\pfill 
+		\hdclindex{405}{}{MMMMV-405-MMMD-405-M}, 
+		\hdclindex{410}{}{MMMMV-410-MMMD-410-M}, 
+		\hdclindex{411}{}{MMMMV-411-MMMD-411-M}
   \item {\verbatim@font \verb*&\oiiint&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&\oiint&}\pfill \hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&\oint&}\pfill \hdpindex{usage}{MMMMI-7}
+		\hdclindex{1261}{}{MMMMV-1261-MMMD-1261-M}
+  \item {\verbatim@font \verb*&\oiint&}\pfill 
+		\hdclindex{1260}{}{MMMMV-1260-MMMD-1260-M}
+  \item {\verbatim@font \verb*&\oint&}\pfill 
+		\hdclindex{1259}{}{MMMMV-1259-MMMD-1259-M}
 
   \indexspace
 {\bfseries\hfil P\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&\ProvideDifferentialKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-12}
+  \item {\verbatim@font \verb*&\partial&}\pfill 
+		\hdclindex{984}{}{MMMMV-984-MMMD-984-M}
+  \item {\verbatim@font \verb*&\PassOptionsToPackage&}\pfill 
+		\hdclindex{67}{}{MMMMV-67-MMMD-67-M}, 
+		\hdclindex{69}{}{MMMMV-69-MMMD-69-M}, 
+		\hdclindex{73}{}{MMMMV-73-MMMD-73-M}, 
+		\hdclindex{75}{}{MMMMV-75-MMMD-75-M}
+  \item {\verbatim@font \verb*&\phi&}\pfill 
+		\hdclindex{1282}{}{MMMMV-1282-MMMD-1282-M}
+  \item {\verbatim@font \verb*&\pi&}\pfill 
+		\hdclindex{1269}{}{MMMMV-1269-MMMD-1269-M}, 
+		\hdclindex{1270}{}{MMMMV-1270-MMMD-1270-M}, 
+		\hdclindex{1271}{}{MMMMV-1271-MMMD-1271-M}
+  \item {\verbatim@font \verb*&\pkginfograbProvidesExplPackage&}\pfill 
+		\hdclindex{9}{}{MMMMV-9-MMMD-9-M}
+  \item {\verbatim@font \verb*&\ProcessKeyOptions&}\pfill 
+		\hdclindex{80}{}{MMMMV-80-MMMD-80-M}
+  \item \pkg{prop} commands:\efill 
+ \subitem {\verbatim@font \verb*&\prop&\_\verb*&get:NnNTF&}\pfill 
+		\hdclindex{994}{}{MMMMV-994-MMMD-994-M}, 
+		\hdclindex{1033}{}{MMMMV-1033-MMMD-1033-M}, 
+		\hdclindex{1046}{}{MMMMV-1046-MMMD-1046-M}, 
+		\hdclindex{1069}{}{MMMMV-1069-MMMD-1069-M}, 
+		\hdclindex{1099}{}{MMMMV-1099-MMMD-1099-M}, 
+		\hdclindex{1129}{}{MMMMV-1129-MMMD-1129-M}, 
+		\hdclindex{1148}{}{MMMMV-1148-MMMD-1148-M}
+    \subitem {\verbatim@font \verb*&\prop&\_\verb*&if&\_\verb*&in:NnTF&}\pfill 
+		\hdclindex{314}{}{MMMMV-314-MMMD-314-M}, 
+		\hdclindex{1167}{}{MMMMV-1167-MMMD-1167-M}, 
+		\hdclindex{1185}{}{MMMMV-1185-MMMD-1185-M}, 
+		\hdclindex{1204}{}{MMMMV-1204-MMMD-1204-M}
+    \subitem {\verbatim@font \verb*&\prop&\_\verb*&item:Nn&}\pfill 
+		\hdclindex{315}{}{MMMMV-315-MMMD-315-M}
+    \subitem {\verbatim@font \verb*&\prop&\_\verb*&new:N&}\pfill 
+		\hdclindex{237}{}{MMMMV-237-MMMD-237-M}, 
+		\hdclindex{238}{}{MMMMV-238-MMMD-238-M}
+    \subitem {\verbatim@font \verb*&\prop&\_\verb*&pop:NnNTF&}\pfill 
+		\hdclindex{1084}{}{MMMMV-1084-MMMD-1084-M}, 
+		\hdclindex{1113}{}{MMMMV-1113-MMMD-1113-M}, 
+		\hdclindex{1137}{}{MMMMV-1137-MMMD-1137-M}, 
+		\hdclindex{1155}{}{MMMMV-1155-MMMD-1155-M}
+    \subitem {\verbatim@font \verb*&\prop&\_\verb*&put:Nnn&}\pfill 
+		\hdclindex{308}{}{MMMMV-308-MMMD-308-M}, 
+		\hdclindex{394}{}{MMMMV-394-MMMD-394-M}
   \item {\verbatim@font \verb*&\ProvideLimitsKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-11}
+		\hdclindex{1097}{}{MMMMV-1097-MMMD-1097-M}
+  \item {\verbatim@font \verb*&\ProvideSymbolKeyword&}\pfill 
+		\hdclindex{1202}{}{MMMMV-1202-MMMD-1202-M}
+  \item {\verbatim@font \verb*&\ProvideVariableKeyword&}\pfill 
+		\hdclindex{1146}{}{MMMMV-1146-MMMD-1146-M}
 
   \indexspace
 {\bfseries\hfil Q\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&quadruple&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
+  \item \pkg{quark} commands:\efill 
+ \subitem {\verbatim@font \verb*&\q&\_\verb*&stop&}\pfill 
+		\hdclindex{590}{}{MMMMV-590-MMMD-590-M}, 
+		\hdclindex{603}{}{MMMMV-603-MMMD-603-M}
 
   \indexspace
 {\bfseries\hfil R\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&\RenewDifferentialKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-12}
+  \item \pkg{regex} commands:\efill 
+ \subitem {\verbatim@font \verb*&\regex&\_\verb*&extract&\_\verb*&once:nnNTF&}\pfill 
+		\hdclindex{418}{}{MMMMV-418-MMMD-418-M}, 
+		\hdclindex{433}{}{MMMMV-433-MMMD-433-M}
+    \subitem {\verbatim@font \verb*&\regex&\_\verb*&if&\_\verb*&match:nnTF&}\pfill 
+		\hdclindex{172}{}{MMMMV-172-MMMD-172-M}, 
+		\hdclindex{716}{}{MMMMV-716-MMMD-716-M}
+    \subitem {\verbatim@font \verb*&\regex&\_\verb*&replace&\_\verb*&all:nnN&}\pfill 
+		\hdclindex{457}{}{MMMMV-457-MMMD-457-M}
+    \subitem {\verbatim@font \verb*&\regex&\_\verb*&split:nnN&}\pfill 
+		\hdclindex{616}{}{MMMMV-616-MMMD-616-M}
   \item {\verbatim@font \verb*&\RenewLimitsKeyword&}\pfill 
-		\hdpindex{usage}{MMMMI-11}
+		\hdclindex{113}{}{MMMMV-113-MMMD-113-M}, 
+		\hdclindex{1082}{}{MMMMV-1082-MMMD-1082-M}
+  \item {\verbatim@font \verb*&\RenewSymbolKeyword&}\pfill 
+		\hdclindex{97}{}{MMMMV-97-MMMD-97-M}, 
+		\hdclindex{1183}{}{MMMMV-1183-MMMD-1183-M}
+  \item {\verbatim@font \verb*&\RenewVariableKeyword&}\pfill 
+		\hdclindex{1135}{}{MMMMV-1135-MMMD-1135-M}
+  \item {\verbatim@font \verb*&\RenewVarKeyword&}\pfill 
+		\hdclindex{105}{}{MMMMV-105-MMMD-105-M}
+  \item {\verbatim@font \verb*&\RequirePackage&}\pfill 
+		\hdclindex{4}{}{MMMMV-4-MMMD-4-M}, 
+		\hdclindex{5}{}{MMMMV-5-MMMD-5-M}, 
+		\hdclindex{35}{}{MMMMV-35-MMMD-35-M}, 
+		\hdclindex{82}{}{MMMMV-82-MMMD-82-M}
 
   \indexspace
 {\bfseries\hfil S\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&single&}\pfill \hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&surface&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\s&}\pfill 
+		\hdclindex{419}{}{MMMMV-419-MMMD-419-M}, 
+		\hdclindex{434}{}{MMMMV-434-MMMD-434-M}, 
+		\hdclindex{459}{}{MMMMV-459-MMMD-459-M}, 
+		\hdclindex{461}{}{MMMMV-461-MMMD-461-M}
+  \item \pkg{scan} commands:\efill 
+ \subitem {\verbatim@font \verb*&\scan&\_\verb*&stop:&}\pfill 
+		\hdclindex{246}{}{MMMMV-246-MMMD-246-M}, 
+		\hdclindex{779}{}{MMMMV-779-MMMD-779-M}, 
+		\hdclindex{930}{}{MMMMV-930-MMMD-930-M}, 
+		\hdclindex{931}{}{MMMMV-931-MMMD-931-M}, 
+		\hdclindex{932}{}{MMMMV-932-MMMD-932-M}, 
+		\hdclindex{933}{}{MMMMV-933-MMMD-933-M}
+  \item \pkg{seq} commands:\efill 
+ \subitem {\verbatim@font \verb*&\seq&\_\verb*&clear:N&}\pfill 
+		\hdclindex{324}{}{MMMMV-324-MMMD-324-M}, 
+		\hdclindex{325}{}{MMMMV-325-MMMD-325-M}, 
+		\hdclindex{1140}{}{MMMMV-1140-MMMD-1140-M}, 
+		\hdclindex{1158}{}{MMMMV-1158-MMMD-1158-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&count:N&}\pfill 
+		\hdclindex{272}{}{MMMMV-272-MMMD-272-M}, 
+		\hdclindex{273}{}{MMMMV-273-MMMD-273-M}, 
+		\hdclindex{496}{}{MMMMV-496-MMMD-496-M}, 
+		\hdclindex{617}{}{MMMMV-617-MMMD-617-M}, 
+		\hdclindex{623}{}{MMMMV-623-MMMD-623-M}, 
+		\hdclindex{647}{}{MMMMV-647-MMMD-647-M}, 
+		\hdclindex{663}{}{MMMMV-663-MMMD-663-M}, 
+		\hdclindex{665}{}{MMMMV-665-MMMD-665-M}, 
+		\hdclindex{668}{}{MMMMV-668-MMMD-668-M}, 
+		\hdclindex{670}{}{MMMMV-670-MMMD-670-M}, 
+		\hdclindex{673}{}{MMMMV-673-MMMD-673-M}, 
+		\hdclindex{674}{}{MMMMV-674-MMMD-674-M}, 
+		\hdclindex{675}{}{MMMMV-675-MMMD-675-M}, 
+		\hdclindex{680}{}{MMMMV-680-MMMD-680-M}, 
+		\hdclindex{681}{}{MMMMV-681-MMMD-681-M}, 
+		\hdclindex{682}{}{MMMMV-682-MMMD-682-M}, 
+		\hdclindex{771}{}{MMMMV-771-MMMD-771-M}, 
+		\hdclindex{818}{}{MMMMV-818-MMMD-818-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&gclear:N&}\pfill 
+		\hdclindex{857}{}{MMMMV-857-MMMD-857-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&gpop&\_\verb*&left:NN&}\pfill 
+		\hdclindex{812}{}{MMMMV-812-MMMD-812-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&if&\_\verb*&empty:NTF&}\pfill 
+		\hdclindex{271}{}{MMMMV-271-MMMD-271-M}, 
+		\hdclindex{700}{}{MMMMV-700-MMMD-700-M}, 
+		\hdclindex{706}{}{MMMMV-706-MMMD-706-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&if&\_\verb*&exist:NTF&}\pfill 
+		\hdclindex{998}{}{MMMMV-998-MMMD-998-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&if&\_\verb*&in:NnTF&}\pfill 
+		\hdclindex{519}{}{MMMMV-519-MMMD-519-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&item:Nn&}\pfill 
+		\hdclindex{281}{}{MMMMV-281-MMMD-281-M}, 
+		\hdclindex{282}{}{MMMMV-282-MMMD-282-M}, 
+		\hdclindex{423}{}{MMMMV-423-MMMD-423-M}, 
+		\hdclindex{446}{}{MMMMV-446-MMMD-446-M}, 
+		\hdclindex{490}{}{MMMMV-490-MMMD-490-M}, 
+		\hdclindex{506}{}{MMMMV-506-MMMD-506-M}, 
+		\hdclindex{509}{}{MMMMV-509-MMMD-509-M}, 
+		\hdclindex{539}{}{MMMMV-539-MMMD-539-M}, 
+		\hdclindex{627}{}{MMMMV-627-MMMD-627-M}, 
+		\hdclindex{630}{}{MMMMV-630-MMMD-630-M}, 
+		\hdclindex{631}{}{MMMMV-631-MMMD-631-M}, 
+		\hdclindex{634}{}{MMMMV-634-MMMD-634-M}, 
+		\hdclindex{649}{}{MMMMV-649-MMMD-649-M}, 
+		\hdclindex{773}{}{MMMMV-773-MMMD-773-M}, 
+		\hdclindex{781}{}{MMMMV-781-MMMD-781-M}, 
+		\hdclindex{785}{}{MMMMV-785-MMMD-785-M}, 
+		\hdclindex{787}{}{MMMMV-787-MMMD-787-M}, 
+		\hdclindex{820}{}{MMMMV-820-MMMD-820-M}, 
+		\hdclindex{828}{}{MMMMV-828-MMMD-828-M}, 
+		\hdclindex{832}{}{MMMMV-832-MMMD-832-M}, 
+		\hdclindex{834}{}{MMMMV-834-MMMD-834-M}, 
+		\hdclindex{841}{}{MMMMV-841-MMMD-841-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&map&\_\verb*&indexed&\_\verb*&inline:Nn&}\pfill 
+		\hdclindex{348}{}{MMMMV-348-MMMD-348-M}, 
+		\hdclindex{479}{}{MMMMV-479-MMMD-479-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&map&\_\verb*&inline:Nn&}\pfill 
+		\hdclindex{333}{}{MMMMV-333-MMMD-333-M}, 
+		\hdclindex{945}{}{MMMMV-945-MMMD-945-M}, 
+		\hdclindex{966}{}{MMMMV-966-MMMD-966-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&new:N&}\pfill 
+		\hdclindex{220}{}{MMMMV-220-MMMD-220-M}, 
+		\hdclindex{221}{}{MMMMV-221-MMMD-221-M}, 
+		\hdclindex{222}{}{MMMMV-222-MMMD-222-M}, 
+		\hdclindex{223}{}{MMMMV-223-MMMD-223-M}, 
+		\hdclindex{224}{}{MMMMV-224-MMMD-224-M}, 
+		\hdclindex{225}{}{MMMMV-225-MMMD-225-M}, 
+		\hdclindex{226}{}{MMMMV-226-MMMD-226-M}, 
+		\hdclindex{227}{}{MMMMV-227-MMMD-227-M}, 
+		\hdclindex{228}{}{MMMMV-228-MMMD-228-M}, 
+		\hdclindex{229}{}{MMMMV-229-MMMD-229-M}, 
+		\hdclindex{230}{}{MMMMV-230-MMMD-230-M}, 
+		\hdclindex{231}{}{MMMMV-231-MMMD-231-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&pop&\_\verb*&left:NN&}\pfill 
+		\hdclindex{523}{}{MMMMV-523-MMMD-523-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&put&\_\verb*&left:Nn&}\pfill 
+		\hdclindex{441}{}{MMMMV-441-MMMD-441-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&put&\_\verb*&right:Nn&}\pfill 
+		\hdclindex{278}{}{MMMMV-278-MMMD-278-M}, 
+		\hdclindex{337}{}{MMMMV-337-MMMD-337-M}, 
+		\hdclindex{339}{}{MMMMV-339-MMMD-339-M}, 
+		\hdclindex{370}{}{MMMMV-370-MMMD-370-M}, 
+		\hdclindex{371}{}{MMMMV-371-MMMD-371-M}, 
+		\hdclindex{535}{}{MMMMV-535-MMMD-535-M}, 
+		\hdclindex{619}{}{MMMMV-619-MMMD-619-M}, 
+		\hdclindex{624}{}{MMMMV-624-MMMD-624-M}, 
+		\hdclindex{702}{}{MMMMV-702-MMMD-702-M}, 
+		\hdclindex{708}{}{MMMMV-708-MMMD-708-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&set&\_\verb*&eq:NN&}\pfill 
+		\hdclindex{1000}{}{MMMMV-1000-MMMD-1000-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&set&\_\verb*&from&\_\verb*&clist:NN&}\pfill 
+		\hdclindex{399}{}{MMMMV-399-MMMD-399-M}, 
+		\hdclindex{424}{}{MMMMV-424-MMMD-424-M}, 
+		\hdclindex{447}{}{MMMMV-447-MMMD-447-M}, 
+		\hdclindex{472}{}{MMMMV-472-MMMD-472-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&set&\_\verb*&split:Nnn&}\pfill 
+		\hdclindex{326}{}{MMMMV-326-MMMD-326-M}, 
+		\hdclindex{625}{}{MMMMV-625-MMMD-625-M}, 
+		\hdclindex{694}{}{MMMMV-694-MMMD-694-M}, 
+		\hdclindex{944}{}{MMMMV-944-MMMD-944-M}, 
+		\hdclindex{965}{}{MMMMV-965-MMMD-965-M}
+    \subitem {\verbatim@font \verb*&\seq&\_\verb*&use:Nn&}\pfill 
+		\hdclindex{177}{}{MMMMV-177-MMMD-177-M}, 
+		\hdclindex{731}{}{MMMMV-731-MMMD-731-M}, 
+		\hdclindex{733}{}{MMMMV-733-MMMD-733-M}, 
+		\hdclindex{742}{}{MMMMV-742-MMMD-742-M}, 
+		\hdclindex{745}{}{MMMMV-745-MMMD-745-M}, 
+		\hdclindex{747}{}{MMMMV-747-MMMD-747-M}, 
+		\hdclindex{756}{}{MMMMV-756-MMMD-756-M}, 
+		\hdclindex{767}{}{MMMMV-767-MMMD-767-M}, 
+		\hdclindex{792}{}{MMMMV-792-MMMD-792-M}, 
+		\hdclindex{794}{}{MMMMV-794-MMMD-794-M}, 
+		\hdclindex{799}{}{MMMMV-799-MMMD-799-M}
+    \subitem {\verbatim@font \verb*&\l&\_\verb*&tmpa&\_\verb*&seq&}\pfill 
+		\hdclindex{472}{}{MMMMV-472-MMMD-472-M}, 
+		\hdclindex{479}{}{MMMMV-479-MMMD-479-M}, 
+		\hdclindex{539}{}{MMMMV-539-MMMD-539-M}, 
+		\hdclindex{616}{}{MMMMV-616-MMMD-616-M}, 
+		\hdclindex{617}{}{MMMMV-617-MMMD-617-M}, 
+		\hdclindex{620}{}{MMMMV-620-MMMD-620-M}, 
+		\hdclindex{623}{}{MMMMV-623-MMMD-623-M}, 
+		\hdclindex{624}{}{MMMMV-624-MMMD-624-M}, 
+		\hdclindex{627}{}{MMMMV-627-MMMD-627-M}, 
+		\hdclindex{630}{}{MMMMV-630-MMMD-630-M}, 
+		\hdclindex{634}{}{MMMMV-634-MMMD-634-M}
+    \subitem {\verbatim@font \verb*&\l&\_\verb*&tmpb&\_\verb*&seq&}\pfill 
+		\hdclindex{625}{}{MMMMV-625-MMMD-625-M}, 
+		\hdclindex{631}{}{MMMMV-631-MMMD-631-M}, 
+		\hdclindex{647}{}{MMMMV-647-MMMD-647-M}, 
+		\hdclindex{649}{}{MMMMV-649-MMMD-649-M}
+  \item {\verbatim@font \verb*&\sin&}\pfill 
+		\hdclindex{1282}{}{MMMMV-1282-MMMD-1282-M}
+  \item \pkg{str} commands:\efill 
+ \subitem {\verbatim@font \verb*&\str&\_\verb*&case:nnTF&}\pfill 
+		\hdclindex{634}{}{MMMMV-634-MMMD-634-M}, 
+		\hdclindex{850}{}{MMMMV-850-MMMD-850-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&case&\_\verb*&e:nnTF&}\pfill 
+		\hdclindex{373}{}{MMMMV-373-MMMD-373-M}, 
+		\hdclindex{379}{}{MMMMV-379-MMMD-379-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&if&\_\verb*&eq:nnTF&}\pfill 
+		\hdclindex{174}{}{MMMMV-174-MMMD-174-M}, 
+		\hdclindex{175}{}{MMMMV-175-MMMD-175-M}, 
+		\hdclindex{505}{}{MMMMV-505-MMMD-505-M}, 
+		\hdclindex{508}{}{MMMMV-508-MMMD-508-M}, 
+		\hdclindex{991}{}{MMMMV-991-MMMD-991-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&if&\_\verb*&eq&\_\verb*&p:nn&}\pfill 
+		\hdclindex{178}{}{MMMMV-178-MMMD-178-M}, 
+		\hdclindex{649}{}{MMMMV-649-MMMD-649-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&if&\_\verb*&in:nnTF&}\pfill 
+		\hdclindex{439}{}{MMMMV-439-MMMD-439-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&new:N&}\pfill 
+		\hdclindex{233}{}{MMMMV-233-MMMD-233-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&set:Nn&}\pfill 
+		\hdclindex{870}{}{MMMMV-870-MMMD-870-M}, 
+		\hdclindex{875}{}{MMMMV-875-MMMD-875-M}, 
+		\hdclindex{880}{}{MMMMV-880-MMMD-880-M}
+    \subitem {\verbatim@font \verb*&\str&\_\verb*&uppercase:n&}\pfill 
+		\hdclindex{950}{}{MMMMV-950-MMMD-950-M}, 
+		\hdclindex{971}{}{MMMMV-971-MMMD-971-M}
 
   \indexspace
 {\bfseries\hfil T\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&triple&}\pfill \hdpindex{usage}{MMMMI-7}
-
-  \indexspace
-{\bfseries\hfil U\hfil}\nopagebreak
-
-  \item {\verbatim@font \verb*&upper-lim&}\pfill 
-		\hdpindex{usage}{MMMMI-7}
-  \item {\verbatim@font \verb*&\uppercase&}\pfill 
-		\hdpindex{usage}{MMMMI-8}
-  \item {\verbatim@font \verb*&upright&}\pfill 
-		\hdpindex{usage}{MMMMI-3}
-  \item {\verbatim@font \verb*&\usepackage&}\pfill 
-		\hdpindex{usage}{MMMMI-3}
+  \item \TeX{} and \LaTeXe{} commands:\efill 
+ \subitem {\verbatim@font \verb*&\@ifpackagelater&}\pfill 
+		\hdclindex{29}{}{MMMMV-29-MMMD-29-M}
+    \subitem {\verbatim@font \verb*&\@onlypreamble&}\pfill 
+		\hdclindex{1250}{}{MMMMV-1250-MMMD-1250-M}
+  \item \pkg{tex} commands:\efill 
+ \subitem {\verbatim@font \verb*&\tex&\_\verb*&left:D&}\pfill 
+		\hdclindex{375}{}{MMMMV-375-MMMD-375-M}, 
+		\hdclindex{377}{}{MMMMV-377-MMMD-377-M}
+    \subitem {\verbatim@font \verb*&\tex&\_\verb*&limits:D&}\pfill 
+		\hdclindex{58}{}{MMMMV-58-MMMD-58-M}
+    \subitem {\verbatim@font \verb*&\tex&\_\verb*&mathop:D&}\pfill 
+		\hdclindex{742}{}{MMMMV-742-MMMD-742-M}, 
+		\hdclindex{782}{}{MMMMV-782-MMMD-782-M}, 
+		\hdclindex{830}{}{MMMMV-830-MMMD-830-M}
+    \subitem {\verbatim@font \verb*&\tex&\_\verb*&mathpunct:D&}\pfill 
+		\hdclindex{357}{}{MMMMV-357-MMMD-357-M}, 
+		\hdclindex{365}{}{MMMMV-365-MMMD-365-M}
+    \subitem {\verbatim@font \verb*&\tex&\_\verb*&mkern:D&}\pfill 
+		\hdclindex{246}{}{MMMMV-246-MMMD-246-M}, 
+		\hdclindex{930}{}{MMMMV-930-MMMD-930-M}, 
+		\hdclindex{931}{}{MMMMV-931-MMMD-931-M}, 
+		\hdclindex{932}{}{MMMMV-932-MMMD-932-M}, 
+		\hdclindex{933}{}{MMMMV-933-MMMD-933-M}
+    \subitem {\verbatim@font \verb*&\tex&\_\verb*&nolimits:D&}\pfill 
+		\hdclindex{60}{}{MMMMV-60-MMMD-60-M}
+    \subitem {\verbatim@font \verb*&\tex&\_\verb*&right:D&}\pfill 
+		\hdclindex{381}{}{MMMMV-381-MMMD-381-M}, 
+		\hdclindex{383}{}{MMMMV-383-MMMD-383-M}
+  \item {\verbatim@font \verb*&\theta&}\pfill 
+		\hdclindex{1280}{}{MMMMV-1280-MMMD-1280-M}, 
+		\hdclindex{1281}{}{MMMMV-1281-MMMD-1281-M}, 
+		\hdclindex{1282}{}{MMMMV-1282-MMMD-1282-M}
+  \item {\verbatim@font \verb*&\times&}\pfill 
+		\hdclindex{948}{}{MMMMV-948-MMMD-948-M}, 
+		\hdclindex{969}{}{MMMMV-969-MMMD-969-M}
+  \item \pkg{tl} commands:\efill 
+ \subitem {\verbatim@font \verb*&\c&\_\verb*&space&\_\verb*&tl&}\pfill 
+		\hdclindex{89}{}{MMMMV-89-MMMD-89-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&clear:N&}\pfill 
+		\hdclindex{541}{}{MMMMV-541-MMMD-541-M}, 
+		\hdclindex{919}{}{MMMMV-919-MMMD-919-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&const:Nn&}\pfill 
+		\hdclindex{196}{}{MMMMV-196-MMMD-196-M}, 
+		\hdclindex{197}{}{MMMMV-197-MMMD-197-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&head:n&}\pfill 
+		\hdclindex{950}{}{MMMMV-950-MMMD-950-M}, 
+		\hdclindex{971}{}{MMMMV-971-MMMD-971-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&if&\_\verb*&blank:nTF&}\pfill 
+		\hdclindex{396}{}{MMMMV-396-MMMD-396-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&if&\_\verb*&empty:NTF&}\pfill 
+		\hdclindex{947}{}{MMMMV-947-MMMD-947-M}, 
+		\hdclindex{968}{}{MMMMV-968-MMMD-968-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&if&\_\verb*&empty:nTF&}\pfill 
+		\hdclindex{473}{}{MMMMV-473-MMMD-473-M}, 
+		\hdclindex{480}{}{MMMMV-480-MMMD-480-M}, 
+		\hdclindex{1238}{}{MMMMV-1238-MMMD-1238-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&if&\_\verb*&in:NnTF&}\pfill 
+		\hdclindex{598}{}{MMMMV-598-MMMD-598-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&new:N&}\pfill 
+		\hdclindex{42}{}{MMMMV-42-MMMD-42-M}, 
+		\hdclindex{182}{}{MMMMV-182-MMMD-182-M}, 
+		\hdclindex{183}{}{MMMMV-183-MMMD-183-M}, 
+		\hdclindex{184}{}{MMMMV-184-MMMD-184-M}, 
+		\hdclindex{185}{}{MMMMV-185-MMMD-185-M}, 
+		\hdclindex{186}{}{MMMMV-186-MMMD-186-M}, 
+		\hdclindex{187}{}{MMMMV-187-MMMD-187-M}, 
+		\hdclindex{188}{}{MMMMV-188-MMMD-188-M}, 
+		\hdclindex{189}{}{MMMMV-189-MMMD-189-M}, 
+		\hdclindex{190}{}{MMMMV-190-MMMD-190-M}, 
+		\hdclindex{191}{}{MMMMV-191-MMMD-191-M}, 
+		\hdclindex{192}{}{MMMMV-192-MMMD-192-M}, 
+		\hdclindex{193}{}{MMMMV-193-MMMD-193-M}, 
+		\hdclindex{194}{}{MMMMV-194-MMMD-194-M}, 
+		\hdclindex{195}{}{MMMMV-195-MMMD-195-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&put&\_\verb*&right:Nn&}\pfill 
+		\hdclindex{482}{}{MMMMV-482-MMMD-482-M}, 
+		\hdclindex{487}{}{MMMMV-487-MMMD-487-M}, 
+		\hdclindex{500}{}{MMMMV-500-MMMD-500-M}, 
+		\hdclindex{514}{}{MMMMV-514-MMMD-514-M}, 
+		\hdclindex{526}{}{MMMMV-526-MMMD-526-M}, 
+		\hdclindex{923}{}{MMMMV-923-MMMD-923-M}, 
+		\hdclindex{927}{}{MMMMV-927-MMMD-927-M}, 
+		\hdclindex{948}{}{MMMMV-948-MMMD-948-M}, 
+		\hdclindex{953}{}{MMMMV-953-MMMD-953-M}, 
+		\hdclindex{969}{}{MMMMV-969-MMMD-969-M}, 
+		\hdclindex{974}{}{MMMMV-974-MMMD-974-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&set:Nn&}\pfill 
+		\hdclindex{296}{}{MMMMV-296-MMMD-296-M}, 
+		\hdclindex{297}{}{MMMMV-297-MMMD-297-M}, 
+		\hdclindex{300}{}{MMMMV-300-MMMD-300-M}, 
+		\hdclindex{301}{}{MMMMV-301-MMMD-301-M}, 
+		\hdclindex{323}{}{MMMMV-323-MMMD-323-M}, 
+		\hdclindex{354}{}{MMMMV-354-MMMD-354-M}, 
+		\hdclindex{362}{}{MMMMV-362-MMMD-362-M}, 
+		\hdclindex{456}{}{MMMMV-456-MMMD-456-M}, 
+		\hdclindex{597}{}{MMMMV-597-MMMD-597-M}, 
+		\hdclindex{600}{}{MMMMV-600-MMMD-600-M}, 
+		\hdclindex{943}{}{MMMMV-943-MMMD-943-M}, 
+		\hdclindex{949}{}{MMMMV-949-MMMD-949-M}, 
+		\hdclindex{951}{}{MMMMV-951-MMMD-951-M}, 
+		\hdclindex{964}{}{MMMMV-964-MMMD-964-M}, 
+		\hdclindex{970}{}{MMMMV-970-MMMD-970-M}, 
+		\hdclindex{972}{}{MMMMV-972-MMMD-972-M}, 
+		\hdclindex{984}{}{MMMMV-984-MMMD-984-M}, 
+		\hdclindex{1042}{}{MMMMV-1042-MMMD-1042-M}, 
+		\hdclindex{1055}{}{MMMMV-1055-MMMD-1055-M}, 
+		\hdclindex{1243}{}{MMMMV-1243-MMMD-1243-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&set&\_\verb*&eq:NN&}\pfill 
+		\hdclindex{58}{}{MMMMV-58-MMMD-58-M}, 
+		\hdclindex{60}{}{MMMMV-60-MMMD-60-M}, 
+		\hdclindex{199}{}{MMMMV-199-MMMD-199-M}, 
+		\hdclindex{606}{}{MMMMV-606-MMMD-606-M}, 
+		\hdclindex{905}{}{MMMMV-905-MMMD-905-M}, 
+		\hdclindex{908}{}{MMMMV-908-MMMD-908-M}, 
+		\hdclindex{1038}{}{MMMMV-1038-MMMD-1038-M}, 
+		\hdclindex{1051}{}{MMMMV-1051-MMMD-1051-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&tail:n&}\pfill 
+		\hdclindex{952}{}{MMMMV-952-MMMD-952-M}, 
+		\hdclindex{973}{}{MMMMV-973-MMMD-973-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&trim&\_\verb*&spaces:n&}\pfill 
+		\hdclindex{96}{}{MMMMV-96-MMMD-96-M}, 
+		\hdclindex{100}{}{MMMMV-100-MMMD-100-M}, 
+		\hdclindex{104}{}{MMMMV-104-MMMD-104-M}, 
+		\hdclindex{108}{}{MMMMV-108-MMMD-108-M}, 
+		\hdclindex{112}{}{MMMMV-112-MMMD-112-M}, 
+		\hdclindex{116}{}{MMMMV-116-MMMD-116-M}, 
+		\hdclindex{130}{}{MMMMV-130-MMMD-130-M}
+    \subitem {\verbatim@font \verb*&\tl&\_\verb*&use:N&}\pfill 
+		\hdclindex{257}{}{MMMMV-257-MMMD-257-M}, 
+		\hdclindex{258}{}{MMMMV-258-MMMD-258-M}, 
+		\hdclindex{378}{}{MMMMV-378-MMMD-378-M}, 
+		\hdclindex{813}{}{MMMMV-813-MMMD-813-M}
+    \subitem {\verbatim@font \verb*&\l&\_\verb*&tmpa&\_\verb*&tl&}\pfill 
+		\hdclindex{323}{}{MMMMV-323-MMMD-323-M}, 
+		\hdclindex{326}{}{MMMMV-326-MMMD-326-M}, 
+		\hdclindex{525}{}{MMMMV-525-MMMD-525-M}, 
+		\hdclindex{597}{}{MMMMV-597-MMMD-597-M}, 
+		\hdclindex{598}{}{MMMMV-598-MMMD-598-M}, 
+		\hdclindex{603}{}{MMMMV-603-MMMD-603-M}, 
+		\hdclindex{606}{}{MMMMV-606-MMMD-606-M}, 
+		\hdclindex{812}{}{MMMMV-812-MMMD-812-M}, 
+		\hdclindex{813}{}{MMMMV-813-MMMD-813-M}, 
+		\hdclindex{943}{}{MMMMV-943-MMMD-943-M}, 
+		\hdclindex{944}{}{MMMMV-944-MMMD-944-M}, 
+		\hdclindex{964}{}{MMMMV-964-MMMD-964-M}, 
+		\hdclindex{965}{}{MMMMV-965-MMMD-965-M}, 
+		\hdclindex{995}{}{MMMMV-995-MMMD-995-M}, 
+		\hdclindex{997}{}{MMMMV-997-MMMD-997-M}, 
+		\hdclindex{1036}{}{MMMMV-1036-MMMD-1036-M}, 
+		\hdclindex{1040}{}{MMMMV-1040-MMMD-1040-M}, 
+		\hdclindex{1049}{}{MMMMV-1049-MMMD-1049-M}, 
+		\hdclindex{1053}{}{MMMMV-1053-MMMD-1053-M}, 
+		\hdclindex{1069}{}{MMMMV-1069-MMMD-1069-M}, 
+		\hdclindex{1084}{}{MMMMV-1084-MMMD-1084-M}, 
+		\hdclindex{1099}{}{MMMMV-1099-MMMD-1099-M}, 
+		\hdclindex{1113}{}{MMMMV-1113-MMMD-1113-M}, 
+		\hdclindex{1130}{}{MMMMV-1130-MMMD-1130-M}, 
+		\hdclindex{1138}{}{MMMMV-1138-MMMD-1138-M}, 
+		\hdclindex{1149}{}{MMMMV-1149-MMMD-1149-M}, 
+		\hdclindex{1156}{}{MMMMV-1156-MMMD-1156-M}
+  \item \pkg{token} commands:\efill 
+ \subitem {\verbatim@font \verb*&\c&\_\verb*&math&\_\verb*&subscript&\_\verb*&token&}\pfill 
+		\hdclindex{259}{}{MMMMV-259-MMMD-259-M}, 
+		\hdclindex{978}{}{MMMMV-978-MMMD-978-M}
+    \subitem {\verbatim@font \verb*&\c&\_\verb*&math&\_\verb*&superscript&\_\verb*&token&}\pfill 
+		\hdclindex{261}{}{MMMMV-261-MMMD-261-M}, 
+		\hdclindex{957}{}{MMMMV-957-MMMD-957-M}
+    \subitem {\verbatim@font \verb*&\token&\_\verb*&to&\_\verb*&str:N&}\pfill 
+		\hdclindex{97}{}{MMMMV-97-MMMD-97-M}, 
+		\hdclindex{101}{}{MMMMV-101-MMMD-101-M}, 
+		\hdclindex{105}{}{MMMMV-105-MMMD-105-M}, 
+		\hdclindex{109}{}{MMMMV-109-MMMD-109-M}, 
+		\hdclindex{113}{}{MMMMV-113-MMMD-113-M}, 
+		\hdclindex{122}{}{MMMMV-122-MMMD-122-M}, 
+		\hdclindex{131}{}{MMMMV-131-MMMD-131-M}, 
+		\hdclindex{150}{}{MMMMV-150-MMMD-150-M}, 
+		\hdclindex{152}{}{MMMMV-152-MMMD-152-M}
 
   \indexspace
 {\bfseries\hfil V\hfil}\nopagebreak
 
-  \item {\verbatim@font \verb*&variable&}\pfill 
-		\hdpindex{usage}{MMMMI-8}
-  \item {\verbatim@font \verb*&\vdiffstyle&}\pfill 
-		\hdpindex{usage}{MMMMI-14, MMMMI-15}
-  \item {\verbatim@font \verb*&\vec&}\pfill \hdpindex{usage}{MMMMI-10}, 
-		\hdpindex{usage}{MMMMI-14}
-  \item {\verbatim@font \verb*&volume&}\pfill \hdpindex{usage}{MMMMI-7}
+  \item {\verbatim@font \verb*&\vec&}\pfill 
+		\hdclindex{1290}{}{MMMMV-1290-MMMD-1290-M}
 
  \end{theindex}

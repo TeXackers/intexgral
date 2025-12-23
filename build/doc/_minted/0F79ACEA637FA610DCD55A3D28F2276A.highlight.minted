@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    int\PYGZhy{}symb=\PYG{k}{\PYGZbs{}oint},
-    lower\PYGZhy{}lim=\PYG{k}{\PYGZbs{}mathcal}\PYG{n+nb}{\PYGZob{}}C\PYG{n+nb}{\PYGZcb{}},
-    diff\PYGZhy{}vec=true
-    ]\PYG{n+nb}{\PYGZob{}}f(\PYG{k}{\PYGZbs{}vec}\PYG{n+nb}{\PYGZob{}}r\PYG{n+nb}{\PYGZcb{}})\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}

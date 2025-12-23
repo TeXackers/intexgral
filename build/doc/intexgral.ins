@@ -36,27 +36,18 @@ LaTeX version 2008-05-04 or later.
 This work has the LPPL maintenance status 'maintained'
 and the current maintainer is Valentin Dao (vdao.texdev@gmail.com).
 
-This work consists of the files intexgral.ins and intexgral.dtx,
-along with the derived files intexgral-doc-en.pdf, and 
-intexgral-doc-fr.pdf. In order to acquire the .tex master files 
-producing the documentations and the .sty file, simply run the 
-installation file through any engine.
+This work consists of the files intexgral.ins, intexgral-fr.dtx and intexgral-en.dtx, along with the derived files intexgral.sty, intexgral-fr.pdf, and intexgral-en.pdf.
 
 The repository of this work can be found at:
 
-  https://github.com/ankaa3908/intexgral 
+  https://github.com/ankaa3908/intexgral
 
 \endpreamble 
 
 \keepsilent
 
 \generate{
-  \file{intexgral.sty}{\from{intexgral.dtx}{package}}
-  \file{intexgral-en.tex}{\from{intexgral.dtx}{doc-en}}
-  \file{intexgral-fr.tex}{\from{intexgral.dtx}{doc-fr}}
-  \nopreamble
-  \nopostamble
-  \file{README.md}{\from{intexgral.dtx}{readme}}
+  \file{intexgral.sty}{\from{intexgral-en.dtx}{package}}
 }
 
 \endbatchfile

@@ -1,6 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    triple=\PYG{n+nb}{\PYGZob{}}V\PYG{n+nb}{\PYGZcb{}},
-    variable=cartesian
-    ]\PYG{n+nb}{\PYGZob{}}f(x, y, z)\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}

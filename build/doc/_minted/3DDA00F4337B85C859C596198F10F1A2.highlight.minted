@@ -1,5 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    variable=\PYG{n+nb}{\PYGZob{}}a\PYG{n+nb}{\PYGZcb{}},
-    ]\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}frac}\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}differentials}\PYG{n+nb}{\PYGZcb{}\PYGZob{}}a\PYG{n+nb}{\PYGZcb{}\PYGZcb{}} = \PYG{k}{\PYGZbs{}ln}(a) + C
-\end{MintedVerbatim}

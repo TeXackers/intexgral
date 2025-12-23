@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-  \PYG{k}{\PYGZbs{}integral}[
-    double,
-    domain=\PYG{n+nb}{\PYGZob{}}r*r\PYG{n+nb}{\PYGZcb{}},
-    variable=\PYG{n+nb}{\PYGZob{}}x, y\PYG{n+nb}{\PYGZcb{}}
-    ]\PYG{n+nb}{\PYGZob{}}xy\PYG{n+nb}{\PYGZcb{}}
-\end{MintedVerbatim}
