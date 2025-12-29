@@ -288,7 +288,7 @@
 % \maketitle
 % 
 % \begin{abstract}
-% While integral composition is prevalent in \LaTeX, it often proves to be impractical. When the expression becomes complex, it is then difficult to modify its various elements in an illegible source code. To address this problem, the \tsobj[pkg]{intexgral} package offers a central macro whose only argument is the integrand. Everything else (symbol, limits, variables\dots) can be modified using a \tsobj[meta]{key=value} interface. Unlike the traditional method, where the user chooses the limit order with the active characters \verb|_| and \verb|^|, the package had to establish a convention. Thus, for the two keys that will deal with limits, the assumed input will be \verb|_|\tsobj[meta]{lower limit}\verb|^|\tsobj[meta]{upper limit}. Since this package is written in \tsobj{expl3}, it depends on the \LaTeX3 group of packages \tsobj[pkg]{l3kernel} and \tsobj[pkg]{l3package}. In addition, \tsobj[pkg]{intexgral} uses the \tsobj[pkg]{derivative}\footnote{Available on \textsc{ctan} under: \url{https://ctan.org/pkg/derivative}} package to facilitate the manipulation of differentials, as well as \tsobj[pkg]{pkginfograb}\footnote{Available on \textsc{ctan} under: \url{https://ctan.org/pkg/pkginfograb}}.
+% While integral composition is prevalent in \LaTeX, it often proves to be impractical. When the expression becomes complex, it is then difficult to modify its various elements in an illegible source code. To address this problem, the \tsobj[pkg]{intexgral} package offers a central macro whose only argument is the integrand. Everything else (symbol, limits, variables\dots) can be modified using a \tsobj[meta]{key=value} interface. Unlike the traditional method, where the user chooses the limit order with the active characters \verb|_| and \verb|^|, the package had to establish a convention. Thus, for the two keys that will deal with limits, the assumed input will be \verb|_|\tsobj[meta]{lower limit}\verb|^|\tsobj[meta]{upper limit}. Since this package is written in \tsobj[pkg]{expl3}, it depends on the \LaTeX3 group of packages \tsobj[pkg]{l3kernel} and \tsobj[pkg]{l3package}. In addition, \tsobj[pkg]{intexgral} uses the \tsobj[pkg]{derivative}\footnote{Available on \textsc{ctan} under: \url{https://ctan.org/pkg/derivative}} package to facilitate the manipulation of differentials, as well as \tsobj[pkg]{pkginfograb}\footnote{Available on \textsc{ctan} under: \url{https://ctan.org/pkg/pkginfograb}}.
 % \end{abstract}
 % 
 % \newpage
@@ -1631,11 +1631,20 @@
       { \keys_set:nn { integral } { #1 } }
       {  
         \regex_split:nnN { : } { #1 } \l_tmpa_seq
-        \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 2 }
+        \str_if_eq:eeTF
+          { \seq_item:Nn \l_tmpa_seq { 2 } }
+          { +j }
           {
-            \seq_put_right:NV
-              \l_tmpa_seq
-              \l_@@_default_differential_tl 
+            \exp_args:NNne \seq_set_item:Nnn \l_tmpa_seq { 2 } 
+              { \l_@@_default_differential_tl+j }
+          }
+          {
+            \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 2 }
+              {
+                \seq_put_right:NV
+                  \l_tmpa_seq
+                  \l_@@_default_differential_tl 
+              }
           }
         \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 3 }
           { \seq_put_right:Nn \l_tmpa_seq { d } }
@@ -2045,32 +2054,8 @@
 
 \keys_define:nn { IntegralSetup }
   {
-    defaultvar .code:n =
-      {
-        \prop_get:NnNTF
-          \g_@@_differential_group_keyword_prop
-          { #1 }
-          \l_tmpa_tl
-          {
-            \tl_set_eq:NN
-              \l_@@_default_differential_tl
-              \l_tmpa_tl
-          }
-          { \tl_set:Nn \l_@@_default_differential_tl { #1 } }
-      },
-    defaultvar* .code:n =
-      {
-        \prop_get:NnNTF
-          \g_@@_differential_group_keyword_prop
-          { #1 }
-          \l_tmpa_tl
-          { 
-            \tl_set_eq:NN
-              \l_@@_default_vector_differential_tl
-              \l_tmpa_tl
-          }
-          { \tl_set:Nn \l_@@_default_vector_differential_tl { #1 } }
-      },
+    defaultvar  .tl_set:N   = \l_@@_default_differential_tl,
+    defaultvar* .tl_set:N   = \l_@@_default_vector_differential_tl,
     vectorstyle .tl_set:N   = \l_@@_vectorial_differential_style_tl,
     domainstyle .tl_set:N   = \l_@@_domain_style_tl,
     symbolskip  .tl_set:N   = \l_@@_inline_symbol_muskip,

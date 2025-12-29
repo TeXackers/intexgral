@@ -605,7 +605,7 @@
 % 
 % \begin{codedescribe}[key, update={v3.0.0}]{variables}
 %   \begin{codesyntax}[key]
-%     \tsobj[key]{variables}=\tsargs[marg]{liste-csv}, \tsmeta{mot-clé}, none
+%     \tsobj[key]{variables}=\tsargs[marg]{liste-csv}, \tsobj[meta]{mot-clé}, \tsobj[option]{none}
 %   \end{codesyntax}
 %   Cette clé permet de définir les variables d'une intégrale sous forme d'une \tsobj[meta]{csv-list}. La clé peut, tout comme \tsobj[key]{limits}, accepter un mot-clé comme argument. Ce comportement est aussi expliqué plus tard (voir \cref{subsec:variablekey})
 %   \begin{tsremark}[\textcolor{RoyalGreen}{remarque:}]
@@ -1650,11 +1650,20 @@
       { \keys_set:nn { integral } { #1 } }
       {  
         \regex_split:nnN { : } { #1 } \l_tmpa_seq
-        \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 2 }
+        \str_if_eq:eeTF
+          { \seq_item:Nn \l_tmpa_seq { 2 } }
+          { +j }
           {
-            \seq_put_right:NV
-              \l_tmpa_seq
-              \l_@@_default_differential_tl 
+            \exp_args:NNne \seq_set_item:Nnn \l_tmpa_seq { 2 } 
+              { \l_@@_default_differential_tl+j }
+          }
+          {
+            \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 2 }
+              {
+                \seq_put_right:NV
+                  \l_tmpa_seq
+                  \l_@@_default_differential_tl 
+              }
           }
         \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 3 }
           { \seq_put_right:Nn \l_tmpa_seq { d } }
@@ -2064,32 +2073,8 @@
 
 \keys_define:nn { IntegralSetup }
   {
-    defaultvar .code:n =
-      {
-        \prop_get:NnNTF
-          \g_@@_differential_group_keyword_prop
-          { #1 }
-          \l_tmpa_tl
-          {
-            \tl_set_eq:NN
-              \l_@@_default_differential_tl
-              \l_tmpa_tl
-          }
-          { \tl_set:Nn \l_@@_default_differential_tl { #1 } }
-      },
-    defaultvar* .code:n =
-      {
-        \prop_get:NnNTF
-          \g_@@_differential_group_keyword_prop
-          { #1 }
-          \l_tmpa_tl
-          { 
-            \tl_set_eq:NN
-              \l_@@_default_vector_differential_tl
-              \l_tmpa_tl
-          }
-          { \tl_set:Nn \l_@@_default_vector_differential_tl { #1 } }
-      },
+    defaultvar  .tl_set:N   = \l_@@_default_differential_tl,
+    defaultvar* .tl_set:N   = \l_@@_default_vector_differential_tl,
     vectorstyle .tl_set:N   = \l_@@_vectorial_differential_style_tl,
     domainstyle .tl_set:N   = \l_@@_domain_style_tl,
     symbolskip  .tl_set:N   = \l_@@_inline_symbol_muskip,

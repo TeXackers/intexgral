@@ -2,22 +2,7 @@
 
 \documentclass{article}
 
-\edef\timetaken{\the\pdfelapsedtime}
-
-\RequirePackage{fp}
-\newcount\timer
-% \Time\cs{thing to time}
-\def\Time#1#2{%
-  \pdfresettimer
-  #2%
-  \timer=\pdfelapsedtime
-  \FPdiv#1{\the\timer}{65.536}%
-  \FPtrunc#1#1{3}%
-}
-
-\Time\intexgraltime{\usepackage{intexgral}}
-\wlog{TEMPS: \intexgraltime}
-
+\usepackage{intexgral}
 \usepackage{mathtools}
 \usepackage{pkginfograb}
 \PkgInfoSetAliases
@@ -171,6 +156,13 @@ Special syntax test
 \begin{gather}
   \integral[1, 10]{x}\\
   \integral[ab;ab;ab:spherical+j:p]{r;\theta;\phi}
+\end{gather}
+
+\IntegralSetup{defaultvar=spherical}
+
+\begin{gather}
+  \integral[ab;ab;ab:spherical+j:p]{;;}\\
+  \integral[ab;ab;ab:+j:p]{;;}
 \end{gather}
 
 Messages test
