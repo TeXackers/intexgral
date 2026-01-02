@@ -288,24 +288,20 @@
 % \seq_reverse:N \g_tmpa_seq
 % \xdef\filecreationdate{ \seq_use:Nnnn \g_tmpa_seq {} { - } { - } }
 % \ExplSyntaxOff
+% 
+% \tstitle{^^A
+%   title   = {{\huge L'extension \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}}}\medbreak {\Large v\fileversion}},
+%   author  = {\fileauthor\footnote{E-mail: \href{mailto:vdao.texdev@gmail.com}{\ttfamily vdao.texdev@gmail.com}}},
+%   date    = {\the\day\ifnum\day=1\textsuperscript{er}\fi\space\tsdate}
+% }
 %
-% \title{^^A
-% L'extension \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}}^^A
-% \thanks{Ce fichier décrit la version v\fileversion, mise à jour le \filedate}
-% }
-% 
-% \author{
-% \fileauthor
-% \thanks{E-mail: \href{mailto:vdao.texdev@gmail.com}{\ttfamily vdao.texdev@gmail.com}}
-% }
-% 
-% \date{Publiée le \filecreationdate}
-% 
-% \maketitle
-% 
+% \begin{center}
+% \rule{12.5cm}{0.6pt}
 % \begin{abstract}
 %   Tandis que la composition d'intégrales est très fréquente en \LaTeX, cette dernière s'avère souvent peu pratique. Lorsque l'expression se complexifie, il devient alors difficile d'en modifier les différents éléments dans un code source peu lisible. Pour répondre à ce problème, le package \tsobj[pkg]{intexgral} met à disposition une macro centrale dont le seul argument est l'intégrande. Tout le reste (les symboles, les bornes, les variables d'intégration\dots) pourra aisément être modifié grâce à une interface \tsobj[meta]{clé=valeur}. Contrairement à la méthode classique, où l'utilisateur choisit l'ordre des bornes avec les caractères actifs \verb|_| et \verb|^|, le package a dû fixer une convention. Ainsi, pour les deux clés gérant les bornes qui seront présentées, l'entrée supposée sera \verb|_|\tsobj[meta]{borne inférieure}\verb|^|\tsobj[meta]{borne supérieure}. Ce package étant écrit en \tsobj[pkg]{expl3}, il dépend donc des packages \LaTeX3 \tsobj[pkg]{l3kernel} et \tsobj[pkg]{l3package}. De plus, \tsobj[pkg]{intexgral} utilise le package \tsobj[pkg]{derivative}\footnote{Disponible sur \textsc{ctan} sous: \url{https://ctan.org/pkg/derivative}} afin de faciliter la manipulation de différentielles, ainsi que le package \tsobj[pkg]{pkginfograb}\footnote{Disponible sur \textsc{ctan} sous: \url{https://ctan.org/pkg/pkginfograb}}.
 % \end{abstract}
+% \rule{12.5cm}{0.6pt}
+% \end{center}
 % 
 % \newpage
 % \tableofcontents
@@ -350,7 +346,7 @@
 %   \begin{codesyntax}
 %     \tsobj[macro]{\intexgralsetup}\tsargs[marg]{options de package}
 %   \end{codesyntax}
-%   Ces options peuvent être déclarées de façon classique avec \tsobj[macro]{\usepackage} ou bien avec la macro ici présente dans le préambule:
+%   Ces options peuvent être déclarées de façon classique avec \tsobj[macro]{\usepackage} ou bien avec \tsobj[macro]{\intexgralsetup} dans le préambule.
 % \end{codedescribe}
 % 
 % \begin{codedescribe}[key]{invert-limits}
@@ -458,8 +454,8 @@
 %     \describe{product}{Compose un produit d'intégrales où symbole, intégrande et variables d'intégration alternent.}
 %   \end{describelist*}
 %   Bien sûr, rien ne vous empêche pour le mode produit d'utiliser plusieurs fois la macro \tsobj[macro]{\integral} d'affilée pour produire le même résultat que dans l'exemple ci-dessous. Pour celles et ceux qui préféreraient cependant obtenir le résultat avec une seule macro, cette méthode est permise.
-%   \begin{tsremark}[\textcolor{RoyalRed}{important:}]
-%     Pour les deux derniers modes, l'intégrande sera, d'une certaine manière, \emph{découpée}. Afin de correctement effectuer cette action, il faut avoir recours à la même méthode qu'avec \tsobj[key]{limits}, c'est-à-dire en employant le point-virgule.
+%   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
+%     pour les deux derniers modes, l'intégrande sera, d'une certaine manière, \emph{découpée}. Afin de correctement effectuer cette action, il faut avoir recours à la même méthode qu'avec \tsobj[key]{limits}, c'est-à-dire en employant le point-virgule.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
@@ -512,8 +508,8 @@
 %     \tsobj[key]{symbol}=\tsobj[meta]{séquence de contrôle}
 %   \end{codesyntax}
 %   Cette clé accepte une macro désignant un symbole d'intégration. Tout symbole préalablement défini par une séquence de contrôle est recevable. Si vous tentez d'en utiliser une qui n'est pas définie, elle sera substituée à \tsobj[macro]{\int} et un message d'avertissement sera émis.
-%   \begin{tsremark}[\textcolor{RoyalGreen}{remarque:}]
-%     À part la vérification de l'exis tence de la macro, aucun contrôle particulier n'est effectué et la valeur de la clé est utilisée telle quelle pour composer le symbole. Ceci implique notamment deux choses. Tout d'abord, le symbole va dépendre de la façon dont il est défini. Par exemple, \tsobj[pkg]{amsmath} et \tsobj[pkg]{unicode-math} ne définissent pas \tsobj[macro]{\iint} de la même manière. Le résultat sera donc différent. De plus, si vous renseignez comme argument de la clé une macro \emph{définie} mais ne correspondant pas à un symbole intégral, le package n'en tiendra pas compte et utilisera quand même le symbole donné. Outre l'incohérence mathématique que cela peut représenter, il est susceptible que cela mène, sous certaines circonstances, à des erreurs de bas niveau.
+%   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
+%     à part la vérification de l'exis tence de la macro, aucun contrôle particulier n'est effectué et la valeur de la clé est utilisée telle quelle pour composer le symbole. Ceci implique notamment deux choses. Tout d'abord, le symbole va dépendre de la façon dont il est défini. Par exemple, \tsobj[pkg]{amsmath} et \tsobj[pkg]{unicode-math} ne définissent pas \tsobj[macro]{\iint} de la même manière. Le résultat sera donc différent. De plus, si vous renseignez comme argument de la clé une macro \emph{définie} mais ne correspondant pas à un symbole intégral, le package n'en tiendra pas compte et utilisera quand même le symbole donné. Outre l'incohérence mathématique que cela peut représenter, il est susceptible que cela mène, sous certaines circonstances, à des erreurs de bas niveau.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
@@ -608,8 +604,8 @@
 %     \tsobj[key]{variables}=\tsargs[marg]{liste-csv}, \tsobj[meta]{mot-clé}, \tsobj[option]{none}
 %   \end{codesyntax}
 %   Cette clé permet de définir les variables d'une intégrale sous forme d'une \tsobj[meta]{csv-list}. La clé peut, tout comme \tsobj[key]{limits}, accepter un mot-clé comme argument. Ce comportement est aussi expliqué plus tard (voir \cref{subsec:variablekey})
-%   \begin{tsremark}[\textcolor{RoyalGreen}{remarque:}]
-%     Si aucune variable d'intégration n'est renseignée, c'est-à-dire que \tsobj[key]{variables} n'est pas appelée, le package place automatiquement \enquote{$\odif{x}$} (ou \enquote{$\odif{\vec{r}}$} si \tsobj[key]{diff-vec} est actif). De plus, si \tsobj[option]{none} est passé comme valeur, aucune variable d'intégration ne sera affichée.
+%   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
+%     si aucune variable d'intégration n'est renseignée, c'est-à-dire que \tsobj[key]{variables} n'est pas appelée, le package place automatiquement \enquote{$\odif{x}$} (ou \enquote{$\odif{\vec{r}}$} si \tsobj[key]{diff-vec} est actif). De plus, si \tsobj[option]{none} est passé comme valeur, aucune variable d'intégration ne sera affichée.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
@@ -747,8 +743,8 @@
 %   \begin{describelist*}{option}
 %   \describe{ab}{$a, b$}
 %   \describe{unit}{$0, 1$}
-%   \describe{real}{$-\infty, \infty$}
-%   \describe{positive}{$0, \infty$}
+%   \describe{real}{$-\infty, +\infty$}
+%   \describe{positive}{$0, +\infty$}
 %   \describe{negative}{$-\infty, 0$}
 %   \describe{circle}{$0, 2\pi$}
 %   \describe{sircle}{$0, \pi$}
@@ -758,11 +754,11 @@
 %   \describe{length}{$0, L$}
 %   \describe{time}{$0, T$}
 %   \end{describelist*}
-%   \begin{tsremark}[\textcolor{RoyalGreen}{remarque:}]
-%     Les mots-clés contiennent les \emph{deux} bornes d'une intégrale en même temps. Ils doivent donc être précédés et/ou suivis de point-virgule.
+%   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
+%     les mots-clés contiennent les \emph{deux} bornes d'une intégrale en même temps. Ils doivent donc être précédés et/ou suivis de point-virgule.
 %   \end{tsremark}
-%   \begin{tsremark}[\textcolor{RoyalRed}{important:}]
-%     Dû à l'implémentation de \tsobj[macro]{\NewLimitsKeyword} et ses variantes, l'utilisateur \emph{doit} suivre la convention d'ordre des bornes du package, même si \tsobj[key]{invert-limits} est fixé à \tsobj[option]{true}
+%   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
+%     dû à l'implémentation de \tsobj[macro]{\NewLimitsKeyword} et ses variantes, l'utilisateur \emph{doit} suivre la convention d'ordre des bornes du package, même si \tsobj[key]{invert-limits} est fixé à \tsobj[option]{true}
 %   \end{tsremark}
 %   On pourrait donc modifier l’expression d'une l’intégrale de la façon suivante:
 % \end{codedescribe}
@@ -825,8 +821,8 @@
 %     \describe{surface}{symbole utilisé = \tsobj[macro]{\oiint}}
 %     \describe{volume}{symbole utilisé = \tsobj[macro]{\oiiint}}
 %   \end{describelist*}
-%   \begin{tsremark}[\textcolor{RoyalRed}{important:}]
-%   Offrir la possibilité de créer soi-même une clé à la macro \tsobj[macro]{\integral} représente un risque qui sera mieux expliqué dans la prochaine section. Retenez pour l'instant que toutes ces macros\footnote{À l'exception de \tsobj[macro]{\DeclareSymbolKeyword} qui suppose que l'utilisateur sait ce qu'il fait.} émettront un message d'avertissement si vous tentez de créer une nouvelle \emph{clé-symbole} portant le même nom qu'un groupe de bornes définies.
+%   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
+%   offrir la possibilité de créer soi-même une clé à la macro \tsobj[macro]{\integral} représente un risque qui sera mieux expliqué dans la prochaine section. Retenez pour l'instant que toutes ces macros\footnote{À l'exception de \tsobj[macro]{\DeclareSymbolKeyword} qui suppose que l'utilisateur sait ce qu'il fait.} émettront un message d'avertissement si vous tentez de créer une nouvelle \emph{clé-symbole} portant le même nom qu'un groupe de bornes définies.
 %   \end{tsremark}
 % \end{codedescribe}
 %
@@ -943,7 +939,7 @@
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{vectorstyle}=\tsobj[meta]{séquence de contrôle}
 %   \end{codesyntax}
-%   Cette clé modifie la macro à appliquer aux variables quand \tsobj[key]{diff-vec} est en action. Il est donc possible d'altérer le style du vecteur: gras, souligné, ou même un autre style d'un package particulier --- \tsobj[pkg]{esvect} par exemple.
+%   Cette clé modifie la macro à appliquer aux variables quand \tsobj[key]{diff-vec} est en action. Il est donc possible d'altérer le style du vecteur: gras, souligné, ou même un autre style d'un package particulier, \tsobj[pkg]{esvect} par exemple.
 % \end{codedescribe}
 % 
 % \begin{codedescribe}[key]{domainstyle}
@@ -969,11 +965,19 @@
 % 
 % \newpage
 % 
-% \addcontentsline{toc}{section}{Historique des modifications}
 % \phantomsection
+% \addcontentsline{toc}{section}{Historique des modifications}
 % \begin{changelog}[sectioncmd=\section*]
-% 
-% \begin{version}[v=3.0.0, date=09-12-2025]
+%
+% \begin{version}[v=3.0.1, date=02-01-2026]
+% \fixed 
+% \item Bug avec le jacobien dans la syntaxe spéciale (\href{https://github.com/ankaa3908/intexgral/issues/3}{problème \#3}).
+% \item Documentation anglaise et française (\href{https://github.com/ankaa3908/intexgral/issues/4}{problème \#4}, \href{https://github.com/ankaa3908/intexgral/problèmes/6}{problème \#6} et \href{https://github.com/ankaa3908/intexgral/issues/7}{problème \#7}).
+% \changed
+% \item Les mots-clés \tsobj[option]{positive} et \tsobj[option]{real} contiennent  maintenant un signe $+$ (\href{https://github.com/ankaa3908/intexgral/issues/5}{problème \#5}).
+% \end{version}
+%
+% \begin{version}[v=3.0.0, date=24-12-2025]
 % \added
 % \item Syntaxe spéciale.
 % \item Clés \tsobj[key]{domain*} et \tsobj[key]{mode}.
@@ -1019,14 +1023,14 @@
 %
 % \newpage
 %
-% \PrintIndex
 % \phantomsection
+% \PrintIndex
 %
 % \newpage
 %
 % \section*{Implémentation}
-% \addcontentsline{toc}{section}{Implémentation}
 % \phantomsection
+% \addcontentsline{toc}{section}{Implémentation}
 % \CodelineNumbered
 % \NoAutoSpacing
 % \hbadness=10000
@@ -1046,7 +1050,7 @@
   {
     name         = {intexgral}   ,
     author       = {Valentin Dao},
-    date         = {2025-12-24}  ,
+    date         = {2026-01-02}  ,
     creation     = {2025-07-26}  ,
     version      = {3.0.0}       ,
     description  = {A LaTeX package for typesetting integrals.}
@@ -2283,8 +2287,8 @@
 
 % Limits keywords 
 \NewLimitsKeyword{ab}        {a, b}
-\NewLimitsKeyword{real}      {-\infty, \infty}
-\NewLimitsKeyword{positive}  {0, \infty}
+\NewLimitsKeyword{real}      {-\infty, +\infty}
+\NewLimitsKeyword{positive}  {0, +\infty}
 \NewLimitsKeyword{negative}  {-\infty, 0}
 \NewLimitsKeyword{unit}      {0, 1}
 \NewLimitsKeyword{circle}    {0, 2\pi}

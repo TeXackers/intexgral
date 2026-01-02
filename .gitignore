@@ -1,6 +1,7 @@
 .vscode/
 package/
-build/
+build/doc
+build/result
 public/tds
 *.zip
 *.curlopt

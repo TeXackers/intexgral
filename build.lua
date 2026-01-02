@@ -16,7 +16,7 @@ distribdir = "public"
 
 uploadconfig = {
   pkg           = "intexgral",
-  version       = "v3.0.0 2025-12-24",
+  version       = "v3.0.1 2026-01-02",
   author        = "Valentin Dao",
   uploader      = "Valentin Dao",
   email         = "vdao.texdev@gmail.com",
@@ -25,12 +25,9 @@ uploadconfig = {
   ctanPath      = "/macros/latex/contrib/intexgral",
   announcement  =
     [[
-        Added:
-        - special syntax
-        - keys "domain*" and "mode"
-        - new macro \IntegralSetup to more easily change some integral-related parameters
-
-        Some keys and macros were removed in favour of the new features. Many key names were also changed to be both easier to type and remember (the package lacked consistency on this matter). In addition, the package's performance was greatly improved. Many small unnoticed bugs were also corrected.
+        - Fixed bug with jacobian and special syntax (issue #3).
+        - Fixed French and English documentations (issues #4, #6 and #7).
+        - Changed "positive" and "real" limits keywords, they now contain a + sign (issue #5).
     ]],
   update        = true,
   repository    = "https://github.com/ankaa3908/intexgral/tree/main",

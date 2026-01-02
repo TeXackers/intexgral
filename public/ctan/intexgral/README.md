@@ -10,7 +10,7 @@
 
 ## Requirements
 
-The package requires the [pkginfograb](https://ctan.org/pkg/pkginfograb) one. Having installed this package should normally ensure a LaTeX3 version newer than 2025-05-14, which is necessary for the good functioning of *intexgral*.
+The package requires [pkginfograb](https://ctan.org/pkg/pkginfograb) and [derivative](https://ctan.org/pkg/derivative). Having installed these packages should normally ensure a LaTeX3 version newer than 2025-05-14, which is necessary for the good functioning of *intexgral*.
 
 ## Installation
 
@@ -87,6 +87,11 @@ Both `.dtx` files, when run through the `.ins` file, will produce the following:
   * The English documentation in PDF format.
 
 ## Change log
+
+* Version 3.0.1 (2026-01-02)
+  * Fixed bug with jacobian and special syntax ([issue #3](https://github.com/ankaa3908/intexgral/issues/3)).
+  * Fixed French and English documentations (issues [#4](https://github.com/ankaa3908/intexgral/issues/4), [#6](https://github.com/ankaa3908/intexgral/issues/6) and [#7](https://github.com/ankaa3908/intexgral/issues/7)).
+  * Changed *positive* and *real* limits keywords; they now contain a + sign ([issue #5](https://github.com/ankaa3908/intexgral/issues/5)).
 
 * Version 3.0.0 (2025-12-24)
   * Added *special* syntax.

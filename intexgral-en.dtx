@@ -133,9 +133,9 @@
     or        = \textsf{or},
     months    = 
       {
-        janvier, février, mars, avril,
-        mai, juin, juillet, août,
-        septembre, octobre, novembre, décembre
+        January, February, March, April,
+        May, Juin, July, August,
+        September, October, November, December
       }
   }
 
@@ -273,23 +273,19 @@
 % \PkgInfoGet{intexgral}{date}{\filedate}
 % \PkgInfoGet{intexgral}{creation}{\filecreationdate}
 %
-% \title{^^A
-% The \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}} package^^A
-% \thanks{This file describes v\fileversion, last updated \filedate}
+% \tstitle{^^A
+%   title   = {{\huge The \href{https://ctan.org/pkg/intexgral}{\textsf{intexgral}} package}\medbreak {\Large v\fileversion}},
+%   author  = {\fileauthor\footnote{E-mail: \href{mailto:vdao.texdev@gmail.com}{\ttfamily vdao.texdev@gmail.com}}},
+%   date    = {\the\day\space\tsdate}
 % }
 % 
-% \author{
-% \fileauthor
-% \thanks{E-mail: \href{mailto:vdao.texdev@gmail.com}{\ttfamily vdao.texdev@gmail.com}}
-% }
-% 
-% \date{Released \filecreationdate}
-% 
-% \maketitle
-% 
+% \begin{center}
+% \rule{12.5cm}{0.6pt}
 % \begin{abstract}
 % While integral composition is prevalent in \LaTeX, it often proves to be impractical. When the expression becomes complex, it is then difficult to modify its various elements in an illegible source code. To address this problem, the \tsobj[pkg]{intexgral} package offers a central macro whose only argument is the integrand. Everything else (symbol, limits, variables\dots) can be modified using a \tsobj[meta]{key=value} interface. Unlike the traditional method, where the user chooses the limit order with the active characters \verb|_| and \verb|^|, the package had to establish a convention. Thus, for the two keys that will deal with limits, the assumed input will be \verb|_|\tsobj[meta]{lower limit}\verb|^|\tsobj[meta]{upper limit}. Since this package is written in \tsobj[pkg]{expl3}, it depends on the \LaTeX3 group of packages \tsobj[pkg]{l3kernel} and \tsobj[pkg]{l3package}. In addition, \tsobj[pkg]{intexgral} uses the \tsobj[pkg]{derivative}\footnote{Available on \textsc{ctan} under: \url{https://ctan.org/pkg/derivative}} package to facilitate the manipulation of differentials, as well as \tsobj[pkg]{pkginfograb}\footnote{Available on \textsc{ctan} under: \url{https://ctan.org/pkg/pkginfograb}}.
 % \end{abstract}
+% \rule{12.5cm}{0.6pt}
+% \end{center}
 % 
 % \newpage
 % \tableofcontents
@@ -334,7 +330,7 @@
 %   \begin{codesyntax}
 %     \tsobj[macro]{\intexgralsetup}\tsargs[marg]{package options}
 %   \end{codesyntax}
-%   These options can be declared in a classic way with \tsobj[macro]{\usepackage} or with the present macro in the preamble:
+%   These options can be declared in a classic way with \tsobj[macro]{\usepackage} or with \tsobj[macro]{\intexgralsetup} in the preamble.
 % \end{codedescribe}
 % 
 % \begin{codedescribe}[key]{invert-limits}
@@ -442,8 +438,8 @@
 %     \describe{product}{Typesets a product of integrals where the symbol, integrand, and variables alternate.}
 %   \end{describelist*}
 %   Of course, nothing prevents you from using the \tsobj[macro]{\integral} macro several times in a row to produce the same result as in the example below. However, for those who would prefer to obtain the result with a single macro, this method is permitted.
-%   \begin{tsremark}[\textcolor{RoyalRed}{important:}]
-%     For the last two modes, the integral will be \emph{cut off} in a certain way. In order to perform this action correctly, the same method must be used as with \tsobj[key]{limits}, i.e. by using a semicolon.
+%   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
+%     for the last two modes, the integral will be \emph{cut off} in a certain way. In order to perform this action correctly, the same method must be used as with \tsobj[key]{limits}, i.e. by using a semicolon.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
@@ -496,8 +492,8 @@
 %     \tsobj[key]{symbol}=\tsobj[meta]{control sequence}
 %   \end{codesyntax}
 %   This key accepts a macro designating an integral symbol. Any symbol previously defined by a control sequence is acceptable. If you attempt to use one that is not defined, it will be substituted with \tsobj[macro]{\int} and a warning message will be issued.
-%   \begin{tsremark}[\textcolor{RoyalGreen}{remark:}]
-%     Apart from verifying the existence of the macro, no specific checks are performed, and the value of the key is used as is to compose the symbol. This implies two things in particular. First, the symbol will depend on how it is defined. For instance, \tsobj[pkg]{amsmath} and \tsobj[pkg]{unicode-math} do not define \tsobj[macro]{\iint} in the same way. The result will naturally be different. Furthermore, if you assign a \emph{defined} macro as the key argument but it does not correspond to an integral symbol, the package will ignore it and still use the given symbol. In addition to the mathematical inconsistency that this may represent, it is likely to lead, under certain circumstances, to low-level errors.
+%   \begin{tsremark}[\textcolor{RoyalGreen}{Remark:}]
+%     apart from verifying the existence of the macro, no specific checks are performed, and the value of the key is used as is to compose the symbol. This implies two things in particular. First, the symbol will depend on how it is defined. For instance, \tsobj[pkg]{amsmath} and \tsobj[pkg]{unicode-math} do not define \tsobj[macro]{\iint} in the same way. The result will naturally be different. Furthermore, if you assign a \emph{defined} macro as the key argument but it does not correspond to an integral symbol, the package will ignore it and still use the given symbol. In addition to the mathematical inconsistency that this may represent, it is likely to lead, under certain circumstances, to low-level errors.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
@@ -592,8 +588,8 @@
 %     \tsobj[key]{variables}=\tsargs[marg]{csv-list}, \tsobj[meta]{keyword}, \tsobj[option]{none}
 %   \end{codesyntax}
 %   This key allows you to define the variables of the integral in the form of a \tsobj[meta]{csv-list}. Like \tsobj[key]{limits}, the key can accept a keyword as an argument. This behaviour is also explained later (see \cref{subsec:variablekey}).
-%   \begin{tsremark}[\textcolor{RoyalGreen}{note:}]
-%     If no variable is specified, i.e. \tsobj[key]{variables} is not called, the package automatically sets \enquote{$\odif{x}$} (or \enquote{$\odif{\vec{r}}$} if \tsobj[key]{diff-vec} is active). Furthermore, if \tsobj[option]{none} is passed as a value, no variable will be displayed.
+%   \begin{tsremark}[\textcolor{RoyalGreen}{Remark:}]
+%     if no variable is specified, i.e. \tsobj[key]{variables} is not called, the package automatically sets \enquote{$\odif{x}$} (or \enquote{$\odif{\vec{r}}$} if \tsobj[key]{diff-vec} is active). Furthermore, if \tsobj[option]{none} is passed as a value, no variable will be displayed.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
@@ -732,8 +728,8 @@
 %   \begin{describelist*}{option}
 %   \describe{ab}{$a, b$}
 %   \describe{unit}{$0, 1$}
-%   \describe{real}{$-\infty, \infty$}
-%   \describe{positive}{$0, \infty$}
+%   \describe{real}{$-\infty, +\infty$}
+%   \describe{positive}{$0, +\infty$}
 %   \describe{negative}{$-\infty, 0$}
 %   \describe{circle}{$0, 2\pi$}
 %   \describe{sircle}{$0, \pi$}
@@ -743,11 +739,11 @@
 %   \describe{length}{$0, L$}
 %   \describe{time}{$0, T$}
 %   \end{describelist*}
-%   \begin{tsremark}[\textcolor{RoyalGreen}{remark:}]
-%     Keywords contain both limits of an integral at the same time. They must therefore be preceded and/or followed by semicolons.
+%   \begin{tsremark}[\textcolor{RoyalGreen}{Remark:}]
+%     keywords contain both limits of an integral at the same time. They must therefore be preceded and/or followed by semicolons.
 %   \end{tsremark}
-%   \begin{tsremark}[\textcolor{RoyalRed}{important:}]
-%     Due to the implementation of \tsobj[macro]{\NewLimitsKeyword} and its variants, the user \emph{must} follow the package's limit order convention, even if \tsobj[key]{invert-limits} is set to \tsobj[option]{true}
+%   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
+%     due to the implementation of \tsobj[macro]{\NewLimitsKeyword} and its variants, the user \emph{must} follow the package's limit order convention, even if \tsobj[key]{invert-limits} is set to \tsobj[option]{true}
 %   \end{tsremark}
 %   We could therefore modify the expression of an integral as follows:
 % \end{codedescribe}
@@ -810,8 +806,8 @@
 %     \describe{surface}{used symbol = \tsobj[macro]{\oiint}}
 %     \describe{volume}{used symbol = \tsobj[macro]{\oiiint}}
 %   \end{describelist*}
-%   \begin{tsremark}[\textcolor{RoyalRed}{important:}]
-%   Allowing users to create their own keys for the \tsobj[macro]{\integral} macro poses a risk that will be explained in more detail in the next section. For now, just remember that all these macros\footnote{With the exception of \tsobj[macro]{\DeclareSymbolKeyword}, which assumes that the user knows what they are doing.} will issue a warning message if you attempt to create a new \emph{symbol-key} with the same name as a group of defined limits.
+%   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
+%   allowing users to create their own keys for the \tsobj[macro]{\integral} macro poses a risk that will be explained in more detail in the next section. For now, just remember that all these macros\footnote{With the exception of \tsobj[macro]{\DeclareSymbolKeyword}, which assumes that the user knows what they are doing.} will issue a warning message if you attempt to create a new \emph{symbol-key} with the same name as a group of defined limits.
 %   \end{tsremark}
 % \end{codedescribe}
 %
@@ -926,7 +922,7 @@
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{vectorstyle}=\tsobj[meta]{control sequence}
 %   \end{codesyntax}
-%   This key modifies the macro to be applied to variables when \tsobj[key]{diff-vec} is in action. It is therefore possible to alter the style of the vector: bold, underlined, or even another style from a particular package --- \tsobj[pkg]{esvect} for example.
+%   This key modifies the macro to be applied to variables when \tsobj[key]{diff-vec} is in action. It is therefore possible to alter the style of the vector: bold, underlined, or even another style from a particular package, \tsobj[pkg]{esvect} for example.
 % \end{codedescribe}
 % 
 % \begin{codedescribe}[key]{domainstyle}
@@ -952,11 +948,19 @@
 % 
 % \newpage
 % 
-% \addcontentsline{toc}{section}{Changelog}
 % \phantomsection
+% \addcontentsline{toc}{section}{Changelog}
 % \begin{changelog}[sectioncmd=\section*]
+
+% \begin{version}[v=3.0.1, date=02-01-2026]
+% \fixed 
+% \item Bug with jacobian in special syntax (\href{https://github.com/ankaa3908/intexgral/issues/3}{issue \#3}).
+% \item French and English documentations (\href{https://github.com/ankaa3908/intexgral/issues/4}{issue \#4}, \href{https://github.com/ankaa3908/intexgral/issues/6}{issue \#6} and \href{https://github.com/ankaa3908/intexgral/issues/7}{issue \#7}).
+% \changed
+% \item Limits keywords \tsobj[option]{positive} and \tsobj[option]{real} now contain a $+$ sign (\href{https://github.com/ankaa3908/intexgral/issues/5}{issue \#5}).
+% \end{version}
 % 
-% \begin{version}[v=3.0.0, date=09-12-2025]
+% \begin{version}[v=3.0.0, date=24-12-2025]
 % \added
 % \item Special syntax.
 % \item Keys \tsobj[key]{domain*} and \tsobj[key]{mode}.
@@ -1002,14 +1006,14 @@
 %
 % \newpage
 %
-% \PrintIndex
 % \phantomsection
+% \PrintIndex
 %
 % \newpage
 %
 % \section*{Implementation}
-% \addcontentsline{toc}{section}{Implementation}
 % \phantomsection
+% \addcontentsline{toc}{section}{Implementation}
 % \CodelineNumbered
 % 
 % The implementation will be explained in more detail in a later version\dots
@@ -1027,9 +1031,9 @@
   {
     name         = {intexgral}   ,
     author       = {Valentin Dao},
-    date         = {2025-12-24}  ,
+    date         = {2026-01-02}  ,
     creation     = {2025-07-26}  ,
-    version      = {3.0.0}       ,
+    version      = {3.0.1}       ,
     description  = {A LaTeX package for typesetting integrals.}
   }
 
@@ -2264,8 +2268,8 @@
 
 % Limits keywords 
 \NewLimitsKeyword{ab}        {a, b}
-\NewLimitsKeyword{real}      {-\infty, \infty}
-\NewLimitsKeyword{positive}  {0, \infty}
+\NewLimitsKeyword{real}      {-\infty, +\infty}
+\NewLimitsKeyword{positive}  {0, +\infty}
 \NewLimitsKeyword{negative}  {-\infty, 0}
 \NewLimitsKeyword{unit}      {0, 1}
 \NewLimitsKeyword{circle}    {0, 2\pi}
