@@ -1,0 +1,23 @@
+name: Check .sty files with explcheck
+
+on:
+  push:
+    branches: [ main, dev ]
+    paths:
+      - '**.sty'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.sty'
+
+jobs:
+  expl-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check all .sty files with explcheck
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ghcr.io/witiko/expltools/explcheck \
+            $(find . -name "*.sty" -type f)
