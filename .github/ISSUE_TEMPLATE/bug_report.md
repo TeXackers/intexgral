@@ -18,11 +18,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Minimal Working Example**
-The minimal `.tex` file structure needed to reproduce the bug. Make sure to include the MWE in a code block like so
-```
+The minimal `.tex` file structure needed to reproduce the bug. Make sure to include the MWE in the following code block:
 ```TeX
-...
-```
+<paste your MWE here>
 ```
 
 **System information**
