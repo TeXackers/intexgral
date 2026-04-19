@@ -1,42 +1,67 @@
-# `intexgral` – A LaTeX package for typesetting integrals
+<div align="center">
 
----
+<h3 align="center">Intexgral</h3>
 
-![Static Badge](https://img.shields.io/badge/LaTeX_3-blue?style=for-the-badge&logo=LaTeX&logoColor=%23008080&labelColor=%23EDE9E9&color=%23008080)
+  <p align="center">
+    A LaTeX package for typesetting integrals
+    <br />
+    <br />
+    <a href="https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf">Explore the docs</a>
+    &middot;
+    <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <br />
+    <br />
+    <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
+    <img alt="CTAN License" src="https://img.shields.io/ctan/l/intexgral?style=for-the-badge&color=salmon">
+    <img alt="CTAN Version" src="https://img.shields.io/ctan/v/intexgral?style=for-the-badge&color=rebeccapurple">
+    <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/ankaa3908/intexgral?style=for-the-badge">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ankaa3908/intexgral?style=for-the-badge&logo=github&logoSize=auto&color=mediumseagreen">
+  </p>
+</div>
 
-![CTAN Version](https://img.shields.io/ctan/v/intexgral?style=flat-square&label=CTAN%20version&link=https%3A%2F%2Fctan.org%2Fpkg%2Fintexgral) ![CTAN License](https://img.shields.io/ctan/l/intexgral?style=flat-square&label=License&color=orange) ![Static Badge](https://img.shields.io/badge/Requires-expl3_2025--05--14-purple?style=flat-square) ![Static Badge](https://img.shields.io/badge/Verification_system-l3build-%2300007D?style=flat-square)
+***
 
----
+## About The Project
 
-## Requirements
+Typesetting integrals, although common in LaTeX, is not particularly practical. The way in which the different parts are managed often generates unreadable source code, making modifications laborious. The package therefore follows a simple philosophy: focus on the essential element of an integral, the integrand. Everything else (limits, differentials, symbols) can be modified using keys. These keys are designed to allow you to easily and quickly change the style of an integral. Additionally, the package provides various auxiliary macros to support some keys which can have lengthy inputs.
 
-The package requires [pkginfograb](https://ctan.org/pkg/pkginfograb) and [derivative](https://ctan.org/pkg/derivative). Having installed these packages should normally ensure a LaTeX3 version newer than 2025-05-14, which is necessary for the good functioning of *intexgral*.
+### Built With
+
+![Static Badge](https://img.shields.io/badge/l3build-royalblue?style=for-the-badge&logoColor=white&logoSize=auto)
 
 ## Installation
 
-The latest version can be found on its [CTAN page](https://ctan.org/pkg/intexgral).
+The latest version can be found on its [CTAN page](https://ctan.org/pkg/intexgral). Simply download the `intexgral-en.dtx` and `intexgral.ins` files. Then, run
+
+```
+pdf(la)tex|xe(la)tex|lua(la)tex intexgral.ins
+```
+
+and place the resultant `.sty` file in your working directory or in your texmf tree. If you're using a TeX distribution, you can run:
+
+##### For TeXlive
+```
+tlmgr install intexgral
+```
+
+##### For MikTeX
+```
+mpm --install=intexgral
+```
 
 ## Usage
 
-Simply write
+The package provides a central macro `\integral` that helps typeset integrals. As it only contains one argument, the integrand, its use is heavily dependent of a `key=value` interface. The latter allows the user to customise many elements of an integral, including:
 
-```TeX
-\usepackage{intexgral}
-```
-
-in the preamble of your document.
-
-## Description
-
-The package provides a central macro `\integral` that helps typeset integrals. As it only contains one argument – the integrand – its use is heavily dependent of a `key = value` interface. The latter allows the user to customise many elements of an integral, including:
-
-##### On the package side
+### On the package side
 
 * Adaptation of the style to physics papers convention.
 * Selection of the order of limits input.
 * Choosing between upright or italic *d* for differentials.
 
-##### On the macro side
+### On the macro side
 
 * Changing the symbol.
 * Automate the composition of integrals with limits.
@@ -45,75 +70,33 @@ The package provides a central macro `\integral` that helps typeset integrals. A
 
 The package also offers a couple of auxiliary macros to help enhance the use of some keys:
 
-* `\NewLimitsKeyword` (and its variant) to associate keywords with common limits.
-* `\NewVariableKeyword` (and its variant) to associate keywords to common lists of differential (and Jacobian).
-* `NewSymbolKeyword` (and its variant) to associate symbols to user-friendly keys.
+* `\NewLimitsKeyword` to associate keywords with common limits.
+* `\NewVariableKeyword` to associate keywords to common lists of differential (and Jacobian).
+* `\NewSymbolKeyword` to associate symbols to user-friendly keys.
 * `\differentials` to precisely place the differentials wherever the user wants to.
 
-and much more... See the [documentation](https://mirrors.ircam.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf) for exhaustive presentation of all the features along with examples.
+_For more examples, please refer to the Documentation_
 
-## Author
+## Contributing
 
-Copyright 2025-present Valentin Dao
+Contributions are always welcome. Check the `CONTRIBUTING.md` file for more information.
+
+## License
 
 This work may be distributed and/or modified under the conditions of The [LaTeX Project Public License v1.3c](https://www.latex-project.org/lppl/lppl-1-3c.pdf) or later.
 
-This work has the LPPL status *maintained*.
+This work has the LPPL status *maintained*. The current maintainer of this work is Valentin Dao.
 
-The current maintainer of of this work is Valentin Dao (`vdao.texdev@gmail.com`)
+This work consists of the file listed in the `MANIFEST.md` file.
 
-Contribution: Anthony Saint-Criq
+See `LICENSE` for more information.
 
-## This work consits of the files
+## Contact
 
-* `README.md` (this file)
-  * Quick introduction to the package.
-* `build.lua`
-  * Configuration file to build the package.
-* `intexgral.ins`
-  * Installation file to extract the different main components of the package.
-* `intexgral-fr.dtx`
-  * The **D**ocumented **T**e**X** file containing the French documentation
-* `intexgral-en.dtx`
-  * The **D**ocumented **T**e**X** file containing the English documentation
+Valentin Dao: [email](mailto:vdao.texdev@gmail.com)
 
-Both `.dtx` files, when run through the `.ins` file, will produce the following:
+### Top contributors:
 
-* `intexgral.sty`
-  * The source code of the package.
-* `intexgral-fr.pdf`
-  * The French documentation in PDF format.
-* `intexgral-en.pdf`
-  * The English documentation in PDF format.
-
-## Change log
-
-* Version 3.0.1 (2026-01-02)
-  * Fixed bug with jacobian and special syntax ([issue #3](https://github.com/ankaa3908/intexgral/issues/3)).
-  * Fixed French and English documentations (issues [#4](https://github.com/ankaa3908/intexgral/issues/4), [#6](https://github.com/ankaa3908/intexgral/issues/6) and [#7](https://github.com/ankaa3908/intexgral/issues/7)).
-  * Changed *positive* and *real* limits keywords; they now contain a + sign ([issue #5](https://github.com/ankaa3908/intexgral/issues/5)).
-
-* Version 3.0.0 (2025-12-24)
-  * Added *special* syntax.
-  * Added `domain*` and `mode` keys.
-  * Added `\IntegralSetup` and `\NewSymbolKeyword` macros.
-  * Removed `\defaultdiff`, `\defaultvdiff` and `\vdiffstyle` in favour of `\IntegralSetup`.
-  * Removed keys controlling both the symbol and the limits, now managed at a higher level through `\NewSymbolKeyword`.
-  * Removed `int-split` key in favour of `mode`.
-  * Removed `\NewIntegralSymbol`
-  * Modified the names of some keys (`variables` to `variables`, `lower-lim` and `upper-lim` to `llimit` and `ulimit`, `int-symb` to `symbol`, `invert-differentials` and `hide-differentials` to `invert-diff` and `hide-diff`).
-  * Assigned `hide-diff` to a local option rather than a package one.
-  * Assigned `limits-mode` to a package option instead of a macro key.
-* Version 2.0.1 (2025-09-13)
-  * Compatibiliy issue between unicode-math and amssymb depending on the loading order ([issue #2](https://github.com/ankaa3908/intexgral/issues/2))
-* Version 2.0.0 (2025-09-09)
-  * Added `\intexgralsetup`, `\defaultdiff`, `\defaultvdiff` and `\vdiffstyle`.
-  * Changed warning messages related to non-existing symbols. They are now only triggered when the integral is typeset.
-  * Removed `diff-vec_style` key in favour of `\vdiffstyle` and warning messages about misuse of semi-colon in conjunction with the `int-split` key.
-  * Fixed bug where the integrand was not reset when `\integral` was used successively in the same TeX group. Details can be [found here](https://tex.stackexchange.com/questions/749990/issue-with-integral-command-from-intexgral-package-in-math-mode).
-
-* Version 1.1.0 (2025-07-29)
-  * Added starred variants for the keys controlling both the symbol and and the limits (keys `single`, `contour` etc).
-
-* Version 1.0.0 (2025-07-26)
-  * Initial version
+<a href="https://github.com/ankaa3908/intexgral/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ankaa3908/intexgral" alt="contrib.rocks image" />
+</a>
