@@ -27,19 +27,27 @@
 
 Typesetting integrals, although common in LaTeX, is not particularly practical. The way in which the different parts are managed often generates unreadable source code, making modifications laborious. The package therefore follows a simple philosophy: focus on the essential element of an integral, the integrand. Everything else (limits, differentials, symbols) can be modified using keys. These keys are designed to allow you to easily and quickly change the style of an integral. Additionally, the package provides various auxiliary macros to support some keys which can have lengthy inputs.
 
+> [!IMPORTANT]
+> Your l3kernel version should be newer than 2025-05-14
+
 ### Built With
 
 ![Static Badge](https://img.shields.io/badge/l3build-royalblue?style=for-the-badge&logoColor=white&logoSize=auto)
 
 ## Installation
 
-The latest version can be found on its [CTAN page](https://ctan.org/pkg/intexgral). Simply download the `intexgral-en.dtx` and `intexgral.ins` files. Then, run
+The latest version can be found on its [CTAN page](https://ctan.org/pkg/intexgral). Simply download the `.dtx` files and `intexgral.ins` files. Then, run
 
 ```
 pdf(la)tex|xe(la)tex|lua(la)tex intexgral.ins
 ```
 
-and place the resultant `.sty` file in your working directory or in your texmf tree. If you're using a TeX distribution, you can run:
+and place the resultant `.sty` file in your working directory or in your texmf tree.
+
+> [!NOTE]
+> To compile the documentations, you need to run `intexgral-fr|en.dtx` with **LuaLaTeX**.
+
+Alternatively, if you're using a TeX distribution, you can run:
 
 ##### For TeXlive
 ```
@@ -75,7 +83,18 @@ The package also offers a couple of auxiliary macros to help enhance the use of 
 * `\NewSymbolKeyword` to associate symbols to user-friendly keys.
 * `\differentials` to precisely place the differentials wherever the user wants to.
 
-_For more examples, please refer to the Documentation_
+*For more examples, please refer to the documentation:*
+
+<ul>
+  <li>
+    <img src="https://flagcdn.com/fr.svg" width="18" style="vertical-align: middle;">
+    <strong>Français</strong> → <a href="https://mirror.apps.cam.ac.uk/pub/tex-archive/macros/latex/contrib/intexgral/intexgral-fr.pdf">Lire la documentation </a>
+  </li>
+  <li>
+    <img src="https://flagcdn.com/gb.svg" width="18" style="vertical-align: middle;">
+    <strong>English</strong> → <a href="https://gb.mirrors.cicku.me/ctan/macros/latex/contrib/intexgral/intexgral-en.pdf">Read the documentation</a>
+  </li>
+</ul>
 
 ## Contributing
 
@@ -94,9 +113,3 @@ See `LICENSE` for more information.
 ## Contact
 
 Valentin Dao: [email](mailto:vdao.texdev@gmail.com)
-
-### Top contributors:
-
-<a href="https://github.com/ankaa3908/intexgral/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ankaa3908/intexgral" alt="contrib.rocks image" />
-</a>
