@@ -1,24 +1,20 @@
+<img src="./intexgral_banner.svg" alt="Intexgral" width="100%" />
+
+***
+
 <div align="center">
-
-<h3 align="center">Intexgral</h3>
-
-  <p align="center">
-    A LaTeX package for typesetting integrals
-    <br />
-    <br />
-    <a href="https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf">Explore the docs</a>
-    &middot;
-    <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-    <br />
-    <br />
-    <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
-    <img alt="CTAN License" src="https://img.shields.io/ctan/l/intexgral?style=for-the-badge&color=salmon">
-    <img alt="CTAN Version" src="https://img.shields.io/ctan/v/intexgral?style=for-the-badge&color=rebeccapurple">
-    <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/ankaa3908/intexgral?style=for-the-badge">
-    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ankaa3908/intexgral?style=for-the-badge&logo=github&logoSize=auto&color=mediumseagreen">
-  </p>
+  <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
+  <img alt="CTAN License" src="https://img.shields.io/ctan/l/intexgral?style=for-the-badge&color=salmon">
+  <img alt="CTAN Version" src="https://img.shields.io/ctan/v/intexgral?style=for-the-badge&color=rebeccapurple">
+  <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/ankaa3908/intexgral?style=for-the-badge">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ankaa3908/intexgral?style=for-the-badge&logo=github&logoSize=auto&color=mediumseagreen">
+  <br>
+  <br>
+  <a href="https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf">Explore the docs</a>
+  &middot;
+  <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+  &middot;
+  <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
 </div>
 
 ***
