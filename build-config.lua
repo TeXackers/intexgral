@@ -35,3 +35,38 @@ function update_tag(file, content, tagname, tagdate)
   
   return content:gsub(pattern, replacement)
 end
+
+function checklist()
+  local questions = {
+    "Have logs remnant been deleted?",
+    "Are the dates up to date in README/Changelog/.dtx?",
+    "Has the announcement file been modified?",
+  }
+  for i, question in ipairs(questions) do
+    io.write(string.format("[%d/%d] %s (Y/N): ", i, #questions, question))  
+    local response = io.read()
+    if response:upper() ~= 'Y' then
+      print("\n[STOP] Checklist failed.")
+      return 1
+    end
+  end
+
+  print("\n[SUCCESS] Checklist completed!")
+  return 0
+end
+
+function generate_ai_announcement()
+  os.execute("python announcement_generator.py")
+end
+
+target_list = target_list or {}
+
+target_list['checklist'] = {
+  func = checklist,
+  desc = 'Performs a checklist verification before upload.'
+}
+
+target_list['announce'] = {
+  func = generate_ai_announcement,
+  desc = "Generates CTAN announcement using Gemini."
+}

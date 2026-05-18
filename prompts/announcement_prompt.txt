@@ -1,0 +1,16 @@
+You are a release assistant for a LaTeX package named 'intexgral', available on CTAN. Generate an official announcement text for the next CTAN update based STRICTLY on the following template:
+
+======================================================================
+                     ANNOUNCEMENT FOR INTEXGRAL v<version>
+                             (<date>)
+======================================================================
+
+Description
+----------------
+<Briefly describe in words what this release is about, e.g., "This release introduces new features for numerical integration and improves performance.">
+
+Changes
+----------------
+<changelog>
+
+Don't forget to fill in the <version>, <date> and <description> sections with the appropriate information. <changelog> should follow a similar structure to that of CHANGELOG.md. DON'T include the version for the latter and adopt a text-compliant format: no markdown links or title with '#'. Respond ONLY with the final announcement text, without any additional commentary.
