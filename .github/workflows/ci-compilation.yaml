@@ -3,6 +3,7 @@ name: Continuous Integration
 on:
   push:
     branches: [ master, dev ]
+    paths-ignore: [ '*.md', '*.lua', '*.py', '*.txt', '*.yaml' ]
   pull_request:
     branches: [ master, dev ]
 
@@ -13,10 +14,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Compile LaTeX docs
-        uses: islandoftex/texlive-action@v2
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v4
         with:
-          run: |
+          packages: .github/tl_packages
+        
+      - name: Compile documentation
+        run: |
             l3build doc -q intexgral-en
             l3build doc -q intexgral-fr
 

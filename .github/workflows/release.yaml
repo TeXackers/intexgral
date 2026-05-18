@@ -13,7 +13,9 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install TeX Live
-        uses: islandoftex/texlive-action@v2
+        uses: zauguin/install-texlive@v4
+        with:
+          packages: .github/tl_packages
 
       - name: Build CTAN zip archive
         run: |
