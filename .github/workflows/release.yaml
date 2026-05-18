@@ -15,7 +15,7 @@ jobs:
       - name: Install TeX Live
         uses: zauguin/install-texlive@v4
         with:
-          packages: .github/tl_packages
+          package_file: .github/tl_packages.txt
 
       - name: Build CTAN zip archive
         run: |

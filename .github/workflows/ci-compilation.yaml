@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
   push:
     branches: [ master, dev ]
-    paths-ignore: [ '*.md', '*.lua', '*.py', '*.txt', '*.yaml' ]
+    paths-ignore: [ '*.md', '*.lua', '*.py', '*.txt', '*.yaml', '*.txt']
   pull_request:
     branches: [ master, dev ]
 
@@ -17,7 +17,7 @@ jobs:
       - name: Install TeX Live
         uses: zauguin/install-texlive@v4
         with:
-          packages: .github/tl_packages
+          package_file: .github/tl_packages.txt
         
       - name: Compile documentation
         run: |
