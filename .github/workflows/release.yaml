@@ -1,0 +1,28 @@
+name: Deploy Package Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install TeX Live
+        uses: islandoftex/texlive-action@v2
+
+      - name: Build CTAN zip archive
+        run: |
+          l3build ctan -q -H --show-log-on-error
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            *.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
