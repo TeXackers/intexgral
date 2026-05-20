@@ -1,8 +1,8 @@
 .vscode/
 package/
-build/doc
-build/result
-public/tds
+build/
+public/
 *.zip
 *.curlopt
+*.env
 list.TODO
