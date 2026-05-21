@@ -1,4 +1,6 @@
-# Changelog
+<h1 align="center">Changelog</h1>
+
+***
 
 All notable changes to this project will be documented in this file.
 
