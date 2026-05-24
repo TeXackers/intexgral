@@ -40,6 +40,7 @@ function checklist()
   local questions = {
     "Have logs remnant been deleted?",
     "Are the dates up to date in README/Changelog/.dtx?",
+    "Has the tag been updates?",
     "Has the announcement file been modified?",
   }
   for i, question in ipairs(questions) do
@@ -59,6 +60,30 @@ function generate_ai_announcement()
   os.execute("python announcement_generator.py")
 end
 
+function check_logs()
+  local modules = {
+    "tl", 
+    "int",
+    "prop",
+    "seq",
+    "clist",
+    "fp",
+    "str",
+    "muskip"
+  }
+  local doc_en, doc_fr = assert(io.open("intexgral-en.dtx", "r")), assert(io.open("intexgral-fr.dtx", "r"))
+  local doc_en_content, doc_fr_content = doc_en:read("*a"), doc_fr:read("*a")
+  for _, module in ipairs(modules) do
+    local log = "\\" .. module .. "_log:N"
+      if doc_en_content:find(log) or doc_fr_content:find(log) then
+        print(string.format("[ERROR] Found remnant log: %s", log))
+        return 1
+      end
+  end
+  print("[SUCCESS] No remnant logs found.")
+  return 0
+end
+
 target_list = target_list or {}
 
 target_list['checklist'] = {
@@ -69,4 +94,9 @@ target_list['checklist'] = {
 target_list['announce'] = {
   func = generate_ai_announcement,
   desc = "Generates CTAN announcement using Gemini."
+}
+
+target_list['checklogs'] = {
+  func = check_logs,
+  desc = "Checks for remnant logs in documentation."
 }
