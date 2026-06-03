@@ -32,37 +32,38 @@ function update_tag(file, content, tagname, tagdate)
     "\\def\\intexgral@description{%s}",
     pkg_name, new_version, new_date, description
   )
-  
+
   return content:gsub(pattern, replacement)
 end
 
 function checklist()
+  local reset = "\027[0m"
   local questions = {
     "Have logs remnant been deleted?",
-    "Are the dates up to date in README/Changelog/.dtx?",
-    "Has the tag been updates?",
+    "Are the dates up to date in README/Changelog/.dtx/.ins?",
+    "Has the tag been updated?",
     "Has the announcement file been modified?",
   }
+  
   for i, question in ipairs(questions) do
     io.write(string.format("[%d/%d] %s (Y/N): ", i, #questions, question))  
     local response = io.read()
     if response:upper() ~= 'Y' then
-      print("\n[STOP] Checklist failed.")
+      local red = "\027[31m"
+      print("\n" .. red .. "CHECKLIST FAILED: " .. reset .. "Please address the issue before uploading.")
       return 1
     end
   end
 
-  print("\n[SUCCESS] Checklist completed!")
+  local green = "\027[32m"
+  
+  print("\n" .. green .. "SUCCESS: " .. reset .. "Checklist completed!")
   return 0
-end
-
-function generate_ai_announcement()
-  os.execute("python announcement_generator.py")
 end
 
 function check_logs()
   local modules = {
-    "tl", 
+    "tl",
     "int",
     "prop",
     "seq",
@@ -84,6 +85,14 @@ function check_logs()
   return 0
 end
 
+function generate_ai_announcement()
+  os.execute("python auto_generator.py announcement")
+end
+
+function generate_ai_changelog()
+  os.execute("python auto_generator.py changelog")
+end
+
 target_list = target_list or {}
 
 target_list['checklist'] = {
@@ -94,6 +103,11 @@ target_list['checklist'] = {
 target_list['announce'] = {
   func = generate_ai_announcement,
   desc = "Generates CTAN announcement using Gemini."
+}
+
+target_list['changelog'] = {
+  func = generate_ai_changelog,
+  desc = "Generates changelog using Gemini."
 }
 
 target_list['checklogs'] = {
