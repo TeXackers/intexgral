@@ -1,8 +1,9 @@
-.vscode/
-package/
-build/
-public/
-*.zip
-*.curlopt
+.vscode
+.venv
 *.env
+*.curlopt
+*.zip
+package
+build
+public
 list.TODO

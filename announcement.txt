@@ -1,0 +1,17 @@
+                     ANNOUNCEMENT FOR INTEXGRAL v4.0.0
+                             (2026-06-03)
+
+Changes
+----------------
+Added
+- Detailed implementation.
+- Keys `varsep`, `diffsep`, `postsymbsep` and `diff-order`.
+- Variable keyword `cylindrical*`.
+
+Changed
+- The `derivative` is no longer a dependency. The differentials are now managed internally.
+- Key `symbolskip`, renamed in `innersymbsep`.
+- Key `hide-diff`, renamed in `novar`.
+
+Removed
+- Keys `diff-star` and `diff-options`.
