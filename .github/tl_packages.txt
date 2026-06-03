@@ -39,3 +39,4 @@ cleveref
 ragged2e
 alphalph
 underscore
+hypdoc
