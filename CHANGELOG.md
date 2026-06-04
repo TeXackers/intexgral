@@ -1,10 +1,25 @@
 <h1 align="center">Changelog</h1>
 
-***
+---
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [4.0.0] - 2026-06-03
+
+### Added
+- Detailed implementation.
+- Keys `varsep`, `diffsep`, `postsymbsep` and `diff-order`.
+- Variable keyword `cylindrical*`.
+
+### Changed
+- The `derivative` is no longer a dependency. The differentials are now managed internally.
+- Key `symbolskip`, renamed in `innersymbsep`.
+- Key `hide-diff`, renamed in `novar`.
+
+### Removed
+- Keys `diff-star` and `diff-options`.
 
 ## [3.0.1] - 2026-01-02
 
@@ -18,7 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [3.0.0] - 2025-12-24
 
 ### Added
-- *special* syntax.
+- _special_ syntax.
 - `domain*` and `mode` keys.
 - `\IntegralSetup` and `\NewSymbolKeyword` macros.
 
