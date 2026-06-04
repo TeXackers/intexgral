@@ -1,23 +1,20 @@
-<img src="./intexgral_banner.svg" alt="Intexgral" width="100%" />
-
-***
-
 <div align="center">
   <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
   <img alt="CTAN License" src="https://img.shields.io/ctan/l/intexgral?style=for-the-badge&color=salmon">
   <img alt="CTAN Version" src="https://img.shields.io/ctan/v/intexgral?style=for-the-badge&color=rebeccapurple">
   <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/ankaa3908/intexgral?style=for-the-badge">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ankaa3908/intexgral?style=for-the-badge&logo=github&logoSize=auto&color=mediumseagreen">
-  <br>
-  <br>
+  <br><br>
+  <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/TeXackers/intexgral/ci-compilation.yaml?style=plastic&label=documentation%20build">
+  <br><br>
   <a href="https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf">Explore the docs</a>
-  &middot;
+  ·
   <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-  &middot;
+  ·
   <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
 </div>
 
-***
+---
 
 ## About The Project
 
@@ -29,10 +26,12 @@ Typesetting integrals, although common in LaTeX, is not particularly practical. 
 ### Built With
 
 ![Static Badge](https://img.shields.io/badge/l3build-royalblue?style=for-the-badge&logoColor=white&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/github_actions-grey?style=for-the-badge&logo=github%20actions&logoColor=white&logoSize=auto&color=2A2A2A)
+![Static Badge](https://img.shields.io/badge/gemini_API-blue?style=for-the-badge&logo=google%20gemini&logoColor=white&logoSize=auto&color=%238E75B2)
 
 ## Installation
 
-The latest version can be found on its [CTAN page](https://ctan.org/pkg/intexgral). Simply download the `.dtx` files and `intexgral.ins` files. Then, run
+The latest version can be found on its [CTAN page](https://ctan.org/pkg/intexgral). Simply download the `*.dtx` files and `intexgral.ins` file. Then, run
 
 ```
 pdf(la)tex|xe(la)tex|lua(la)tex intexgral.ins
@@ -46,11 +45,13 @@ and place the resultant `.sty` file in your working directory or in your texmf t
 Alternatively, if you're using a TeX distribution, you can run:
 
 ##### For TeXlive
+
 ```
 tlmgr install intexgral
 ```
 
 ##### For MikTeX
+
 ```
 mpm --install=intexgral
 ```
