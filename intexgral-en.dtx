@@ -216,8 +216,9 @@
 
 \begin{luacode}
 function fontcopyright(fontname)
-  local font = assert(fontloader.open(kpse.find_file(fontname, 'opentype fonts')), "Font " .. fontname .. " not found.")
-  if font then
+  local font_path = kpse.find_file(fontname, 'opentype fonts')
+  if font_path then
+    local font = fontloader.open(font_path)
     local metrics = fontloader.to_table(font)
     local copyright = metrics.copyright:gsub("https?://%S+$", "")
     local copyright = copyright:gsub("Copyright%s%(C%)", "\\copyright\\")
