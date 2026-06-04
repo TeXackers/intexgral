@@ -80,7 +80,7 @@
         }
       ]
     \newfontface{\smbold}{Whitney-Semibold.otf}
-  }{}
+  }{\let\smbold\bfseries}
 
 \IfFontExistsTF{MonaspaceArgon-Medium.otf}
   {
@@ -270,8 +270,7 @@ end
 \catcode`\@=12
 \titleformat*{\section}{\sffamily\LARGE\bfseries}
 \titleformat*{\subsection}{\sffamily\Large\bfseries}
-^^A \titleformat*{\subsubsection}{\smbold\large}
-\titleformat*{\subsubsection}{\bfseries\large}
+\titleformat*{\subsubsection}{\smbold\large}
 
 \usepackage[titles]{tocloft}
 \let\cftdot\relax
