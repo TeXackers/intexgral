@@ -1,6 +1,8 @@
 \iffalse meta-comment
 
-File intexgral.ins Copyright (C) 2025 Valentin Dao
+File intexgral.ins
+
+(C) 2025-2026 Valentin Dao
 
 It may be distributed and/or modified under the conditions of the
 LaTeX Project Public License (LPPL), either version 1.3c of this
@@ -19,35 +21,58 @@ LaTeX version 2008-05-04 or later.
 
 \preamble
 
-This is a generated file.
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│                  The “intexgral” package                    │
+│           A LaTeX package for typesetting integrals         │
+│                                                             │
+│  Copyright (C) 2025-2026 Valentin Dao                       │
+│                                                             │
+│  This file may be distributed and/or modified under the     │
+│  conditions of the LaTeX Project Public License, either     │
+│  version 1.3c of this license or (at your option) any       │
+│  later version.                                             │
+│                                                             │
+│  The latest version of this license is in:                  │
+│                                                             │
+│    > http://www.latex-project.org/lppl.txt                  │
+│                                                             │
+│  This work has the LPPL maintenance status 'maintained'     │
+│  and the current maintainer is Valentin Dao                 │
+│  (vdao.texdev@gmail.com).                                   │
+│                                                             │
+│  This work consists of the files listed in the              │
+│  'MANIFEST.md' file.                                        │
+│                                                             │
+│  The repository of this work can be found here:             │
+│                                                             │
+│    > https://github.com/TeXackers/intexgral                 │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 
-Copyright (C) 2025 Valentin Dao
-
-This file may be distributed and/or modified under the
-conditions of the LaTeX Project Public License, either
-version 1.3 of this license or (at your option) any later
-version. The latest version of this license is in:
-
-  http://www.latex-project.org/lppl.txt
-
-and version 1.3c or later is part of all distributions of
-LaTeX version 2008-05-04 or later.
-
-This work has the LPPL maintenance status 'maintained'
-and the current maintainer is Valentin Dao (vdao.texdev@gmail.com).
-
-This work consists of the files intexgral.ins, intexgral-fr.dtx and intexgral-en.dtx, along with the derived files intexgral.sty, intexgral-fr.pdf, and intexgral-en.pdf.
-
-The repository of this work can be found at:
-
-  https://github.com/ankaa3908/intexgral
-
-\endpreamble 
+\endpreamble
 
 \keepsilent
 
 \generate{
   \file{intexgral.sty}{\from{intexgral-en.dtx}{package}}
+  % \file{intexgral.sty}{\from{intexgral-fr.dtx}{package}}
 }
+
+\obeyspaces
+\Msg{            INSTALLATION                  }
+\Msg{                                          }
+\Msg{Move the following file into a directory  }
+\Msg{searched by TeX:                          }
+\Msg{                                          }
+\Msg{   > intexgral.sty                        }
+\Msg{                                          }
+\Msg{           DOCUMENTATION                  }
+\Msg{                                          }
+\Msg{Run intexgral.dtx through LaTeX to        }
+\Msg{produce the documentation. A particular   }
+\Msg{engine may be required.                   }
+\Msg{                                          }
+\Msg{              Happy TeXing!               }
 
 \endbatchfile

@@ -42,7 +42,6 @@
 \IfFontExistsTF{ChronicleTextG3-Roman-Pro.otf}
   {
     \setmainfont{ChronicleTextG3}[
-      Extension         = .otf,
       Renderer          = Node,
       UprightFont       = *-Roman-Pro,
       ItalicFont        = *-Italic-Pro,
@@ -54,7 +53,6 @@
 \IfFontExistsTF{Whitney-Medium.otf}
   {
     \setsansfont{Whitney}[
-      Extension        = .otf,
       Renderer         = Node,
       UprightFont      = *-Medium,
       ItalicFont       = *-MediumItalic,
@@ -87,7 +85,6 @@
 \IfFontExistsTF{MonaspaceArgon-Medium.otf}
   {
     \setmonofont{MonaspaceArgon}[
-      Extension       = .otf,
       Scale           = MatchAveragecase,
       Renderer        = Node,
       UprightFont     = *-Medium,
@@ -205,7 +202,6 @@
       postsymbsep,
       vectorstyle,
       domainstyle,
-      hide-diff,
       single,
       double,
       triple,
@@ -270,21 +266,25 @@ end
 \usepackage{titlesec}
 \titleformat{\part}[display]
   {
-    \fontsize{35}{20}\selectfont\filcenter
-    \addfontfeatures{LetterSpace=15, Letters=SmallCaps}
+    \fontsize{35}{20}\selectfont\filcenter^^A
+    \addfontfeatures{LetterSpace=15, Letters=SmallCaps}^^A
   }
   {
     \newpage
+    \spaceskip=1.5\fontdimen2\font
     \ifnum\c@part=1
-      \begingroup
-      \Huge\scshape\addfontfeatures{LetterSpace=10}
-      \def\thepart{première}
+      \begingroup^^A
+      \Huge\scshape\addfontfeatures{LetterSpace=10}^^A
+      \def\thepart{première}^^A
       \thepart\space\partname^^A
-      \endgroup
-    \else
-      \Huge\scshape\addfontfeatures{LetterSpace=10}
+      \endgroup^^A
+    \else^^A
+      \begingroup^^A
+      \Huge\scshape\addfontfeatures{LetterSpace=10}^^A
+      \edef\thepart{\romannumeral\the\c@part}^^A
       \partname\space\thepart^^A
-    \fi
+      \endgroup^^A
+    \fi^^A
     \vskip0.2mm^^A
   }
   {0pt}
@@ -425,18 +425,18 @@ end
 % 
 % \begin{codedescribe}[macro, update={v3.0.0}]{\integral}
 %   \begin{codesyntax}
-%     \tsmacro{\integral}[list de clés]{intégrande}
+%     \tsmacro{\integral}[liste de clés]{intégrande}
 %   \end{codesyntax}
 %   Cette macro est celle qui permet de composer les intégrales. Elle doit naturellement être utilisée en mode mathématique uniquement. En voici un premier exemple sous sa forme la plus simple:
 % \end{codedescribe}
 % 
-% \begin{codestore}[1]
+% \begin{codestore}[main-example]
 %   \begin{equation}
 %     \integral{x}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{1}
+% \tsdemo*[intexgral]{main-example}
 % 
 % Puisque cette macro est axée autour de l'utilisation de clés, la première partie de cette documentation les présentera en les regroupant par domaines. La seconde partie quant à elle introduira les quelques macros annexes qui viennent compléter l'usage de certaines clés. Le reste de ce document exposera les autres fonctionnalités du package.
 % 
@@ -454,33 +454,33 @@ end
 %   Cette clé détermine les bornes d'intégration à utiliser en suivant la convention édictée dans le résumé. Sous sa forme la plus simple, la valeur de la clé prend comme argument une liste d'éléments séparés par une virgule (\emph{comma-separated values} ou \tsobj[meta]{csv-list}).
 % \end{codedescribe}
 % 
-% \begin{codestore}[2]
+% \begin{codestore}[limits]
 %   \begin{equation}
 %     \integral[limits={1, 10}]{f(x)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{2}
+% \tsdemo*[intexgral]{limits}
 % 
 % L'avantage notable de la clé \tsobj[key]{limits} est qu'on peut lui spécifier les bornes d'intégration de plusieurs intégrales, et le package compose automatiquement les symboles correspondants. Pour séparer les paires de bornes, il faut utiliser le point-virgule (\emph{semicolon-separated values} ou \tsobj[meta]{ssv-list}\footnote{On entend donc par \tsobj[meta]{liste-mixte} le fait que \tsobj[key]{limits} puisse accepter un ensemble de \tsobj[meta]{csv-list} dans une \tsobj[meta]{ssv-list} plus globale.}).
 % 
-% \begin{codestore}[3]
+% \begin{codestore}[multiple-limits]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4}, variables={x, y}]{f(x, y)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{3}
+% \tsdemo*[intexgral]{multiple-limits}
 % 
 % Il est également possible de renseigner des bornes prédéfinies à l'aide de mots-clés (voir \cref{subsec:limitskey}). Enfin, la variante étoilée permet d'exprimer les bornes de l'intégrale sous forme d'intervalle. Le cas échéant, le sens des crochets s'adapte automatiquement à la présence de $\pm$\verb|\infty|
 % 
-% \begin{codestore}[4]
+% \begin{codestore}[limits*]
 %   \begin{equation}
 %     \integral[limits*={1, 10}]{f(x)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{4}
+% \tsdemo*[intexgral]{limits*}
 % 
 % \subsection{Modes d'affichage}
 % 
@@ -491,7 +491,7 @@ end
 %   \emph{Uniquement} lorsque la clé \tsobj[key]{limits} est employée, il est possible d'alterner entre trois styles d'affichage distincts. Chacun d'entre eux est entièrement compatible avec l'option \tsobj[key]{invert-diff}.
 %   \begin{describelist*}{option}
 %     \describe{default}{Compose l'ensemble des symboles, puis l'intégrande, puis les variables d'intégration. La macro opérant par défaut dans ce mode, il n'est donc pas nécessaire d'utiliser la clé avec cette valeur.}
-%     \describe{nested}{Compose une intégrale \emph{imbriquée} où symbole et intégrande alternent avant que tous les variables d'intégrations soient écrits.}
+%     \describe{nested}{Compose une intégrale \emph{imbriquée} où symbole et intégrande alternent avant que toutes les variables d'intégration soient écrits.}
 %     \describe{product}{Compose un produit d'intégrales où symbole, intégrande et variables d'intégration alternent.}
 %   \end{describelist*}
 %   Bien sûr, rien ne vous empêche pour le mode produit d'utiliser plusieurs fois la macro \tsobj[macro]{\integral} d'affilée pour produire le même résultat que dans l'exemple ci-dessous. Pour celles et ceux qui préféreraient cependant obtenir le résultat avec une seule macro, cette méthode est permise.
@@ -504,37 +504,37 @@ end
 %   \textsc{mode}\kern1ex \tsobj[option]{default}
 % \end{center}
 % 
-% \begin{codestore}[5]
+% \begin{codestore}[default-mode]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z}, mode=default]{xyz}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{5}
+% \tsdemo*[intexgral]{default-mode}
 % 
 % \begin{center}
 %   \textsc{mode}\kern1ex \tsobj[option]{nested}\nobreak
 % \end{center}
 % 
-% \begin{codestore}[6]
+% \begin{codestore}[nested-mode]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4; 5, 6}, variables={z, y, x}, mode=nested]{x;y;z}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{6}
+% \tsdemo*[intexgral]{nested-mode}
 % 
 % \begin{center}
 %   \textsc{mode}\kern1ex \tsobj[option]{product}\nobreak
 % \end{center}
 % 
-% \begin{codestore}[7]
+% \begin{codestore}[product-mode]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z}, mode=product]{x;y;z}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{7}
+% \tsdemo*[intexgral]{product-mode}
 % 
 % Pour bien fonctionner, il est évident que les clés \tsobj[key]{limits} et \tsobj[key]{variables} (voir \ref{subsubsec:variables}), ainsi que l'intégrande, doivent avoir le même nombre d'éléments. 
 %
@@ -550,17 +550,17 @@ end
 %   \end{codesyntax}
 %   Cette clé accepte une macro désignant un symbole d'intégration. Tout symbole préalablement défini par une séquence de contrôle est recevable. Si vous tentez d'en utiliser une qui n'est pas définie, elle sera substituée à \tsobj[macro]{\int} et un message d'avertissement sera émis. 
 %   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
-%     à part la vérification de l'existence de la macro, aucun contrôle particulier n'est effectué et la valeur de la clé est utilisée telle quelle pour composer le symbole. Ceci implique notamment que le symbole va dépendre de la façon dont il est défini. Par exemple, \tsobj[pkg]{amsmath} et \tsobj[pkg]{unicode-math} ne définissent pas \tsobj[macro]{\iint} de la même manière. Le résultat sera donc naturellement différent. Par exemple, \tsobj[pkg]{amsmath} colle deux \tsobj[macro]{\int} ensemble avec un certain crénage pour définir \tsobj[macro]{\iint}, tandis qu'\tsobj[pkg]{unicode-math} définit le vrai glyphe \texttt{U+222C}.
+%   à part la vérification de l'existence de la macro, aucun contrôle particulier n'est effectué et la valeur de la clé est utilisée telle quelle pour composer le symbole. Ceci implique notamment que le symbole va dépendre de la façon dont il est défini. Par exemple, \tsobj[pkg]{amsmath} et \tsobj[pkg]{unicode-math} ne définissent pas \tsobj[macro]{\iint} de la même manière. Le résultat sera donc naturellement différent: \tsobj[pkg]{amsmath} colle deux \tsobj[macro]{\int} ensemble avec un certain crénage pour définir \tsobj[macro]{\iint}, tandis qu'\tsobj[pkg]{unicode-math} définit le vrai glyphe \texttt{U+222C}.
 %   \end{tsremark}
 % \end{codedescribe}
 % 
-% \begin{codestore}[8]
+% \begin{codestore}[symbol]
 %   \begin{equation}
 %     \integral[symbol=\iint, llimit=S, variables={x, y}]{f(x, y)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{8}
+% \tsdemo*[intexgral]{symbol}
 % 
 % \subsubsection{Générer beaucoup d'intégrales}
 % 
@@ -571,13 +571,13 @@ end
 %   Cette clé accepte un entier $n$ qui permet de composer $n$ intégrales. Il est conseillé d'avoir recours à cette clé seulement si le nombre de symboles dépasse 4 afin de privilégier les glyphes définis par la police mathématique utilisée.
 % \end{codedescribe}
 % 
-% \begin{codestore}[9]
+% \begin{codestore}[nint]
 %   \begin{equation}
 %     \integral[nint=5, llimit=\Omega, variables={x_1, x_2, x_3, x_4, x_5}]{f(x_1, x_2, x_3, x_4, x_5)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{9}
+% \tsdemo*[intexgral]{nint}
 % 
 % \subsubsection{Définir des bornes ponctuellement}
 % 
@@ -589,13 +589,13 @@ end
 %   Ces deux clés permettent de spécifier les bornes inférieures et supérieures respectivement. Elles ne sont adaptées que si un seul symbole est affiché. Si vous avez besoin de spécifier les deux bornes, la clé \tsobj[key]{limits} devra être privilégiée.
 % \end{codedescribe}
 % 
-% \begin{codestore}[10]
+% \begin{codestore}[ulimit-llimit]
 %   \begin{equation}
 %     \integral[llimit={x^2 + y^2 \leq 1}, variables={x, y}]{f(x, y)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{10}
+% \tsdemo*[intexgral]{ulimit-llimit}
 % 
 % \subsubsection{Motifs récurrents de bornes}
 % 
@@ -613,13 +613,13 @@ end
 %   \end{itemize}
 % \end{codedescribe}
 % 
-% \begin{codestore}[11]
+% \begin{codestore}[domain]
 %   \begin{equation}
 %     \integral[symbol=\iint, domain={r*r}, variables={x, y}]{xy}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{11}
+% \tsdemo*[intexgral]{domain}
 % 
 % \begin{codedescribe}[key]{boundary}
 %   \begin{codesyntax}[key]
@@ -628,13 +628,13 @@ end
 %   Cette clé place simplement le symbole $\partial\,$ avant la borne inférieure.
 % \end{codedescribe}
 % 
-% \begin{codestore}[12]
+% \begin{codestore}[boundary]
 %   \begin{equation}
 %     \integral[symbol=\oint, boundary=S, diff-vec]{G(\vec r)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{12}
+% \tsdemo*[intexgral]{boundary}
 % 
 % \subsection{Différentielles}
 % 
@@ -650,13 +650,13 @@ end
 %   \end{tsremark}
 % \end{codedescribe}
 % 
-% \begin{codestore}[13]
+% \begin{codestore}[variables]
 %   \begin{equation}
 %     \integral[variables=t]{t^2}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{13}
+% \tsdemo*[intexgral]{variables}
 %
 % \subsubsection{Inclure le jacobien}
 % 
@@ -667,13 +667,13 @@ end
 %   Cette clé active l'affichage du jacobien lorsque défini par \tsobj[macro]{\NewVariableKeyword}.
 % \end{codedescribe}
 % 
-% \begin{codestore}[14]
+% \begin{codestore}[jacobian]
 %   \begin{equation}
-%     \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=product, jacobian]{;;}
+%     \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=product, jacobian]{}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{14}
+% \tsdemo*[intexgral]{jacobian}
 % 
 % \subsubsection{Modifier le symbole des différentielles}
 % 
@@ -684,13 +684,13 @@ end
 %   Cette clé permet de modifier le symbole ou bien le style des différentielles. 
 % \end{codedescribe}
 % 
-% \begin{codestore}[15]
+% \begin{codestore}[diff-symb]
 %   \begin{equation}
 %     \integral[variables={q(t)}, diff-symb=\mathcal{D}]{e^{+\dfrac{i S[q(t)]}{\hbar}}}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{15}
+% \tsdemo*[intexgral]{diff-symb}
 % 
 % \subsubsection{Réaliser une intégrale curviligne}
 % 
@@ -701,13 +701,14 @@ end
 %   Cette clé applique un vecteur à la variable d'intégration en plus d'un point médian. Elle n'est compatible qu'avec le mode \tsobj[option]{default}. L'utiliser avec les options \tsobj[option]{nested} ou \tsobj[option]{product} n'aura aucun effet.
 % \end{codedescribe}
 % 
-% \begin{codestore}[16]
+% \begin{codestore}[diff-vec]
+% \IntegralSetup{vectorstyle=\mathbf}
 %   \begin{equation}
-%     \integral[double=S, variables=S, diff-vec]{\vec F}
+%     \integral[single=C, variables=s, diff-vec]{\mathbf F}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{16}
+% \tsdemo*[intexgral]{diff-vec}
 % 
 % \subsubsection{Ajouter un exposant}
 % 
@@ -744,14 +745,14 @@ end
 % \end{itemize}
 % \end{codedescribe}
 % 
-% \begin{codestore}[19]
+% \begin{codestore}[differentials]
 %   \begin{gather}
 %     \integral{\frac{\differentials}{x}}\\[1cm]
 %     \langle 0 \mid T\{ \phi(x) \phi(y) \} \mid 0 \rangle = \integral[diff-order=4, variables=p]{\frac{\differentials}{(2\pi)^4} \frac{e^{-i p \cdot (x-y)}}{p^2 - m^2 + i \epsilon}}
 %   \end{gather}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{19}
+% \tsdemo*[intexgral]{differentials}
 % 
 % \subsection{Retour sur la clé \emph{limits}}\label{subsec:limitskey}
 % 
@@ -798,23 +799,23 @@ end
 %   \end{tsremark}
 %   On pourrait donc modifier l'expression d'une l'intégrale de la façon suivante:
 % 
-% \begin{codestore}[20]
+% \begin{codestore}[limitskeyword]
 %   \begin{equation}
 %     \integral[limits={height;circle;radius}, variables={\rho, \theta, z}]{\rho}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{20}
+% \tsdemo*[intexgral]{limitskeyword}
 % 
 % Il est tout à fait possible de mélanger ces mots-clés avec la syntaxe plus explicite de \tsobj[key]{limits}.
 % 
-% \begin{codestore}[21]
+% \begin{codestore}[limitskeyword*]
 %   \begin{equation}
 %     \integral[limits={height;0,W;length}, variables={x, y, z}]{\kappa(T)\nabla T \cdot \mathbf{n}}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{21}
+% \tsdemo*[intexgral]{limitskeyword*}
 % 
 % \subsection{Retour sur la clé \emph{variables}}\label{subsec:variableskey}
 % 
@@ -833,13 +834,13 @@ end
 %   \end{describelist*}
 % \end{codedescribe}
 % 
-% \begin{codestore}[22]
+% \begin{codestore}[variablekeyword]
 %   \begin{equation}
 %     \integral[triple=V, variables=spherical]{f(r, \theta, \phi)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{22}
+% \tsdemo*[intexgral]{variablekeyword}
 % 
 % \subsection{Retour sur la clé \emph{symbol}}\label{subsec:symbolkey}
 % 
@@ -858,17 +859,17 @@ end
 %     \describe{volume}{symbole utilisé = \tsobj[macro]{\oiiint}}
 %   \end{describelist*}
 %   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
-%   offrir la possibilité de créer soi-même une clé à la macro \tsobj[macro]{\integral} représente un risque qui sera mieux expliqué dans la prochaine section. Retenez pour l'instant que toutes ces macros\footnote{À l'exception de \tsobj[macro]{\DeclareSymbolKeyword} qui suppose que l'utilisateur sait ce qu'il fait.} émettront un message d'avertissement si vous tentez de créer une nouvelle \emph{clé-symbole} portant le même nom qu'un groupe de bornes définies.
+%   offrir la possibilité de créer soi-même une clé à la macro \tsobj[macro]{\integral} représente un risque qui sera mieux expliqué dans la prochaine section. Retenez pour l'instant que toutes ces macros émettront un message d'avertissement si vous tentez de créer une nouvelle \emph{clé-symbole} portant le même nom qu'un groupe de bornes définies.
 %   \end{tsremark}
 % \end{codedescribe}
 %
-% \begin{codestore}[23]
+% \begin{codestore}[symbolkeyword]
 %   \begin{equation}
-%     \integral[contour=\mathcal{C}, diff-vec]{f(\vec r)}
+%     W = \integral[contour=\mathcal{C}, diff-vec]{f(\vec r)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{23}
+% \tsdemo*[intexgral]{symbolkeyword}
 % 
 % \section{Syntaxe \emph{spéciale}}
 % 
@@ -889,63 +890,63 @@ end
 %   Et vous séparez le tout d'un deux points. Voyons un exemple pour mieux comprendre.
 % \end{codedescribe}
 % 
-% \begin{codestore}[24]
+% \begin{codestore}[special-syntax]
 %   \begin{equation}
 %     \integral[1, 2; 4, 5:y, x:nested]{x; y}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{24}
+% \tsdemo*[intexgral]{special-syntax}
 % 
 % On entend par \emph{argument valide} le fait que toutes les formes de valeurs acceptées par les quatre clés peuvent être pareillement adoptées par la syntaxe spéciale. Cela comprend donc les mots-clés.
 % 
-% \begin{codestore}[25]
+% \begin{codestore}[special-syntax*]
 %   \begin{equation}
 %     \integral[radius;circle;scircle:spherical:product]{r;\theta;\phi}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{25}
+% \tsdemo*[intexgral]{special-syntax*}
 % 
 % Afin d'inclure le jacobien, il suffit d'écrire \texttt{+j} après l'argument de \tsobj[key]{variables}. Le mode peut aussi être indiqué à l'aide d'une initiale seulement.
 % 
-% \begin{codestore}[26]
+% \begin{codestore}[special-syntax**]
 %   \begin{equation}
 %     \integral[radius;circle;scircle:spherical+j:p]{;;}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{26}
+% \tsdemo*[intexgral]{special-syntax**}
 % 
 % Il est important de répéter que dans la configuration classique de l'argument optionnel, il n'est bien sûr pas obligatoire de renseigner les quatre clés citées. Il en va de même pour cette syntaxe. Puisque la clé \tsobj[key]{mode} n'est pas nécessaire pour \tsobj[option]{default}, cette partie peut être omise.
 % 
-% \begin{codestore}[27]
+% \begin{codestore}[special-syntax***]
 %   \begin{equation}
 %     \integral[1, 2; 3, 4:x, y]{xy}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{27}
+% \tsdemo*[intexgral]{special-syntax***}
 % 
 % Vous pouvez aussi toujours profiter du placement automatique du \enquote{$\mathrm dx$} avec cette syntaxe en faisant abstraction de \tsobj[key]{variables}.
 % 
-% \begin{codestore}[28]
+% \begin{codestore}[special-syntax****]
 %   \begin{equation}
 %     \integral[1, 10]{x}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{28}
+% \tsdemo*[intexgral]{special-syntax****}
 % 
 % Un cas particulier notable de cette syntaxe spéciale est que si vous souhaitez modifier la variable sans spécifier les bornes, vous pouvez effectuer plus rapidement cette action de la façon suivante:
 % 
-% \begin{codestore}[29]
+% \begin{codestore}[special-syntax*****]
 %   \begin{equation}
 %     \integral[:z]{f(z)}
 %   \end{equation}
 % \end{codestore}
 % 
-% \tsdemo*[intexgral]{29}
+% \tsdemo*[intexgral]{special-syntax*****}
 % 
 % Même si elle n'est pas recommandée.
 % 
@@ -962,9 +963,9 @@ end
 %   Cette macro permet, sous la syntaxe \tsobj[meta]{clé=valeur}, de modifier des paramètres liés à certaines clés. Toutes les assignations effectuées sont locales et la macro peut donc être placée dans un groupe si besoin. Voici un exemple de la macro avec les assignations par défaut du package:
 % \end{codedescribe}
 % 
-% \begin{codestore}[defaultparam]
+% \begin{codestore}[default-parameters]
 %   \IntegralSetup{
-%     diff-symb    = \l_@@_default_diff_symb_tl, % voir au début de l'implémentation
+%     diff-symb    = \l_@@_default_differential_symbol_tl, % voir au début de l'implémentation
 %     defaultvar   = {x},
 %     defaultvar*  = {r},
 %     varsep       = \thinmuskip,
@@ -973,11 +974,11 @@ end
 %     postsymbsep  = {-1mu},
 %     vectorstyle  = \vec,
 %     domainstyle  = \mathbb,
-%     hide-diff    = false
+%     novar    = false
 %   }
 % \end{codestore}
 % 
-% \tscode*[intexgral]{defaultparam}
+% \tscode*[intexgral]{default-parameters}
 % 
 % \begin{codedescribe}[key, new={v4.0.0}]{diff-symb}
 %  \begin{codesyntax}[key]
@@ -1011,14 +1012,14 @@ end
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{innersymbsep}=\tsobj[meta]{muexpr}
 %   \end{codesyntax}
-%   Lorsque le mode \tsobj[option]{default} est en vigueur, le package insère un crénage entre les symboles pour légèrement les rapprocher. Cette clé permet donc de régler cet espacement.
+%   Lorsque le mode \tsobj[option]{default} est en vigueur, c'est-à-dire que la clé \tsobj[key]{limits} est utilisée, le package insère un crénage entre les symboles pour légèrement les rapprocher. Cette clé permet donc de régler cet espacement.
 % \end{codedescribe}
 % 
 % \begin{codedescribe}[key, new={v4.0.0}]{postsymbsep}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{postsymbsep}=\tsobj[meta]{muexpr}
 %   \end{codesyntax}
-% Cette clé contrôle l'espacement entre le symbole et l'élément qui suit (intégrande ou différentielle).
+% Cette clé contrôle l'espacement entre le symbole et l'élément qui suit (intégrande ou différentielle selon \tsobj[key]{invert-limits}).
 % \end{codedescribe}
 % 
 % \begin{codedescribe}[key, new={v3.0.0}]{vectorstyle}
@@ -1035,9 +1036,9 @@ end
 %   Semblablement, on peut changer la macro à appliquer pour les clés \tsobj[key]{domain(*)}.
 % \end{codedescribe}
 % 
-% \begin{codedescribe}[key, new={v3.0.0}]{hide-diff}
+% \begin{codedescribe}[key, new={v3.0.0}, update={v4.0.0}]{novar}
 %   \begin{codesyntax}[key]
-%     \tsobj[key]{hide-diff}=\tsobj[option, meta or]{true,\uline{false}}
+%     \tsobj[key]{novar}=\tsobj[option, meta or]{true,\uline{false}}
 %   \end{codesyntax}
 %   Lorsqu'une large partie du document nécessite de ne pas inclure les différentielles, il est possible de prolonger dans la durée l'action plus ponctuelle de \tsobj[key]{variables}\texttt{=}\tsobj[option]{none}.
 % \end{codedescribe}
@@ -1048,13 +1049,15 @@ end
 % \addcontentsline{toc}{section}{Historique des modifications}
 % \begin{changelog}[sectioncmd=\section*]
 % 
-% \begin{version}[v=4.0.0, date=26-05-2026]
+% \begin{version}[v=4.0.0, date=03-06-2026]
 % \added
 % \item Implémentation détaillée.
 % \item Clés \tsobj[key]{varsep}, \tsobj[key]{diffsep}, \tsobj[key]{postsymbsep} et \tsobj[key]{diff-order}.
+% \item Mot-clé de variable \tsobj[option]{cylindrical*}.
 % \changed
 % \item Le package \tsobj[pkg]{derivative} n'est plus une dépendance. Les différentielles sont maintenant gérées de façon interne.
 % \item Clé \tsobj[key]{symbolskip}, renommée en \tsobj[key]{innersymbsep}.
+% \item Clé \tsobj[key]{hide-diff}, renommée en \tsobj[key]{novar}.
 % \removed
 % \item Clés \tsobj[key]{diff-star} et \tsobj[key]{diff-options}.
 % \end{version}
@@ -1111,11 +1114,6 @@ end
 % 
 % \end{changelog}
 % 
-% \newpage
-% 
-% \phantomsection
-% \PrintIndex
-%
 % \end{documentation}
 % 
 % \begin{implementation}
@@ -1185,10 +1183,10 @@ end
 %    \end{macrocode}
 % \end{codedescribe}
 % 
-% \begin{codedescribe}[variable3]{\l_@@_deactivate_differential_bool}
+% \begin{codedescribe}[variable3]{\l_@@_deactivate_variables_bool}
 % Détermine si les différentielles doivent être affichées ou non.
 %    \begin{macrocode}
-\bool_new:N \l_@@_deactivate_differential_bool
+\bool_new:N \l_@@_deactivate_variables_bool
 %    \end{macrocode}
 % \end{codedescribe}
 % 
@@ -1334,33 +1332,11 @@ end
     \token_to_str:N\int.
   }
 
-\msg_new:nnn { intexgral } { unequal-dim }
-  {
-    Inconsistent~structure~\@@_warning_msg_header:
-    The~number~of~integrals~(#1),~integrands~(#2),~and~
-    differentials~(#3)~does~not~match.
-  }
-
 \msg_new:nnn { intexgral } { no-jacobian }
   {
     Jacobian~unavailable~\@@_warning_msg_header:
     A~Jacobian~was~requested~for~the~"#1"~keyword,
     ~but~none~was~declared~for~the~latter.
-  }
-
-\msg_new:nnn { intexgral } { diff-not-sup }
-  {
-    Macro~\token_to_str:N\differentials\ 
-    not~supported~\@@_warning_msg_header:
-    You~can't~use~\token_to_str:N\differentials\
-    with~"nested"~mode~alongside~inverted~differentials.~
-    I~will~simply~ignore~them.
-  }
-
-\msg_new:nnn { intexgral } { diff-vec-not-supp }
-  {
-    Key~"diff-vec"~not~supported~\@@_warning_msg_header:
-    You~can't~use~"diff-vec"~with~"#1"~mode.~I~will~simply~ignore~this~key.
   }
 
 \msg_new:nnn { intexgral } { use-glyph-instead }
@@ -2023,7 +1999,7 @@ end
           { \@@_general_integral_symbol: }
       }
 
-    \bool_if:NF \l_@@_deactivate_differential_bool
+    \bool_if:NF \l_@@_deactivate_variables_bool
       { \@@_parse_variables: }
 
     \regex_if_match:nVTF { \c{differentials} } \l_@@_integrand_tl
@@ -2037,7 +2013,7 @@ end
 % \subsection{Mode \emph{default}}
 % 
 % \begin{codedescribe}[macro3]{\@@_print_default_integral:}
-% Pour le mode par défaut on compose dans l'ordre: symbole intégrale, intégrande, jacobien (si applicable), et différentielles. Puisque les éléments sont successifs, on applique \tsobj[macro]{\seq_use:Nn} pour chacune des séquences en insérant un crénage lorsque c'est nécessaire. \`A noter que si \tsobj[variable3]{\l_@@_vectorial_differential_bool} est vrai, on ajoute un point médian et supprime le crénage précédant (pour des raisons d'espacement propre à \tsobj[macro]{\cdot}).
+% Pour le mode par défaut on compose dans l'ordre: symbole intégrale, intégrande, jacobien (si applicable), et différentielles. Puisque les éléments sont successifs, on applique \tsobj[macro]{\seq_use:Nn} pour chacune des séquences en insérant un crénage lorsque c'est nécessaire. \`A noter que si \tsobj[variable3]{\l_@@_vectorial_differential_bool} est vrai, on ajoute un point médian et supprime le crénage précédant (pour des raisons d'espacement propres à \tsobj[macro]{\cdot}).
 % \end{codedescribe}
 % 
 %    \begin{macrocode}
@@ -2058,12 +2034,12 @@ end
     \bool_if:NT \l_@@_jacobian_bool
       { \seq_use:Nn \l_@@_jacobian_seq {  } }
     \@@_mkern:N \l_@@_variable_sep_muskip
-    \bool_if:NT \l_@@_vectorial_differential_bool 
+    \bool_if:NT \l_@@_vectorial_differential_bool
       { \tex_unkern:D \cdot}
     \bool_if:NF \l_@@_manual_differential_bool
       { 
-        \seq_use:Nn \l_@@_differential_seq 
-          { \@@_mkern:N \l_@@_differential_sep_muskip } 
+        \seq_use:Nn \l_@@_differential_seq
+          { \@@_mkern:N \l_@@_differential_sep_muskip }
       }
   }
 %    \end{macrocode}
@@ -2376,7 +2352,7 @@ end
       {
         \bool_set_true:N \l_@@_custom_variables_bool
         \str_if_eq:nnTF { #1 } { none }
-          { \bool_set_true:N \l_@@_deactivate_differential_bool }
+          { \bool_set_true:N \l_@@_deactivate_variables_bool }
           {
             \prop_get:NnNTF
               \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
@@ -2416,7 +2392,7 @@ end
     vectorstyle  .tl_set:N     = \l_@@_vectorial_differential_style_tl,
     domainstyle  .tl_set:N     = \l_@@_domain_style_tl,
     innersymbsep .tl_set:N     = \l_@@_symbol_inner_sep_muskip,
-    hide-diff    .bool_set:N   = \l_@@_deactivate_differential_bool,
+    novar        .bool_set:N   = \l_@@_deactivate_variables_bool,
   }
 %    \end{macrocode}
 %    
@@ -2754,7 +2730,7 @@ end
 \NewVariableKeyword{planar}       {x, y}
 \NewVariableKeyword{polar}        {r, \theta}        [r]
 \NewVariableKeyword{cylindrical}  {r, \theta, z}     [r]
-\NewVariableKeyword{cylindrical*} {rho, \theta, z}   [rho]
+\NewVariableKeyword{cylindrical*} {\rho, \theta, z}   [\rho]
 \NewVariableKeyword{spherical}    {r, \theta, \phi}  [r^2, \sin\theta]
 %    \end{macrocode}
 %
@@ -2762,7 +2738,7 @@ end
 % 
 %    \begin{macrocode}
 \IntegralSetup{
-  diff-symb    = \l_@@_default_diff_symb_tl,
+  diff-symb    = \l_@@_default_differential_symbol_tl,
   defaultvar   = {x},
   defaultvar*  = {r},
   varsep       = \thinmuskip,
@@ -2771,8 +2747,13 @@ end
   postsymbsep  = {-1mu},
   vectorstyle  = \vec,
   domainstyle  = \mathbb,
-  hide-diff    = false
+  novar        = false
 }
 %</package>
 %    \end{macrocode}
 % \end{implementation}
+% 
+% \newpage
+% 
+% \phantomsection
+% \PrintIndex
