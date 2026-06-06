@@ -1,30 +1,50 @@
-**Describe the bug you are experiencing**
+<h1 align="center">Bug report</h1>
 
-A clear and concise description of what the bug is. If applicable, include the relevant section of the `.log` file that shows what unexpected behaviour is.
+***
 
-**Expected behaviour**
+## Describe the bug you are experiencing
+
+A clear and concise description of what the bug is.
+
+> [!TIP]
+> If the bug generates a specific error, please copy the exact error message or the line from the `.log` file concerned.
+
+---
+
+## Expected behaviour
 
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
+---
+
+## Screenshots
 
 If applicable, add screenshots to help explain your problem.
 
-**Minimal Working Example**
+---
 
-The minimal `.tex` file needed to reproduce the bug. Make sure to include the MWE in the following code block:
-```TeX
+## Minimal Working Example
+
+The minimal .tex file needed to reproduce the bug. Make sure to include the MWE in the following code block:
+
+```tex
 <paste your MWE here>
 ```
 
-**System information**
+---
+
+## System information
 
 Read the first few lines of your `.log` file and fill in the following:
-- Distribution & version: *e.g. TeX Live 2026*
-- Engine & version: *e.g. LuaHBTeX, Version 1.24.0*
 
-LaTeX format will always be assumed
+#### Base Configuration
 
-In rare cases, the following may be required:
-- expl3 version: 
-- format: *e.g. Plain*
+| Information | Value |
+| :--- | :--- |
+| **Distribution & Version** | *e.g. TeX Live 2026* |
+| **Engine & Version** | *e.g. LuaHBTeX, Version 1.24.0* |
+| **expl3 Version** | *e.g. 2026-01-01* |
+| **Format** | *e.g. Plain* |
+
+> [!Note]
+> The expl3 version and format are not necessarily relevant unless the issue you are reporting is related to them.

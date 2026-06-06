@@ -1,11 +1,15 @@
-**Is your feature request related to a problem? Please describe.**
+<h1 align="center">Feature request</h1>
 
-A clear and concise description of what the problem is.
+***
 
-**Describe the solution you'd like**
+## What feature are you requesting?
 
-A clear and concise description of what you want to happen.
+A clear and concise description of the feature you'd like to see implemented.
 
-**Additional context**
+## Why is this feature needed?
+
+Explain why this feature would be useful to you and others.
+
+## Additional context
 
 Add any other context or screenshots about the feature request here.
