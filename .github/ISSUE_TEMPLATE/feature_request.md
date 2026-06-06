@@ -1,3 +1,12 @@
+---
+name: Feature request
+about: Suggest an idea for intexgral
+title: "[IDEA] "
+labels: enhancement
+assignees: ''
+
+---
+
 <h1 align="center">Feature request</h1>
 
 ***
