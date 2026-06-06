@@ -1,4 +1,6 @@
 scheme-basic
+xetex
+luatex
 l3build
 amsmath
 amsfonts
