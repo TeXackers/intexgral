@@ -29,8 +29,8 @@ uploadconfig = {
   ctanPath            = "/macros/latex/contrib/intexgral",
   announcement_file   = "announcement.txt",
   update              = true,
-  topic               = "Maths",
-  repository          = "https://github.com/TeXackers/intexgral/tree/main",
+  topic               = "maths",
+  repository          = "https://github.com/TeXackers/intexgral/tree/master",
   bugtracker          = "https://github.com/TeXackers/intexgral/issues"
 }
 
