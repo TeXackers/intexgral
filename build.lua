@@ -19,7 +19,7 @@ Typesetting integrals, although common in LaTeX, is not particularly practical. 
 
 uploadconfig = {
    pkg                 = "intexgral",
-   version             = "v4.1.0",
+   version             = "v4.1.0 2026-07-27",
    author              = "Valentin Dao",
    uploader            = "Valentin Dao",
    email               = "vdao.texdev@gmail.com",
@@ -29,7 +29,7 @@ uploadconfig = {
    ctanPath            = "/macros/latex/contrib/intexgral",
    announcement_file   = "announcement.txt",
    update              = true,
-   topic               = "Maths",
+   topic               = "maths",
    repository          = "https://github.com/TeXackers/intexgral/tree/master",
    bugtracker          = "https://github.com/TeXackers/intexgral/issues"
 }
