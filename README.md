@@ -1,5 +1,5 @@
 <div align="center">
-   <img src="intexgral-logo.png" alt="Description du SVG" width="150" />
+   <img src="intexgral-logo.png" alt="intexgral logo" width="150" />
    <h1> intexgral </h1>
    <p> <em> A LaTeX package for typesetting integrals</em></p>
    <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
