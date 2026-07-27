@@ -18,20 +18,20 @@ Typesetting integrals, although common in LaTeX, is not particularly practical. 
 ]]
 
 uploadconfig = {
-  pkg                 = "intexgral",
-  version             = "v4.0.0",
-  author              = "Valentin Dao",
-  uploader            = "Valentin Dao",
-  email               = "vdao.texdev@gmail.com",
-  license             = "lppl1.3c",
-  summary             = "A LaTeX package for typesetting integrals",
-  description         = pkg_description,
-  ctanPath            = "/macros/latex/contrib/intexgral",
-  announcement_file   = "announcement.txt",
-  update              = true,
-  topic               = "Maths",
-  repository          = "https://github.com/TeXackers/intexgral/tree/main",
-  bugtracker          = "https://github.com/TeXackers/intexgral/issues"
+   pkg                 = "intexgral",
+   version             = "v4.1.0",
+   author              = "Valentin Dao",
+   uploader            = "Valentin Dao",
+   email               = "vdao.texdev@gmail.com",
+   license             = "lppl1.3c",
+   summary             = "A LaTeX package for typesetting integrals",
+   description         = pkg_description,
+   ctanPath            = "/macros/latex/contrib/intexgral",
+   announcement_file   = "announcement.txt",
+   update              = true,
+   topic               = "Maths",
+   repository          = "https://github.com/TeXackers/intexgral/tree/master",
+   bugtracker          = "https://github.com/TeXackers/intexgral/issues"
 }
 
 dofile('build-config.lua')
