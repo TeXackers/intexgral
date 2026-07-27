@@ -1,5 +1,5 @@
 % \iffalse meta-comment
-% 
+%
 % ┌─────────────────────────────────────────────────────────────┐
 % │                                                             │
 % │                  The “intexgral” package                    │
@@ -34,68 +34,70 @@
 % \iffalse
 \documentclass[11pt, a4paper]{l3doc}
 
+\catcode`\@=11
+
 \usepackage{amsmath}
 
 \usepackage{fontspec}
 \usepackage{unicode-math}
 
 \IfFontExistsTF{ChronicleTextG3-Roman-Pro.otf}
-  {
-    \setmainfont{ChronicleTextG3}[
-      Renderer          = Node,
-      UprightFont       = *-Roman-Pro,
-      ItalicFont        = *-Italic-Pro,
-      BoldFont          = *-Bold-Pro,
-      BoldItalicFont    = *-BoldIta-Pro,
-      ]
-  }{}
+   {
+      \setmainfont{ChronicleTextG3}[
+         Renderer          = Node,
+         UprightFont       = *-Roman-Pro,
+         ItalicFont        = *-Italic-Pro,
+         BoldFont          = *-Bold-Pro,
+         BoldItalicFont    = *-BoldIta-Pro,
+         ]
+   }{}
 
 \IfFontExistsTF{Whitney-Medium.otf}
-  {
-    \setsansfont{Whitney}[
+   {
+      \setsansfont{Whitney}[
       Renderer         = Node,
       UprightFont      = *-Medium,
       ItalicFont       = *-MediumItalic,
       BoldFont         = *-Bold,
       BoldItalicFont   = *-BoldItalic,
-      UprightFeatures  = 
-        {
-          StylisticSet = 1,
-          StylisticSet = 10,
-          StylisticSet = 11,
-        },
+      UprightFeatures  =
+         {
+            StylisticSet = 1,
+            StylisticSet = 10,
+            StylisticSet = 11,
+         },
       BoldFeatures     =
-        {
-          StylisticSet = 1,
-          StylisticSet = 10,
-          StylisticSet = 11,
-        },
+         {
+            StylisticSet = 1,
+            StylisticSet = 10,
+            StylisticSet = 11,
+         },
       ItalicFeatures   =
-        {
-          StylisticSet = 1,
-          StylisticSet = 10,
-          StylisticSet = 11,
-          StylisticSet = 8,
-          StylisticSet = 9
-        }
+         {
+            StylisticSet = 1,
+            StylisticSet = 10,
+            StylisticSet = 11,
+            StylisticSet = 8,
+            StylisticSet = 9
+         }
       ]
-    \newfontface{\smbold}{Whitney-Semibold.otf}
-  }{\let\smbold\bfseries}
+   \newfontface{\smbold}{Whitney-Semibold.otf}
+   }{\let\smbold\bfseries}
 
 \IfFontExistsTF{MonaspaceArgon-Medium.otf}
-  {
-    \setmonofont{MonaspaceArgon}[
-      Scale           = MatchAveragecase,
+   {
+   \setmonofont{MonaspaceArgon}[
+      Scale           = 0.8,
       Renderer        = Node,
       UprightFont     = *-Medium,
       BoldFont        = *-SemiBold,
       ItalicFont      = *-MediumItalic,
       BoldItalicFont  = *-SemiBoldItalic
-    ]
-  }{}
+   ]
+   }{}
 
 \IfFontExistsTF{NewCMMath-Regular.otf}
-  {\setmathfont{NewCMMath-Regular.otf}}{}
+   {\setmathfont{NewCMMath-Regular.otf}}{}
 
 \ExplSyntaxOn
 \debug_on:n { all }
@@ -103,18 +105,18 @@
 \debug_off:n { all }
 \ExplSyntaxOff
 \IntegralSetup{
-  diff-symb=\symup{d},
+   diff-symb=\symup{d},
 }
 
 \usepackage[
-  a4paper,
-  marginparwidth  = 32mm,
-  top             = 3cm,
-  bottom          = 2cm,
-  left            = 44mm,
-  right           = 30mm,
-  marginparsep    = 2mm,
-  ]{geometry}
+   a4paper,
+   marginparwidth  = 32mm,
+   top             = 3cm,
+   bottom          = 2cm,
+   left            = 44mm,
+   right           = 30mm,
+   marginparsep    = 2mm,
+   ]{geometry}
 
 \usepackage{fancyhdr}
 \fancyhf{}
@@ -142,42 +144,51 @@
 \definecolor{optioncolour}{HTML}{630476}
 
 \setcodelabels{
-  new       = \NoAutoSpacing\textsf{nouveau},
-  update    = \NoAutoSpacing\textsf{mise à jour},
-  note      = \NoAutoSpacing\textsf{N.B},
-  remark    = \NoAutoSpacing\textsf{remarque},
-  and       = \NoAutoSpacing\textsf{et},
-  or        = \NoAutoSpacing\textsf{ou},
-  months    = 
-    {
-      janvier, février, mars, avril,
-      mai, juin, juillet, août,
-      septembre, octobre, novembre, décembre
-    }
+   new       = \NoAutoSpacing\textsf{nouveau},
+   update    = \NoAutoSpacing\textsf{mise à jour},
+   note      = \NoAutoSpacing\textsf{N.B},
+   remark    = \NoAutoSpacing\textsf{remarque},
+   and       = \NoAutoSpacing\textsf{et},
+   or        = \NoAutoSpacing\textsf{ou},
+   months    =
+      {
+         janvier,
+         février,
+         mars,
+         avril,
+         mai,
+         juin,
+         juillet,
+         août,
+         septembre,
+         octobre,
+         novembre,
+         décembre
+      }
 }
 
 \lstset{gobble=2}
 
 \newcodekey{intexgral}{
-  ruleht        = 0,
-  texcs         = {
+   ruleht        = 0,
+   texcs         = {
       integral,
       IntegralSetup,
       differentials,
       intexgralsetup,
-    },
-  texcsstyle    = \bfseries\color{RoyalBlue},
-  texcsstyle    = [2]\color{macrocolour},
-  emph          =
-    {
+   },
+   texcsstyle    = \bfseries\color{RoyalBlue},
+   texcsstyle    = [2]\color{macrocolour},
+   emph          =
+   {
       true,
       false,
       default,
       nested,
       product,
-    },
-  keywd         =
-    {
+   },
+   keywd         =
+   {
       equation,
       limits,
       limits*,
@@ -208,10 +219,11 @@
       quadruple,
       contour,
       surface,
-      volume
-    },
-  codeprefix    = {},
-  resultprefix  = {}
+      volume,
+      novar
+   },
+   codeprefix    = {},
+   resultprefix  = {}
 }
 
 \defobjectfmt{macro}{code}{color=macrocolour}
@@ -225,27 +237,28 @@
 
 \begin{luacode}
 function fontcopyright(fontname)
-  local font_path = kpse.find_file(fontname, 'opentype fonts')
-  if font_path then
-    local font = fontloader.open(font_path)
-    local metrics = fontloader.to_table(font)
-    local copyright = metrics.copyright:gsub("https?://%S+$", "")
-    local copyright = copyright:gsub("Copyright%s%(C%)", "\\copyright\\")
-    local copyright = copyright:gsub("&", "\\&")
-    tex.print('\\textit{' .. metrics.fullname .. '}\\par')
-    if not string.find(copyright, "missing") then
+   local font_path = kpse.find_file(fontname, 'opentype fonts')
+   if font_path then
+   local font = fontloader.open(font_path)
+   local metrics = fontloader.to_table(font)
+   local copyright = metrics.copyright:gsub("https?://%S+$", "")
+   local copyright = copyright:gsub("Copyright%s%(C%)", "\\copyright\\")
+   local copyright = copyright:gsub("&", "\\&")
+   tex.print('\\textit{' .. metrics.fullname .. '}\\par')
+   if not string.find(copyright, "missing") then
       tex.print(copyright)
-    end
-  end
+   end
+   end
 end
 \end{luacode}
+
 
 \usepackage{changelog}
 \usepackage{enumitem}
 \setlist[itemize]{label=\textemdash}
 \renewenvironment{changelogitemize}
-  {\begin{itemize}[label=\raisebox{0.5ex}{$\scriptscriptstyle\blacktriangleright$}]}
-  {\end{itemize}}
+   {\begin{itemize}[label=\raisebox{0.5ex}{$\scriptscriptstyle\blacktriangleright$}]}
+   {\end{itemize}}
 
 \usepackage[normalem]{ulem}
 
@@ -257,41 +270,39 @@ end
 
 \usepackage{polyglossia}
 \setmainlanguage[
-  variant               = french,
-  autospacetypewriter   = false,
-  frenchfootnote        = true,
-  frenchpart            = true,
-  ]{french}
+   variant               = french,
+   autospacetypewriter   = false,
+   frenchfootnote        = true,
+   frenchpart            = true,
+   ]{french}
 
-\catcode`\@=11
 \usepackage{titlesec}
 \titleformat{\part}[display]
-  {
-    \fontsize{35}{20}\selectfont\filcenter^^A
-    \addfontfeatures{LetterSpace=15, Letters=SmallCaps}^^A
-  }
-  {
-    \newpage
-    \spaceskip=1.5\fontdimen2\font
-    \ifnum\c@part=1
+   {
+   \fontsize{35}{20}\selectfont\filcenter^^A
+   \addfontfeatures{LetterSpace=15, Letters=SmallCaps}^^A
+   }
+   {
+   \newpage
+   \spaceskip=1.5\fontdimen2\font
+   \ifnum\c@part=1
       \begingroup^^A
       \Huge\scshape\addfontfeatures{LetterSpace=10}^^A
       \def\thepart{première}^^A
       \thepart\space\partname^^A
       \endgroup^^A
-    \else^^A
+   \else^^A
       \begingroup^^A
       \Huge\scshape\addfontfeatures{LetterSpace=10}^^A
       \edef\thepart{\romannumeral\the\c@part}^^A
       \partname\space\thepart^^A
       \endgroup^^A
-    \fi^^A
-    \vskip0.2mm^^A
-  }
-  {0pt}
-  {}
-  [\vspace*{1cm}]
-\catcode`\@=12
+   \fi^^A
+   \vskip0.2mm^^A
+   }
+   {0pt}
+   {}
+   [\vspace*{1cm}]
 \titleformat*{\section}{\sffamily\LARGE\bfseries}
 \titleformat*{\subsection}{\sffamily\Large\bfseries}
 \titleformat*{\subsubsection}{\smbold\large}
@@ -303,23 +314,21 @@ end
 
 \usepackage{hyperref}
 \hypersetup{
-  pdfauthor   = {Valentin Dao},
-  pdftitle    = {L'extension intexgral},
-  pdfcreator  = {LuaLaTeX with hyperref package},
-  colorlinks  = true,
-  linkcolor   = RoyalBlue,
-  urlcolor    = urlcolour,
+   pdfauthor   = {Valentin Dao},
+   pdftitle    = {L'extension intexgral},
+   pdfcreator  = {LuaLaTeX with hyperref package},
+   colorlinks  = true,
+   linkcolor   = RoyalBlue,
+   urlcolor    = urlcolour,
 }
 
 \usepackage{cleveref}
 \crefname{subsection}{sous-section}{sous-sections}
 \crefname{subsubsection}{sous-sous-section}{sous-sous-sections}
 
-\catcode`\@=11
 \title{L'extension \href{https://ctan.org/pkg/intexgral}{\textsf{\intexgral@module}}\medbreak{\Large\intexgral@version}}
 \author{Valentin Dao\footnote{E-mail: \href{mailto:vdao.texdev@gmail.com}{\ttfamily vdao.texdev@gmail.com}}}
 \date{\today}
-\catcode`\@=12
 
 \listfiles
 
@@ -328,11 +337,11 @@ end
 \EnableImplementation
 
 \begin{document}
-  \DocInput{intexgral-fr.dtx}
+   \DocInput{intexgral-fr.dtx}
 \end{document}
 %</driver>
 % \fi
-% 
+%
 % \begin{documentation}
 %
 % \maketitle
@@ -340,77 +349,77 @@ end
 % \begin{center}
 % \rule{12.5cm}{0.6pt}
 % \begin{abstract}
-%   Tandis que la composition d'intégrales est très fréquente en \LaTeX, cette dernière s'avère souvent peu pratique. Lorsque l'expression se complexifie, il devient alors difficile d'en modifier les différents éléments dans un code source peu lisible. Pour répondre à ce problème, le package \tsobj[pkg]{intexgral} met à disposition une macro centrale dont le seul argument est l'intégrande. Tout le reste (les symboles, les bornes, les variables d'intégration\dots) pourra aisément être modifié grâce à une interface \tsobj[meta]{clé=valeur}. Contrairement à la méthode classique, où l'utilisateur choisit l'ordre des bornes avec les caractères actifs \verb|_| et \verb|^|, le package a dû fixer une convention. Ainsi, pour les deux clés gérant les bornes qui seront présentées, l'entrée supposée sera \verb|_|\tsobj[meta]{borne inférieure}\verb|^|\tsobj[meta]{borne supérieure}. Ce package étant écrit en \textsf{expl3}, il dépend donc de \tsobj[pkg]{l3kernel}.
+%   Tandis que la composition d'intégrales est très fréquente en \LaTeX, cette dernière s'avère souvent peu pratique. Lorsque l'expression se complexifie, il devient alors difficile d'en modifier les différents éléments dans un code source peu lisible. Pour répondre à ce problème, le package \tsobj[pkg]{intexgral} met à disposition une macro centrale dont le seul argument est l'intégrande. Tout le reste (les symboles, les bornes, les variables d'intégration\dots) pourra aisément être modifié grâce à une interface \tsobj[meta]{clé=valeur}. Ce package étant écrit en \textsf{expl3}, il dépend donc de \tsobj[pkg]{l3kernel}.
 % \end{abstract}
 % \rule{12.5cm}{0.6pt}
 % \end{center}
-% 
+%
 % \newpage
 % \tableofcontents
 % \newpage
-% 
+%
 % \subsection*{Licence}
-% 
+%
 % \copyright\ 2025 Valentin Dao, publié sous la \LaTeX\ Project Public License (\textsc{lppl}) 1.3c
-% 
+%
 % \subsection*{Polices}
-% 
+%
 % \directlua{fontcopyright('ChronicleTextG3-Roman-Pro.otf')}
-% 
+%
 % \vspace*{\baselineskip}
-% 
+%
 % \begingroup
 % \sffamily
 % \directlua{fontcopyright('Whitney-Medium.otf')}
 % \endgroup
 %
 % \vspace*{\baselineskip}
-% 
+%
 % \begingroup
 % \ttfamily
 % \directlua{fontcopyright('MonaspaceArgon-Medium.otf')}
 % \endgroup
-% 
+%
 % \subsection*{Dépôt}
-% 
+%
 % \href{https://github.com/TeXackers/intexgral}{\faGithub\ Voir dépôt GitHub}.
-% 
+%
 % \subsection*{Remerciements}
-% 
+%
 % Un grand merci à Plante et Slurpy de m'avoir accompagné dans cette aventure que fut l'apprentissage de \TeX, vos conseils ont été précieux. Je tiens également à remercier Anthony pour avoir toujours gentiment révisé les nouvelles versions et m'avoir donné des idées pour celles à venir.
-% 
+%
 % \part[Documentation]{documentation}
-% 
+%
 % \section{Options de package}\label{sec:pkgoptions}
-% 
+%
 % \begin{codedescribe}[macro, new={v2.0.0}]{\intexgralsetup}
 %   \begin{codesyntax}
 %     \tsobj[macro]{\intexgralsetup}\tsargs[marg]{options de package}
 %   \end{codesyntax}
 %   Ces options peuvent être déclarées de façon classique avec \tsobj[macro]{\usepackage} ou bien avec \tsobj[macro]{\intexgralsetup} dans le préambule.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key]{invert-limits}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{invert-limits}=\tsobj[option, meta or]{true,\uline{false}}
 %   \end{codesyntax}
-%   Cette clé permet d'inverser la convention d'ordre des limites. Le document ne peut suivre qu'une seule convention.
+%   Cette clé permet d'inverser la convention d'ordre des limites expliquée plus tard. Le document ne peut suivre qu'une seule convention.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, update={v3.0.0}]{invert-diff}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{invert-diff}=\tsobj[option, meta or]{true,\uline{false}}
 %   \end{codesyntax}
 %   En sciences physiques, il est courant de voir les variables d'intégration placées avant l'intégrande. Cette clé intervertit donc leurs positionnements.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v3.0.0}]{limits-mode}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{limits-mode}=\tsobj[option, meta or]{limits,\uline{nolimits}}
 %   \end{codesyntax}
 %   Applique \tsobj[macro]{\limits} ou \tsobj[macro]{\nolimits} à toutes les intégrales.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, update={v4.0.0}]{italic, upright}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{italic}=\tsobj[option, meta or]{true,\uline{false}}
@@ -418,73 +427,82 @@ end
 %   \end{codesyntax}
 %   Applique un \enquote{$\symup d$} droit ou italique pour les différentielles.
 % \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
-% depuis la version v4.0.0, le package \tsobj[pkg]{derivative} n'est plus utilisé pour gérer les différentielles. Le nombre d'option y est donc plus restreint mais devrait convenir à la plupart des cas d'usage dans le cadre des intégrales.
+% depuis la version v4.0.0, le package \tsobj[pkg]{derivative} n'est plus utilisé pour gérer les différentielles. Le nombre d'options y est donc plus restreint mais devrait convenir à la plupart des cas d'usage dans le cadre des intégrales.
 % \end{tsremark}
 % \end{codedescribe}
-% 
+%
 % \section{Présentation de la macro principale}\label{sec:mainmacro}
-% 
+%
 % \begin{codedescribe}[macro, update={v3.0.0}]{\integral}
 %   \begin{codesyntax}
 %     \tsmacro{\integral}[liste de clés]{intégrande}
 %   \end{codesyntax}
 %   Cette macro est celle qui permet de composer les intégrales. Elle doit naturellement être utilisée en mode mathématique uniquement. En voici un premier exemple sous sa forme la plus simple:
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[main-example]
 %   \begin{equation}
 %     \integral{x}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{main-example}
-% 
+%
 % Puisque cette macro est axée autour de l'utilisation de clés, la première partie de cette documentation les présentera en les regroupant par domaines. La seconde partie quant à elle introduira les quelques macros annexes qui viennent compléter l'usage de certaines clés. Le reste de ce document exposera les autres fonctionnalités du package.
-% 
+%
 % \section{Liste des clés}
-% 
+%
 % \subsection{Bornes d'intégration}
-% 
+%
 % \subsubsection{Définir les bornes}
-% 
+%
 % \begin{codedescribe}[key]{limits, limits*}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{limits}=\tsargs[marg]{liste-mixte}, \tsargs[arg]{mot-clé}
 %     \tsobj[key]{limits*}=\tsargs[marg]{liste-mixte}, \tsargs[arg]{mot-clé}
 %   \end{codesyntax}
-%   Cette clé détermine les bornes d'intégration à utiliser en suivant la convention édictée dans le résumé. Sous sa forme la plus simple, la valeur de la clé prend comme argument une liste d'éléments séparés par une virgule (\emph{comma-separated values} ou \tsobj[meta]{csv-list}).
+%   Cette clé détermine les bornes d'intégration à utiliser. Sous sa forme la plus simple, la valeur de la clé prend comme argument une liste d'éléments séparés par une virgule (\emph{comma-separated values} ou \tsobj[meta]{csv-list}). Cette simplification de la saisie impose notamment de fixer une convention: le premier et deuxième élément de la liste correspondront à la borne inférieure et supérieure respectivement. Cette convention peut être inversée à l'aide d'\tsobj[key]{invert-limits} vu en \cref{sec:pkgoptions}.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[limits]
 %   \begin{equation}
 %     \integral[limits={1, 10}]{f(x)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{limits}
-% 
-% L'avantage notable de la clé \tsobj[key]{limits} est qu'on peut lui spécifier les bornes d'intégration de plusieurs intégrales, et le package compose automatiquement les symboles correspondants. Pour séparer les paires de bornes, il faut utiliser le point-virgule (\emph{semicolon-separated values} ou \tsobj[meta]{ssv-list}\footnote{On entend donc par \tsobj[meta]{liste-mixte} le fait que \tsobj[key]{limits} puisse accepter un ensemble de \tsobj[meta]{csv-list} dans une \tsobj[meta]{ssv-list} plus globale.}).
-% 
+%
+% L'avantage notable de la clé \tsobj[key]{limits} est qu'on peut lui spécifier les bornes de plusieurs intégrales, et le package compose automatiquement les symboles correspondants. Pour séparer les paires de bornes, il faut utiliser le point-virgule (\emph{semicolon-separated values} ou \tsobj[meta]{ssv-list}\footnote{On entend donc par \tsobj[meta]{liste-mixte} le fait que \tsobj[key]{limits} puisse accepter un ensemble de \tsobj[meta]{csv-list} dans une \tsobj[meta]{ssv-list} plus globale.}).
+%
 % \begin{codestore}[multiple-limits]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4}, variables={x, y}]{f(x, y)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{multiple-limits}
-% 
-% Il est également possible de renseigner des bornes prédéfinies à l'aide de mots-clés (voir \cref{subsec:limitskey}). Enfin, la variante étoilée permet d'exprimer les bornes de l'intégrale sous forme d'intervalle. Le cas échéant, le sens des crochets s'adapte automatiquement à la présence de $\pm$\verb|\infty|
-% 
+%
+% Il est également possible de renseigner des bornes prédéfinies à l'aide de mots-clés (voir \cref{subsubsec:limitskey}). Enfin, la variante étoilée permet d'exprimer les bornes de l'intégrale sous forme d'intervalle. Le cas échéant, le sens des crochets s'adapte automatiquement à la présence de $\pm$\verb|\infty|.
+%
 % \begin{codestore}[limits*]
 %   \begin{equation}
 %     \integral[limits*={1, 10}]{f(x)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{limits*}
-% 
+%
+% \subsubsection{Modifier le style}
+%
+% \begin{codedescribe}[key, new={v4.1.0}]{limits-mode}
+%   \begin{codesyntax}[key]
+%    \tsobj[key]{limits-mode}=\tsobj[option, meta or]{limits,\uline{nolimits}}
+%   \end{codesyntax}
+% Clé homonyme de celle vue en \cref{sec:pkgoptions}, qui permet de modifier le style ponctuellement plutôt que globalement.
+% \end{codedescribe}
+%
 % \subsection{Modes d'affichage}
-% 
+%
 % \begin{codedescribe}[key, new={v3.0.0}]{mode}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{mode}=\tsobj[option, meta or]{\uline{default},nested,product}
@@ -492,96 +510,96 @@ end
 %   \emph{Uniquement} lorsque la clé \tsobj[key]{limits} est employée, il est possible d'alterner entre trois styles d'affichage distincts. Chacun d'entre eux est entièrement compatible avec l'option \tsobj[key]{invert-diff}.
 %   \begin{describelist*}{option}
 %     \describe{default}{Compose l'ensemble des symboles, puis l'intégrande, puis les variables d'intégration. La macro opérant par défaut dans ce mode, il n'est donc pas nécessaire d'utiliser la clé avec cette valeur.}
-%     \describe{nested}{Compose une intégrale \emph{imbriquée} où symbole et intégrande alternent avant que toutes les variables d'intégration soient écrits.}
+%     \describe{nested}{Compose une intégrale \emph{imbriquée} où symbole et intégrande alternent avant que toutes les variables d'intégration soient écrites.}
 %     \describe{product}{Compose un produit d'intégrales où symbole, intégrande et variables d'intégration alternent.}
 %   \end{describelist*}
 %   Bien sûr, rien ne vous empêche pour le mode produit d'utiliser plusieurs fois la macro \tsobj[macro]{\integral} d'affilée pour produire le même résultat que dans l'exemple ci-dessous. Pour celles et ceux qui préféreraient cependant obtenir le résultat avec une seule macro, cette méthode est permise.
 %   \begin{tsremark}[\textcolor{RoyalRed}{Important:}]
-%     pour les deux derniers modes, l'intégrande sera, d'une certaine manière, \emph{découpée}. Afin de correctement effectuer cette action, il faut avoir recours à la même méthode qu'avec \tsobj[key]{limits}, c'est-à-dire en employant le point-virgule.
+%     pour les deux derniers modes, l'intégrande devra être \emph{découpée}. Afin de correctement effectuer cette action, il faut avoir recours à la même méthode qu'avec \tsobj[key]{limits}, c'est-à-dire en employant le point-virgule.
 %   \end{tsremark}
 % \end{codedescribe}
-% 
+%
 % \begin{center}
 %   \textsc{mode}\kern1ex \tsobj[option]{default}
 % \end{center}
-% 
+%
 % \begin{codestore}[default-mode]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z}, mode=default]{xyz}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{default-mode}
-% 
+%
 % \begin{center}
 %   \textsc{mode}\kern1ex \tsobj[option]{nested}\nobreak
 % \end{center}
-% 
+%
 % \begin{codestore}[nested-mode]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4; 5, 6}, variables={z, y, x}, mode=nested]{x;y;z}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{nested-mode}
-% 
+%
 % \begin{center}
 %   \textsc{mode}\kern1ex \tsobj[option]{product}\nobreak
 % \end{center}
-% 
+%
 % \begin{codestore}[product-mode]
 %   \begin{equation}
 %     \integral[limits={1, 2; 3, 4; 5, 6}, variables={x, y, z}, mode=product]{x;y;z}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{product-mode}
-% 
-% Pour bien fonctionner, il est évident que les clés \tsobj[key]{limits} et \tsobj[key]{variables} (voir \ref{subsubsec:variables}), ainsi que l'intégrande, doivent avoir le même nombre d'éléments. 
+%
+% Pour bien fonctionner, il est évident que les clés \tsobj[key]{limits} et \tsobj[key]{variables} (voir \ref{subsubsec:variables}), ainsi que l'intégrande, doivent avoir le même nombre d'éléments.
 %
 % \subsection{Symbole (et encore des bornes)}
-% 
-% Les clés \tsobj[key]{limits(*)} se révèlent très  utiles lorsque l'on souhaite composer une intégrale définie. Néanmoins, cela couvre seulement les expressions finales où les bornes de chaque variable ont été spécifiées. Pour des cas plus généraux (les intégrales indéfinies donc) elles sont relativement malcommodes. Pour composer une intégrale double sur une surface $S$, on devrait écrire \verb|limits={,;S,}|. Il va sans dire que c'est assez mal adapté pour l'utilisateur et peu optimal pour le package. Par ailleurs, le glyphe ne serait pas correct. L'ensemble des clés à suivre propose donc une façon de facilement modifier le symbole ainsi que les bornes.
-% 
+%
+% Les clés \tsobj[key]{limits(*)} se révèlent très utiles lorsque l'on souhaite composer une intégrale définie. Néanmoins, cela couvre seulement les expressions finales où les bornes de chaque variable ont été spécifiées. Pour des cas plus généraux (les intégrales indéfinies donc) elles sont relativement malcommodes. Par exemple, pour composer une intégrale double sur une surface $S$, on devrait écrire \verb|limits={,;S,}|. Il va sans dire que c'est assez mal adapté pour l'utilisateur et peu optimal pour le package. Par ailleurs, le glyphe ne serait pas correct. L'ensemble des clés à suivre propose donc une façon de facilement modifier le symbole ainsi que les bornes.
+%
 % \subsubsection{Sélectionner le symbole}
-% 
+%
 % \begin{codedescribe}[key, update={v3.0.0}]{symbol}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{symbol}=\tsobj[meta]{séquence de contrôle}
 %   \end{codesyntax}
-%   Cette clé accepte une macro désignant un symbole d'intégration. Tout symbole préalablement défini par une séquence de contrôle est recevable. Si vous tentez d'en utiliser une qui n'est pas définie, elle sera substituée à \tsobj[macro]{\int} et un message d'avertissement sera émis. 
+%   Cette clé accepte une macro désignant un symbole d'intégration. Tout symbole préalablement défini par une séquence de contrôle est recevable. Si vous tentez d'en utiliser une qui n'est pas définie, elle sera substituée à \tsobj[macro]{\int} et un message d'avertissement sera émis.
 %   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
-%   à part la vérification de l'existence de la macro, aucun contrôle particulier n'est effectué et la valeur de la clé est utilisée telle quelle pour composer le symbole. Ceci implique notamment que le symbole va dépendre de la façon dont il est défini. Par exemple, \tsobj[pkg]{amsmath} et \tsobj[pkg]{unicode-math} ne définissent pas \tsobj[macro]{\iint} de la même manière. Le résultat sera donc naturellement différent: \tsobj[pkg]{amsmath} colle deux \tsobj[macro]{\int} ensemble avec un certain crénage pour définir \tsobj[macro]{\iint}, tandis qu'\tsobj[pkg]{unicode-math} définit le vrai glyphe \texttt{U+222C}.
+%   à part la vérification de l'existence de la macro, aucun contrôle particulier n'est effectué et la valeur de la clé est utilisée telle quelle pour composer le symbole. Ceci implique notamment que le symbole va dépendre de la façon dont il est défini. Par exemple, \tsobj[pkg]{amsmath} et \tsobj[pkg]{unicode-math} ne définissent pas \tsobj[macro]{\iint} de la même manière. Le résultat sera donc naturellement différent: l'un colle deux \tsobj[macro]{\int} ensemble avec un certain crénage pour définir \tsobj[macro]{\iint}, tandis que l'autre définit le vrai glyphe \texttt{U+222C}.
 %   \end{tsremark}
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[symbol]
 %   \begin{equation}
 %     \integral[symbol=\iint, llimit=S, variables={x, y}]{f(x, y)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{symbol}
-% 
-% \subsubsection{Générer beaucoup d'intégrales}
-% 
+%
+% \subsubsection{Générer plusieurs intégrales}
+%
 % \begin{codedescribe}[key]{nint}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{nint}=\tsobj[meta]{entier}
 %   \end{codesyntax}
 %   Cette clé accepte un entier $n$ qui permet de composer $n$ intégrales. Il est conseillé d'avoir recours à cette clé seulement si le nombre de symboles dépasse 4 afin de privilégier les glyphes définis par la police mathématique utilisée.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[nint]
 %   \begin{equation}
 %     \integral[nint=5, llimit=\Omega, variables={x_1, x_2, x_3, x_4, x_5}]{f(x_1, x_2, x_3, x_4, x_5)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{nint}
-% 
+%
 % \subsubsection{Définir des bornes ponctuellement}
-% 
+%
 % \begin{codedescribe}[key, update={v3.0.0}]{llimit, ulimit}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{llimit}=\tsobj[meta]{borne inférieure}
@@ -589,19 +607,19 @@ end
 %   \end{codesyntax}
 %   Ces deux clés permettent de spécifier les bornes inférieures et supérieures respectivement. Elles ne sont adaptées que si un seul symbole est affiché. Si vous avez besoin de spécifier les deux bornes, la clé \tsobj[key]{limits} devra être privilégiée.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[ulimit-llimit]
 %   \begin{equation}
 %     \integral[llimit={x^2 + y^2 \leq 1}, variables={x, y}]{f(x, y)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{ulimit-llimit}
-% 
+%
 % \subsubsection{Motifs récurrents de bornes}
-% 
+%
 % Les bornes suivent parfois des schémas courants qui peuvent se généraliser avec des clés, évitant ainsi de surcharger l'argument de \tsobj[key]{llimit}.
-% 
+%
 % \begin{codedescribe}[key, update={v3.0.0}]{domain, domain*}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{domain}=\tsargs[marg]{*-liste}
@@ -613,150 +631,175 @@ end
 %     \item Les tokens restants, qui peuvent être vides, sont placés comme exposant (ou en indice pour la variante étoilée de la clé).
 %   \end{itemize}
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[domain]
 %   \begin{equation}
 %     \integral[symbol=\iint, domain={r*r}, variables={x, y}]{xy}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{domain}
-% 
+%
 % \begin{codedescribe}[key]{boundary}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{boundary}=\tsargs[marg]{borne inférieure}
 %   \end{codesyntax}
 %   Cette clé place simplement le symbole $\partial\,$ avant la borne inférieure.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[boundary]
 %   \begin{equation}
 %     \integral[symbol=\oint, boundary=S, diff-vec]{G(\vec r)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{boundary}
-% 
+%
 % \subsection{Différentielles}
-% 
+%
 % \subsubsection{Spécifier les variables d'intégration}\label{subsubsec:variables}
-% 
+%
 % \begin{codedescribe}[key, update={v3.0.0}]{variables}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{variables}=\tsargs[marg]{liste-csv}, \tsobj[meta]{mot-clé}, \tsobj[option]{none}
 %   \end{codesyntax}
-%   Cette clé permet de définir les variables d'une intégrale sous forme d'une \tsobj[meta]{csv-list}. La clé peut, tout comme \tsobj[key]{limits}, accepter un mot-clé comme argument. Ce comportement est aussi expliqué plus tard (voir \cref{subsec:variableskey})
+%   Cette clé permet de définir les variables d'intégration sous forme d'une \tsobj[meta]{csv-list}. La clé peut, tout comme \tsobj[key]{limits}, accepter un mot-clé comme argument. Ce comportement est aussi expliqué plus tard (voir \cref{subsubsec:variableskey}).
 %   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
-%     si aucune variable d'intégration n'est renseignée, c'est-à-dire que \tsobj[key]{variables} n'est pas appelée, le package place automatiquement \enquote{$\symup dx$} (ou \enquote{$\symup d\vec r$} si \tsobj[key]{diff-vec} est actif). De plus, si \tsobj[option]{none} est passé comme valeur, aucune variable d'intégration ne sera affichée.
+%     si aucune variable n'est renseignée, c'est-à-dire que \tsobj[key]{variables} n'est pas appelée, le package place automatiquement \enquote{$\symup dx$} (ou \enquote{$\symup d\vec r$} si \tsobj[key]{diff-vec} est actif). De plus, si \tsobj[option]{none} est passé comme valeur, aucune variable ne sera affichée.
 %   \end{tsremark}
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[variables]
 %   \begin{equation}
 %     \integral[variables=t]{t^2}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{variables}
 %
 % \subsubsection{Inclure le jacobien}
-% 
+%
 % \begin{codedescribe}[key]{jacobian}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{jacobian}
 %   \end{codesyntax}
 %   Cette clé active l'affichage du jacobien lorsque défini par \tsobj[macro]{\NewVariableKeyword}.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[jacobian]
 %   \begin{equation}
 %     \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=product, jacobian]{}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{jacobian}
-% 
+%
 % \subsubsection{Modifier le symbole des différentielles}
-% 
+%
 % \begin{codedescribe}[key]{diff-symb}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{diff-symb}=\tsargs[meta]{séquence de contrôle}
 %   \end{codesyntax}
-%   Cette clé permet de modifier le symbole ou bien le style des différentielles. 
+%   Cette clé permet de modifier le symbole des différentielles.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[diff-symb]
 %   \begin{equation}
 %     \integral[variables={q(t)}, diff-symb=\mathcal{D}]{e^{+\dfrac{i S[q(t)]}{\hbar}}}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{diff-symb}
-% 
+%
 % \subsubsection{Réaliser une intégrale curviligne}
-% 
+%
 % \begin{codedescribe}[key]{diff-vec}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{diff-vec}
 %   \end{codesyntax}
 %   Cette clé applique un vecteur à la variable d'intégration en plus d'un point médian. Elle n'est compatible qu'avec le mode \tsobj[option]{default}. L'utiliser avec les options \tsobj[option]{nested} ou \tsobj[option]{product} n'aura aucun effet.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[diff-vec]
-% \IntegralSetup{vectorstyle=\mathbf}
 %   \begin{equation}
-%     W = \integral[single=C, variables=s, diff-vec]{\mathbf F}
+%     W = \integral[single=C, variables=s, diff-vec]{\vec F}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{diff-vec}
-% 
+%
 % \subsubsection{Ajouter un exposant}
-% 
+%
 % \begin{codedescribe}[key]{diff-order}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{diff-order}=\tsobj[meta]{liste-csv}
 %   \end{codesyntax}
 %  Cette clé place un exposant à chaque différentielle.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[diff-order]
 %   \begin{equation}
 %     S[\phi] = \integral[diff-order=4]{\mathcal L (\phi, \partial_\mu \phi, x^\mu)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{diff-order}
-% 
+%
 % \section{Macros annexes}
-% 
+%
 % En plus de la large gamme de clés définies par le package, quelques macros viennent également améliorer leurs usages.
-% 
-% \subsection{Emplacements personnalisés des différentielles}
-% 
+%
+% \subsection{Emplacements des différentielles}
+%
+% \subsubsection{Permuter la position}
+%
+% \begin{codedescribe}[macro, new={v4.1.0}]{\invertdiff}
+%   \begin{codesyntax}[macro]
+%     \tsobj[macro]{\invertdiff}
+%   \end{codesyntax}
+% Cette macro inverse le statut de l'option \tsobj[key]{invert-diff}, qu'elle soit initialisée à \tsobj[option]{true} ou \tsobj[option]{false}.
+% \end{codedescribe}
+%
+% \begin{codestore}[invertdiff]
+%   \invertdiff
+%   \begin{equation}
+%      \integral{f(x)}
+%   \end{equation}
+%   \invertdiff
+%   \begin{equation}
+%      \integral[variables=\omega]{f(\omega)}
+%   \end{equation}
+% \end{codestore}
+%
+% \tsdemo*[intexgral]{invertdiff}
+%
+% \subsubsection{Choisir une position personnalisée}
+%
 % \begin{codedescribe}[macro]{\differentials}
 %   \begin{codesyntax}[macro]
 %     \tsobj[macro]{\differentials}
 %   \end{codesyntax}
 %   Bien que l'option \tsobj[key]{invert-diff} existe, il est souvent souhaitable de pouvoir placer les différentielles où l'on veut. Par exemple, il est fréquent de les voir au numérateur d'une fraction lorsque celui-ci vaut 1. Pour répondre à ce besoin, le package met à disposition la macro \tsobj[macro]{\differentials}, dont le fonctionnement varie légèrement d'un mode d'affichage à un autre:
 % \begin{itemize}
-%   \item \tsobj[option]{default}: compose toutes les différentielles d'un coup. Fonctionne avec \tsobj[key]{invert-diff}.
-%  \item \tsobj[option]{nested}: compose toutes les différentielles d'un coup. La macro n'est \emph{pas} définie si \tsobj[key]{invert-diff} est actif.
-%  \item \tsobj[option]{product}: compose une seule différentielle à la fois. Il faudra donc la répéter entre chaque point-virgule. Fonctionne aussi avec \tsobj[key]{invert-diff}.
+%   \item \tsobj[option]{default}: compose toutes les différentielles d'un coup. Fonctionne avec \tsobj[key]{invert-diff}/\tsobj[macro]{\invertdiff}.
+%  \item \tsobj[option]{nested}: compose toutes les différentielles d'un coup. La macro \emph{n'est pas} définie si \tsobj[key]{invert-diff}/\tsobj[macro]{\invertdiff} est actif.
+%  \item \tsobj[option]{product}: compose une seule différentielle à la fois. Il faudra donc la répéter entre chaque point-virgule. Fonctionne aussi avec \tsobj[key]{invert-diff}/\tsobj[macro]{\invertdiff}.
 % \end{itemize}
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[differentials]
 %   \begin{gather}
 %     \integral{\frac{\differentials}{x}}\\[1cm]
 %     \langle 0 \mid T\{ \phi(x) \phi(y) \} \mid 0 \rangle = \integral[diff-order=4, variables=p]{\frac{\differentials}{(2\pi)^4} \frac{e^{-i p \cdot (x-y)}}{p^2 - m^2 + i \epsilon}}
 %   \end{gather}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{differentials}
-% 
-% \subsection{Retour sur la clé \emph{limits}}\label{subsec:limitskey}
-% 
+%
+% \subsection{Retour sur la clé \emph{limits}}
+%
+% \subsubsection{Définir un mot-clé}\label{subsubsec:limitskey}
+%
 % \begin{codedescribe}[macro, update={v4.0.0}]{\NewLimitsKeyword, \RenewLimitsKeyword, \ProvideLimitsKeyword, \DeclareLimitsKeyword}
 %   \begin{codesyntax}[macro]
 %     \tsobj[macro]{\NewLimitsKeyword}\tsargs[marg]{mot-clé}\tsargs[marg]{bornes}
@@ -766,20 +809,20 @@ end
 %   \begin{describelist*}{macro}
 %     \describe{\NewLimitsKeyword}{Crée un nouveau mot-clé et émet une erreur s'il existe déjà.}
 %     \describe{\RenewLimitsKeyword}{Redéfinit un mot-clé et émet une erreur s'il n'existe pas déjà.}
-%     \describe{\ProvideLimitsKeyword}{Ne crée un nouveau mot-clé que s'il n'existe pas déjà. Aucun message ne sera émis dans le cas échéant.}
+%     \describe{\ProvideLimitsKeyword}{Ne crée un nouveau mot-clé que s'il n'existe pas déjà. Aucun message ne sera émis le cas échéant.}
 %     \describe{\DeclareLimitsKeyword}{Crée un nouveau mot-clé quoi qu'il en soit, écrasant toute définition préalable.}
 %   \end{describelist*}
 %   La saisie d'un nouveau mot-clé devra se faire dans le respect de la convention d'ordre des bornes. Vous pouvez ainsi écrire:
-% 
+%
 % \begin{codestore}[limitskeywordorder]
 %   \usepackage{intexgral}
 %   \NewLimitsKeyword{key1}{A, B}
 %   \intexgralsetup{invert-limits=true}
 %   \NewLimitsKeyword{key2}{B, A}
 % \end{codestore}
-% 
+%
 % \tscode*[intexgral]{limitskeywordorder}
-% 
+%
 %   \tsobj[option]{key1} et \tsobj[option]{key2} produiront alors la même intégrale. Voici la liste des mots-clés déjà définis par le package et les bornes qu'ils contiennent:
 %   \begin{describelist*}{option}
 %   \describe{ab}{$a, b$}
@@ -788,7 +831,7 @@ end
 %   \describe{positive}{$0, +\infty$}
 %   \describe{negative}{$-\infty, 0$}
 %   \describe{circle}{$0, 2\pi$}
-%   \describe{sircle}{$0, \pi$}
+%   \describe{scircle}{$0, \pi$}
 %   \describe{qcircle}{$0, \pi/2$}
 %   \describe{height}{$0, H$}
 %   \describe{radius}{$0, R$}
@@ -798,33 +841,55 @@ end
 %   \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
 %     les mots-clés contiennent les \emph{deux} bornes d'une intégrale en même temps. Ils doivent donc être précédés et/ou suivis de point-virgule.
 %   \end{tsremark}
-%   On pourrait donc modifier l'expression d'une l'intégrale de la façon suivante:
-% 
+%   On pourrait donc modifier l'expression d'une intégrale de la façon suivante:
+%
 % \begin{codestore}[limitskeyword]
 %   \begin{equation}
 %     \integral[limits={height;circle;radius}, variables={\rho, \theta, z}]{\rho}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{limitskeyword}
-% 
+%
 % Il est tout à fait possible de mélanger ces mots-clés avec la syntaxe plus explicite de \tsobj[key]{limits}.
-% 
+%
 % \begin{codestore}[limitskeyword*]
 %   \begin{equation}
 %     \integral[limits={height;0,W;length}, variables={x, y, z}]{\kappa(T)\nabla T \cdot \mathbf{n}}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{limitskeyword*}
-% 
-% \subsection{Retour sur la clé \emph{variables}}\label{subsec:variableskey}
-% 
+%
+% \subsubsection{Saisir des bornes symétriques}
+%
+% \begin{codedescribe}[key, new={v4.1.0}]{limits}
+%   \begin{codesyntax}[key]
+%     \tsobj[key]{limits}=\tsargs[marg]{+-limite}
+%   \end{codesyntax}
+% Lorsque des bornes symétriques doivent être renseignées, le package peut les identifier à l'aide d'une syntaxe propre à la clé \tsobj[key]{limits}. Pour ce faire, il suffira d'insérer les tokens \texttt{+-} avant la borne concernée.
+% \end{codedescribe}
+% \begin{tsremark}[\textcolor{RoyalGreen}{Remarque:}]
+%     la même remarque que ci-dessus s'applique. De plus, cette syntaxe \emph{n'est pas} compatible avec les mots-clés vus juste avant. Le but est de permettre la saisie de bornes symétriques occasionnelles qui ne justifient pas entièrement la création d'un mot-clé pour une seule utilisation.
+%   \end{tsremark}
+%
+% \begin{codestore}[pmsyntax]
+%   \begin{equation}
+%     a_n = \frac{1}{\pi}\integral[limits={+-\pi}]{f(x)\cos(x)}
+%   \end{equation}
+% \end{codestore}
+%
+% \tsdemo*[intexgral]{pmsyntax}
+%
+% \subsection{Retour sur la clé \emph{variables}}
+%
+% \subsubsection{Définir un mot-clé}\label{subsubsec:variableskey}
+%
 % \begin{codedescribe}[macro, update={v4.0.0}]{\NewVariableKeyword, \RenewVariableKeyword, \ProvideVariableKeyword, \DeclareVariableKeyword}
 %   \begin{codesyntax}[macro]
 %     \tsobj[macro]{\NewVariableKeyword}\tsargs[marg]{mot-clé}\tsargs[marg]{variables}\tsargs[oarg]{jacobien}
 %   \end{codesyntax}
-%   De façon similaire, les mêmes groupes de variables réapparaissent souvent. On peut donc également définir des mots-clés contenant un ensemble de variables d'intégration préenregistrés. Les variantes de cette macro ont le même comportement que pour \tsobj[macro]{\NewLimitsKeyword}. La seule différence est qu'il est ici possible de définir un jacobien, sous forme d'une \tsobj[meta]{csv-list} si besoin. Son affichage est ensuite contrôlé par la clé \tsobj[key]{jacobian} expliquée précédemment. Voici la liste des mots-clés de variables déjà définis par le package, avec le jacobien pour certains:
+%   Tout comme pour les limites, les mêmes groupes de variables réapparaissent souvent. On peut donc également définir des mots-clés contenant un ensemble de variables d'intégration préenregistrées. Les variantes de cette macro ont le même comportement que pour \tsobj[macro]{\NewLimitsKeyword}. La seule différence est qu'il est ici possible de définir un jacobien, sous forme d'une \tsobj[meta]{csv-list} si besoin. Son affichage est ensuite contrôlé par la clé \tsobj[key]{jacobian} expliquée précédemment. Voici la liste des mots-clés de variables déjà définis par le package, avec le jacobien pour certains:
 %   \begin{describelist*}{option}
 %     \describe{cartesian}{$x, y, z$}
 %     \describe{planar}{$x, y$}
@@ -834,22 +899,22 @@ end
 %     \describe{spherical}{$r, \theta, \phi \: (r^2, \sin\theta)$}
 %   \end{describelist*}
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[variablekeyword]
 %   \begin{equation}
 %     \integral[triple=V, variables=spherical]{f(r, \theta, \phi)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{variablekeyword}
-% 
+%
 % \subsection{Retour sur la clé \emph{symbol}}\label{subsec:symbolkey}
-% 
+%
 % \begin{codedescribe}[macro, new={v3.0.0}]{\NewSymbolKeyword, \RenewSymbolKeyword, \ProvideSymbolKeyword, \DeclareSymbolKeyword}
 %   \begin{codesyntax}[macro]
 %     \tsobj[macro]{\NewSymbolKeyword}\tsargs[marg]{clé}\tsargs[marg]{symbole}
 %   \end{codesyntax}
-%   Afin de composer des intégrales indéfinies, le package offre essentiellement deux clés: \tsobj[key]{symbol} et \tsobj[key]{llimit}. Bien qu'elles soient simples d'utilisation, il demeure toujours laborieux de les écrire toutes les deux avec leurs valeurs. C'est pourquoi \tsobj[pkg]{intexgral} met à disposition des clés dites \emph{raccourcies}, dont le but est de combiner l'action de sélection du symbole et des bornes. Contrairement aux deux macros précédentes, il s'agit ici de créer de toutes nouvelles clés, et non simplement des valeurs spécifiques attribuées à \tsobj[key]{symbol}. Toutes seules, ces clés modifient le symbole intégral. La valeur de ces clés correspondra elle à la borne inférieure. Voici la liste de l'ensemble des \emph{clé-symbole} définie par le package:
+%   Afin de composer des intégrales indéfinies, le package offre essentiellement deux clés: \tsobj[key]{symbol} et \tsobj[key]{llimit}. Bien qu'elles soient simples d'utilisation, il demeure toujours laborieux de les écrire toutes les deux avec leurs valeurs. C'est pourquoi \tsobj[pkg]{intexgral} met à disposition des clés dites \emph{raccourcies}, dont le but est de combiner l'action de sélection du symbole et des bornes. Contrairement aux deux macros précédentes, il s'agit ici de créer de toutes nouvelles clés, et non simplement des valeurs spécifiques qui leur sont attribuées à \tsobj[key]{symbol}. Toutes seules, ces clés modifient le symbole intégral. La valeur de ces clés correspondra elle à la borne inférieure. Voici la liste de l'ensemble des \emph{clés-symbole} définie par le package:
 %   \begin{describelist*}{key}
 %     \describe{single}{symbole utilisé = \tsobj[macro]{\int}}
 %     \describe{double}{symbole utilisé = \tsobj[macro]{\iint}}
@@ -865,17 +930,18 @@ end
 % \end{codedescribe}
 %
 % \begin{codestore}[symbolkeyword]
-%   \begin{equation}
+%   \begin{gather}
+%     \integral[double=S, variables=planar]{f(x, y)}\\[1cm]
 %     \integral[contour=\mathcal{C}, diff-vec]{f(\vec r)}
-%   \end{equation}
+%   \end{gather}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{symbolkeyword}
-% 
+%
 % \section{Syntaxe \emph{spéciale}}
-% 
+%
 % \subsection{Présentation de la syntaxe}
-% 
+%
 % \begin{codedescribe}[macro, new={v3.0.0}]{\integral}
 %   \NoAutoSpacing
 %   \begin{codesyntax}
@@ -887,83 +953,84 @@ end
 %     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{limits}
 %     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{variables}
 %     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{mode}
+%     \item Et vous séparez le tout d'un deux-points.
 %   \end{itemize}
-%   Et vous séparez le tout d'un deux points. Voyons un exemple pour mieux comprendre.
+%   Voyons un exemple pour mieux comprendre.
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[special-syntax]
 %   \begin{equation}
 %     \integral[1, 2; 4, 5:y, x:nested]{x; y}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{special-syntax}
-% 
+%
 % On entend par \emph{argument valide} le fait que toutes les formes de valeurs acceptées par les quatre clés peuvent être pareillement adoptées par la syntaxe spéciale. Cela comprend donc les mots-clés.
-% 
+%
 % \begin{codestore}[special-syntax*]
 %   \begin{equation}
 %     \integral[radius;circle;scircle:spherical:product]{r;\theta;\phi}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{special-syntax*}
-% 
+%
 % Afin d'inclure le jacobien, il suffit d'écrire \texttt{+j} après l'argument de \tsobj[key]{variables}. Le mode peut aussi être indiqué à l'aide d'une initiale seulement.
-% 
+%
 % \begin{codestore}[special-syntax**]
 %   \begin{equation}
 %     \integral[radius;circle;scircle:spherical+j:p]{;;}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{special-syntax**}
-% 
+%
 % Il est important de répéter que dans la configuration classique de l'argument optionnel, il n'est bien sûr pas obligatoire de renseigner les quatre clés citées. Il en va de même pour cette syntaxe. Puisque la clé \tsobj[key]{mode} n'est pas nécessaire pour \tsobj[option]{default}, cette partie peut être omise.
-% 
+%
 % \begin{codestore}[special-syntax***]
 %   \begin{equation}
 %     \integral[1, 2; 3, 4:x, y]{xy}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{special-syntax***}
-% 
+%
 % Vous pouvez aussi toujours profiter du placement automatique du \enquote{$\mathrm dx$} avec cette syntaxe en faisant abstraction de \tsobj[key]{variables}.
-% 
+%
 % \begin{codestore}[special-syntax****]
 %   \begin{equation}
 %     \integral[1, 10]{x}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{special-syntax****}
-% 
-% Un cas particulier notable de cette syntaxe spéciale est que si vous souhaitez modifier la variable sans spécifier les bornes, vous pouvez effectuer plus rapidement cette action de la façon suivante:
-% 
+%
+% Un cas particulier notable de cette syntaxe spéciale est que si vous souhaitez modifier la variable sans spécifier les bornes, vous pouvez effectuer cette action plus rapidement de la façon suivante:
+%
 % \begin{codestore}[special-syntax*****]
 %   \begin{equation}
 %     \integral[:z]{f(z)}
 %   \end{equation}
 % \end{codestore}
-% 
+%
 % \tsdemo*[intexgral]{special-syntax*****}
-% 
+%
 % Même si elle n'est pas recommandée.
-% 
+%
 % \subsection{Fonctionnement de la syntaxe}
-% 
-% Du point de vue de l'utilisateur, il est relativement simple de choisir quelle syntaxe adopter. Toutefois, le package doit pouvoir distinguer les deux. Sans trop rentrer dans les détails\footnote{Les plus courageux d'entre vous sont tout de même invités à lire le code source.} de l'implémentation, il est porté à votre intention que le package tente d'extraire la première clé de l'argument optionnel\footnote{Ou du moins, le groupe de tokens qu'il pense correspondre à une clé.} et vérifie si elle existe. C'est pourquoi, si vous créez une clé avec \tsobj[macro]{\NewSymbolKeyword} dont le nom pourra probablement servir de bornes d'intégrations, \tsobj[pkg]{intexrgal} peut faussement évaluer la nature de l'argument optionnel. Dans ce genre de situation, l'interprétation des clés sera erronée et le résultat incorrect.
-% 
+%
+% Du point de vue de l'utilisateur, il est relativement simple de choisir quelle syntaxe adopter. Toutefois, le package doit pouvoir distinguer les deux. Sans trop rentrer dans les détails\footnote{Les plus courageux d'entre vous sont tout de même invités à lire le code source.} de l'implémentation, il est porté à votre attention que le package tente d'extraire la première clé de l'argument optionnel\footnote{Ou du moins, le groupe de tokens qu'il pense correspondre à une clé.} et vérifie si elle existe. C'est pourquoi, si vous créez une clé avec \tsobj[macro]{\NewSymbolKeyword} dont le nom pourra probablement servir de borne d'intégration, \tsobj[pkg]{intexgral} peut faussement évaluer la nature de l'argument optionnel. Dans ce genre de situation, l'interprétation des clés sera erronée et le résultat incorrect.
+%
 % \section{Paramètres annexes}\label{sec:setup}
-% 
+%
 % \begin{codedescribe}[macro, new={v3.0.0}, update={v4.0.0}]{\IntegralSetup}
 %   \begin{codesyntax}[macro]
 %   \tsmacro{\IntegralSetup}{liste de paramètres}
 %   \end{codesyntax}
 %   Cette macro permet, sous la syntaxe \tsobj[meta]{clé=valeur}, de modifier des paramètres liés à certaines clés. Toutes les assignations effectuées sont locales et la macro peut donc être placée dans un groupe si besoin. Voici un exemple de la macro avec les assignations par défaut du package:
 % \end{codedescribe}
-% 
+%
 % \begin{codestore}[default-parameters]
 %   \IntegralSetup{
 %     diff-symb    = \l_@@_default_differential_symbol_tl, % voir au début de l'implémentation
@@ -975,81 +1042,90 @@ end
 %     postsymbsep  = {-1mu},
 %     vectorstyle  = \vec,
 %     domainstyle  = \mathbb,
-%     novar    = false
+%     novar        = false
 %   }
 % \end{codestore}
-% 
+%
 % \tscode*[intexgral]{default-parameters}
-% 
+%
 % \begin{codedescribe}[key, new={v4.0.0}]{diff-symb}
 %  \begin{codesyntax}[key]
 %   \tsobj[key]{diff-symb}=\tsobj[meta]{séquence de contrôle}
 % \end{codesyntax}
-% Cette clé contrôle le symbole utilisée pour les différentielles. Si l'option \tsobj[key]{italic} est utilisée, \tsobj[macro]{\mathnormal} est appliqué (voir au début de l'implémentation). Contrairement à la clé homonyme d'\tsobj[macro]{\integral}, celle-ci agit à un niveau plus global.
+% Cette clé contrôle le symbole utilisé pour les différentielles. Si l'option \tsobj[key]{italic} est utilisée, \tsobj[macro]{\mathnormal} est appliqué (voir au début de l'implémentation). Contrairement à la clé homonyme d'\tsobj[macro]{\integral}, celle-ci agit à un niveau plus global.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v3.0.0}]{defaultvar, defaultvar*}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{defaultvar}=\tsargs[marg]{variables}
 %   \end{codesyntax}
 %   Cette clé modifie la variable d'intégration insérée automatiquement lorsque \tsobj[key]{variables} n'est pas utilisée. L'argument peut tout à fait correspondre à un mot clé défini par \tsobj[macro]{\NewVariableKeyword}. La variante étoilée de la clé contrôle la variable d'intégration à composer avec \tsobj[key]{diff-vec}.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v4.0.0}]{varsep}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{varsep}=\tsobj[meta]{muexpr}
 %   \end{codesyntax}
 % Cette clé modifie l'espacement entre l'intégrande (ou le jacobien s'il est affiché) et les variables.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v4.0.0}]{diffsep}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{diffsep}=\tsobj[meta]{muexpr}
 %   \end{codesyntax}
 % Cette clé modifie l'espacement entre les différentielles elles-mêmes.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v4.0.0}]{innersymbsep}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{innersymbsep}=\tsobj[meta]{muexpr}
 %   \end{codesyntax}
 %   Lorsque le mode \tsobj[option]{default} est en vigueur, c'est-à-dire que la clé \tsobj[key]{limits} est utilisée, le package insère un crénage entre les symboles pour légèrement les rapprocher. Cette clé permet donc de régler cet espacement.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v4.0.0}]{postsymbsep}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{postsymbsep}=\tsobj[meta]{muexpr}
 %   \end{codesyntax}
 % Cette clé contrôle l'espacement entre le symbole et l'élément qui suit (intégrande ou différentielle selon \tsobj[key]{invert-limits}).
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v3.0.0}]{vectorstyle}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{vectorstyle}=\tsobj[meta]{séquence de contrôle}
 %   \end{codesyntax}
 %   Cette clé modifie la macro à appliquer aux variables quand \tsobj[key]{diff-vec} est en action. Il est donc possible d'altérer le style du vecteur: gras, souligné, ou même un autre style d'un package particulier, \tsobj[pkg]{esvect} par exemple.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v3.0.0}]{domainstyle}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{domainstyle}=\tsobj[meta]{séquence de contrôle}
 %   \end{codesyntax}
 %   Semblablement, on peut changer la macro à appliquer pour les clés \tsobj[key]{domain(*)}.
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[key, new={v3.0.0}, update={v4.0.0}]{novar}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{novar}=\tsobj[option, meta or]{true,\uline{false}}
 %   \end{codesyntax}
 %   Lorsqu'une large partie du document nécessite de ne pas inclure les différentielles, il est possible de prolonger dans la durée l'action plus ponctuelle de \tsobj[key]{variables}\texttt{=}\tsobj[option]{none}.
 % \end{codedescribe}
-% 
+%
 % \newpage
-% 
+%
 % \phantomsection
 % \addcontentsline{toc}{section}{Historique des modifications}
 % \begin{changelog}[sectioncmd=\section*]
-% 
+%
+% \begin{version}[v=4.1.0, date=27-07-2026]
+% \added
+% \item Clé \tsobj[key]{limits-mode} pour \tsobj[macro]{\integral}.
+% \item Macro \tsobj[macro]{\invertdiff}.
+% \item Syntaxe \texttt{+-} pour les limites.
+% \changed
+% \item Optimisation du code source.
+% \end{version}
+%
 % \begin{version}[v=4.0.0, date=06-06-2026]
 % \added
 % \item Implémentation détaillée.
@@ -1062,75 +1138,75 @@ end
 % \removed
 % \item Clés \tsobj[key]{diff-star} et \tsobj[key]{diff-options}.
 % \end{version}
-% 
+%
 % \begin{version}[v=3.0.1, date=02-01-2026]
 % \fixed
 % \item Bug avec le jacobien dans la syntaxe spéciale (\href{https://github.com/ankaa3908/intexgral/issues/3}{problème \#3}).
 % \item Documentation anglaise et française (\href{https://github.com/ankaa3908/intexgral/issues/4}{problème \#4}, \href{https://github.com/ankaa3908/intexgral/issues/6}{problème \#6} et \href{https://github.com/ankaa3908/intexgral/issues/7}{problème \#7}).
 % \changed
-% \item Les mots-clés \tsobj[option]{positive} et \tsobj[option]{real} contiennent  maintenant un signe $+$ (\href{https://github.com/ankaa3908/intexgral/issues/5}{problème \#5}).
+% \item Les mots-clés \tsobj[option]{positive} et \tsobj[option]{real} contiennent maintenant un signe $+$ (\href{https://github.com/ankaa3908/intexgral/issues/5}{problème \#5}).
 % \end{version}
-% 
+%
 % \begin{version}[v=3.0.0, date=24-12-2025]
 % \added
 % \item Syntaxe spéciale.
 % \item Clés \tsobj[key]{domain*} et \tsobj[key]{mode}.
 % \item Macros \tsobj[macro]{\IntegralSetup} et \tsobj[macro]{\NewSymbolKeyword}.
-% \removed 
-% \item Macros \tsobj[macro]{\defaultdiff}, \tsobj[macro]{\defaultdiff}, \tsobj[macro]{\defaultvdiff} et \tsobj[macro]{\vdiffstyle} en faveur de \tsobj[macro]{\IntegralSetup}.
-% \item Clés controlant symbole et borne, maintenant gérées à un plus haut niveau avec \tsobj[macro]{\NewSymbolKeyword}.
+% \removed
+% \item Macros \tsobj[macro]{\defaultdiff},  \tsobj[macro]{\defaultvdiff} et \tsobj[macro]{\vdiffstyle} en faveur de \tsobj[macro]{\IntegralSetup}.
+% \item Clés contrôlant symbole et borne, maintenant gérées à un plus haut niveau avec \tsobj[macro]{\NewSymbolKeyword}.
 % \item Clé \tsobj[key]{int-split}, en faveur de \tsobj[key]{mode}.
-% \item Macro \tsobj[macro]{\NewInegralSymbol}.
+% \item Macro \tsobj[macro]{\NewIntegralSymbol}.
 % \changed
 % \item Les noms de quelques clés (\tsobj[key]{variable} en \tsobj[key]{variables}, \tsobj[key]{lower-lim} et \tsobj[key]{upper-lim} en \tsobj[key]{llimit} et \tsobj[key]{ulimit}, \tsobj[key]{int-symb} en \tsobj[key]{symbol}, \tsobj[key]{invert-differentials} et \tsobj[key]{hide-differentials} en \tsobj[key]{invert-diff} et \tsobj[key]{hide-diff}).
 % \item \tsobj[key]{jacobian} et \tsobj[key]{diff-star} ne nécessitent plus de valeur booléenne. Il suffit maintenant de les écrire pour activer leurs fonctionnalités.
 % \item \tsobj[key]{hide-diff} attribué à une option locale plutôt qu'à une option de package.
 % \item \tsobj[key]{limits-mode} attribué à une option de package plutôt qu'à une clé de macro.
 % \end{version}
-% 
-% \begin{version}[v=v2.0.1, date=13-09-2025]
+%
+% \begin{version}[v=2.0.1, date=13-09-2025]
 % \fixed
 % \item Problème de compatibilité entre \tsobj[pkg]{unicode-math} et \tsobj[pkg]{amssymb} selon l'ordre de chargement (\href{https://github.com/ankaa3908/intexgral/issues/2}{problème \#2}).
 % \end{version}
-% 
+%
 % \begin{version}[v=2.0.0, date=09-09-2025]
-% \added 
-% \item Macros \tsobj[macro]{\intexgralsetup}, \tsobj[macro]{\defaultdiff},\tsobj[macro]{\defaultvdiff} et \tsobj[macro]{\vdiffstyle}.
+% \added
+% \item Macros \tsobj[macro]{\intexgralsetup}, \tsobj[macro]{\defaultdiff}, \tsobj[macro]{\defaultvdiff} et \tsobj[macro]{\vdiffstyle}.
 % \changed
-% \item Messages d'avertissement liés aux symboles non-existants. Ils ne sont maintenant provoqués que lorsque l'intégrale est composée.  
+% \item Messages d'avertissement liés aux symboles non-existants. Ils ne sont maintenant provoqués que lorsque l'intégrale est composée.
 % \removed
 % \item Clé \tsobj[key]{diff-vec-style} en faveur de \tsobj[macro]{\vdiffstyle}.
-% \item Message d'avertissement lié à la mauvaise utilisation des points-virgules en conjonction de la clé \tsobj[key]{int-split}.
-% \fixed 
+% \item Message d'avertissement lié à la mauvaise utilisation des points-virgules en conjonction avec la clé \tsobj[key]{int-split}.
+% \fixed
 % \item Bug où l'intégrande n'était pas réinitialisée lorsque \tsobj[macro]{\integral} était employée successivement dans le même groupe \TeX\ (\href{https://tex.stackexchange.com/questions/749990/issue-with-integral-command-from-intexgral-package-in-math-mode}{détails ici}).
 % \item Des restes de log \tsobj[pkg]{expl3} qui n'auraient pas dû être là.
 % \end{version}
-% 
+%
 % \begin{version}[v=1.1.0, date=29-07-2025]
 % \added
-% \item Variantes étoilées pour les clés controlant symbole et borne (clés \tsobj[key]{single}, \tsobj[key]{contour} etc).
+% \item Variantes étoilées pour les clés contrôlant symbole et borne (clés \tsobj[key]{single}, \tsobj[key]{contour} etc).
 % \end{version}
-% 
+%
 % \shortversion{v=1.0.0, date=26-07-2025, changes=Version initiale.}
-% 
+%
 % \end{changelog}
-% 
+%
 % \end{documentation}
-% 
+%
 % \begin{implementation}
-% 
+%
 % \part[Implémentation]{implémentation}
-% 
+%
 % \CodelineNumbered
 % \NoAutoSpacing
-% 
+%
 % \section{Initialisation}
-% 
+%
 %    \begin{macrocode}
 %<*package>
 %<@@=intexgral>
 %    \end{macrocode}
-%    
+%
 % \subsection{Déclaration du package}
 %
 %    \begin{macrocode}
@@ -1138,220 +1214,219 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{v4.0.0}
-\def\intexgral@date{2026-05-26}
+\def\intexgral@version{v4.1.0}
+\def\intexgral@date{2026-07-27}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
-  \intexgral@module
-  \intexgral@date
-  \intexgral@version
-  \intexgral@description
+   \intexgral@module
+   \intexgral@date
+   \intexgral@version
+   \intexgral@description
 %    \end{macrocode}
-%    
+%
 % \subsection{Vérifications préliminaires}
 %
-% On vérifie que la version d'expl3 soit suffisamment récente avant de poursuivre. Le package requiert la macro \tsobj[macro]{\regex_if_match:nnTF}, précédemment nommée \tsobj[macro]{\regex_match:nnTF} dans les versions antérieures à mai 2025.
-% 
+% On vérifie que la version d'expl3 soit suffisamment récente avant de poursuivre. Le package requiert la macro \tsobj[macro, TF]{\tl_if_regex_match:nn} disponible à partir de décembre 2024.
+%
 %    \begin{macrocode}
 \msg_new:nnn { intexgral } { expl3-too-old }
-  {
-    Your~expl3~installation~is~too~old,~
-    "intexgral"~requires~expl3~dated~2025-05-14~or~later.\iow_newline:
-    Package~loading~has~been~aborted.\iow_newline:
-    \msg_see_documentation_text:n { intexgral }
-  }
+   {
+      Your~expl3~installation~is~too~old,~
+      "intexgral"~requires~expl3~dated~2024-12-08~or~later.\iow_newline:
+      Package~loading~has~been~aborted.\iow_newline:
+      \msg_see_documentation_text:n { intexgral }
+   }
 
-\@ifpackagelater{expl3}{2025-05-14}{}
-  { \msg_critical:nn { intexgral } { expl3-too-old } }
+\@ifpackagelater{expl3}{2024-12-08}{}
+   { \msg_critical:nn { intexgral } { expl3-too-old } }
 %    \end{macrocode}
 %
 % Puisqu'\tsobj[pkg]{intexgral} utilise \tsobj[macro]{\mathbb} pour les clés \tsobj[key]{domain(*)}, on doit s'assurer que la macro existe. La vérification est placée dans un \emph{hook} executé au début du document au cas où \tsobj[pkg]{amsfonts} ou tout package définissant \tsobj[macro]{\mathbb} serait chargé après \tsobj[pkg]{intexgral}. Cela sert notamment à éviter les conflits entre packages (\tsobj[pkg]{unicode-math} et \tsobj[pkg]{amssymb} par exemple).
 %
 %    \begin{macrocode}
-\hook_gput_code:nnn { begindocument/before } { . } 
-  { \cs_if_exist:NF \mathbb { \RequirePackage{amsfonts} } }
+\hook_gput_code:nnn { begindocument/before } { . }
+   { \cs_if_exist:NF \mathbb { \RequirePackage{amsfonts} } }
 %    \end{macrocode}
-%    
+%
 % \section{Options de package}
-% 
+%
 % \subsection{Définition des variables}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_invert_limits_bool}
 % Booléen servant à inverser la convention d'ordre des bornes.
 %    \begin{macrocode}
 \bool_new:N \l_@@_invert_limits_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_deactivate_variables_bool}
 % Détermine si les différentielles doivent être affichées ou non.
 %    \begin{macrocode}
 \bool_new:N \l_@@_deactivate_variables_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_invert_differential_bool}
 % Détermine l'ordre d'affichage des différentielles.
 %    \begin{macrocode}
 \bool_new:N \l_@@_invert_differential_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_default_differential_symbol_tl}
 % Contient le symbole par défaut pour les différentielles.
 %    \begin{macrocode}
 \tl_new:N \l_@@_default_differential_symbol_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_limits_style_tl}
 % Contient la primitive \TeX\ à utiliser pour le style des bornes.
 %    \begin{macrocode}
 \tl_new:N \l_@@_limits_style_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \subsection{Déclaration des options}
 % On peut dès à présent définir les options de package avant de les charger.
-% 
+%
 %    \begin{macrocode}
 \keys_define:nn { intexgral }
-  {
-    invert-limits .bool_set:N = \l_@@_invert_limits_bool,
-    invert-limits .usage:n    = { preamble },
-    invert-limits .initial:n  = { false },
+   {
+      invert-limits .bool_set:N = \l_@@_invert_limits_bool,
+      invert-limits .usage:n    = { preamble },
+      invert-limits .initial:n  = { false },
 
-    invert-diff .bool_set:N = \l_@@_invert_differential_bool,
-    invert-diff .usage:n    = { preamble },
-    invert-diff .initial:n  = { false },
+      invert-diff .bool_set:N = \l_@@_invert_differential_bool,
+      invert-diff .usage:n    = { preamble },
+      invert-diff .initial:n  = { false },
 
-    limits-mode .choice:,
-    limits-mode / limits .code:n =
-      { \tl_set_eq:NN \l_@@_limits_style_tl \tex_limits:D },
-    limits-mode / nolimits .code:n =
-      { \tl_set_eq:NN \l_@@_limits_style_tl \tex_nolimits:D },
+      limits-mode .choice:,
+      limits-mode / limits .code:n =
+         { \tl_set_eq:NN \l_@@_limits_style_tl \tex_limits:D },
+      limits-mode / nolimits .code:n =
+         { \tl_set_eq:NN \l_@@_limits_style_tl \tex_nolimits:D },
 
-    limits-mode .usage:n   = { preamble },
-    limits-mode .initial:n = { nolimits },
+      limits-mode .usage:n   = { preamble },
+      limits-mode .initial:n = { nolimits },
 
-    italic .choice:,
-      italic / true .code:n  =
-        {
-          \tl_set:Nn \l_@@_default_differential_symbol_tl 
-            { \mathnormal{d} }
-        },
-      italic / false .code:n =
-        {
-          \tl_set:Nn \l_@@_default_differential_symbol_tl
+      italic .choice:,
+         italic / true .code:n  =
+         {
+            \tl_set:Nn \l_@@_default_differential_symbol_tl
+               { \mathnormal{d} }
+         },
+         italic / false .code:n =
+         {
+         \tl_set:Nn \l_@@_default_differential_symbol_tl
             { \mathrm{d} }
-        },
-    italic .usage:n   = { preamble },
-    italic .initial:n = { false },
+         },
+      italic .usage:n   = { preamble },
+      italic .initial:n = { false },
 
-    upright .choice:,
-      upright / true .code:n  =
-        {
-          \tl_set:Nn \l_@@_default_differential_symbol_tl
-            { \mathrm{d} }
-        },
-      upright / false .code:n =
-        {
-          \tl_set:Nn \l_@@_default_differential_symbol_tl
-            { \mathnormal{d} }
-        },
-    upright .usage:n   = { preamble },
-    upright .initial:n = { true }
-  }
+      upright .choice:,
+         upright / true .code:n  =
+         {
+            \tl_set:Nn \l_@@_default_differential_symbol_tl
+               { \mathrm{d} }
+         },
+         upright / false .code:n =
+            {
+               \tl_set:Nn \l_@@_default_differential_symbol_tl
+                  { \mathnormal{d} }
+            },
+      upright .usage:n   = { preamble },
+      upright .initial:n = { true }
+   }
 
 \ProcessKeyOptions[intexgral]
 %    \end{macrocode}
-%    
+%
 % \section{Messages}
-% 
-% La partie suivante de l'implémentation définit l'ensemble des messages d'avertissement et d'erreur. 
-% 
+%
+% La partie suivante de l'implémentation définit l'ensemble des messages d'avertissement et d'erreur.
+%
 % \begin{codedescribe}[variable3]{\g_@@_integral_number_int}
 % On commence par créer un compteur global servant à numéroter les intégrales composées dans le document.
 %    \begin{macrocode}
 \int_gzero_new:N \g_@@_integral_number_int
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[macro3, EXP]{\@@_warning_msg_header:}
 % On peut dès lors définir une macro servant d'en-tête aux messages d'avertissement. Celle-ci inclut le compteur vu juste avant.
 %    \begin{macrocode}
 \cs_new:Nn \@@_warning_msg_header: {
-  (
-    integral~no.~
-    \int_use:N\g_@@_integral_number_int\c_space_tl
-    \msg_line_context:
-  )
-  \iow_newline:
+   (
+      integral~no.~
+      \int_use:N\g_@@_integral_number_int\c_space_tl
+      \msg_line_context:
+   )
+   \iow_newline:
 }
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % Tous les messages sont maintenant définis.
 %    \begin{macrocode}
 \msg_new:nnnn { intexgral } { symb-key-alr-def }
-  { Symbol~key~"\tl_trim_spaces:n{#1}"~is~already~defined. }
-  { Use~\token_to_str:N \RenewSymbolKeyword\ instead. }
+   { Symbol~key~"\tl_trim_spaces:n{#1}"~is~already~defined. }
+   { Use~\token_to_str:N \RenewSymbolKeyword\ instead. }
 
 \msg_new:nnnn { intexgral } { symb-key-not-def }
-  { Symbol~key~"\tl_trim_spaces:n{#1}"~is~not~defined. }
-  { Use~\token_to_str:N \NewSymbolKeyword\ instead. }
+   { Symbol~key~"\tl_trim_spaces:n{#1}"~is~not~defined. }
+   { Use~\token_to_str:N \NewSymbolKeyword\ instead. }
 
-\msg_new:nnnn { intexgral } { diff-group-alr-def }  
-  { Differential~group~"\tl_trim_spaces:n{#1}"~is~already~defined. }
-  { Use~\token_to_str:N \RenewVarKeyword\ instead. }
+\msg_new:nnnn { intexgral } { diff-group-alr-def }
+   { Differential~group~"\tl_trim_spaces:n{#1}"~is~already~defined. }
+   { Use~\token_to_str:N \RenewVarKeyword\ instead. }
 
 \msg_new:nnnn { intexgral } { diff-group-not-def }
-  { Differential~group~"\tl_trim_spaces:n{#1}"~is~not~defined. }
-  { Use~\token_to_str:N \NewVarKeyword\ instead. }
+   { Differential~group~"\tl_trim_spaces:n{#1}"~is~not~defined. }
+   { Use~\token_to_str:N \NewVarKeyword\ instead. }
 
 \msg_new:nnnn { intexgral } { lim-group-alr-def }
-  { Limits~group~"\tl_trim_spaces:n{#1}"~is~already~defined. }
-  { Use~\token_to_str:N \RenewLimitsKeyword\ instead. }
+   { Limits~group~"\tl_trim_spaces:n{#1}"~is~already~defined. }
+   { Use~\token_to_str:N \RenewLimitsKeyword\ instead. }
 
 \msg_new:nnnn { intexgral } { lim-group-not-def }
-  { Limits~group~"\tl_trim_spaces:n{#1}"~is~not~defined. }
-  { Use~\NewLimitsKeyword\ instead. }
+   { Limits~group~"\tl_trim_spaces:n{#1}"~is~not~defined. }
+   { Use~\NewLimitsKeyword\ instead. }
 
 \msg_new:nnn { intexgral } { key-exists-for-lim }
-  {
-    Symbol~key~already~defined~with~
-    \token_to_str:N \NewLimitsKeyword\ \@@_warning_msg_header:
-    Key~"#1"~already~exists~for~predefined~limits.~
-    This~can~disrupt~the~functioning~of~the~special~syntax.
-  }
+   {
+      Symbol~key~already~defined~with~
+      \token_to_str:N \NewLimitsKeyword\ \@@_warning_msg_header:
+      Key~"#1"~already~exists~for~predefined~limits.~
+      This~can~disrupt~the~functioning~of~the~special~syntax.
+   }
 
 \msg_new:nnn { intexgral } { unknown-symb }
-  {
-    Unknown~integral~symbol~\@@_warning_msg_header:
-    The~symbol~\tl_trim_spaces:n{#1}~has~been~replaced~with~
-    \token_to_str:N\int.
-  }
+   {
+      Unknown~integral~symbol~\@@_warning_msg_header:
+      The~symbol~\tl_trim_spaces:n{#1}~has~been~replaced~with~
+      \token_to_str:N\int.
+   }
 
 \msg_new:nnn { intexgral } { no-jacobian }
-  {
-    Jacobian~unavailable~\@@_warning_msg_header:
-    A~Jacobian~was~requested~for~the~"#1"~keyword,
-    ~but~none~was~declared~for~the~latter.
-  }
+   {
+      Jacobian~unavailable~\@@_warning_msg_header:
+      A~Jacobian~was~requested~for~the~"#1"~keyword,
+      ~but~none~was~declared~for~the~latter.
+   }
 
 \msg_new:nnn { intexgral } { use-glyph-instead }
-  {
-    Consider~using~the~dedicated~glyph~\@@_warning_msg_header:
-    The~key~"nint"~was~used~with~fewer~than~
-    5~regular~integral~signs.
-  }
+   {
+      Consider~using~the~dedicated~glyph~\@@_warning_msg_header:
+      The~key~"nint"~was~used~with~fewer~than~
+      5~regular~integral~signs.
+   }
 %    \end{macrocode}
-%    
+%
 % \section{Variantes utiles}
-% 
+%
 % \begin{codedescribe}[macro3]{
-% \regex_if_match:nVTF,
 % \str_if_eq:neTF,
 % \str_if_eq:neF,
 % \keys_if_exist:nVTF,
@@ -1362,7 +1437,6 @@ end
 % \seq_set_split:Nnf
 % }
 %    \begin{macrocode}
-\cs_generate_variant:Nn \regex_if_match:nnTF { nVTF }
 \cs_generate_variant:Nn \str_if_eq:nnTF      { neTF }
 \cs_generate_variant:Nn \str_if_eq:nnF       { neF  }
 \cs_generate_variant:Nn \keys_if_exist:nnTF  { nVTF }
@@ -1373,18 +1447,18 @@ end
 \cs_generate_variant:Nn \seq_set_split:Nnn   { Nnf }
 %    \end{macrocode}
 % \end{codedescribe}
-%    
+%
 % \section{Variables internes}
-% 
+%
 % \subsection{Tokens}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_integrand_tl}
-% Token contenant l'intégrande. Il est utilisé tel quel pour le mode \tsobj[option]{default} tandis que pour les autres modes, il est séparé ulterieurement en une séquence.
+% Token contenant l'intégrande. Il est utilisé tel quel pour le mode \tsobj[option]{default} tandis que pour les autres modes, il est séparé ultérieurement en une séquence.
 %    \begin{macrocode}
 \tl_new:N \l_@@_integrand_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_integral_symbol_tl}
 % Token contenant le symbole de l'intégrale. Lorsque non modifié par la clé \tsobj[key]{symbol}, il faut que le token soit tout de même initialisé à \tsobj[macro]{\int}.
 %    \begin{macrocode}
@@ -1392,7 +1466,7 @@ end
 \tl_set_eq:NN \l_@@_integral_symbol_tl \int
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_lower_limit_tl, \l_@@_upper_limit_tl}
 % Tokens contenant les bornes d'intégration.
 %    \begin{macrocode}
@@ -1400,22 +1474,14 @@ end
 \tl_new:N \l_@@_upper_limit_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_differential_symbol_tl}
 % Token contenant le symbole des différentielles. Il contient \tsobj[variable3]{\l_@@_default_differential_symbol_tl}.
 %    \begin{macrocode}
 \tl_new:N \l_@@_differential_symbol_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
-% \begin{codedescribe}[variable3]{\l_@@_default_differential_tl, \l_@@_default_vector_differential_tl}
-% Tokens contenant les différentielles par défaut, utilisés lorsque la clé \tsobj[key]{variables} n'est pas renseignée.
-%    \begin{macrocode}
-\tl_new:N \l_@@_default_differential_tl
-\tl_new:N \l_@@_default_vector_differential_tl
-%    \end{macrocode}
-% \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_vectorial_differential_style_tl, \l_@@_domain_style_tl}
 % Tokens contenant les macros à appliquer aux clés \tsobj[key]{diff-vec} et \tsobj[key]{domain(*)}.
 %    \begin{macrocode}
@@ -1423,15 +1489,15 @@ end
 \tl_new:N \l_@@_domain_style_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_domain_char_tl, \l_@@_domain_dimension_tl}
-% Token utilisés pour stocker respectivement le caractère et la dimension d'un domaine d'intégration.
+% Tokens utilisés pour stocker respectivement le caractère et la dimension d'un domaine d'intégration.
 %    \begin{macrocode}
 \tl_new:N \l_@@_domain_char_tl
 \tl_new:N \l_@@_domain_dimension_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\c_@@_left_bracket_tl, \c_@@_right_bracket_tl}
 % Tokens constants pour la clé \tsobj[key]{limits*}.
 %    \begin{macrocode}
@@ -1439,79 +1505,87 @@ end
 \tl_const:Nn \c_@@_right_bracket_tl { ] }
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_key_name_tl}
 % Token contenant le potentiel nom d'une clé, utilisé pour différencier la syntaxe \tsobj[meta]{clé=valeur} de la syntaxe spéciale.
 %    \begin{macrocode}
 \tl_new:N \l_@@_key_name_tl
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \subsection{Booléens}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_manual_differential_bool}
-% Booléen servant à déterminer si les différentielles sont insérées par le biais de \tsobj[macro]{\differentials}. 
+% Booléen servant à déterminer si les différentielles sont insérées par le biais de \tsobj[macro]{\differentials}.
 %    \begin{macrocode}
 \bool_new:N \l_@@_manual_differential_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_custom_variables_bool}
 % Booléen servant à déterminer si les variables sont définies avec \tsobj[key]{variables}.
 %    \begin{macrocode}
 \bool_new:N \l_@@_custom_variables_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_separate_integral_bool}
 % Booléen servant à déterminer si l'intégrale est \emph{séparée} en plusieurs parties, c'est-à-dire si les modes \tsobj[option]{nested} ou \tsobj[option]{product} sont en vigueur.
 %    \begin{macrocode}
 \bool_new:N \l_@@_separate_integral_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_vectorial_differential_bool}
 % Booléen décidant s'il faut appliquer des vecteurs aux différentielles.
 %    \begin{macrocode}
 \bool_new:N \l_@@_vectorial_differential_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_jacobian_bool}
 % Booléen décidant s'il faut afficher le jacobien ou non.
 %    \begin{macrocode}
 \bool_new:N \l_@@_jacobian_bool
 %    \end{macrocode}
 % \end{codedescribe}
-% 
-% \subsection{Séquences et clist}
-% 
+%
+% \subsection{Séquences et clists}
+%
 % \begin{codedescribe}[variable3]{\l_@@_domain_seq}
 % Séquence contenant les domaines d'intégration et leurs dimensions (les séquences principales seront expliquées plus tard).
 %    \begin{macrocode}
 \seq_new:N \l_@@_domain_seq
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
+% \begin{codedescribe}[variable3]{\l__intexgral_default_variables_seq, \l__intexgral_default_vectorial_variables_seq}
+% Séquences contenant les variables par défaut, utilisées lorsque la clé \tsobj[key]{variables} n'est pas renseignée.
+%    \begin{macrocode}
+\seq_new:N \l__intexgral_default_variables_seq
+\seq_new:N \l__intexgral_default_vectorial_variables_seq
+%    \end{macrocode}
+% \end{codedescribe}
+%
 % \begin{codedescribe}[variable3]{\l_@@_differential_order_clist}
 % Liste contenant les puissances des différentielles (clist et non séquence car \tsobj[macro]{.seq_set:N} n'existe pas pour les clés).
 %    \begin{macrocode}
 \clist_new:N \l_@@_differential_order_clist
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \subsection{Liste de propriétés}
-% 
+%
 % \begin{codedescribe}[variable3]{\g_@@_limits_keyword_prop, \g_@@_differential_group_keyword_prop}
-% Une liste de propriété est crée pour stocker d'un côté les mots clés propres aux bornes, et de l'autre, ceux pour les différentielles.
+% Une liste de propriété est créée pour stocker d'un côté les mots clés propres aux bornes, et de l'autre, ceux pour les différentielles.
 %    \begin{macrocode}
 \prop_new:N \g_@@_limits_keyword_prop
 \prop_new:N \g_@@_differential_group_keyword_prop
 %    \end{macrocode}
 % \end{codedescribe}
-% 
-% \subsection{Musksip}
-% 
+%
+% \subsection{Muskip}
+%
 % \begin{codedescribe}[variable3]{\l_@@_symbol_inner_sep_muskip, \l_@@_symbol_post_sep_muskip,\l_@@_differential_sep_muskip, \l_@@_variable_sep_muskip}
 % Muskips internes pour stocker les espacements avec respectivement:
 % \begin{enumerate}
@@ -1527,30 +1601,30 @@ end
 \muskip_new:N \l_@@_differential_sep_muskip
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \subsection{String}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_display_mode_str}
-% Variable interne pour stocker le mode d'affichage de l'intégrale. La raison d'utiliser un \emph{string} et non pas un token s'explique par le manque d'un \tsobj[macro, TF]{\tl_case:nn}
+% Variable interne pour stocker le mode d'affichage de l'intégrale. La raison d'utiliser un \emph{string} et non pas un token s'explique par le manque d'un \tsobj[macro, TF]{\tl_case:nn}.
 %    \begin{macrocode}
 \str_new:N \l_@@_display_mode_str
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \section{Macros et séquences auxiliaires}
-% 
+%
 % On définit ici les deux primitives \TeX\ \tsobj[macro]{\mkern} et \tsobj[macro]{\mathchoice} avec une syntaxe \tsobj[pkg]{expl3}.
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_mkern:N}
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_mkern:N} \tsobj[meta]{muskip}
 % \end{codesyntax}
-% 
+%
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_mkern:N #1
-  { \tex_mkern:D #1 \scan_stop: }
+   { \tex_mkern:D #1 \scan_stop: }
 %    \end{macrocode}
 %
 % \begin{codedescribe}[macro3]{\@@_mathchoice:nnnn}
@@ -1558,16 +1632,16 @@ end
 %   \tsobj[macro3]{\@@_mathchoice:nnnn}\tsargs[marg]{display style}\tsargs[marg]{inline style}\tsargs[marg]{script style}\tsargs[marg]{scriptscript style}
 % \end{codesyntax}
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_eq:NN \@@_mathchoice:nnnn \mathchoice
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_invert_limits:w}
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_invert_limits:w} \tsobj[meta]{borne inférieure},\tsobj[meta]{borne supérieure}\tsobj[macro3]{\q_stop}
 % \end{codesyntax}
-% Macro inversant les limites pour l'option \tsobj[option]{invert-limits}. L'action est pûrement développable et plus efficace qu'un \tsobj[macro]{\seq_inverse:N} dans le contexte du package, étant donné qu'au maximum deux éléments sont présents.
+% Macro inversant les limites pour l'option \tsobj[option]{invert-limits}. L'action est purement développable et plus efficace qu'un \tsobj[macro]{\seq_inverse:N} dans le contexte du package, étant donné qu'au maximum deux éléments sont présents.
 % \end{codedescribe}
 %    \begin{macrocode}
 \cs_new:Npn \@@_invert_limits:w #1,#2\q_stop{#2,#1}
@@ -1577,42 +1651,42 @@ end
 % On crée une macro qui contient l'expression générale d'une intégrale: symbole, style des bornes, borne inférieure et borne supérieure. Il ne reste plus qu'à assigner les tokens pour composer un symbole complet, et éventuellement répéter la macro pour des intégrales définies sur plusieurs variables.
 %    \begin{macrocode}
 \cs_new:Npn \@@_general_integral_symbol:
-  {
-    \l_@@_integral_symbol_tl
-    \l_@@_limits_style_tl
-    \c_math_subscript_token
-      { \l_@@_lower_limit_tl }
-    \c_math_superscript_token
-      { \l_@@_upper_limit_tl }
-  }
+   {
+      \l_@@_integral_symbol_tl
+      \l_@@_limits_style_tl
+      \c_math_subscript_token
+         { \l_@@_lower_limit_tl }
+      \c_math_superscript_token
+         { \l_@@_upper_limit_tl }
+   }
 %    \end{macrocode}
 % \end{codedescribe}
 %
 % \subsection{Séquences principales}
-% 
-% Au vu du grand nombre de clés existantes et de combinaisons possibles, il faut judicieusement organiser et stocker les tokens afin de composer l'intégrale finale. L'approche adoptée a été de créer des séquences dédiées à chaque élément d'une intégrale: 
-% 
+%
+% Au vu du grand nombre de clés existantes et de combinaisons possibles, il faut judicieusement organiser et stocker les tokens afin de composer l'intégrale finale. L'approche adoptée a été de créer des séquences dédiées à chaque élément d'une intégrale:
+%
 % \begin{codedescribe}[variable3]{\l_@@_integral_symbol_seq}
 % Une pour le symbole (ou \emph{les} symboles, si la clé \tsobj[key]{limits*} est en usage).
 %    \begin{macrocode}
 \seq_new:N \l_@@_integral_symbol_seq
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_integrand_seq}
 % Une pour l'intégrande (ou \emph{les} intégrandes, si découpée en plusieurs parties par \tsobj[option]{nested} ou \tsobj[option]{product}).
 %    \begin{macrocode}
 \seq_new:N \l_@@_integrand_seq
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_jacobian_seq}
 % Une pour le jacobien.
 %    \begin{macrocode}
 \seq_new:N \l_@@_jacobian_seq
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_differential_seq}
 % Et enfin, une pour les différentielles.
 %    \begin{macrocode}
@@ -1621,14 +1695,14 @@ end
 % \end{codedescribe}
 %
 % De cette façon, on peut construire l'intégrale finale en jouant sur la façon d'extraire les différents éléments de ces séquences. En voici une illustration plus concrète:
-% 
+%
 % Pour une intégrale indéfinie.
 % \begin{equation*}
 %   \stackrel{\text{S}}{\boxed{\iint_S}}^^A
 %   \stackrel{\text{I}}{\boxed{f(x, y)}}^^A
 %   \stackrel{\text{D}}{\boxed{\symup{d}x\thinspace\symup{d}y}}
 % \end{equation*}
-% 
+%
 % Pour une intégrale définie.
 % \begin{equation*}
 %   \stackrel{\text{S}_1}{\boxed{\int_a^b}}^^A
@@ -1638,25 +1712,25 @@ end
 %   \stackrel{\text{D}_1}{\boxed{\symup{d}x}}^^A
 %   \stackrel{\text{D}_2}{\boxed{\symup{d}y}}
 % \end{equation*}
-% 
+%
 % \subsection{Séquences subsidiaires}
-% 
-% Quelques séquences suplémentaires seront nécessaires durant les étapes intermédiaires qui consisteront à préparer les quatre séquences principales listées ci-dessus.
-% 
+%
+% Quelques séquences supplémentaires seront nécessaires durant les étapes intermédiaires qui consisteront à préparer les quatre séquences principales listées ci-dessus.
+%
 % \begin{codedescribe}[variable3]{\l_@@_variables_seq}
 % Tout d'abord, une séquence contenant les variables d'intégration.
 %    \begin{macrocode}
 \seq_new:N \l_@@_variables_seq
 %    \end{macrocode}
 % \end{codedescribe}
-%    
+%
 % \begin{codedescribe}[variable3]{\l_@@_limits_seq}
 % Ensuite, une séquence contenant les paires de limites d'intégration, c'est-à-dire les éléments de la clé \tsobj[key]{limits} séparés en deux par le point-virgule.
 %    \begin{macrocode}
 \seq_new:N \l_@@_limits_seq
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[variable3]{\l_@@_upper_limits_seq, \l_@@_lower_limits_seq}
 % Deux séquences contenant respectivement les bornes supérieures et inférieures. Ainsi, si la clé \tsobj[key]{limits} contient les éléments \texttt{a;b}, \texttt{c;d} et \texttt{e;f}, alors la séquence des bornes inférieures contiendra les éléments \texttt{a}, \texttt{c} et \texttt{e}, tandis que celle des bornes supérieures contiendra les éléments \texttt{b}, \texttt{d} et \texttt{f}.
 %    \begin{macrocode}
@@ -1664,148 +1738,180 @@ end
 \seq_new:N \l_@@_lower_limits_seq
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \section{Bornes d'intégration}\label{sec:implementationbornes}
-% 
-% \begin{codedescribe}[macro3]{\@@_parse_limits:n}
+%
+% \begin{codedescribe}[macro3]{\@@_has_pm_p:n}
+% On définit une macro conditionnelle qui va gérer la syntaxe \texttt{+-<limite>}. Elle se contente de vérifier que le premier et deuxième token de l'argument de \tsobj[key]{limits} correspondent respectivement à \texttt{+} et \texttt{-}.
+% \end{codedescribe}
+%
+%    \begin{macrocode}
+\prg_new_conditional:Npnn \@@_has_pm:n #1 { p }
+   {
+      \bool_lazy_and:nnTF
+         { \exp_args:Ne \str_if_eq_p:nn { \str_item:nn { #1 } { 1 } } { + } }
+         { \exp_args:Ne \str_if_eq_p:nn { \str_item:nn { #1 } { 2 } } { - } }
+         { \prg_return_true: }
+         { \prg_return_false: }
+   }
+%    \end{macrocode}
+%
+% \begin{codedescribe}[macro3]{\@@_trim_pm:w}
+% Ensuite, une macro délimitée est créée afin de supprimer le \texttt{+-}
+% \end{codedescribe}
+%
+%    \begin{macrocode}
+\cs_new:Npn \@@_trim_pm:w +-#1\q_stop{#1}
+%    \end{macrocode}
+%
+% \begin{codedescribe}[macro3, EXP]{\@@_parse_limits:n}
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_parse_limits:n} \tsargs[marg]{borne inférieure, borne supérieure}, \tsobj[meta]{mot-clé}
 % \end{codesyntax}
-% Cette macro vérifie si son argument correspond à un mot-clé défini pour les bornes, auquel cas elle se développe en son contenu en l'inversant si besoin (selon le statut de \tsobj[variable3]{\l_@@_invert_limits_bool}). Sinon, la macro se développe simplement en son argument.
+% Cette macro éxecute l'une des actions suivantes selon la valeur booléenne qui est vraie:
+% \begin{itemize}
+%   \item Si l'argument est un mot-clé défini pour les bornes, la macro se développe en son contenu en l'inversant si besoin (selon le statut de \tsobj[variable3]{\l_@@_invert_limits_bool}).
+%   \item Si l'argument débute par les tokens \texttt{+-}, supprime ces derniers et ajoute manuellement les signes.
+%   \item Si aucune de ces deux conditions n'est remplie, laisse simplement l'argument dans le flux d'entrée.
+% \end{itemize}
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new:Npn \@@_parse_limits:n #1
-  {
-    \prop_if_in:NnTF \g_@@_limits_keyword_prop { #1 }
-      {
-        \bool_if:NTF \l_@@_invert_limits_bool
-          {
-            \exp_last_unbraced:Ne \@@_invert_limits:w 
-              { \prop_item:Nn \g_@@_limits_keyword_prop { #1 } } 
-              \q_stop
-          }
-          { \prop_item:Nn \g_@@_limits_keyword_prop { #1 } }
-      }
+   {
+      \bool_case:nF
+         {
+         { \prop_if_in_p:Nn \g_@@_limits_keyword_prop { #1 } }
+            {
+               \bool_if:NTF \l_@@_invert_limits_bool
+                  {
+                     \exp_last_unbraced:Ne \@@_invert_limits:w
+                        { \prop_item:Nn \g_@@_limits_keyword_prop { #1 } }
+                        \q_stop
+                  }
+                  { \prop_item:Nn \g_@@_limits_keyword_prop { #1 } }
+            }
+         { \@@_has_pm_p:n { #1 } }
+            {
+               -\@@_trim_pm:w #1\q_stop,
+               +\@@_trim_pm:w #1\q_stop
+            }
+         }
       { #1 }
-  }
+   }
 %    \end{macrocode}
 %
 % \begin{codedescribe}[macro3]{\@@_set_limits_regular:}
-% Une fois que l'argument de la clé \tsobj[key]{limits} a été converti en une séquence (action effectuée au sein de \tsobj[macro]{.code:n} dans déclaration des clés), on assigne chaque paire de borne à une séquence temporaire. Celle-ci est créée de sorte à ce que si un mot-clé est présent, il est substitué à ses bornes correspondantes en vertu de la macro précédente. L'action est executée dans un développement de type \tsobj[macro]{\romannumeral} afin d'éviter le développement des bornes contenant des macros fragiles (type \tsobj[macro]{\mathbb}). On peut alors extraire la borne inférieure et la borne supérieure de cette séquence pour les assigner à leur séquence respective.
+% Une fois que l'argument de la clé \tsobj[key]{limits} a été converti en une séquence (action effectuée au sein de \tsobj[macro]{.code:n} dans la déclaration des clés), on assigne chaque paire de borne à une séquence temporaire. Celle-ci est créée de sorte à ce que si un mot-clé est présent, il est substitué à ses bornes correspondantes en vertu de la macro précédente. L'action est executée dans un développement de type \tsobj[macro]{\romannumeral} afin d'éviter le développement des bornes contenant des macros fragiles (type \tsobj[macro]{\mathbb}). On peut alors extraire la borne inférieure et la borne supérieure de cette séquence pour les assigner à leur séquence respective.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_set_limits_regular:
-  {
-    \seq_map_inline:Nn \l_@@_limits_seq
-      {
-        \seq_set_split:Nnf \l_tmpa_seq { , }
-          { \@@_parse_limits:n { ##1 } }
-        \seq_put_right:Ne \l_@@_lower_limits_seq
-          { \seq_item:Nn \l_tmpa_seq { 1 } } 
-        \seq_put_right:Ne \l_@@_upper_limits_seq
-          { \seq_item:Nn \l_tmpa_seq { 2 } } 
-      }
-  }
+   {
+      \seq_map_inline:Nn \l_@@_limits_seq
+         {
+            \seq_set_split:Nnf \l_tmpa_seq { , }
+               { \@@_parse_limits:n { ##1 } }
+            \seq_put_right:Ne \l_@@_lower_limits_seq
+               { \seq_item:Nn \l_tmpa_seq { 1 } }
+            \seq_put_right:Ne \l_@@_upper_limits_seq
+               { \seq_item:Nn \l_tmpa_seq { 2 } }
+         }
+   }
 %    \end{macrocode}
 %
 % \begin{codedescribe}[macro3]{\@@_set_limits_starred:}
 % La macro suivante est similaire à la précédente, mais elle s'occupe des bornes sous forme d'intervalle lorsque la clé \tsobj[key]{limits*} est utilisée.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_set_limits_starred:
-  {
-    \seq_map_indexed_inline:Nn \l_@@_limits_seq
-      {
-        \seq_set_split:Nnf \l_tmpa_seq { , }
-          { \@@_parse_limits:n { ##2 } }
-        \bool_if:NTF \l_@@_invert_limits_bool
-          {
-            \tl_set:Ne \l_@@_lower_limit_tl
-              {
-                \seq_item:Nn \l_tmpa_seq { 2 }
-                \tex_mathpunct:D,
-                \seq_item:Nn \l_tmpa_seq { 1 }
-              }
-          }
-          {
-            \tl_set:Ne \l_@@_lower_limit_tl
-              {
-                \seq_item:Nn \l_tmpa_seq { 1 }
-                \tex_mathpunct:D,
-                \seq_item:Nn \l_tmpa_seq { 2 }
-              }
-          }
+   {
+      \seq_map_indexed_inline:Nn \l_@@_limits_seq
+         {
+            \seq_set_split:Nnf \l_tmpa_seq { , }
+               { \@@_parse_limits:n { ##2 } }
             \bool_if:NTF \l_@@_invert_limits_bool
-              { \seq_put_right:Ne \l_@@_upper_limits_seq }
-              { \seq_put_right:Ne \l_@@_lower_limits_seq }
-          {
-            \str_case_e:nnF { \seq_item:Nn \l_tmpa_seq { 1 } }
-              {
-                { -\infty } { \tex_left:D \c_@@_right_bracket_tl }
-              }
-              { \tex_left:D \c_@@_left_bracket_tl }
-            \tl_use:N \l_@@_lower_limit_tl
-            \str_case_e:nnF { \seq_item:Nn \l_tmpa_seq { 2 } }
-              {
-                { +\infty } { \tex_right:D \c_@@_left_bracket_tl }
-              }
-              { \tex_right:D \c_@@_right_bracket_tl }
-            }
-      }
-  }
+               {
+                  \tl_set:Ne \l_@@_lower_limit_tl
+                     {
+                        \seq_item:Nn \l_tmpa_seq { 2 }
+                        \tex_mathpunct:D,
+                        \seq_item:Nn \l_tmpa_seq { 1 }
+                     }
+               }
+               {
+                  \tl_set:Ne \l_@@_lower_limit_tl
+                     {
+                        \seq_item:Nn \l_tmpa_seq { 1 }
+                        \tex_mathpunct:D,
+                        \seq_item:Nn \l_tmpa_seq { 2 }
+                     }
+               }
+            \bool_if:NTF \l_@@_invert_limits_bool
+               { \seq_put_right:Ne \l_@@_upper_limits_seq }
+               { \seq_put_right:Ne \l_@@_lower_limits_seq }
+               {
+                  \str_case_e:nnF { \seq_item:Nn \l_tmpa_seq { 1 } }
+                     { { -\infty } { \tex_left:D \c_@@_right_bracket_tl } }
+                     { \tex_left:D \c_@@_left_bracket_tl }
+                  \tl_use:N \l_@@_lower_limit_tl
+                  \str_case_e:nnF { \seq_item:Nn \l_tmpa_seq { 2 } }
+                  { { +\infty } { \tex_right:D \c_@@_left_bracket_tl } }
+                     { \tex_right:D \c_@@_right_bracket_tl }
+               }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_set_limits:nn}
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_set_limits:nn}\tsargs[marg]{borne inférieure}\tsargs[marg]{borne supérieure}
 % \end{codesyntax}
 % \end{codedescribe}
-% Selon l'option \tsobj[option]{invert-limits}, cette macro assigne les bornes inférieures et supérieures aux tokens dédiés. Si elle est active, l'assignation devient quelque peu contre-intuitive (la borne inférieure est assignée à \tsobj[variable3]{\l_@@_upper_limit_tl} et inversement), mais produira tout de même le résultat attendu. Le développement des bornes est empêché afin d'éviter les problèmes de macros fragiles comme vu précédement.
-% 
+% Selon l'option \tsobj[option]{invert-limits}, cette macro assigne les bornes inférieures et supérieures aux tokens dédiés. Si elle est active, l'assignation devient quelque peu contre-intuitive (la borne inférieure est assignée à \tsobj[variable3]{\l_@@_upper_limit_tl} et inversement), mais produira tout de même le résultat attendu. Le développement des bornes est empêché afin d'éviter les problèmes de macros fragiles comme vu précédemment.
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_set_limits:nn #1#2
-  {
-    \bool_if:NTF \l_@@_invert_limits_bool
-      {
-        \tl_set:Ne \l_@@_lower_limit_tl { \exp_not:n { #2 } }
-        \tl_set:Ne \l_@@_upper_limit_tl { \exp_not:n { #1 } }
-      }
-      {
-        \tl_set:Ne \l_@@_lower_limit_tl { \exp_not:n { #1 } }
-        \tl_set:Ne \l_@@_upper_limit_tl { \exp_not:n { #2 } }
-      }
-  }
+   {
+      \bool_if:NTF \l_@@_invert_limits_bool
+         {
+            \tl_set:Ne \l_@@_lower_limit_tl { \exp_not:n { #2 } }
+            \tl_set:Ne \l_@@_upper_limit_tl { \exp_not:n { #1 } }
+         }
+         {
+            \tl_set:Ne \l_@@_lower_limit_tl { \exp_not:n { #1 } }
+            \tl_set:Ne \l_@@_upper_limit_tl { \exp_not:n { #2 } }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_generate_integral_sequence:}
-% Une fois les séquences des bornes inférieures et supérieures remplies, on peut utiliser la structure des séquences à notre avantage pour générer automatiquement autant de symbole que nécessaire. On procède à une boucle incrémentée dans laquelle on effectue deux actions:
+% Une fois les séquences des bornes inférieures et supérieures remplies, on peut utiliser la structure des séquences à notre avantage pour générer automatiquement autant de symboles que nécessaire. On procède à une boucle incrémentée dans laquelle on effectue deux actions:
 % \begin{enumerate}
 %   \item \`A l'aide de \tsobj[macro]{\@@_set_limits:nn}, on assigne les bornes d'intégrations aux tokens \tsobj[variable3]{\l_@@_lower_limit_tl} et \tsobj[variable3]{\l_@@_upper_limit_tl} à partir du $i$\textsuperscript{e} élément des séquences \tsobj[variable3]{\l_@@_lower_limits_seq} et \tsobj[variable3]{\l_@@_upper_limits_seq} respectivement.
 %   \item On place à droite (c.-à-d. dans l'ordre) de la séquence \tsobj[variable3]{\l_@@_integral_symbol_seq} la macro \tsobj[macro]{\@@_general_integral_symbol:}, qui contient la forme générale d'une intégrale. \`A noter qu'on développe au maximum son contenu afin de récupérer l'assignation immédiate des tokens.
 % \end{enumerate}
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_generate_integral_sequence:
-  {
-    \int_set:Nn \l_tmpa_int
-      {
-        \seq_if_empty:NTF \l_@@_lower_limits_seq
-          { \seq_count:N \l_@@_upper_limits_seq }
-          { \seq_count:N \l_@@_lower_limits_seq }
-      }
-    \int_step_inline:nn { \l_tmpa_int }
-      {
-        \@@_set_limits:nn
-          { \seq_item:Nn \l_@@_lower_limits_seq { ##1 } }
-          { \seq_item:Nn \l_@@_upper_limits_seq { ##1 } }
-        \seq_put_right:Ne \l_@@_integral_symbol_seq
-          { \@@_general_integral_symbol: }
-      }
-  }
+   {
+      \int_set:Nn \l_tmpa_int
+         {
+            \seq_if_empty:NTF \l_@@_lower_limits_seq
+               { \seq_count:N \l_@@_upper_limits_seq }
+               { \seq_count:N \l_@@_lower_limits_seq }
+         }
+      \int_step_inline:nn { \l_tmpa_int }
+         {
+            \@@_set_limits:nn
+               { \seq_item:Nn \l_@@_lower_limits_seq { ##1 } }
+               { \seq_item:Nn \l_@@_upper_limits_seq { ##1 } }
+            \seq_put_right:Ne \l_@@_integral_symbol_seq
+               { \@@_general_integral_symbol: }
+         }
+   }
 %    \end{macrocode}
 %
 % \section{Variables}
@@ -1814,665 +1920,669 @@ end
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_parse_variables:n} \tsargs[marg]{variable d'intégration}, \tsobj[meta]{mot-clé}
 % \end{codesyntax}
-% Cette macro s'applique à chaque élément de l'argument de la clé \tsobj[key]{variables} pour vérifier s'il s'agit d'un mot-clé ou d'une liste explicite, de la même manière que pour les limites. Il s'agit principalement de transférer les éléments de \tsobj[variable3]{\l_@@_variables_seq} (contenant par exemple \enquote{$x, y, z$}) vers \tsobj[variable3]{\l_@@_differential_seq} (qui contiendra \enquote{$\symup dx, \symup dy, \symup dz$}); tout en prennant en compte les différentes options qui ont été appliquées. Dans le cas où aucune variable n'est saisie, la macro s'occupe d'y placer $x$ ou $\vec r$ en fonction de la valeur du booléen \tsobj[variable3]{\l_@@_vectorial_differential_bool}.
+% Cette macro s'applique à chaque élément de l'argument de la clé \tsobj[key]{variables} pour vérifier s'il s'agit d'un mot-clé ou d'une liste explicite, de la même manière que pour les limites. Il s'agit principalement de transférer les éléments de \tsobj[variable3]{\l_@@_variables_seq} (contenant par exemple \enquote{$x, y, z$}) vers \tsobj[variable3]{\l_@@_differential_seq} (qui contiendra \enquote{$\symup dx, \symup dy, \symup dz$}); tout en prenant en compte les différentes options qui ont été appliquées. Dans le cas où aucune variable n'est saisie, la macro s'occupe d'y placer $x$ ou $\vec r$ en fonction de la valeur du booléen \tsobj[variable3]{\l_@@_vectorial_differential_bool}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_parse_variables:
-  {
-    \bool_if:NTF \l_@@_custom_variables_bool
-      {
-        \seq_map_indexed_inline:Nn \l_@@_variables_seq
-          {
-            \seq_put_right:Ne \l_@@_differential_seq
-              {
-                \exp_not:V \l_@@_differential_symbol_tl
-                \clist_if_empty:NF \l_@@_differential_order_clist
-                  {
-                    \c_math_superscript_token
-                      {
-                        \clist_item:Nn
-                        \l_@@_differential_order_clist
-                        { ##1 }
-                      }
-                  }
-                \bool_if:NT \l_@@_vectorial_differential_bool
-                  { \exp_not:V \l_@@_vectorial_differential_style_tl }
-                  { ##2 }
-              }
-          }
-      }
-      {
-        \seq_put_right:Ne \l_@@_differential_seq
-          {
-            \exp_not:V \l_@@_differential_symbol_tl
-            \clist_if_empty:NF \l_@@_differential_order_clist
-              {
-                % TODO: permettre de soumettre une séquence en variables par défaut, parce que là on extrait naïvement le premier élément seulement.
-                \c_math_superscript_token
-                  {
-                    \clist_item:Nn
-                    \l_@@_differential_order_clist
-                    { 1 }
-                  }
-              }
+   {
+      \bool_if:NF \l_@@_custom_variables_bool
+         {
             \bool_if:NTF \l_@@_vectorial_differential_bool
-              { 
-                \exp_not:V \l_@@_vectorial_differential_style_tl
-                  {\l_@@_default_vector_differential_tl}
-              }
-              { \l_@@_default_differential_tl }
-          }
-      }
-  }
+               {
+                  \seq_set_eq:NN
+                     \l_@@_variables_seq
+                     \l_@@_default_vectorial_variables_seq
+               }
+               {
+                  \seq_set_eq:NN
+                     \l_@@_variables_seq
+                     \l_@@_default_variables_seq
+               }
+         }
+      \seq_map_indexed_inline:Nn \l_@@_variables_seq
+         {
+            \seq_put_right:Ne \l_@@_differential_seq
+               {
+                  \exp_not:V \l_@@_differential_symbol_tl
+                  \clist_if_empty:NF \l_@@_differential_order_clist
+                     {
+                        \c_math_superscript_token
+                           {
+                              \clist_item:Nn
+                              \l_@@_differential_order_clist
+                              { ##1 }
+                        }
+                     }
+                  \bool_if:NT \l_@@_vectorial_differential_bool
+                     { \exp_not:V \l_@@_vectorial_differential_style_tl }
+                     { ##2 }
+               }
+         }
+   }
 %    \end{macrocode}
 %
 % \section{Syntaxe spéciale}
-% 
+%
 % \begin{codedescribe}[macro3, EXP]{\@@_retrieve_key_name:w}
 % \begin{codesyntax}
 %  \tsobj[macro3]{\@@_retrieve_key_name:w} \tsobj[meta]{clé}=\tsobj[meta]{valeur} \tsobj[macro3]{\q_stop}
 % \end{codesyntax}
-% Afin de gérer la syntaxe spéciale, on commence par créer une macro délimitée qui extrait la valeur de la clé et son nom, et qui ne renvoie que ce dernier. 
+% Afin de gérer la syntaxe spéciale, on commence par créer une macro délimitée qui extrait la valeur de la clé et son nom, et qui ne renvoie que ce dernier.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new:Npn \@@_retrieve_key_name:w #1=#2\q_stop { #1 }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_extract_first_key_name:n}
 % \begin{codesyntax}
 %  \tsobj[macro3]{\@@_extract_first_key_name:n} \tsargs[marg]{argument optionnel d'\tsobj[macro]{\integral}}
 % \end{codesyntax}
-% On associe ensuite l'argument optionnel reçut par \tsobj[macro]{\integral} à une \emph{comma list} temporaire, dont on extrait le premier élément; on vérifie alors s'il contient un signe \enquote{\texttt{=}}. Le cas échéant, on emploie la macro précédente pour ne récupérer que le nom de la clé; sinon, on copie simplement le groupe de tokens récupéré dans \tsobj[variable3]{\l_@@_key_name_tl}.
+% On associe ensuite l'argument optionnel reçu par \tsobj[macro]{\integral} à une \emph{comma list} temporaire, dont on extrait le premier élément; on vérifie alors s'il contient un signe \enquote{\texttt{=}}. Le cas échéant, on emploie la macro précédente pour ne récupérer que le nom de la clé; sinon, on copie simplement le groupe de tokens récupéré dans \tsobj[variable3]{\l_@@_key_name_tl}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_extract_first_key_name:n #1
-  {
-    \seq_set_split:Nnn \l_tmpa_seq { : } { #1 }
-    \tl_set:Ne \l_tmpa_tl { \seq_item:Nn \l_tmpa_seq { 1 } }
-    \tl_if_in:NnTF \l_tmpa_tl { = }
-      { 
-        \tl_set:Ne \l_@@_key_name_tl 
-          { 
-            \exp_last_unbraced:NV
-            \@@_retrieve_key_name:w \l_tmpa_tl \q_stop 
-          } 
-      }
-      { \tl_set_eq:NN \l_@@_key_name_tl \l_tmpa_tl }
-  }
+   {
+      \seq_set_split:Nnn \l_tmpa_seq { : } { #1 }
+      \tl_set:Ne \l_tmpa_tl { \seq_item:Nn \l_tmpa_seq { 1 } }
+      \tl_if_in:NnTF \l_tmpa_tl { = }
+         {
+            \tl_set:Ne \l_@@_key_name_tl
+               {
+                  \exp_last_unbraced:NV
+                  \@@_retrieve_key_name:w \l_tmpa_tl \q_stop
+               }
+         }
+         { \tl_set_eq:NN \l_@@_key_name_tl \l_tmpa_tl }
+   }
 %    \end{macrocode}
-%    
+%
 % \begin{codedescribe}[macro3]{\@@_parse_integral_keys:n}
 % \begin{codesyntax}
 %  \tsobj[macro3]{\@@_parse_integral_keys:n} \tsargs[marg]{première clé de l'argument optionnel}
 % \end{codesyntax}
-% En se servant du module \tsobj[pkg]{l3keys}, on peut évaluer si le groupe de tokens capturé correspond à une clé définie, auquel cas on applique directement \tsobj[macro]{\keys_set:nn}. Si le test se révèle négatif, on assigne manuellement les clés en considérant l'argument optionel comme une séquence à délimiter avec le deux-point. Des séquences temporaires sont employées pour pour manipuler les différentes parties de l'argument. On vérifie notamment la présence du token \texttt{+j} pour activer la clé \tsobj[key]{jacobian}, et on ajoute la variable par défaut si elle n'est pas spécifiée. Enfin, on assigne les valeurs aux clés \tsobj[key]{limits}, \tsobj[key]{variables} et \tsobj[key]{mode} en fonction des éléments extraits.
+% En se servant du module \tsobj[pkg]{l3keys}, on peut évaluer si le groupe de tokens capturé correspond à une clé définie, auquel cas on applique directement \tsobj[macro]{\keys_set:nn}. Si le test se révèle négatif, on assigne manuellement les clés en considérant l'argument optionnel comme une séquence à délimiter avec le deux-point. Des séquences temporaires sont employées pour manipuler les différentes parties de l'argument. On vérifie notamment la présence du token \texttt{+j} pour activer la clé \tsobj[key]{jacobian}, et on ajoute la variable par défaut si elle n'est pas spécifiée. Enfin, on assigne les valeurs aux clés \tsobj[key]{limits}, \tsobj[key]{variables} et \tsobj[key]{mode} en fonction des éléments extraits.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_parse_integral_keys:n #1
-  {
-    \keys_if_exist:nVTF { integral } \l_@@_key_name_tl
-      { \keys_set:nn { integral } { #1 } }
-      {  
-        \regex_split:nnN { : } { #1 } \l_tmpa_seq
-        \str_if_eq:eeTF
-          { \seq_item:Nn \l_tmpa_seq { 2 } }
-          { +j }
-          {
-            \exp_args:NNne \seq_set_item:Nnn \l_tmpa_seq { 2 } 
-              { \l_@@_default_differential_tl+j }
-          }
-          {
-            \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 2 }
-              {
-                \seq_put_right:NV
-                  \l_tmpa_seq
-                  \l_@@_default_differential_tl 
-              }
-          }
-        \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 3 }
-          { \seq_put_right:Nn \l_tmpa_seq { d } }
-        \seq_set_split:Nne \l_tmpb_seq
-          { + }
-          { \seq_item:Nn \l_tmpa_seq { 2 } }
-        \keys_set:ne { integral }
-          {
-            limits    = { \seq_item:Nn \l_tmpa_seq { 1 } },
-            variables = { \seq_item:Nn \l_tmpb_seq { 1 } },
-            mode      =
-              { 
-                \str_case:enF { \seq_item:Nn \l_tmpa_seq { 3 } }
+   {
+      \keys_if_exist:nVTF { integral } \l_@@_key_name_tl
+         { \keys_set:nn { integral } { #1 } }
+         {
+            \regex_split:nnN { : } { #1 } \l_tmpa_seq
+            \str_if_eq:eeTF
+               { \seq_item:Nn \l_tmpa_seq { 2 } }
+               { +j }
+               {
+                  \exp_args:NNne \seq_set_item:Nnn \l_tmpa_seq { 2 }
+                     {
+                        \seq_use:Nn
+                           \l_@@_default_variables_seq
+                           { , }
+                           +j
+                     }
+               }
+               {
+                  \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 2 }
+                     {
+                        \seq_put_right:Ne
+                           \l_tmpa_seq
+                           { \seq_use:Nn \l_@@_default_variables_seq { , } }
+                     }
+               }
+         \int_compare:nNnT { \seq_count:N \l_tmpa_seq } < { 3 }
+            { \seq_put_right:Nn \l_tmpa_seq { d } }
+         \seq_set_split:Nne \l_tmpb_seq
+            { + }
+            { \seq_item:Nn \l_tmpa_seq { 2 } }
+         \keys_set:ne { integral }
+            {
+               limits    = { \seq_item:Nn \l_tmpa_seq { 1 } },
+               variables = { \seq_item:Nn \l_tmpb_seq { 1 } },
+               mode      =
                   {
-                    { d       } { default }
-                    { n       } { nested  }
-                    { p       } { product }
-                    { default } { default }
-                    { nested  } { nested  }
-                    { product } { product }
+                     \str_case:enF { \seq_item:Nn \l_tmpa_seq { 3 } }
+                        {
+                           { d       } { default }
+                           { n       } { nested  }
+                           { p       } { product }
+                           { default } { default }
+                           { nested  } { nested  }
+                           { product } { product }
+                        }
+                        { default }
+                  },
+               \bool_if:nT
+                  {
+                     \int_compare_p:nNn { \seq_count:N \l_tmpb_seq } > { 1 }
+                     &&
+                     \str_if_eq_p:en { \seq_item:Nn \l_tmpb_seq { 2 } } { j }
                   }
-                { default }
-              },
-            \bool_if:nT
-              {
-                \int_compare_p:nNn { \seq_count:N \l_tmpb_seq } > { 1 }
-                &&
-                \str_if_eq_p:en { \seq_item:Nn \l_tmpb_seq { 2 } } { j }
-              }
-              { jacobian }
-          }
-      }
-  }
+                  { jacobian }
+            }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \section{Composition de l'intégrale}
 %
 % \begin{codedescribe}[macro3]{\@@_integral_preconfiguration:}
-% Avant de pouvoir composer l'intégrale dans le document, un certain nombre de vérifications doit être effectué. En effet, selon la combinaison de clés renseignée dans l'argument optionel, les séquences ne sont pas nécessairement encore remplies. On effectue donc l'ensemble des vérifications suivantes:
+% Avant de pouvoir composer l'intégrale dans le document, un certain nombre de vérifications doivent être effectuées. En effet, selon la combinaison de clés renseignée dans l'argument optionnel, les séquences ne sont pas nécessairement encore remplies. On effectue donc l'ensemble des vérifications suivantes:
 % \begin{itemize}
-%   \item On regarde si l'intégrande doit être séparé en plusieurs parties par les modes \tsobj[option]{nested} et \tsobj[option]{product}, auquel cas on remplit la séquence de l'intégrande en séparant les éléments à partir du point-virgule. Sinon, on ajoute simplement l'intégrande (\tsobj[variable3]{\l_@@_integrand_tl}) à la séquence.
-%   \item On vérifie si la séquence des symboles est vide, signe que la clé \tsobj[key]{limits*} n'a pas été appelée. En effet, seul l'utilisation de cette clé engendre l'execution de toutes les macros présentées en section \cref{sec:implementationbornes}. Dans ce cas là, on ajoute simplement à la séquence la forme générale de l'intégrale, dont le symbole et les bornes seront éventuellement modifiés par les clés \tsobj[key]{symbol}, \tsobj[key]{ulimit} et \tsobj[key]{llimit}.
+%   \item On regarde si l'intégrande doit être séparée en plusieurs parties par les modes \tsobj[option]{nested} et \tsobj[option]{product}, auquel cas on remplit la séquence de l'intégrande en séparant les éléments à partir du point-virgule. Sinon, on ajoute simplement l'intégrande (\tsobj[variable3]{\l_@@_integrand_tl}) à la séquence.
+%   \item On vérifie si la séquence des symboles est vide, signe que la clé \tsobj[key]{limits*} n'a pas été appelée. En effet, seule l'utilisation de cette dernière engendre l'exécution de toutes les macros présentées en section \cref{sec:implementationbornes}. Dans ce cas-là, on ajoute simplement à la séquence la forme générale de l'intégrale, dont le symbole et les bornes seront éventuellement modifiés par les clés \tsobj[key]{symbol}, \tsobj[key]{ulimit} et \tsobj[key]{llimit}.
 %   \item On contrôle ensuite la désactivation des différentielles en plus de détecter la présence de \tsobj[macro]{\differentials} à l'aide d'une expression régulière.
 % \end{itemize}
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_integral_preconfiguration:
-  {
-    \bool_if:NTF \l_@@_separate_integral_bool
-      { 
-        \seq_set_split:NnV
-          \l_@@_integrand_seq
-          { ; } 
-          \l_@@_integrand_tl
-      }
-      {
-        \seq_put_right:NV
-          \l_@@_integrand_seq
-          \l_@@_integrand_tl
-      }
-      
-    \seq_if_empty:NT \l_@@_integral_symbol_seq
-      {
-        \seq_put_right:Nn \l_@@_integral_symbol_seq
-          { \@@_general_integral_symbol: }
-      }
-
-    \bool_if:NF \l_@@_deactivate_variables_bool
-      { \@@_parse_variables: }
-
-    \regex_if_match:nVTF { \c{differentials} } \l_@@_integrand_tl
-      { \bool_set_true:N \l_@@_manual_differential_bool }
-      { \bool_set_false:N \l_@@_manual_differential_bool }
-  }
+   {
+      \bool_if:NTF \l_@@_separate_integral_bool
+         {
+            \seq_set_split:NnV
+               \l_@@_integrand_seq
+               { ; }
+               \l_@@_integrand_tl
+         }
+         {
+            \seq_put_right:NV
+               \l_@@_integrand_seq
+               \l_@@_integrand_tl
+         }
+      \seq_if_empty:NT \l_@@_integral_symbol_seq
+         {
+            \seq_put_right:Nn \l_@@_integral_symbol_seq
+            { \@@_general_integral_symbol: }
+         }
+      \bool_if:NF \l_@@_deactivate_variables_bool
+         { \@@_parse_variables: }
+      \tl_if_regex_match:VnTF \l_@@_integrand_tl { \c{differentials} }
+         { \bool_set_true:N \l_@@_manual_differential_bool }
+         { \bool_set_false:N \l_@@_manual_differential_bool }
+   }
 %    \end{macrocode}
-% 
+%
 % On peut désormais définir l'ensemble des six macros qui serviront à composer une intégrale précise; trois modes autorisés par \tsobj[option]{mode}, chacun accompagné d'une variante pour les différentielles inversées. On notera par ailleurs que \tsobj[macro]{\differentials} n'est créé que si le booléen \tsobj[variable3]{\l_@@_manual_differential_bool} est vrai, afin d'éviter des définitions inutiles.
-% 
+%
 % \subsection{Mode \emph{default}}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_print_default_integral:}
-% Pour le mode par défaut on compose dans l'ordre: symbole intégrale, intégrande, jacobien (si applicable), et différentielles. Puisque les éléments sont successifs, on applique \tsobj[macro]{\seq_use:Nn} pour chacune des séquences en insérant un crénage lorsque c'est nécessaire. \`A noter que si \tsobj[variable3]{\l_@@_vectorial_differential_bool} est vrai, on ajoute un point médian et supprime le crénage précédant (pour des raisons d'espacement propres à \tsobj[macro]{\cdot}).
+% Pour le mode par défaut, on compose dans l'ordre: symbole intégrale, intégrande, jacobien (si applicable), et différentielles. Puisque les éléments sont successifs, on applique \tsobj[macro]{\seq_use:Nn} pour chacune des séquences en insérant un crénage lorsque c'est nécessaire. \`A noter que si \tsobj[variable3]{\l_@@_vectorial_differential_bool} est vrai, on ajoute un point médian et supprime le crénage précédent (pour des raisons d'espacement propres à \tsobj[macro]{\cdot}).
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_default_integral:
-  {
-    \bool_if:NT \l_@@_manual_differential_bool
-      {
-        \cs_set_protected:Npn \differentials
-          { 
-            \seq_use:Nn \l_@@_differential_seq 
-              { \@@_mkern:N \l_@@_differential_sep_muskip } 
-          }
-      }
-    \seq_use:Nn \l_@@_integral_symbol_seq 
-      { \@@_mkern:N \l_@@_symbol_inner_sep_muskip }
-    \@@_mkern:N \l_@@_symbol_post_sep_muskip
-    \seq_use:Nn \l_@@_integrand_seq {  }
-    \bool_if:NT \l_@@_jacobian_bool
-      { \seq_use:Nn \l_@@_jacobian_seq {  } }
-    \@@_mkern:N \l_@@_variable_sep_muskip
-    \bool_if:NT \l_@@_vectorial_differential_bool
-      { \tex_unkern:D \cdot}
-    \bool_if:NF \l_@@_manual_differential_bool
-      { 
-        \seq_use:Nn \l_@@_differential_seq
-          { \@@_mkern:N \l_@@_differential_sep_muskip }
-      }
-  }
+   {
+      \bool_if:NT \l_@@_manual_differential_bool
+         {
+            \cs_set_protected:Npn \differentials
+               {
+                  \seq_use:Nn \l_@@_differential_seq
+                     { \@@_mkern:N \l_@@_differential_sep_muskip }
+               }
+         }
+      \seq_use:Nn \l_@@_integral_symbol_seq
+         { \@@_mkern:N \l_@@_symbol_inner_sep_muskip }
+      \@@_mkern:N \l_@@_symbol_post_sep_muskip
+      \seq_use:Nn \l_@@_integrand_seq {  }
+      \bool_if:NT \l_@@_jacobian_bool
+         { \seq_use:Nn \l_@@_jacobian_seq {  } }
+      \@@_mkern:N \l_@@_variable_sep_muskip
+      \bool_if:NT \l_@@_vectorial_differential_bool
+         { \tex_unkern:D \cdot}
+      \bool_if:NF \l_@@_manual_differential_bool
+         {
+            \seq_use:Nn \l_@@_differential_seq
+               { \@@_mkern:N \l_@@_differential_sep_muskip }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_print_default_integral_inv:}
 % Pour les différentielles inversées, rien de bien différent, si ce n'est que \tsobj[variable3]{\l_@@_integrand_seq} et \tsobj[variable3]{\l_@@_differential_seq} sont interverties.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_default_integral_inv:
-  {
-    \bool_if:NT \l_@@_manual_differential_bool
-      {
-        \cs_set_protected:Npn \differentials
-          { 
-            \seq_use:Nn \l_@@_differential_seq 
-              { \@@_mkern:N \l_@@_differential_sep_muskip } 
-          }
-      }
-    \seq_use:Nn \l_@@_integral_symbol_seq 
-      { \@@_mkern:N \l_@@_symbol_inner_sep_muskip }
-    \@@_mkern:N \l_@@_symbol_post_sep_muskip
-    \bool_if:NF \l_@@_manual_differential_bool
-      { 
-        \seq_use:Nn \l_@@_differential_seq 
-          { \@@_mkern:N \l_@@_differential_sep_muskip } 
-      }
-    \@@_mkern:N \l_@@_variable_sep_muskip
-    \bool_if:NT \l_@@_vectorial_differential_bool 
-      { \tex_unkern:D \cdot}
-    \seq_use:Nn \l_@@_integrand_seq {  }
-    \bool_if:NT \l_@@_jacobian_bool
-      { \seq_use:Nn \l_@@_jacobian_seq {  } }
-  }
+   {
+      \bool_if:NT \l_@@_manual_differential_bool
+         {
+            \cs_set_protected:Npn \differentials
+               {
+                  \seq_use:Nn \l_@@_differential_seq
+                     { \@@_mkern:N \l_@@_differential_sep_muskip }
+               }
+         }
+      \seq_use:Nn \l_@@_integral_symbol_seq
+         { \@@_mkern:N \l_@@_symbol_inner_sep_muskip }
+      \@@_mkern:N \l_@@_symbol_post_sep_muskip
+      \bool_if:NF \l_@@_manual_differential_bool
+         {
+            \seq_use:Nn \l_@@_differential_seq
+               { \@@_mkern:N \l_@@_differential_sep_muskip }
+         }
+      \@@_mkern:N \l_@@_variable_sep_muskip
+      \bool_if:NT \l_@@_vectorial_differential_bool
+         { \tex_unkern:D \cdot}
+      \seq_use:Nn \l_@@_integrand_seq {  }
+      \bool_if:NT \l_@@_jacobian_bool
+         { \seq_use:Nn \l_@@_jacobian_seq {  } }
+   }
 %    \end{macrocode}
-% 
+%
 % \subsection{Mode \emph{nested}}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_print_nested_integral:}
 % Dans le mode imbriqué, on initie une boucle incrémentée où l'on extrait le $i$\textsuperscript{e} élément de chacune des séquences du symbole, de l'intégrande et du jacobien. Après l'itération, on compose toutes les différentielles à nouveau à l'aide de \tsobj[macro]{\seq_use:Nn}.
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_nested_integral:
-  {
-    \bool_if:NT \l_@@_manual_differential_bool
-      {
-        \cs_set_protected:Npn \differentials
-          {
+   {
+      \bool_if:NT \l_@@_manual_differential_bool
+         {
+            \cs_set_protected:Npn \differentials
+               {
+                  \seq_use:Nn \l_@@_differential_seq
+                     { \@@_mkern:N \l_@@_differential_sep_muskip }
+               }
+         }
+      \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
+         {
+            \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
+            \@@_mkern:N \l_@@_symbol_post_sep_muskip
+            \seq_item:Nn \l_@@_integrand_seq { ##1 }
+            \bool_if:NT \l_@@_jacobian_bool
+               { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+         }
+      \@@_mkern:N \l_@@_variable_sep_muskip
+      \bool_if:NF \l_@@_manual_differential_bool
+         {
             \seq_use:Nn \l_@@_differential_seq
-              { \@@_mkern:N \l_@@_differential_sep_muskip } 
-          }
-      }
-    \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
-      {
-        \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
-        \@@_mkern:N \l_@@_symbol_post_sep_muskip
-        \seq_item:Nn \l_@@_integrand_seq { ##1 }
-        \bool_if:NT \l_@@_jacobian_bool
-          { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
-      }
-    \@@_mkern:N \l_@@_variable_sep_muskip
-    \bool_if:NF \l_@@_manual_differential_bool
-      { 
-        \seq_use:Nn \l_@@_differential_seq 
-          { \@@_mkern:N \l_@@_differential_sep_muskip } 
-      }
-  }
+               { \@@_mkern:N \l_@@_differential_sep_muskip }
+         }
+   }
 %    \end{macrocode}
 % \end{codedescribe}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_print_nested_integral_inv:}
-% Ici, c'est la séquence des différentielles qui apparait dans la boucle et celle de l'intégrande qui est utilisée à la fin, après l'itération.
+% Ici, c'est la séquence des différentielles qui apparaît dans la boucle et celle de l'intégrande qui est utilisée à la fin, après l'itération.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_nested_integral_inv:
-  {
-    \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
-      {
-        \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
-        \@@_mkern:N \l_@@_symbol_post_sep_muskip
-        \seq_item:Nn \l_@@_differential_seq { ##1 }
-      }
-    \@@_mkern:N \l_@@_variable_sep_muskip
-    \seq_use:Nn \l_@@_integrand_seq {  }
-    \bool_if:NT \l_@@_jacobian_bool
-      { \seq_use:Nn \l_@@_jacobian_seq {  } }
-  }
+   {
+      \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
+         {
+            \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
+            \@@_mkern:N \l_@@_symbol_post_sep_muskip
+            \seq_item:Nn \l_@@_differential_seq { ##1 }
+         }
+      \@@_mkern:N \l_@@_variable_sep_muskip
+      \seq_use:Nn \l_@@_integrand_seq {  }
+      \bool_if:NT \l_@@_jacobian_bool
+         { \seq_use:Nn \l_@@_jacobian_seq {  } }
+   }
 %    \end{macrocode}
-% 
+%
 % \subsection{Mode \emph{product}}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_print_product_integral:}
-% Le mode produit est très similaire au mode imbriqué, dans la mesure où cette fois ci, toutes les séquences aparaissent dans la boucle.
+% Le mode produit est très similaire au mode imbriqué, dans la mesure où cette fois-ci, toutes les séquences apparaissent dans la boucle.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_product_integral:
-  {
-    \bool_if:NT \l_@@_manual_differential_bool
-      {
-        \cs_set_protected:Npn \differentials
-          { 
-            \seq_pop_left:NN \l_@@_differential_seq \l_tmpa_tl 
-            \tl_use:N \l_tmpa_tl
-          }
-      }
-    \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
-      {
-        \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
-        \@@_mkern:N \l_@@_symbol_post_sep_muskip
-        \seq_item:Nn \l_@@_integrand_seq { ##1 }
-        \bool_if:NT \l_@@_jacobian_bool
-          { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
-        \@@_mkern:N \l_@@_variable_sep_muskip
-        \bool_if:NF \l_@@_manual_differential_bool
-          { \seq_item:Nn \l_@@_differential_seq { ##1 } }
-      }
-  }
+   {
+      \bool_if:NT \l_@@_manual_differential_bool
+         {
+            \cs_set_protected:Npn \differentials
+               {
+                  \seq_pop_left:NN \l_@@_differential_seq \l_tmpa_tl
+                  \tl_use:N \l_tmpa_tl
+               }
+         }
+      \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
+         {
+            \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
+            \@@_mkern:N \l_@@_symbol_post_sep_muskip
+            \seq_item:Nn \l_@@_integrand_seq { ##1 }
+            \bool_if:NT \l_@@_jacobian_bool
+               { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+            \@@_mkern:N \l_@@_variable_sep_muskip
+            \bool_if:NF \l_@@_manual_differential_bool
+               { \seq_item:Nn \l_@@_differential_seq { ##1 } }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_print_product_integral_inv:}
 % De même, peu de changements.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_product_integral_inv:
-  {
-    \bool_if:NT \l_@@_manual_differential_bool
-      {
-        \cs_set_protected:Npn \differentials
-          { 
-            \seq_pop_left:NN \l_@@_differential_seq \l_tmpa_tl 
-            \tl_use:N \l_tmpa_tl
-          }
-      }
-    \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
-      {
-        \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
-        
-        \bool_if:NF \l_@@_manual_differential_bool
-          { 
-            \@@_mkern:N \l_@@_symbol_post_sep_muskip
-            \seq_item:Nn \l_@@_differential_seq { ##1 }
-          }
-        \@@_mkern:N \l_@@_variable_sep_muskip
-        \seq_item:Nn \l_@@_integrand_seq { ##1 }
-        \bool_if:NT \l_@@_jacobian_bool
-          { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
-      }
-  }
+   {
+      \bool_if:NT \l_@@_manual_differential_bool
+         {
+            \cs_set_protected:Npn \differentials
+               {
+                  \seq_pop_left:NN \l_@@_differential_seq \l_tmpa_tl
+                  \tl_use:N \l_tmpa_tl
+               }
+         }
+      \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
+         {
+            \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
+            \bool_if:NF \l_@@_manual_differential_bool
+               {
+                  \@@_mkern:N \l_@@_symbol_post_sep_muskip
+                  \seq_item:Nn \l_@@_differential_seq { ##1 }
+               }
+            \@@_mkern:N \l_@@_variable_sep_muskip
+            \seq_item:Nn \l_@@_integrand_seq { ##1 }
+            \bool_if:NT \l_@@_jacobian_bool
+               { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \subsection{Composition finale}
 %
 % \begin{codedescribe}[macro3]{\@@_print_integral:}
-% La macro principale composant l'intégrale incrémente tout d'abord le compteur global permettant de numéroter chaque intégrale. Ensuite, elle mène les actions préparatoires expliquées précédemment. Enfin, selon le placement des différentielles et du mode d'affichage demandé, l'une des six macros est appelée.  
+% La macro principale composant l'intégrale incrémente tout d'abord le compteur global permettant de numéroter chaque intégrale. Ensuite, elle mène les actions préparatoires expliquées précédemment. Enfin, selon le placement des différentielles et du mode d'affichage demandé, l'une des six macros est appelée.
 % \end{codedescribe}
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_print_integral:
-  {
-    \int_gincr:N \g_@@_integral_number_int
-    \@@_integral_preconfiguration:
-    \bool_if:NTF \l_@@_invert_differential_bool
+   {
+      \int_gincr:N \g_@@_integral_number_int
+      \@@_integral_preconfiguration:
+      \bool_if:NTF \l_@@_invert_differential_bool
+         {
+            \str_case:VnF \l_@@_display_mode_str
+               {
+                  { default } { \@@_print_default_integral_inv: }
+                  { nested  } { \@@_print_nested_integral_inv:  }
+                  { product } { \@@_print_product_integral_inv: }
+               }
+               { \@@_print_default_integral_inv: }
+         }
       {
-        \str_case:VnF \l_@@_display_mode_str
-          {
-            { default } { \@@_print_default_integral_inv: }
-            { nested  } { \@@_print_nested_integral_inv:  }
-            { product } { \@@_print_product_integral_inv: }
-          }
-          { \@@_print_default_integral_inv: }
+         \str_case:VnF \l_@@_display_mode_str
+            {
+               { default } { \@@_print_default_integral: }
+               { nested  } { \@@_print_nested_integral:  }
+               { product } { \@@_print_product_integral: }
+            }
+            { \@@_print_default_integral: }
       }
-      {
-        \str_case:VnF \l_@@_display_mode_str
-          {
-            { default } { \@@_print_default_integral: }
-            { nested  } { \@@_print_nested_integral:  }
-            { product } { \@@_print_product_integral: }
-          }
-          { \@@_print_default_integral: }
-      }
-  }
+   }
 %    \end{macrocode}
 %
 % \section{Déclaration des clés}
-% 
+%
 % La création des clés pour \tsobj[macro]{\integral} et \tsobj[macro]{\IntegralSetup} est relativement triviale. Les quelques actions élémentaires pour les clés \tsobj[key]{limits} et \tsobj[key]{variables} qui n'ont pas été couvertes par les macros sont effectuées ici.
-% 
+%
 %    \begin{macrocode}
 \keys_define:nn { integral }
-  {
-    mode .choice:,
-      mode / default .code:n =
-        {
-          \bool_set_false:N \l_@@_separate_integral_bool
-          \str_set:Nn \l_@@_display_mode_str { default }
-        },
-      mode / nested .code:n =
-        {
-          \bool_set_true:N \l_@@_separate_integral_bool
-          \str_set:Nn \l_@@_display_mode_str { nested }
-        },
-      mode / product .code:n =
-        {
-          \bool_set_true:N \l_@@_separate_integral_bool
-          \str_set:Nn \l_@@_display_mode_str { product }
-        },
+   {
+      mode .choice:,
+         mode / default .code:n =
+            {
+               \bool_set_false:N \l_@@_separate_integral_bool
+               \str_set:Nn \l_@@_display_mode_str { default }
+            },
+         mode / nested .code:n =
+            {
+               \bool_set_true:N \l_@@_separate_integral_bool
+               \str_set:Nn \l_@@_display_mode_str { nested }
+            },
+         mode / product .code:n =
+            {
+               \bool_set_true:N \l_@@_separate_integral_bool
+               \str_set:Nn \l_@@_display_mode_str { product }
+            },
       mode .default:n = { default },
 
-    limits .code:n =
-      {
-        \seq_set_split:Nnn \l_@@_limits_seq { ; } { #1 }
-        \@@_set_limits_regular:
-        \@@_generate_integral_sequence:
-      },
+      limits-mode .choice:,
+      limits-mode / limits .code:n =
+         { \tl_set_eq:NN \l_@@_limits_style_tl \tex_limits:D },
+      limits-mode / nolimits .code:n =
+         { \tl_set_eq:NN \l_@@_limits_style_tl \tex_nolimits:D },
 
-    limits* .code:n =
-      {
-        \seq_set_split:Nnn \l_@@_limits_seq { ; } { #1 }
-        \@@_set_limits_starred:
-        \@@_generate_integral_sequence:
-      },
+      limits .code:n =
+         {
+            \seq_set_split:Nnn \l_@@_limits_seq { ; } { #1 }
+            \@@_set_limits_regular:
+            \@@_generate_integral_sequence:
+         },
 
-    llimit .tl_set:N = \l_@@_lower_limit_tl,
+      limits* .code:n =
+         {
+            \seq_set_split:Nnn \l_@@_limits_seq { ; } { #1 }
+            \@@_set_limits_starred:
+            \@@_generate_integral_sequence:
+         },
 
-    ulimit .tl_set:N = \l_@@_upper_limit_tl,
+      llimit .tl_set:N = \l_@@_lower_limit_tl,
 
-    symbol .code:n =
-      {
-        \cs_if_exist:NTF #1
-          { \tl_set_eq:NN \l_@@_integral_symbol_tl #1 }
-          { 
-            \msg_warning:nnn { intexgral } { unknown-symb } { #1 } 
-            \tl_set_eq:NN \l_@@_integral_symbol_tl \int
-          }
-      },
+      ulimit .tl_set:N = \l_@@_upper_limit_tl,
 
-    nint .code:n =
-      {
-        \int_compare:nNnT { #1 } < { 5 }
-          { \msg_warning:nn { intexgral } { use-glyph-instead } }
+      symbol .code:n =
+         {
+            \cs_if_exist:NTF #1
+               { \tl_set_eq:NN \l_@@_integral_symbol_tl #1 }
+               {
+                  \msg_warning:nnn { intexgral } { unknown-symb } { #1 }
+                  \tl_set_eq:NN \l_@@_integral_symbol_tl \int
+               }
+         },
 
-        \tl_clear:N \l_@@_integral_symbol_tl
-
-        \int_step_inline:nn { #1 }
-          {
-            \tl_put_right:Nn \l_@@_integral_symbol_tl
-              { \int }
-            \int_compare:nNnT { ##1 } < { #1 }
-              {
-                \tl_put_right:Nn \l_@@_integral_symbol_tl
+      nint .code:n =
+         {
+            \int_compare:nNnT { #1 } < { 5 }
+               { \msg_warning:nn { intexgral } { use-glyph-instead } }
+            \tl_clear:N \l_@@_integral_symbol_tl
+            \int_step_inline:nn { #1 }
+               {
+                  \tl_put_right:Nn \l_@@_integral_symbol_tl
+                     { \int }
+                  \int_compare:nNnT { ##1 } < { #1 }
                   {
-                    \@@_mathchoice:nnnn
-                      { \tex_mkern:D -12mu \scan_stop: }
-                      { \tex_mkern:D -8mu \scan_stop: }
-                      { \tex_mkern:D -4mu \scan_stop: }
-                      { \tex_mkern:D -2mu \scan_stop: }
+                     \tl_put_right:Nn \l_@@_integral_symbol_tl
+                        {
+                           \@@_mathchoice:nnnn
+                              { \tex_mkern:D -12mu \scan_stop: }
+                              { \tex_mkern:D -8mu \scan_stop: }
+                              { \tex_mkern:D -4mu \scan_stop: }
+                              { \tex_mkern:D -2mu \scan_stop: }
+                        }
                   }
-              }
-          }
-      },
+               }
+         },
 
-    domain .code:n =
-      {
-        \tl_set:Nn \l_tmpa_tl { #1 }
-        \seq_set_split:NnV \l_@@_domain_seq { * } \l_tmpa_tl
-        \seq_map_inline:Nn \l_@@_domain_seq
-          {
-            \tl_if_empty:NF \l_@@_lower_limit_tl
-              { \tl_put_right:Nn \l_@@_lower_limit_tl { \times } }
-            \tl_set:Ne \l_@@_domain_char_tl
-              { \exp_args:Ne \str_uppercase:n { \tl_head:n { ##1 } } }
-            \tl_set:Ne \l_@@_domain_dimension_tl
-              { \tl_tail:n { ##1 } }
-            \tl_put_right:Ne \l_@@_lower_limit_tl
-              {
-                \exp_not:V \l_@@_domain_style_tl
-                  { \l_@@_domain_char_tl }
-                \c_math_superscript_token { \l_@@_domain_dimension_tl }
-              }
-          }
-      },
+      domain .code:n =
+         {
+            \tl_set:Nn \l_tmpa_tl { #1 }
+            \seq_set_split:NnV \l_@@_domain_seq { * } \l_tmpa_tl
+            \seq_map_inline:Nn \l_@@_domain_seq
+               {
+                  \tl_if_empty:NF \l_@@_lower_limit_tl
+                     { \tl_put_right:Nn \l_@@_lower_limit_tl { \times } }
+                  \tl_set:Ne \l_@@_domain_char_tl
+                     { \exp_args:Ne \str_uppercase:n { \tl_head:n { ##1 } } }
+                  \tl_set:Ne \l_@@_domain_dimension_tl
+                     { \tl_tail:n { ##1 } }
+                  \tl_put_right:Ne \l_@@_lower_limit_tl
+                     {
+                        \exp_not:V \l_@@_domain_style_tl
+                           { \l_@@_domain_char_tl }
+                        \c_math_superscript_token { \l_@@_domain_dimension_tl }
+                     }
+               }
+         },
 
-    domain* .code:n =
-      {
-        \tl_set:Nn \l_tmpa_tl { #1 }
-        \seq_set_split:NnV \l_@@_domain_seq { * } \l_tmpa_tl
-        \seq_map_inline:Nn \l_@@_domain_seq
-          {
-            \tl_if_empty:NF \l_@@_lower_limit_tl
-              { \tl_put_right:Nn \l_@@_lower_limit_tl { \times } }
-            \tl_set:Ne \l_@@_domain_char_tl
-              { \exp_args:Ne \str_uppercase:n { \tl_head:n { ##1 } } }
-            \tl_set:Ne \l_@@_domain_dimension_tl
-              { \tl_tail:n { ##1 } }
-            \tl_put_right:Ne \l_@@_lower_limit_tl
-              {
-                \exp_not:V \l_@@_domain_style_tl
-                  { \l_@@_domain_char_tl }
-                \c_math_subscript_token { \l_@@_domain_dimension_tl }
-              }
-          }
-      },
+      domain* .code:n =
+         {
+            \tl_set:Nn \l_tmpa_tl { #1 }
+            \seq_set_split:NnV \l_@@_domain_seq { * } \l_tmpa_tl
+            \seq_map_inline:Nn \l_@@_domain_seq
+               {
+                  \tl_if_empty:NF \l_@@_lower_limit_tl
+                     { \tl_put_right:Nn \l_@@_lower_limit_tl { \times } }
+                  \tl_set:Ne \l_@@_domain_char_tl
+                     { \exp_args:Ne \str_uppercase:n { \tl_head:n { ##1 } } }
+                  \tl_set:Ne \l_@@_domain_dimension_tl
+                     { \tl_tail:n { ##1 } }
+                  \tl_put_right:Ne \l_@@_lower_limit_tl
+                     {
+                        \exp_not:V \l_@@_domain_style_tl
+                           { \l_@@_domain_char_tl }
+                        \c_math_subscript_token { \l_@@_domain_dimension_tl }
+                     }
+               }
+         },
 
-    boundary .code:n =
-      { \tl_set:Nn \l_@@_lower_limit_tl { \partial #1 } },
+      boundary .code:n =
+         { \tl_set:Nn \l_@@_lower_limit_tl { \partial #1 } },
 
-    variables .code:n =
-      {
-        \bool_set_true:N \l_@@_custom_variables_bool
-        \str_if_eq:nnTF { #1 } { none }
-          { \bool_set_true:N \l_@@_deactivate_variables_bool }
-          {
-            \prop_get:NnNTF
-              \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
-                {
-                  \seq_set_split:NnV
-                  \l_@@_variables_seq
-                  { , }
-                  \l_tmpa_tl
-                  \seq_if_exist:cTF { g_@@_#1_jacobian_seq }
-                    {
-                      \seq_set_eq:Nc
-                        \l_@@_jacobian_seq 
-                        { g_@@_#1_jacobian_seq }
-                    }
-                    { \msg_warning:nnn { intexgral } { no-jacobian } { #1 } }
-                }
-                { \seq_set_split:Nnn \l_@@_variables_seq { , } { #1 } }
-          }
-      },
+      variables .code:n =
+         {
+            \bool_set_true:N \l_@@_custom_variables_bool
+            \str_if_eq:nnTF { #1 } { none }
+               { \bool_set_true:N \l_@@_deactivate_variables_bool }
+               {
+                  \prop_get:NnNTF
+                  \g_@@_differential_group_keyword_prop { #1 } \l_tmpa_tl
+                     {
+                        \seq_set_split:NnV
+                        \l_@@_variables_seq
+                        { , }
+                        \l_tmpa_tl
+                        \seq_if_exist:cTF { g_@@_#1_jacobian_seq }
+                           {
+                              \seq_set_eq:Nc
+                                 \l_@@_jacobian_seq
+                                 { g_@@_#1_jacobian_seq }
+                           }
+                           { \msg_warning:nnn { intexgral } { no-jacobian } { #1 } }
+                     }
+                     { \seq_set_split:Nnn \l_@@_variables_seq { , } { #1 } }
+               }
+         },
 
-    jacobian .code:n =
-      { \bool_set_true:N \l_@@_jacobian_bool },
-    diff-vec .code:n =
-      { \bool_set_true:N \l_@@_vectorial_differential_bool },
-    diff-symb .tl_set:N = \l_@@_differential_symbol_tl,
-    diff-order .clist_set:N = \l_@@_differential_order_clist,
-  } 
+      jacobian .code:n =
+         { \bool_set_true:N \l_@@_jacobian_bool },
+      diff-vec .code:n =
+         { \bool_set_true:N \l_@@_vectorial_differential_bool },
+      diff-symb .tl_set:N = \l_@@_differential_symbol_tl,
+      diff-order .clist_set:N = \l_@@_differential_order_clist,
+   }
 
 \keys_define:nn { IntegralSetup }
-  {
-    diff-symb    .tl_set:N     = \l_@@_differential_symbol_tl,
-    defaultvar   .tl_set:N     = \l_@@_default_differential_tl,
-    defaultvar*  .tl_set:N     = \l_@@_default_vector_differential_tl,
-    postsymbsep  .muskip_set:N = \l_@@_symbol_post_sep_muskip,
-    varsep       .muskip_set:N = \l_@@_variable_sep_muskip,
-    diffsep      .muskip_set:N = \l_@@_differential_sep_muskip,
-    vectorstyle  .tl_set:N     = \l_@@_vectorial_differential_style_tl,
-    domainstyle  .tl_set:N     = \l_@@_domain_style_tl,
-    innersymbsep .tl_set:N     = \l_@@_symbol_inner_sep_muskip,
-    novar        .bool_set:N   = \l_@@_deactivate_variables_bool,
-  }
+   {
+      diff-symb    .tl_set:N     = \l_@@_differential_symbol_tl,
+      defaultvar   .code:n =
+         {
+            \seq_set_split:Nnn
+               \l_@@_default_variables_seq
+               { , } { #1 }
+         },
+      defaultvar*   .code:n =
+         {
+            \seq_set_split:Nnn
+               \l_@@_default_vectorial_variables_seq
+               { , } { #1 }
+         },
+      postsymbsep  .muskip_set:N = \l_@@_symbol_post_sep_muskip,
+      varsep       .muskip_set:N = \l_@@_variable_sep_muskip,
+      diffsep      .muskip_set:N = \l_@@_differential_sep_muskip,
+      vectorstyle  .tl_set:N     = \l_@@_vectorial_differential_style_tl,
+      domainstyle  .tl_set:N     = \l_@@_domain_style_tl,
+      innersymbsep .tl_set:N     = \l_@@_symbol_inner_sep_muskip,
+      novar        .bool_set:N   = \l_@@_deactivate_variables_bool,
+   }
 %    \end{macrocode}
-%    
+%
 % \section{Macros d'interface utilisateur}
-% 
+%
 % \subsection{Mots-clés pour les bornes}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_new_limits_group:nn}
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_new_limits_group:nn} \tsargs[marg]{mot-clé} \tsargs[marg]{bornes}
 % \end{codesyntax}
-% Pour le fonctionnement de \tsobj[macro]{\NewLimitsKeyword}, on enregistre le mot clé et sa valeur dans une liste de propriétés. Une particularité qui se doit néanmoins d'être expliquée est qu'il y a un double inversement des bornes: au moment de la création du mot-clé, et au moment d'en extraire son contenu (cf. \tsobj[macro]{\@@_parse_limits:nn}). La raison est qu'il est difficile de rattacher à un mot clé le statut de \emph{borne inversée}. Ainsi, quelque soit la convention choisie, les bornes sont stockées \emph{dans le même ordre}. Ceci permet également aux mots-clés définis par le package d'être dans le bon ordre, même si la convention est changée après son chargement.
+% Pour le fonctionnement de \tsobj[macro]{\NewLimitsKeyword}, on enregistre le mot clé et sa valeur dans une liste de propriétés. Une particularité qui se doit néanmoins d'être expliquée est qu'il y a un double inversement des bornes: au moment de la création du mot-clé, et au moment d'en extraire son contenu (cf. \tsobj[macro]{\@@_parse_limits:nn}). La raison est qu'il est difficile de rattacher à un mot clé le statut de \emph{borne inversée}. Ainsi, quelle que soit la convention choisie, les bornes sont stockées \emph{dans le même ordre}. Ceci permet également aux mots-clés définis par le package d'être dans le bon ordre, même si la convention est changée après son chargement.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_new_limits_group:nn #1#2
-  {
-    \prop_gput:Nne \g_@@_limits_keyword_prop { #1 }
-      {
-        \bool_if:NTF \l_@@_invert_limits_bool
-          { \@@_invert_limits:w #2\q_stop }
-          { #2 }
-      }
-  }
+   {
+      \prop_gput:Nne \g_@@_limits_keyword_prop { #1 }
+         {
+            \bool_if:NTF \l_@@_invert_limits_bool
+               { \@@_invert_limits:w #2\q_stop }
+               { #2 }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\NewLimitsKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:limitskey}.
+% Cette macro est documentée en \cref{subsubsec:limitskey}.
 % \end{codedescribe}
 %    \begin{macrocode}
 \NewDocumentCommand\NewLimitsKeyword{ m m }
-  {
-    \prop_if_in:NnTF \g_@@_limits_keyword_prop { #1 }
-      { \msg_error:nnn { intexgral } { lim-group-alr-def } { #1 } }
-      { \@@_new_limits_group:nn { #1 } { #2 } }
-  }
+   {
+      \prop_if_in:NnTF \g_@@_limits_keyword_prop { #1 }
+         { \msg_error:nnn { intexgral } { lim-group-alr-def } { #1 } }
+         { \@@_new_limits_group:nn { #1 } { #2 } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\RenewLimitsKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:limitskey}.
+% Cette macro est documentée en \cref{subsubsec:limitskey}.
 % \end{codedescribe}
 %    \begin{macrocode}
 \NewDocumentCommand\RenewLimitsKeyword{ m m }
-  {
-    \prop_pop:NnNTF \g_@@_limits_keyword_prop { #1 } \l_tmpa_tl
-      { \@@_new_limits_group:nn { #1 } { #2 } }
-      { \msg_error:nnn { intexgral } { lim-group-not-def } { #1 } }
-  }
+   {
+      \prop_pop:NnNTF \g_@@_limits_keyword_prop { #1 } \l_tmpa_tl
+         { \@@_new_limits_group:nn { #1 } { #2 } }
+         { \msg_error:nnn { intexgral } { lim-group-not-def } { #1 } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\ProvideLimitsKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:limitskey}.
+% Cette macro est documentée en \cref{subsubsec:limitskey}.
 % \end{codedescribe}
 %    \begin{macrocode}
 \NewDocumentCommand\ProvideLimitsKeyword{ m m }
-  {
-    \prop_if_in:NnF \g_@@_limits_keyword_prop { #1 }
-      { \@@_new_limits_group:nn { #1 } { #2 } }
-  }
+   {
+      \prop_if_in:NnF \g_@@_limits_keyword_prop { #1 }
+         { \@@_new_limits_group:nn { #1 } { #2 } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\DeclareLimitsKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:limitskey}.
+% Cette macro est documentée en \cref{subsubsec:limitskey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\DeclareLimitsKeyword{ m m }
-  {
-    \prop_remove:Nn \g_@@_limits_keyword_prop { #1 }
-    \@@_new_limits_group:nn { #1 } { #2 }
-  }
+   {
+      \prop_remove:Nn \g_@@_limits_keyword_prop { #1 }
+      \@@_new_limits_group:nn { #1 } { #2 }
+   }
 %    \end{macrocode}
 %
 % \subsection{Mots-clés pour les variables}
-% 
+%
 % \begin{codedescribe}[macro3]{\@@_new_variables_group:nnn}
 % \begin{codesyntax}
 %   \tsobj[macro3]{\@@_new_variables_group:nnn} \tsargs[marg]{mot-clé} \tsargs[marg]{variable} \tsargs[oarg]{jacobien}
@@ -2481,77 +2591,77 @@ end
 % \end{codedescribe}
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_new_variables_group:nnn #1#2#3
-  {
-    \prop_gput:Nnn \g_@@_differential_group_keyword_prop
-      { #1 } { #2 }
-    \tl_if_blank:nF { #3 }
-      {
-        \seq_new:c { g_@@_#1_jacobian_seq }
-        \seq_gset_split:cnn { g_@@_#1_jacobian_seq } { , } { #3 }
-      }
-  }
+   {
+      \prop_gput:Nnn \g_@@_differential_group_keyword_prop
+         { #1 } { #2 }
+      \tl_if_blank:nF { #3 }
+         {
+            \seq_new:c { g_@@_#1_jacobian_seq }
+            \seq_gset_split:cnn { g_@@_#1_jacobian_seq } { , } { #3 }
+         }
+   }
 %    \end{macrocode}
 %
 % \begin{codedescribe}[macro]{\NewVariableKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:variableskey}.
+% Cette macro est documentée en \cref{subsubsec:variableskey}.
 % \end{codedescribe}
 %    \begin{macrocode}
 \NewDocumentCommand\NewVariableKeyword{ m m o }
-  {
-    \prop_if_in:NnTF \g_@@_differential_group_keyword_prop { #1 }
-      { \msg_error:nnn { intexgral } { diff-group-alr-def } { #1 } }
-      { \@@_new_variables_group:nnn { #1 } { #2 } { #3 } }
-  }
+   {
+      \prop_if_in:NnTF \g_@@_differential_group_keyword_prop { #1 }
+         { \msg_error:nnn { intexgral } { diff-group-alr-def } { #1 } }
+         { \@@_new_variables_group:nnn { #1 } { #2 } { #3 } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\RenewVariableKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:variableskey}.
+% Cette macro est documentée en \cref{subsubsec:variableskey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\RenewVariableKeyword{ m m o }
-  {
-    \prop_pop:NnNTF \g_@@_differential_group_keyword_prop { #1 }
-      \l_tmpa_tl
-      {
-        \seq_gclear:c { g_@@_#1_jacobian_seq }
-        \@@_new_variables_group:nnn { #1 } { #2 } { #3 }
-      }
-      { \msg_error:nnn { intexgral } { diff-group-not-def } { #1 } }
-  }
+   {
+      \prop_pop:NnNTF \g_@@_differential_group_keyword_prop { #1 }
+         \l_tmpa_tl
+         {
+            \seq_gclear:c { g_@@_#1_jacobian_seq }
+            \@@_new_variables_group:nnn { #1 } { #2 } { #3 }
+         }
+         { \msg_error:nnn { intexgral } { diff-group-not-def } { #1 } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\ProvideVariableKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:variableskey}.
+% Cette macro est documentée en \cref{subsubsec:variableskey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\ProvideVariableKeyword{ m m o }
-  {
-    \prop_if_in:NnF \g_@@_differential_group_keyword_prop { #1 }
-      { \@@_new_variables_group:nnn { #1 } { #2 } { #3 } }
-  }
+   {
+      \prop_if_in:NnF \g_@@_differential_group_keyword_prop { #1 }
+         { \@@_new_variables_group:nnn { #1 } { #2 } { #3 } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\DeclareVariableKeyword}
 % \itshape
-% Cette macro est documentée en \cref{subsec:variableskey}.
+% Cette macro est documentée en \cref{subsubsec:variableskey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\DeclareVariableKeyword{ m m o }
-  {
-    \prop_remove:Nn \g_@@_differential_group_keyword_prop { #1 }
-    \seq_gclear:c { g_@@_#1_jacobian_seq }
-    \@@_new_variables_group:nnn { #1 } { #2 } { #3 }
-  }
+   {
+      \prop_remove:Nn \g_@@_differential_group_keyword_prop { #1 }
+      \seq_gclear:c { g_@@_#1_jacobian_seq }
+      \@@_new_variables_group:nnn { #1 } { #2 } { #3 }
+   }
 %    \end{macrocode}
 %
 % \subsection{Mots-clés pour les symboles}
-% 
+%
 % Cette section ne nécessite pas de macro intermédiaire, puisqu'on modifie directement les clés du module \emph{integral}.
 %
 % \begin{codedescribe}[macro]{\NewSymbolKeyword}
@@ -2560,143 +2670,151 @@ end
 % \end{codedescribe}
 %    \begin{macrocode}
 \NewDocumentCommand\NewSymbolKeyword{ m m }
-  {
-    \prop_if_in:NnT \g_@@_limits_keyword_prop { #1 }
+   {
+      \prop_if_in:NnT \g_@@_limits_keyword_prop { #1 }
       { \msg_warning:nnn { intexgral } { key-exists-for-lim } { #1 } }
-    \keys_if_exist:nnTF { integral } { #1 }
+      \keys_if_exist:nnTF { integral } { #1 }
       { \msg_error:nnn { intexgral } { symb-key-alr-def } { #1 } }
       {
-        \keys_define:nn { integral }
-          {
-            #1 .meta:n =
-              {
-                symbol=#2,
-                llimit=##1
-              },
-          }
+         \keys_define:nn { integral }
+            {
+               #1 .meta:n =
+               {
+                  symbol=#2,
+                  llimit=##1
+               },
+            }
       }
-  }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\RenewSymbolKeyword}
 % \itshape
 % Cette macro est documentée en \cref{subsec:symbolkey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\RenewSymbolKeyword{ m m }
-  {
-    \prop_if_in:NnT \g_@@_limits_keyword_prop { #1 }
-      { \msg_warning:nnn { intexgral } { key-exists-for-lim } { #1 } }
-    \keys_if_exist:nnTF { integral } { #1 }
-      {
-        \keys_define:nn { integral }
-          {
-            #1 .undefine:
-            #1 .meta:n =
-              {
-                symbol=#2,
-                llimit=##1
-              }
-          }
-      }
-      { \msg_error:nnn { intexgral } { symb-key-not-def } }
-  }
+   {
+      \prop_if_in:NnT \g_@@_limits_keyword_prop { #1 }
+         { \msg_warning:nnn { intexgral } { key-exists-for-lim } { #1 } }
+      \keys_if_exist:nnTF { integral } { #1 }
+         {
+            \keys_define:nn { integral }
+               {
+                  #1 .undefine:
+                  #1 .meta:n =
+                  {
+                     symbol=#2,
+                     llimit=##1
+                  }
+               }
+         }
+         { \msg_error:nnn { intexgral } { symb-key-not-def } }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\ProvideSymbolKeyword}
 % \itshape
 % Cette macro est documentée en \cref{subsec:symbolkey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\ProvideSymbolKeyword{ m m }
-  {
-    \prop_if_in:NnT \g_@@_limits_keyword_prop { #1 }
-      { \msg_warning:nnn { intexgral } { key-exists-for-lim } { #1 } }
-    \keys_if_exist:nnF { integral } { #1 }
-      {
-        \keys_define:nn { integral }
-          {
-            #1 .meta:n =
-              {
-                symbol=#2,
-                llimit=##1
-              },
-          }
-      }
-  }
+   {
+      \prop_if_in:NnT \g_@@_limits_keyword_prop { #1 }
+         { \msg_warning:nnn { intexgral } { key-exists-for-lim } { #1 } }
+      \keys_if_exist:nnF { integral } { #1 }
+         {
+            \keys_define:nn { integral }
+               {
+                  #1 .meta:n =
+                     {
+                        symbol=#2,
+                        llimit=##1
+                     },
+               }
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\DeclareSymbolKeyword}
 % \itshape
 % Cette macro est documentée en \cref{subsec:symbolkey}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\DeclareSymbolKeyword{ m m }
-  {
-    \keys_define:nn { integral }
-      {
-        #1 .undefine:
-        #1 .meta:n =
-          {
-            symbol=#2,
-            llimit=##1
-          },
-      }
-  }
+   {
+      \keys_define:nn { integral }
+         {
+            #1 .undefine:
+            #1 .meta:n =
+               {
+                  symbol=#2,
+                  llimit=##1
+               },
+         }
+   }
 %    \end{macrocode}
-% 
+%
 % \subsection{Macros de configuration}
-% 
+%
 % \begin{codedescribe}[macro]{\IntegralSetup}
 % \itshape
 % Cette macro est documentée en \cref{sec:setup}.
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\IntegralSetup{ m }
-  { \keys_set:nn { IntegralSetup } { #1 } }
+   { \keys_set:nn { IntegralSetup } { #1 } }
 %    \end{macrocode}
-% 
+%
 % \begin{codedescribe}[macro]{\intexgralsetup}
 % De même, mais sans oublier de restreindre l'utilisation au préambule.\par
 % \textit{Cette macro est documentée en \cref{sec:pkgoptions}.}
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\intexgralsetup{ m }
-  { \keys_set:nn { intexgral } { #1 } }
+   { \keys_set:nn { intexgral } { #1 } }
 \@onlypreamble\intexgralsetup
 %    \end{macrocode}
-% 
+%
+% \begin{codedescribe}[macro]{\invertdiff}
+% Définition assez triviale qui se contente d'inverser le booléen vu au début de l'implémentation.
+%    \begin{macrocode}
+\NewDocumentCommand\invertdiff{ }
+   { \bool_set_inverse:N \l_@@_invert_differential_bool }
+%    \end{macrocode}
+% \end{codedescribe}
+%
 % \begin{codedescribe}[macro]{\integral}
-% La macro finale ne tient qu'en quelques lignes. Si un argument optionnel est fourni, elle effectue les actions nécessaires pour juger de la nature de celui-ci (syntaxe spéciale ou non), et assigne les clés en conséquences. Elle assigne ensuite l'argument principal au token correspondant, avant d'appeler la macro centrale qui compose l'intégrale. Le tout est executé dans un groupe afin que toutes les modifications demeurent locales.\par
+% La macro finale ne tient qu'en quelques lignes. Si un argument optionnel est fourni, elle effectue les actions nécessaires pour juger de la nature de celui-ci (syntaxe spéciale ou non), et assigne les clés en conséquence. Elle assigne ensuite l'argument principal au token correspondant, avant d'appeler la macro centrale qui compose l'intégrale. Le tout est executé dans un groupe afin que toutes les modifications demeurent locales.\par
 % \textit{Cette macro est documentée en \cref{sec:mainmacro}.}
 % \end{codedescribe}
-% 
+%
 %    \begin{macrocode}
 \NewDocumentCommand\integral{ O{} m }
-  {
-    \group_begin:
-    \tl_if_empty:nF { #1 }
-      {
-        \@@_extract_first_key_name:n { #1 }
-        \@@_parse_integral_keys:n { #1 }
-      }
-    \tl_set:Nn \l_@@_integrand_tl { #2 }
-    \@@_print_integral:
-    \group_end:
-  }
+   {
+      \group_begin:
+      \tl_if_empty:nF { #1 }
+         {
+            \@@_extract_first_key_name:n { #1 }
+            \@@_parse_integral_keys:n { #1 }
+         }
+      \tl_set:Nn \l_@@_integrand_tl { #2 }
+      \@@_print_integral:
+      \group_end:
+   }
 %    \end{macrocode}
-%    
+%
 % \section{Configuration du package}
-% 
+%
 % La dernière partie du package s'occupe de définir les mots-clés par défaut pour les symboles, les bornes et les variables, ainsi que les paramètres par défaut pour la composition des intégrales.
-% 
+%
 % \subsection{Symbole}
-% 
+%
 %    \begin{macrocode}
 \NewSymbolKeyword{single}     {\int}
 \NewSymbolKeyword{double}     {\iint}
@@ -2708,7 +2826,7 @@ end
 %    \end{macrocode}
 %
 % \subsection{Bornes}
-% 
+%
 %    \begin{macrocode}
 \NewLimitsKeyword{ab}        {a, b}
 \NewLimitsKeyword{real}      {-\infty, +\infty}
@@ -2725,7 +2843,7 @@ end
 %    \end{macrocode}
 %
 % \subsection{Variables}
-% 
+%
 %    \begin{macrocode}
 \NewVariableKeyword{cartesian}    {x, y, z}
 \NewVariableKeyword{planar}       {x, y}
@@ -2736,25 +2854,25 @@ end
 %    \end{macrocode}
 %
 % \subsection{Paramètres par défaut}
-% 
+%
 %    \begin{macrocode}
 \IntegralSetup{
-  diff-symb    = \l_@@_default_differential_symbol_tl,
-  defaultvar   = {x},
-  defaultvar*  = {r},
-  varsep       = \thinmuskip,
-  diffsep      = \thinmuskip,
-  innersymbsep = {-5mu},
-  postsymbsep  = {-1mu},
-  vectorstyle  = \vec,
-  domainstyle  = \mathbb,
-  novar        = false
+   diff-symb    = \l_@@_default_differential_symbol_tl,
+   defaultvar   = {x},
+   defaultvar*  = {r},
+   varsep       = \thinmuskip,
+   diffsep      = \thinmuskip,
+   innersymbsep = {-5mu},
+   postsymbsep  = {-1mu},
+   vectorstyle  = \vec,
+   domainstyle  = \mathbb,
+   novar        = false
 }
 %</package>
 %    \end{macrocode}
 % \end{implementation}
-% 
+%
 % \newpage
-% 
+%
 % \phantomsection
 % \PrintIndex
