@@ -1,17 +1,20 @@
 <div align="center">
-  <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
-  <img alt="CTAN License" src="https://img.shields.io/ctan/l/intexgral?style=for-the-badge&color=salmon">
-  <img alt="CTAN Version" src="https://img.shields.io/ctan/v/intexgral?style=for-the-badge&color=rebeccapurple">
-  <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/ankaa3908/intexgral?style=for-the-badge">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ankaa3908/intexgral?style=for-the-badge&logo=github&logoSize=auto&color=mediumseagreen">
-  <br><br>
-  <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/TeXackers/intexgral/ci-compilation.yaml?style=plastic&label=documentation%20build">
-  <br><br>
-  <a href="https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf">Explore the docs</a>
-  ·
-  <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-  ·
-  <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+   <img src="intexgral-logo.png" alt="intexgral logo" width="150" />
+   <h1> intexgral </h1>
+   <p> <em> A LaTeX package for typesetting integrals</em></p>
+   <img alt="Static Badge" src="https://img.shields.io/badge/LATEX_3-teal?style=for-the-badge&logo=latex&logoColor=teal&logoSize=auto&labelColor=white&color=teal">
+   <img alt="CTAN License" src="https://img.shields.io/ctan/l/intexgral?style=for-the-badge&color=salmon">
+   <img alt="CTAN Version" src="https://img.shields.io/ctan/v/intexgral?style=for-the-badge&color=rebeccapurple">
+   <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/ankaa3908/intexgral?style=for-the-badge">
+   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ankaa3908/intexgral?style=for-the-badge&logo=github&logoSize=auto&color=mediumseagreen">
+   <br><br>
+   <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/TeXackers/intexgral/ci-compilation.yaml?style=plastic&label=documentation%20build">
+   <br><br>
+   <a href="https://mirror.ibcp.fr/pub/CTAN/macros/latex/contrib/intexgral/intexgral-en.pdf">Explore the docs</a>
+   ·
+   <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+   ·
+   <a href="https://github.com/ankaa3908/intexgral/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
 </div>
 
 ---
@@ -21,13 +24,13 @@
 Typesetting integrals, although common in LaTeX, is not particularly practical. The way in which the different parts are managed often generates unreadable source code, making modifications laborious. The package therefore follows a simple philosophy: focus on the essential element of an integral, the integrand. Everything else (limits, differentials, symbols) can be modified using keys. These keys are designed to allow you to easily and quickly change the style of an integral. Additionally, the package provides various auxiliary macros to support some keys which can have lengthy inputs.
 
 > [!IMPORTANT]
-> Your l3kernel version should be newer than 2025-05-14
+> Your l3kernel version should be newer than 2024-12-08
 
 ### Built With
 
 ![Static Badge](https://img.shields.io/badge/l3build-royalblue?style=for-the-badge&logoColor=white&logoSize=auto)
-![Static Badge](https://img.shields.io/badge/github_actions-grey?style=for-the-badge&logo=github%20actions&logoColor=white&logoSize=auto&color=2A2A2A)
-![Static Badge](https://img.shields.io/badge/gemini_API-blue?style=for-the-badge&logo=google%20gemini&logoColor=white&logoSize=auto&color=%238E75B2)
+![Static Badge](<https://img.shields.io/badge/github_actions-grey?style=for-the-badge&logo=github%20actions&logoColor=white&logoSize=auto&color=2A2A2A>)
+![Static Badge](<https://img.shields.io/badge/gemini_API-blue?style=for-the-badge&logo=google%20gemini&logoColor=white&logoSize=auto&color=%238E75B2>)
 
 ## Installation
 
@@ -46,7 +49,7 @@ Alternatively, if you're using a TeX distribution, you can run:
 
 ##### For TeXlive
 
-```
+```Shell
 tlmgr install intexgral
 ```
 
@@ -83,14 +86,14 @@ The package also offers a couple of auxiliary macros to help enhance the use of 
 *For more examples, please refer to the documentation:*
 
 <ul>
-  <li>
-    <img src="https://flagcdn.com/fr.svg" width="18" style="vertical-align: middle;">
-    <strong>Français</strong> → <a href="https://mirror.apps.cam.ac.uk/pub/tex-archive/macros/latex/contrib/intexgral/intexgral-fr.pdf">Lire la documentation </a>
-  </li>
-  <li>
-    <img src="https://flagcdn.com/gb.svg" width="18" style="vertical-align: middle;">
-    <strong>English</strong> → <a href="https://gb.mirrors.cicku.me/ctan/macros/latex/contrib/intexgral/intexgral-en.pdf">Read the documentation</a>
-  </li>
+   <li>
+      <img src="https://flagcdn.com/fr.svg" width="18" style="vertical-align: middle;">
+      <strong>Français</strong> → <a href="https://mirror.apps.cam.ac.uk/pub/tex-archive/macros/latex/contrib/intexgral/intexgral-fr.pdf">Lire la documentation </a>
+   </li>
+   <li>
+      <img src="https://flagcdn.com/gb.svg" width="18" style="vertical-align: middle;">
+      <strong>English</strong> → <a href="https://gb.mirrors.cicku.me/ctan/macros/latex/contrib/intexgral/intexgral-en.pdf">Read the documentation</a>
+   </li>
 </ul>
 
 ## Contributing

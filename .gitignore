@@ -3,6 +3,7 @@
 *.env
 *.curlopt
 *.zip
+temp
 package
 build
 public
