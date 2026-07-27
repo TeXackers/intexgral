@@ -1,3 +1,12 @@
+---
+name: Bug report
+about: Report a bug in intexgral
+title: "[BUG] "
+labels: bug
+assignees: ''
+
+---
+
 <h1 align="center">Bug report</h1>
 
 ***
