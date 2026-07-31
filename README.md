@@ -88,11 +88,11 @@ The package also offers a couple of auxiliary macros to help enhance the use of 
 <ul>
    <li>
       <img src="https://flagcdn.com/fr.svg" width="18" style="vertical-align: middle;">
-      <strong>Français</strong> → <a href="https://mirror.apps.cam.ac.uk/pub/tex-archive/macros/latex/contrib/intexgral/intexgral-fr.pdf">Lire la documentation </a>
+      <strong>Français</strong> → <a href="https://mirrors.ctan.org/macros/latex/contrib/intexgral/intexgral-fr.pdf">Lire la documentation </a>
    </li>
    <li>
       <img src="https://flagcdn.com/gb.svg" width="18" style="vertical-align: middle;">
-      <strong>English</strong> → <a href="https://gb.mirrors.cicku.me/ctan/macros/latex/contrib/intexgral/intexgral-en.pdf">Read the documentation</a>
+      <strong>English</strong> → <a href="https://mirrors.ctan.org/macros/latex/contrib/intexgral/intexgral-en.pdf">Read the documentation</a>
    </li>
 </ul>
 
