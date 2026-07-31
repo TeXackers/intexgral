@@ -1,12 +1,9 @@
-                     ANNOUNCEMENT FOR INTEXGRAL v4.1.0
-                             (2026-07-27)
+                     ANNOUNCEMENT FOR INTEXGRAL v4.1.1
+                             (2026-08-01)
 
 Changes
 ----------------
-Added
-- `limits-mode` key for `\integral`.
-- `\invertdiff` macro.
-- The `+-` syntax for limits.
-
-Changed
-- Source code optimisation.
+Fixed
+- Issue with `\differentials` used in `product` mode.
+- Issue with `\RenewSymbolKeyword` and `\DeclareSymbolKeyword`.
+- Issue with `\RenewVariableKeyword` and `\DeclareVariableKeyword`.
