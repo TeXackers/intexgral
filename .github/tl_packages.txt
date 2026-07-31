@@ -42,3 +42,4 @@ ragged2e
 alphalph
 underscore
 hypdoc
+ppmcheckpdf
