@@ -1,0 +1,779 @@
+\input regression-test.tex
+
+\documentclass{article}
+
+\usepackage{mathtools, intexgral}
+
+\ExplSyntaxOn
+\sys_if_engine_pdftex:F
+   { \usepackage{unicode-math} }
+\ExplSyntaxOff
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ============================================================
+% SECTION 1: Key limits — basic forms
+% ============================================================
+
+% --- 1a. Single pair (lower, upper) [Eq. 1] ---
+
+\begin{equation}
+   \integral[limits={1, 10}]{f(x)}
+\end{equation}
+
+% --- 1b. Lower only [Eq. 2] ---
+
+\begin{equation}
+   \integral[limits={a,}]{f(x)}
+\end{equation}
+
+% --- 1c. Upper only [Eq. 3] ---
+
+\begin{equation}
+   \integral[limits={, b}]{f(x)}
+\end{equation}
+
+% --- 1d. Empty pair [Eq. 4] ---
+
+\begin{equation}
+   \integral[limits={,}]{f(x)}
+\end{equation}
+
+% --- 1e. Complex math expressions [Eq. 5–6] ---
+
+\begin{equation}
+   \integral[limits={x^2+y^2, \sqrt{R}}]{g(r)}
+\end{equation}
+
+\begin{equation}
+   \integral[limits={\sin\alpha, \cos\beta}]{h(\theta)}
+\end{equation}
+
+% --- 1f. Two pairs (ssv) [Eq. 7] ---
+
+\begin{equation}
+   \integral[limits={1, 2; 3, 4}]{f}
+\end{equation}
+
+% --- 1g. Three pairs (ssv) [Eq. 8] ---
+
+\begin{equation}
+   \integral[limits={1, 2; 3, 4; 5, 6}]{f}
+\end{equation}
+
+% --- 1h. Two pairs, one lower-only + one full [Eq. 9] ---
+
+\begin{equation}
+   \integral[limits={a,; c, d}]{f}
+\end{equation}
+
+% --- 1i. Two pairs, one upper-only + one full [Eq. 10] ---
+
+\begin{equation}
+   \integral[limits={, b; c, d}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 2: Key limits* — interval form
+% ============================================================
+
+% --- 2a. Finite interval [a, b] [Eq. 11] ---
+
+\begin{equation}
+   \integral[limits*={a, b}]{f(x)}
+\end{equation}
+
+% --- 2b. Left-open: ]-\infty, b] [Eq. 12] ---
+
+\begin{equation}
+   \integral[limits*={-\infty, 1}]{f(x)}
+\end{equation}
+
+% --- 2c. Right-open: [a, +\infty[ [Eq. 13] ---
+
+\begin{equation}
+   \integral[limits*={0, +\infty}]{f(x)}
+\end{equation}
+
+% --- 2d. Both infinite: ]-\infty, +\infty[ [Eq. 14] ---
+
+\begin{equation}
+   \integral[limits*={-\infty, +\infty}]{f(x)}
+\end{equation}
+
+% --- 2e. Multiple intervals [Eq. 15] ---
+
+\begin{equation}
+   \integral[limits*={0, 1; -1, 1}]{f}
+\end{equation}
+
+% --- 2f. Mixed: one -\infty + one finite [Eq. 16] ---
+
+\begin{equation}
+   \integral[limits*={-\infty, 0; 0, 1}]{f}
+\end{equation}
+
+% --- 2g. Mixed: one finite + one +\infty [Eq. 17] ---
+
+\begin{equation}
+   \integral[limits*={a, b; 0, +\infty}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 3: Keys llimit and ulimit
+% ============================================================
+
+% --- 3a. llimit alone [Eq. 18] ---
+
+\begin{equation}
+   \integral[llimit=S]{f}
+\end{equation}
+
+% --- 3b. ulimit alone [Eq. 19] ---
+
+\begin{equation}
+   \integral[ulimit=T]{f}
+\end{equation}
+
+% --- 3c. llimit with complex expression [Eq. 20] ---
+
+\begin{equation}
+   \integral[llimit={x^2 + y^2 \leq 1}]{f}
+\end{equation}
+
+% --- 3d. ulimit with complex expression [Eq. 21] ---
+
+\begin{equation}
+   \integral[ulimit={R^2}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 4: Key domain and domain*
+% ============================================================
+
+% --- 4a. domain single letter [Eq. 22] ---
+
+\begin{equation}
+   \integral[domain={r}]{f}
+\end{equation}
+
+% --- 4b. domain with dimension [Eq. 23] ---
+
+\begin{equation}
+   \integral[domain={R2}]{f}
+\end{equation}
+
+% --- 4c. domain multiple (*-list) [Eq. 24] ---
+
+\begin{equation}
+   \integral[domain={R*R}]{f}
+\end{equation}
+
+% --- 4d. domain with multiple dimensions [Eq. 25] ---
+
+\begin{equation}
+   \integral[domain={R2*Z5*C9}]{f}
+\end{equation}
+
+% --- 4e. domain lowercase (auto-uppercase) [Eq. 26] ---
+
+\begin{equation}
+   \integral[domain={r*z}]{f}
+\end{equation}
+
+% --- 4f. domain* single [Eq. 27] ---
+
+\begin{equation}
+   \integral[domain*={R}]{f}
+\end{equation}
+
+% --- 4g. domain* with dimension lowercase (subscript, auto-uppercase) [Eq. 28] ---
+
+\begin{equation}
+   \integral[domain*={r2}]{f}
+\end{equation}
+
+% --- 4h. domain* multiple [Eq. 29] ---
+
+\begin{equation}
+   \integral[domain*={R*Zp}]{f}
+\end{equation}
+
+% --- 4i. domain* uppercase [Eq. 30] ---
+
+\begin{equation}
+   \integral[domain*={Ei*At}]{f}
+\end{equation}
+
+\begingroup
+\IntegralSetup{domainstyle=\mathbf}
+
+% --- 4j. domain single letter, bold [Eq. 31] ---
+
+\begin{equation}
+   \integral[domain={R}]{f}
+\end{equation}
+
+% --- 4k. domain with dimension, bold [Eq. 32] ---
+
+\begin{equation}
+   \integral[domain={R2}]{f}
+\end{equation}
+
+% --- 4l. domain multiple (*-list), bold [Eq. 33] ---
+
+\begin{equation}
+   \integral[domain={R*R}]{f}
+\end{equation}
+
+% --- 4m. domain with multiple dimensions, bold [Eq. 34] ---
+
+\begin{equation}
+   \integral[domain={R2*Z5*C9}]{f}
+\end{equation}
+
+% --- 4n. domain lowercase (auto-uppercase), bold [Eq. 35] ---
+
+\begin{equation}
+   \integral[domain={r*z}]{f}
+\end{equation}
+
+% --- 4o. domain* single, bold [Eq. 36] ---
+
+\begin{equation}
+   \integral[domain*={R}]{f}
+\end{equation}
+
+% --- 4p. domain* with dimension lowercase (subscript, auto-uppercase), bold [Eq. 37] ---
+
+\begin{equation}
+   \integral[domain*={r2}]{f}
+\end{equation}
+
+% --- 4q. domain* multiple, bold [Eq. 38] ---
+
+\begin{equation}
+   \integral[domain*={R*Zp}]{f}
+\end{equation}
+
+% --- 4r. domain* uppercase, bold [Eq. 39] ---
+
+\begin{equation}
+   \integral[domain*={Ei*At}]{f}
+\end{equation}
+\endgroup
+
+% ============================================================
+% SECTION 5: Key boundary
+% ============================================================
+
+% --- 5a. boundary basic [Eq. 40] ---
+
+\begin{equation}
+   \integral[boundary=S]{f}
+\end{equation}
+
+% --- 5b. boundary with complex expression [Eq. 41] ---
+
+\begin{equation}
+   \integral[boundary={V_0}]{f}
+\end{equation}
+
+% --- 5c. boundary with macro [Eq. 42] ---
+
+\begin{equation}
+   \integral[boundary=\Omega]{f}
+\end{equation}
+
+% --- 5d. boundary with subscript [Eq. 43] ---
+
+\begin{equation}
+   \integral[boundary={\Sigma_1}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 6: Predefined limits keywords (all of them)
+% ============================================================
+
+% --- 6. limits [Eq. 44–55] ---
+
+\begin{gather}
+   \integral[limits=ab]{f}\\
+   \integral[limits=unit]{f}\\
+   \integral[limits=real]{f}\\
+   \integral[limits=positive]{f}\\
+   \integral[limits=negative]{f}\\
+   \integral[limits=circle]{f}\\
+   \integral[limits=scircle]{f}\\
+   \integral[limits=qcircle]{f}\\
+   \integral[limits=height]{f}\\
+   \integral[limits=radius]{f}\\
+   \integral[limits=length]{f}\\
+   \integral[limits=time]{f}
+\end{gather}
+
+% --- 6. limits* [Eq. 56–67] ---
+
+\begin{gather}
+   \integral[limits*=ab]{f}\\
+   \integral[limits*=unit]{f}\\
+   \integral[limits*=real]{f}\\
+   \integral[limits*=positive]{f}\\
+   \integral[limits*=negative]{f}\\
+   \integral[limits*=circle]{f}\\
+   \integral[limits*=scircle]{f}\\
+   \integral[limits*=qcircle]{f}\\
+   \integral[limits*=height]{f}\\
+   \integral[limits*=radius]{f}\\
+   \integral[limits*=length]{f}\\
+   \integral[limits*=time]{f}
+\end{gather}
+
+% ============================================================
+% SECTION 7: Custom keywords (\NewLimitsKeyword and variants)
+% ============================================================
+
+\NewLimitsKeyword{mytest}{A, B}
+\ProvideLimitsKeyword{ab}{X, Y}         % 'ab' already defined -> ignored
+\ProvideLimitsKeyword{myprov}{C, D}     % 'myprov' is new -> defined
+\RenewLimitsKeyword{mytest}{E, F}       % 'mytest' exists -> updated to E, F
+\DeclareLimitsKeyword{mydecl}{G, H}     % 'mydecl' is new -> defined
+\DeclareLimitsKeyword{mydecl}{I, J}     % 'mydecl' exists -> overwritten to I, J
+
+% --- 7a. Predefined keyword preserved after \ProvideLimitsKeyword [Eq. 68] ---
+
+\begin{equation}
+   \integral[limits=ab]{f}
+\end{equation}
+
+% --- 7b. Custom keyword via \ProvideLimitsKeyword [Eq. 69] ---
+
+\begin{equation}
+   \integral[limits=myprov]{f}
+\end{equation}
+
+% --- 7c. Custom keyword updated via \RenewLimitsKeyword [Eq. 70] ---
+
+\begin{equation}
+   \integral[limits=mytest]{f}
+\end{equation}
+
+% --- 7d. Custom keyword overwritten via \DeclareLimitsKeyword [Eq. 71] ---
+
+\begin{equation}
+   \integral[limits=mydecl]{f}
+\end{equation}
+
+% --- 7e. Custom keyword (limits*) [Eq. 72] ---
+
+\begin{equation}
+   \integral[limits*=mytest]{f}
+\end{equation}
+
+% --- 7f. Custom keyword + predefined keyword (limits) [Eq. 73] ---
+
+\begin{equation}
+   \integral[limits={mytest;circle}]{f}
+\end{equation}
+
+% --- 7g. Custom keyword + explicit (limits) [Eq. 74] ---
+
+\begin{equation}
+   \integral[limits={mytest;0,R}]{f}
+\end{equation}
+
+% --- 7h. Custom keyword + +- (limits) [Eq. 75] ---
+
+\begin{equation}
+   \integral[limits={mytest;+-a}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 8: Keywords in ssv-list (mixing)
+% ============================================================
+
+% --- 8a. Three keywords (limits) [Eq. 76] ---
+
+\begin{equation}
+   \integral[limits={height;circle;radius}]{f}
+\end{equation}
+
+% --- 8a. Three keywords (limits*) [Eq. 77] ---
+
+\begin{equation}
+   \integral[limits*={height;circle;radius}]{f}
+\end{equation}
+
+% --- 8b. Two keywords (limits) [Eq. 78] ---
+
+\begin{equation}
+   \integral[limits={ab;circle}]{f}
+\end{equation}
+
+% --- 8b. Two keywords (limits*) [Eq. 79] ---
+
+\begin{equation}
+   \integral[limits*={ab;circle}]{f}
+\end{equation}
+
+% --- 8c. Keyword + explicit (limits) [Eq. 80] ---
+
+\begin{equation}
+   \integral[limits={radius;0,2\pi}]{f}
+\end{equation}
+
+% --- 8c. Keyword + explicit (limits*) [Eq. 81] ---
+
+\begin{equation}
+   \integral[limits*={radius;0,2\pi}]{f}
+\end{equation}
+
+% --- 8d. Explicit + keyword (limits) [Eq. 82] ---
+
+\begin{equation}
+   \integral[limits={0,R;circle}]{f}
+\end{equation}
+
+% --- 8d. Explicit + keyword (limits*) [Eq. 83] ---
+
+\begin{equation}
+   \integral[limits*={0,R;circle}]{f}
+\end{equation}
+
+% --- 8e. Keyword + explicit + keyword (limits) [Eq. 84] ---
+
+\begin{equation}
+   \integral[limits={height;0,W;length}]{f}
+\end{equation}
+
+% --- 8e. Keyword + explicit + keyword (limits*) [Eq. 85] ---
+
+\begin{equation}
+   \integral[limits*={height;0,W;length}]{f}
+\end{equation}
+
+% --- 8f. Explicit + keyword + explicit (limits) [Eq. 86] ---
+
+\begin{equation}
+   \integral[limits={0,R;circle;a,b}]{f}
+\end{equation}
+
+% --- 8f. Explicit + keyword + explicit (limits*) [Eq. 87] ---
+
+\begin{equation}
+   \integral[limits*={0,R;circle;a,b}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 9: Symmetric limits (+-syntax)
+% ============================================================
+
+% --- 9a. +-pi (limits) [Eq. 88] ---
+
+\begin{equation}
+   \integral[limits={+-\pi}]{f}
+\end{equation}
+
+% --- 9a. +-pi (limits*) [Eq. 89] ---
+
+\begin{equation}
+   \integral[limits*={+-\pi}]{f}
+\end{equation}
+
+% --- 9b. +-\infty (limits) [Eq. 90] ---
+
+\begin{equation}
+   \integral[limits={+-\infty}]{f}
+\end{equation}
+
+% --- 9b. +-\infty (limits*) [Eq. 91] ---
+
+   \begin{equation}
+      \integral[limits*={+-\infty}]{f}
+   \end{equation}
+
+% --- 9c. +-a simple token (limits) [Eq. 92] ---
+
+\begin{equation}
+   \integral[limits={+-a}]{f}
+\end{equation}
+
+% --- 9c. +-a simple token (limits*) [Eq. 93] ---
+
+\begin{equation}
+   \integral[limits*={+-a}]{f}
+\end{equation}
+
+% --- 9d. +-L/2 expression (limits) [Eq. 94] ---
+
+\begin{equation}
+   \integral[limits={+-L/2}]{f}
+\end{equation}
+
+% --- 9d. +-L/2 expression (limits*) [Eq. 95] ---
+
+\begin{equation}
+   \integral[limits*={+-L/2}]{f}
+\end{equation}
+
+% --- 9e. +- mixed with explicit pair (limits) [Eq. 96] ---
+
+\begin{equation}
+   \integral[limits={+-\pi; 0, R}]{f}
+\end{equation}
+
+% --- 9e. +- mixed with explicit pair (limits*) [Eq. 97] ---
+
+\begin{equation}
+   \integral[limits*={+-\pi; 0, R}]{f}
+\end{equation}
+
+% --- 9f. Explicit pair + +- (limits) [Eq. 98] ---
+
+\begin{equation}
+   \integral[limits={0, R; +-a}]{f}
+\end{equation}
+
+% --- 9f. Explicit pair + +- (limits*) [Eq. 99] ---
+
+\begin{equation}
+   \integral[limits*={0, R; +-a}]{f}
+\end{equation}
+
+% --- 9g. +- mixed with keyword (limits) [Eq. 100] ---
+
+\begin{equation}
+   \integral[limits={+-a; circle}]{f}
+\end{equation}
+
+% --- 9g. +- mixed with keyword (limits*) [Eq. 101] ---
+
+\begin{equation}
+   \integral[limits*={+-a; circle}]{f}
+\end{equation}
+
+% --- 9h. Keyword + +- (limits) [Eq. 102] ---
+
+\begin{equation}
+   \integral[limits={radius; +-\pi}]{f}
+\end{equation}
+
+% --- 9h. Keyword + +- (limits*) [Eq. 103] ---
+
+\begin{equation}
+   \integral[limits*={radius; +-\pi}]{f}
+\end{equation}
+
+% --- 9i. Two +- pairs (limits) [Eq. 104] ---
+
+\begin{equation}
+   \integral[limits={+-a; +-b}]{f}
+\end{equation}
+
+% --- 9i. Two +- pairs (limits*) [Eq. 105] ---
+
+\begin{equation}
+   \integral[limits*={+-a; +-b}]{f}
+\end{equation}
+
+% --- 9j. Three mixed: +-, keyword, explicit (limits) [Eq. 106] ---
+
+\begin{equation}
+   \integral[limits={+-\pi; radius; 0, L}]{f}
+\end{equation}
+
+% --- 9j. Three mixed: +-, keyword, explicit (limits*) [Eq. 107] ---
+
+\begin{equation}
+   \integral[limits*={+-\pi; radius; 0, L}]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 10: Key limits-mode (local)
+% ============================================================
+
+% --- 10a. limits-mode=limits with limits key [Eq. 108] ---
+
+\begin{equation}
+   \integral[limits={a, b}, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10b. limits-mode=nolimits with limits key [Eq. 109] ---
+
+\begin{equation}
+   \integral[limits={a, b}, limits-mode=nolimits]{f}
+\end{equation}
+
+% --- 10c. limits-mode=limits with limits (multiple) [Eq. 110] ---
+
+\begin{equation}
+   \integral[limits={a, b; c, d}, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10d. limits-mode=limits with limits* [Eq. 111] ---
+
+\begin{equation}
+   \integral[limits*={a, b}, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10e. limits-mode=nolimits with limits* [Eq. 112] ---
+
+\begin{equation}
+   \integral[limits*={a, b}, limits-mode=nolimits]{f}
+\end{equation}
+
+% --- 10f. limits-mode=limits with llimit [Eq. 113] ---
+
+\begin{equation}
+   \integral[llimit=\Omega, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10g. limits-mode=limits with ulimit [Eq. 114] ---
+
+\begin{equation}
+   \integral[ulimit=T, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10h. limits-mode=limits with boundary [Eq. 115] ---
+
+\begin{equation}
+   \integral[boundary=S, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10i. limits-mode=limits with domain [Eq. 116] ---
+
+\begin{equation}
+   \integral[domain={r2}, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10j. limits-mode=limits with keyword [Eq. 117] ---
+
+\begin{equation}
+   \integral[limits=ab, limits-mode=limits]{f}
+\end{equation}
+
+% --- 10k. limits-mode=limits with +- [Eq. 118] ---
+
+\begin{equation}
+   \integral[limits={+-\pi}, limits-mode=limits]{f}
+\end{equation}
+
+% ============================================================
+% SECTION 11: Key mode (display mode for multiple integrals)
+% ============================================================
+
+% --- 11a. Explicit mode=default (2 pairs) [Eq. 119] ---
+
+\begin{equation}
+   \integral[limits={1, 2; 3, 4}, variables={x, y}, mode=default]{xy}
+\end{equation}
+
+% --- 11b. Explicit mode=nested (2 pairs) [Eq. 120] ---
+
+\begin{equation}
+   \integral[limits={1, 2; 3, 4}, variables={y, x}, mode=nested]{x; y}
+\end{equation}
+
+% --- 11c. Explicit mode=product (2 pairs) [Eq. 121] ---
+
+\begin{equation}
+   \integral[limits={1, 2; 3, 4}, variables={x, y}, mode=product]{x; y}
+\end{equation}
+
+% --- 11d. Explicit mode=default (2 pairs) with limits* [Eq. 122] ---
+
+\begin{equation}
+   \integral[limits*={1, 2; 3, 4}, variables={x, y}, mode=default]{x y}
+\end{equation}
+
+% --- 11e. Explicit mode=nested (2 pairs) with limits* [Eq. 123] ---
+
+\begin{equation}
+   \integral[limits*={1, 2; 3, 4}, variables={y, x}, mode=nested]{x; y}
+\end{equation}
+
+% --- 11f. Explicit mode=product (2 pairs) with limits* [Eq. 124] ---
+
+\begin{equation}
+   \integral[limits*={1, 2; 3, 4}, variables={x, y}, mode=product]{x; y}
+\end{equation}
+
+% ============================================================
+% SECTION 12: Special syntax
+% ============================================================
+
+% --- 12a. Single pair (auto dx) [Eq. 125] ---
+
+\begin{equation}
+   \integral[1, 10]{x}
+\end{equation}
+
+% --- 12b. Two pairs [Eq. 126] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4]{xy}
+\end{equation}
+
+% --- 12c. Keywords [Eq. 127] ---
+
+\begin{equation}
+   \integral[radius;circle]{r}
+\end{equation}
+
+% --- 12d. Mixed keyword + explicit [Eq. 128] ---
+
+\begin{equation}
+   \integral[height;0,W;length]{f}
+\end{equation}
+
+% --- 12e. Variable only (empty limits) [Eq. 129] ---
+
+\begin{equation}
+   \integral[:z]{f(z)}
+\end{equation}
+
+% --- 12f. Implicit mode=d shorthand via special syntax [Eq. 130] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4:x, y:d]{xy}
+\end{equation}
+
+% --- 12g. Implicit mode=n shorthand via special syntax [Eq. 131] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4:y, x:n]{x; y}
+\end{equation}
+
+% --- 12h. Implicit mode=p shorthand via special syntax [Eq. 132] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4:x, y:p]{x;y}
+\end{equation}
+
+% --- 12i. Implicit mode=default (full name) via special syntax [Eq. 133] ---
+
+\begin{equation}
+   \integral[radius;circle:x, y:default]{xy}
+\end{equation}
+
+% --- 12j. Implicit mode=nested (full name) via special syntax [Eq. 134] ---
+
+\begin{equation}
+   \integral[radius;circle:y, x:nested]{x; y}
+\end{equation}
+
+% --- 12k. Implicit mode=product (full name) via special syntax [Eq. 135] ---
+
+\begin{equation}
+   \integral[radius;circle:x, y:product]{x; y}
+\end{equation}
+
+% --- 12l. Implicit mode=n with +- syntax [Eq. 136] ---
+
+\begin{equation}
+   \integral[+-a; +-b:y, x:n]{x; y}
+\end{equation}
+
+\end{document}

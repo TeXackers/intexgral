@@ -1,0 +1,354 @@
+\input regression-test.tex
+
+\documentclass{article}
+
+\usepackage{mathtools, intexgral}
+
+\ExplSyntaxOn
+\sys_if_engine_pdftex:F
+   { \usepackage{unicode-math} }
+\ExplSyntaxOff
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ============================================================
+% SECTION 1: Key variables — basic forms
+% ============================================================
+
+% --- 1a. Default (no key, defaults to dx) [Eq. 1] ---
+
+\begin{equation}
+   \integral{f(x)}
+\end{equation}
+
+% --- 1b. Single variable [Eq. 2] ---
+
+\begin{equation}
+   \integral[variables=t]{f(t)}
+\end{equation}
+
+% --- 1c. Multiple variables [Eq. 3] ---
+
+\begin{equation}
+   \integral[variables={x, y, z}]{f(x, y, z)}
+\end{equation}
+
+% --- 1d. None (hidden) [Eq. 4] ---
+
+\begin{equation}
+   \integral[variables=none]{f(x)}
+\end{equation}
+
+% ============================================================
+% SECTION 2: Predefined variables keywords (all of them)
+% ============================================================
+
+% --- 2. Predefined variables keywords [Eq. 5–10] ---
+
+\begin{gather}
+   \integral[variables=cartesian]{f(x, y, z)}\\
+   \integral[variables=planar]{f(x, y)}\\
+   \integral[variables=polar]{f(r, \theta)}\\
+   \integral[variables=cylindrical]{f(r, \theta, z)}\\
+   \integral[variables=cylindrical*]{f(\rho, \theta, z)}\\
+   \integral[variables=spherical]{f(r, \theta, \phi)}
+\end{gather}
+
+% ============================================================
+% SECTION 3: Custom keywords (\NewVariableKeyword and variants)
+% ============================================================
+
+\NewVariableKeyword{toroidal}{\psi, \theta, \phi}[J_{\text{tor}}]
+\ProvideVariableKeyword{cartesian}{\xi, \eta}        % 'cartesian' already defined -> ignored
+\ProvideVariableKeyword{myprov}{\alpha, \beta}       % 'myprov' is new -> defined
+\NewVariableKeyword{mytest}{u, v}
+\RenewVariableKeyword{mytest}{e, f}                  % 'mytest' exists -> updated to e, f
+\DeclareVariableKeyword{mydecl}{\xi, \eta}           % 'mydecl' is new -> defined
+\DeclareVariableKeyword{mydecl}{\xi_1, \xi_2, \xi_3, \xi_4}[J_{\text{hyper}}] % 'mydecl' exists -> overwritten
+
+% --- 3a. Predefined keyword preserved after \ProvideVariableKeyword [Eq. 11] ---
+
+\begin{equation}
+   \integral[variables=cartesian]{f(x, y, z)}
+\end{equation}
+
+% --- 3b. Custom keyword via \ProvideVariableKeyword [Eq. 12] ---
+
+\begin{equation}
+   \integral[variables=myprov]{\psi(\alpha, \beta)}
+\end{equation}
+
+% --- 3c. Custom keyword updated via \RenewVariableKeyword [Eq. 13] ---
+
+\begin{equation}
+   \integral[variables=mytest]{f}
+\end{equation}
+
+% --- 3d. Custom keyword overwritten via \DeclareVariableKeyword with jacobian [Eq. 14] ---
+
+\begin{equation}
+   \integral[variables=mydecl, jacobian]{\Phi}
+\end{equation}
+
+% --- 3e. Custom keyword with jacobian [Eq. 15] ---
+
+\begin{equation}
+   \integral[variables=toroidal, jacobian]{g(\psi, \theta, \phi)}
+\end{equation}
+
+% ============================================================
+% SECTION 4: Key jacobian
+% ============================================================
+
+% --- 4a. polar with jacobian [Eq. 16] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi}, variables=polar, jacobian]{1}
+\end{equation}
+
+% --- 4b. cylindrical with jacobian [Eq. 17] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, H}, variables=cylindrical, jacobian]{1}
+\end{equation}
+
+% --- 4c. cylindrical with jacobian [Eq. 18] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, H}, variables=cylindrical, jacobian]{1}
+\end{equation}
+
+% --- 4d. spherical with jacobian [Eq. 19] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, jacobian]{1}
+\end{equation}
+
+% ============================================================
+% SECTION 5: Keys diff-symb, diff-vec, diff-order
+% ============================================================
+
+% --- 5a. diff-symb mathcal [Eq. 20] ---
+
+\begin{equation}
+   \integral[variables={q(t)}, diff-symb=\mathcal{D}]{\exp\left(\frac{i}{\hbar}S[q]\right)}
+\end{equation}
+
+% --- 5b. diff-symb delta [Eq. 21] ---
+
+\begin{equation}
+   \integral[variables={x}, diff-symb=\delta]{F(x)}
+\end{equation}
+
+% --- 5c. diff-vec default [Eq. 22] ---
+
+\begin{equation}
+   \integral[diff-vec]{A(\vec{r})}
+\end{equation}
+
+% --- 5d. diff-vec with specific variable [Eq. 23] ---
+
+\begin{equation}
+   \integral[variables=s, diff-vec]{\vec{F} \cdot \vec{T}}
+\end{equation}
+
+% --- 5e. diff-order global [Eq. 24] ---
+
+\begin{equation}
+   \integral[diff-order=4]{\mathcal{L}(\phi, \partial_\mu \phi)}
+\end{equation}
+
+% --- 5f. diff-order multiple [Eq. 25] ---
+
+\begin{equation}
+   \integral[variables={x, y}, diff-order={2, 3}]{f(x, y)}
+\end{equation}
+
+% ============================================================
+% SECTION 6: Inversion invert-diff and \invertdiff
+% ============================================================
+
+% --- 6a. Normal position [Eq. 26] ---
+
+\begin{equation}
+   \integral[variables=x]{f(x)}
+\end{equation}
+
+\invertdiff
+
+% --- 6b. After \invertdiff [Eq. 27] ---
+
+\begin{equation}
+   \integral[variables=x]{f(x)}
+\end{equation}
+
+\invertdiff
+
+% --- 6c. Restored to normal [Eq. 28] ---
+
+\begin{equation}
+   \integral[variables=x]{f(x)}
+\end{equation}
+
+\invertdiff
+
+% --- 6d. Inverted with multiple variables [Eq. 29] ---
+
+\begin{equation}
+   \integral[variables=cartesian]{f(x, y, z)}
+\end{equation}
+
+\invertdiff
+
+% ============================================================
+% SECTION 7: Manual positioning (\differentials)
+% ============================================================
+
+% --- 7a. Mode default [Eq. 30] ---
+
+\begin{equation}
+   \integral[variables=x]{\frac{\differentials}{1 + x^2}}
+\end{equation}
+
+% --- 7b. Mode default complex [Eq. 31] ---
+
+\begin{equation}
+   \integral[diff-order=4, variables=p]{\frac{\differentials}{(2\pi)^4} \frac{e^{-ip \cdot (x-y)}}{p^2 - m^2 + i\epsilon}}
+\end{equation}
+
+% --- 7c. Mode nested [Eq. 32] ---
+
+\begin{equation}
+   \integral[limits={a, b; c, d}, variables={x, y}, mode=nested]{f(x); \frac\differentials{1+y}}
+\end{equation}
+
+% --- 7d. Mode product [Eq. 33] ---
+
+\begin{equation}
+   \integral[limits={0, 1; 0, 1}, variables={x, y}, mode=product]{\frac{\differentials}{1+x} ; \frac{\differentials}{1+y}}
+\end{equation}
+
+\invertdiff
+
+% --- 7e. Mode default + \invertdiff [Eq. 34] ---
+
+\begin{equation}
+   \integral[variables=x]{\frac{\differentials}{x}}
+\end{equation}
+
+% --- 7f. Mode product + \invertdiff [Eq. 35] ---
+
+\begin{equation}
+   \integral[limits={a, b; c, d}, variables={x, y}, mode=product]{\differentials f(x) ; \differentials g(y)}
+\end{equation}
+
+\invertdiff
+
+% ============================================================
+% SECTION 8: Special syntax
+% ============================================================
+
+% --- 8a. Classic syntax [Eq. 36] ---
+
+\begin{equation}
+   \integral[1, 10:x]{f(x)}
+\end{equation}
+
+% --- 8b. Classic syntax with keyword [Eq. 37] ---
+
+\begin{equation}
+   \integral[a, b; c, d:planar]{f(x, y)}
+\end{equation}
+
+% --- 8c. Variable only [Eq. 38] ---
+
+\begin{equation}
+   \integral[:z]{g(z)}
+\end{equation}
+
+% --- 8d. Jacobian +j [Eq. 39] ---
+
+\begin{equation}
+   \integral[0, R; 0, 2\pi:polar+j]{1}
+\end{equation}
+
+% --- 8e. Jacobian + keyword limits [Eq. 40] ---
+
+\begin{equation}
+   \integral[radius;circle;scircle:spherical+j]{1}
+\end{equation}
+
+% --- 8f. Nested mode :n [Eq. 41] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4:y, x:n]{x ; y}
+\end{equation}
+
+% --- 8g. Product mode :p [Eq. 42] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4:x, y:p]{x^2 ; y^2}
+\end{equation}
+
+% --- 8h. Product mode + jacobian :spherical+j:p [Eq. 43] ---
+
+\begin{equation}
+   \integral[radius;circle;scircle:spherical+j:p]{r ; \theta ; \phi}
+\end{equation}
+
+% ============================================================
+% SECTION 9: Setup via \IntegralSetup
+% ============================================================
+
+\IntegralSetup{
+   defaultvar  = {u},
+   defaultvar* = {r_0},
+   varsep      = 10mu,
+   diffsep     = 10mu
+}
+
+% --- 9a. Changed default variable [Eq. 44] ---
+
+\begin{equation}
+   \integral{f(u)}
+\end{equation}
+
+% --- 9b. Changed default vector variable [Eq. 45] ---
+
+\begin{equation}
+   \integral[diff-vec]{\vec{E}}
+\end{equation}
+
+\IntegralSetup{novar = true}
+
+% --- 9c. novar=true [Eq. 46] ---
+
+\begin{equation}
+   \integral[limits={0, 1}]{f(x)}
+\end{equation}
+
+\IntegralSetup{novar = false}
+
+% --- 9d. novar=false [Eq. 47] ---
+
+\begin{equation}
+   \integral[limits={0, 1}]{f(x)}
+\end{equation}
+
+\IntegralSetup{vectorstyle=\mathbf}
+
+% --- 9e. vectorstyle=\mathbf [Eq. 48] ---
+
+\begin{equation}
+   \integral[variables=r, diff-vec]{\mathbf F}
+\end{equation}
+
+% --- 9f. Changed spacing between differentials + integrand/differentials [Eq. 49] ---
+
+\begin{equation}
+   \integral[ab;ab;ab:cartesian]{f(x, y, z)}
+\end{equation}
+
+\end{document}

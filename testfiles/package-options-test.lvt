@@ -1,0 +1,42 @@
+\input regression-test.tex
+
+\documentclass{article}
+
+\usepackage{amsmath, intexgral}
+
+% tests \intexgral setup command
+\intexgralsetup{
+   invert-limits  = true,
+   invert-diff    = true,
+   limits-mode    = limits,
+   italic         = true
+}
+
+\ExplSyntaxOn
+\sys_if_engine_pdftex:F
+   { \usepackage{unicode-math} }
+\ExplSyntaxOff
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+
+% ============================================================
+% SECTION 1: Tests all package options
+% ============================================================
+
+% --- 1a. Inverted, italic dx, inverted limits, 'limits' style [Eq. 1] ---
+
+\begin{equation}
+   \integral[1, 2]{x}
+\end{equation}
+
+% --- 1b. Overruled options: un-inverted, upright dx, 'nolimits' style [Eq. 2] ---
+
+\invertdiff
+\begin{equation}
+   \integral[limits={1, 2}, diff-symb=\mathrm{d}, limits-mode=nolimits]{x}
+\end{equation}
+
+\end{document}

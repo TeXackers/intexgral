@@ -1,0 +1,123 @@
+\input regression-test.tex
+
+\documentclass{article}
+
+\usepackage{amsmath, mathtools, esint, intexgral}
+
+\ExplSyntaxOn
+\sys_if_engine_pdftex:F
+   { \usepackage{unicode-math} }
+\ExplSyntaxOff
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ============================================================
+% SECTION 1: Key symbol — basic forms
+% ============================================================
+
+% --- 1a. Default symbol [Eq. 1] ---
+
+\begin{equation}
+   \integral{x}
+\end{equation}
+
+% --- 1b. Double integral symbol [Eq. 2] ---
+
+\begin{equation}
+   \integral[symbol=\iint, variables={x, y}]{f(x, y)}
+\end{equation}
+
+% --- 1c. Undefined symbol [Eq. 3] ---
+
+\begin{equation}
+   \integral[symbol=\something]{x}
+\end{equation}
+
+% ============================================================
+% SECTION 2: Predefined symbol keywords (all of them)
+% ============================================================
+
+% --- 2a. Standalone keywords [Eq. 4–10] ---
+
+\begin{gather}
+   \integral[single]{x}\\
+   \integral[double]{x}\\
+   \integral[triple]{x}\\
+   \integral[quadruple]{x}\\
+   \integral[contour]{x}\\
+   \integral[surface]{x}\\
+   \integral[volume]{x}
+\end{gather}
+
+% --- 2b. Keywords with lower limit [Eq. 11–17] ---
+
+\begin{gather}
+   \integral[single=A]{x}\\
+   \integral[double=S]{x}\\
+   \integral[triple=V]{x}\\
+   \integral[quadruple=\Omega]{x}\\
+   \integral[contour=C]{x}\\
+   \integral[surface=S]{x}\\
+   \integral[volume=V]{x}
+\end{gather}
+
+% ============================================================
+% SECTION 3: Custom keywords (\NewSymbolKeyword and variants)
+% ============================================================
+
+\NewSymbolKeyword{Double}{\iint}
+\ProvideSymbolKeyword{single}{\oint}     % 'single' already defined -> ignored
+\ProvideSymbolKeyword{myprov}{\iint}     % 'myprov' is new -> defined
+\NewSymbolKeyword{mytest}{\iiint}
+\RenewSymbolKeyword{mytest}{\int}        % 'mytest' exists -> updated to \int
+\DeclareSymbolKeyword{Quadruple}{\iint}  % 'Quadruple' is new -> defined
+\DeclareSymbolKeyword{Quadruple}{\iiint} % 'Quadruple' exists -> overwritten
+
+% --- 3a. Custom keyword via \NewSymbolKeyword [Eq. 18] ---
+
+\begin{equation}
+   \integral[Double]{f(x)}
+\end{equation}
+
+% --- 3b. Predefined keyword preserved after \ProvideSymbolKeyword [Eq. 19] ---
+
+\begin{equation}
+   \integral[single]{f(x)}
+\end{equation}
+
+% --- 3c. Custom keyword via \ProvideSymbolKeyword [Eq. 20] ---
+
+\begin{equation}
+   \integral[myprov]{f(x)}
+\end{equation}
+
+% --- 3d. Custom keyword updated via \RenewSymbolKeyword [Eq. 21] ---
+
+\begin{equation}
+   \integral[mytest]{f(x)}
+\end{equation}
+
+% --- 3e. Custom keyword overwritten via \DeclareSymbolKeyword [Eq. 22] ---
+
+\begin{equation}
+   \integral[Quadruple]{f(x)}
+\end{equation}
+
+% ============================================================
+% SECTION 4: Setup via \IntegralSetup
+% ============================================================
+
+\IntegralSetup{
+   postsymbsep  = -4mu,
+   innersymbsep = -6mu
+}
+
+% --- 4a. Symbol spacing adjustments [Eq. 23] ---
+
+\begin{equation}
+   \integral[1, 2; 3, 4; 5, 6]{f(x)}
+\end{equation}
+
+\end{document}
