@@ -55,7 +55,7 @@ def checklist():
         "Have logs remnant been deleted?",
         "Are the dates up to date in README/Changelog/.dtx/.ins?",
         "Has the tag been updated?",
-        "Is the .ins file set to generate .sty from english .dtx?"
+        "Is the .ins file set to generate .sty from english .dtx?",
         "Has the announcement file been modified?",
     ]
     for question in questions:

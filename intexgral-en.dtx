@@ -1178,8 +1178,8 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{v4.1.0}
-\def\intexgral@date{2026-07-27}
+\def\intexgral@version{4.1.1}
+\def\intexgral@date{2026-07-31}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
@@ -2195,7 +2195,7 @@ end
 % \subsection{Mode \emph{product}}
 %
 % \begin{codedescribe}[macro3]{\@@_print_product_integral:}
-% The product mode is very similar to the nested mode, in the sense that all sequences appear in the loop.
+% The product mode is very similar to the nested mode, in the sense that all sequences appear in the loop.  Unlike the two previous modes, \tsobj[macro]{\differentials} is defined differently this time: it extracts the elements of \tsobj[variable3]{\l_@@_differential_seq} in order and then displays them. The extraction is global in case the macro is used within a group.
 % \end{codedescribe}
 %
 %    \begin{macrocode}
@@ -2205,7 +2205,7 @@ end
          {
             \cs_set_protected:Npn \differentials
                {
-                  \seq_pop_left:NN \l_@@_differential_seq \l_tmpa_tl
+                  \seq_gpop_left:NN \l_@@_differential_seq \l_tmpa_tl
                   \tl_use:N \l_tmpa_tl
                }
          }
@@ -2234,7 +2234,7 @@ end
          {
             \cs_set_protected:Npn \differentials
                {
-                  \seq_pop_left:NN \l_@@_differential_seq \l_tmpa_tl
+                  \seq_gpop_left:NN \l_@@_differential_seq \l_tmpa_tl
                   \tl_use:N \l_tmpa_tl
                }
          }
