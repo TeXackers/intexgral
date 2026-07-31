@@ -3,6 +3,8 @@ xetex
 luatex
 l3build
 amsmath
+mathtools
+esint
 amsfonts
 booktabs
 colortbl
