@@ -1082,6 +1082,13 @@ end
 % \addcontentsline{toc}{section}{Changelog}
 % \begin{changelog}[sectioncmd=\section*]
 %
+% \begin{version}[v=4.1.1, date=01-08-2026]
+% \fixed
+% \item Issue with \tsobj[macro]{\differentials} used in \tsobj[option]{product} mode (\href{https://github.com/TeXackers/intexgral/issues/14}{issue \#14}).
+% \item Issue with \tsobj[macro]{\RenewSymbolKeyword} and \tsobj[macro]{\DeclareSymbolKeyword} (\href{https://github.com/TeXackers/intexgral/issues/15}{issue \#15}).
+% \item Issue with \tsobj[macro]{\RenewVariableKeyword} and \tsobj[macro]{\DeclareVariableKeyword} (\href{https://github.com/TeXackers/intexgral/issues/17}{issue \#17}).
+% \end{version}
+%
 % \begin{version}[v=4.1.0, date=27-07-2026]
 % \added
 % \item \tsobj[key]{limits-mode} key for \tsobj[macro]{\integral}.
@@ -1178,8 +1185,8 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{4.1.1}
-\def\intexgral@date{2026-07-31}
+\def\intexgral@version{v4.1.1}
+\def\intexgral@date{2026-08-01}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
@@ -1277,24 +1284,24 @@ end
 
       italic .choice:,
          italic / true .code:n  =
-         {
-            \tl_set:Nn \l_@@_default_differential_symbol_tl
-               { \mathnormal{d} }
-         },
+            {
+               \tl_set:Nn \l_@@_default_differential_symbol_tl
+                  { \mathnormal{d} }
+            },
          italic / false .code:n =
-         {
-         \tl_set:Nn \l_@@_default_differential_symbol_tl
-            { \mathrm{d} }
-         },
+            {
+            \tl_set:Nn \l_@@_default_differential_symbol_tl
+               { \mathrm{d} }
+            },
       italic .usage:n   = { preamble },
       italic .initial:n = { false },
 
       upright .choice:,
          upright / true .code:n  =
-         {
-            \tl_set:Nn \l_@@_default_differential_symbol_tl
-               { \mathrm{d} }
-         },
+            {
+               \tl_set:Nn \l_@@_default_differential_symbol_tl
+                  { \mathrm{d} }
+            },
          upright / false .code:n =
             {
                \tl_set:Nn \l_@@_default_differential_symbol_tl
@@ -2560,7 +2567,8 @@ end
          { #1 } { #2 }
       \tl_if_blank:nF { #3 }
          {
-            \seq_new:c { g_@@_#1_jacobian_seq }
+            \seq_if_exist:cF { g_@@_#1_jacobian_seq }
+               { \seq_new:c { g_@@_#1_jacobian_seq } }
             \seq_gset_split:cnn { g_@@_#1_jacobian_seq } { , } { #3 }
          }
    }
@@ -2666,7 +2674,7 @@ end
          {
             \keys_define:nn { integral }
                {
-                  #1 .undefine:
+                  #1 .undefine:,
                   #1 .meta:n =
                   {
                      symbol=#2,
@@ -2712,7 +2720,7 @@ end
    {
       \keys_define:nn { integral }
          {
-            #1 .undefine:
+            #1 .undefine:,
             #1 .meta:n =
                {
                   symbol=#2,
