@@ -19,7 +19,7 @@ Typesetting integrals, although common in LaTeX, is not particularly practical. 
 
 uploadconfig = {
    pkg                 = "intexgral",
-   version             = "v4.1.1 2026-08-01",
+   version             = "v4.2.0 2026-09-10",
    author              = "Valentin Dao",
    uploader            = "Valentin Dao",
    email               = "vdao.texdev@gmail.com",

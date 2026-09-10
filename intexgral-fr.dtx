@@ -211,6 +211,7 @@
       diffsep,
       innersymbsep,
       postsymbsep,
+      jacobiansep,
       vectorstyle,
       domainstyle,
       single,
@@ -277,6 +278,7 @@ end
    ]{french}
 
 \usepackage{titlesec}
+
 \titleformat{\part}[display]
    {
    \fontsize{35}{20}\selectfont\filcenter^^A
@@ -749,9 +751,7 @@ end
 %
 % En plus de la large gamme de clés définies par le package, quelques macros viennent également améliorer leurs usages.
 %
-% \subsection{Emplacements des différentielles}
-%
-% \subsubsection{Permuter la position}
+% \subsection{Permutter la position des différentielles}
 %
 % \begin{codedescribe}[macro, new={v4.1.0}]{\invertdiff}
 %   \begin{codesyntax}[macro]
@@ -773,13 +773,15 @@ end
 %
 % \tsdemo*[intexgral]{invertdiff}
 %
-% \subsubsection{Choisir une position personnalisée}
+% \subsection{Macros contextuelles}
+%
+% Les macros suivantes ont la particularité de devoir être employées dans l'argument d'\tsobj[macro]{\integal}. En dehors de ce contexte, elles renverront un message d'erreur. Elles permettent notamment d'inclure des éléments définis par les clés directement dans l'intégrande.
 %
 % \begin{codedescribe}[macro]{\differentials}
 %   \begin{codesyntax}[macro]
 %     \tsobj[macro]{\differentials}
 %   \end{codesyntax}
-%   Bien que l'option \tsobj[key]{invert-diff} existe, il est souvent souhaitable de pouvoir placer les différentielles où l'on veut. Par exemple, il est fréquent de les voir au numérateur d'une fraction lorsque celui-ci vaut 1. Pour répondre à ce besoin, le package met à disposition la macro \tsobj[macro]{\differentials}, dont le fonctionnement varie légèrement d'un mode d'affichage à un autre:
+%   Bien que l'option \tsobj[key]{invert-diff} et la macro \tsobj[macro]{\invertdiff} existent, il est souvent souhaitable de pouvoir placer les différentielles où l'on veut. Par exemple, il est fréquent de les voir au numérateur d'une fraction lorsque celui-ci vaut 1. Pour répondre à ce besoin, le package met à disposition la macro \tsobj[macro]{\differentials}, dont le fonctionnement varie légèrement d'un mode d'affichage à un autre:
 % \begin{itemize}
 %   \item \tsobj[option]{default}: compose toutes les différentielles d'un coup. Fonctionne avec \tsobj[key]{invert-diff}/\tsobj[macro]{\invertdiff}.
 %  \item \tsobj[option]{nested}: compose toutes les différentielles d'un coup. La macro \emph{n'est pas} définie si \tsobj[key]{invert-diff}/\tsobj[macro]{\invertdiff} est actif.
@@ -795,6 +797,33 @@ end
 % \end{codestore}
 %
 % \tsdemo*[intexgral]{differentials}
+%
+% \begin{codedescribe}[macro, new={v4.2.0}]{\jacobian}
+%   \begin{codesyntax}[macro]
+%     \tsobj[macro]{\jacobian}
+%   \end{codesyntax}
+%  Tout comme pour \tsobj[macro]{\differentials}, cette macro vous laisse choisir l'emplacement du jacobien au sein de l'intégrande. Son fonctionnement dépend aussi du mode d'affichage choisi:
+% \begin{itemize}
+%   \item \tsobj[option]{default}: compose le jacobien en entier.
+%   \item \tsobj[option]{nested}: compose un seul élément du jacobien à la fois, où bien en entier si \tsobj[key]{invert-diff}/\tsobj[macro]{\invertdiff} est actif
+%   \item \tsobj[option]{product}: compose un seul élément du jacobien à la fois.
+% \end{itemize}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[macro, new={v4.2.0}]{\variables}
+%   \begin{codesyntax}[macro]
+%     \tsobj[macro]{\variables}
+%   \end{codesyntax}
+%   Cette macro permet de composer les variables telles que définies par \tsobj[key]{variables}, vous évitant ainsi de devoir manuellement les réécrire dans l'intégrande si elles sont amenées à être modifées.
+% \end{codedescribe}
+%
+% \begin{codestore}[variables-macro]
+%   \begin{equation}
+%     \integral[triple=V, variables={x, y, z}]{f(\variables)}
+%   \end{equation}
+% \end{codestore}
+%
+% \tsdemo*[intexgral]{variables-macro}
 %
 % \subsection{Retour sur la clé \emph{limits}}
 %
@@ -1040,6 +1069,7 @@ end
 %     diffsep      = \thinmuskip,
 %     innersymbsep = {-5mu},
 %     postsymbsep  = {-1mu},
+%     jacobiansep  = {0mu},
 %     vectorstyle  = \vec,
 %     domainstyle  = \mathbb,
 %     novar        = false
@@ -1090,6 +1120,13 @@ end
 % Cette clé contrôle l'espacement entre le symbole et l'élément qui suit (intégrande ou différentielle selon \tsobj[key]{invert-limits}).
 % \end{codedescribe}
 %
+% \begin{codedescribe}[key, new={v4.2.0}]{jacobiansep}
+%   \begin{codesyntax}[key]
+%     \tsobj[key]{jacobiansep}=\tsobj[meta]{muexpr}
+%   \end{codesyntax}
+% Cette clé contrôle l'espacement entre l'intégrande et le jacobien.
+% \end{codedescribe}
+%
 % \begin{codedescribe}[key, new={v3.0.0}]{vectorstyle}
 %   \begin{codesyntax}[key]
 %     \tsobj[key]{vectorstyle}=\tsobj[meta]{séquence de contrôle}
@@ -1116,6 +1153,12 @@ end
 % \phantomsection
 % \addcontentsline{toc}{section}{Historique des modifications}
 % \begin{changelog}[sectioncmd=\section*]
+%
+% \begin{version}[v=4.2.0, date=10-09-2026]
+% \added
+% \item Clé \tsobj[key]{jacobiansep}.
+% \item Macros \tsobj[macro]{\jacobian} et \tsobj[macro]{\variables}.
+% \end{version}
 %
 % \begin{version}[v=4.1.1, date=01-08-2026]
 % \fixed
@@ -1221,8 +1264,8 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{v4.1.1}
-\def\intexgral@date{2026-08-01}
+\def\intexgral@version{4.2.0}
+\def\intexgral@date{2026-09-10}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
@@ -1429,6 +1472,15 @@ end
       The~key~"nint"~was~used~with~fewer~than~
       5~regular~integral~signs.
    }
+
+\msg_new:nnn { intexgral } { differentials-outside }
+   { \cs_to_str:N\differentials~cannot~appear~outside~of~an~integral. }
+
+\msg_new:nnn { intexgral } { jacobian-outside }
+   { \cs_to_str:N\jacobian~cannot~appear~outside~of~an~integral. }
+
+\msg_new:nnn { intexgral } { variables-outside }
+   { \cs_to_str:N\variables~cannot~appear~outside~of~an~integral. }
 %    \end{macrocode}
 %
 % \section{Variantes utiles}
@@ -1523,9 +1575,10 @@ end
 % \subsection{Booléens}
 %
 % \begin{codedescribe}[variable3]{\l_@@_manual_differential_bool}
-% Booléen servant à déterminer si les différentielles sont insérées par le biais de \tsobj[macro]{\differentials}.
+% Booléen servant à déterminer si les différentielles et le jacobien sont insérés par le biais de \tsobj[macro]{\differentials}/\tsobj[macro]{\jacobian}.
 %    \begin{macrocode}
 \bool_new:N \l_@@_manual_differential_bool
+\bool_new:N \l_@@_manual_jacobian_bool
 %    \end{macrocode}
 % \end{codedescribe}
 %
@@ -1593,19 +1646,21 @@ end
 %
 % \subsection{Muskip}
 %
-% \begin{codedescribe}[variable3]{\l_@@_symbol_inner_sep_muskip, \l_@@_symbol_post_sep_muskip,\l_@@_differential_sep_muskip, \l_@@_variable_sep_muskip}
+% \begin{codedescribe}[variable3]{\l_@@_symbol_inner_sep_muskip, \l_@@_symbol_post_sep_muskip,\l_@@_differential_sep_muskip, \l_@@_variable_sep_muskip, \l_@@_jacobian_sep_muskip}
 % Muskips internes pour stocker les espacements avec respectivement:
 % \begin{enumerate}
 %   \item L'espacement entre les symboles d'intégration lorsque plusieurs sont générés par \tsobj[key]{limits(*)}.
 %   \item L'espacement qui suit le symbole.
 %   \item L'espacement entre les différentielles lorsque la clé \tsobj[key]{variables} est utilisée.
 %   \item L'espacement entre les différentielles et l'intégrande.
+%   \item L'espacement entre l'intégrande et le jacobien.
 % \end{enumerate}
 %    \begin{macrocode}
 \muskip_new:N \l_@@_symbol_inner_sep_muskip
 \muskip_new:N \l_@@_symbol_post_sep_muskip
 \muskip_new:N \l_@@_variable_sep_muskip
 \muskip_new:N \l_@@_differential_sep_muskip
+\muskip_new:N \l_@@_jacobian_sep_muskip
 %    \end{macrocode}
 % \end{codedescribe}
 %
@@ -2110,6 +2165,9 @@ end
       \tl_if_regex_match:VnTF \l_@@_integrand_tl { \c{differentials} }
          { \bool_set_true:N \l_@@_manual_differential_bool }
          { \bool_set_false:N \l_@@_manual_differential_bool }
+      \tl_if_regex_match:VnTF \l_@@_integrand_tl { \c{jacobian} }
+         { \bool_set_true:N \l_@@_manual_jacobian_bool }
+         { \bool_set_false:N \l_@@_manual_jacobian_bool }
    }
 %    \end{macrocode}
 %
@@ -2132,12 +2190,25 @@ end
                      { \@@_mkern:N \l_@@_differential_sep_muskip }
                }
          }
+      \bool_if:nT
+         { \l_@@_jacobian_bool && \l_@@_manual_jacobian_bool }
+         {
+            \cs_set_protected:Npn \jacobian
+               {
+                  \seq_use:Nn \l_@@_jacobian_seq
+                     { \@@_mkern:N \l_@@_jacobian_sep_muskip }
+               }
+         }
       \seq_use:Nn \l_@@_integral_symbol_seq
          { \@@_mkern:N \l_@@_symbol_inner_sep_muskip }
       \@@_mkern:N \l_@@_symbol_post_sep_muskip
       \seq_use:Nn \l_@@_integrand_seq {  }
-      \bool_if:NT \l_@@_jacobian_bool
-         { \seq_use:Nn \l_@@_jacobian_seq {  } }
+      \bool_if:nT
+         { \l_@@_jacobian_bool && !\l_@@_manual_jacobian_bool }
+         {
+            \@@_mkern:N \l_@@_jacobian_sep_muskip
+            \seq_use:Nn \l_@@_jacobian_seq {  }
+         }
       \@@_mkern:N \l_@@_variable_sep_muskip
       \bool_if:NT \l_@@_vectorial_differential_bool
          { \tex_unkern:D \cdot}
@@ -2164,6 +2235,15 @@ end
                      { \@@_mkern:N \l_@@_differential_sep_muskip }
                }
          }
+      \bool_if:nT
+         { \l_@@_jacobian_bool && \l_@@_manual_jacobian_bool }
+         {
+            \cs_set_protected:Npn \jacobian
+               {
+                  \seq_use:Nn \l_@@_jacobian_seq
+                     { \@@_mkern:N \l_@@_jacobian_sep_muskip }
+               }
+         }
       \seq_use:Nn \l_@@_integral_symbol_seq
          { \@@_mkern:N \l_@@_symbol_inner_sep_muskip }
       \@@_mkern:N \l_@@_symbol_post_sep_muskip
@@ -2176,8 +2256,11 @@ end
       \bool_if:NT \l_@@_vectorial_differential_bool
          { \tex_unkern:D \cdot}
       \seq_use:Nn \l_@@_integrand_seq {  }
-      \bool_if:NT \l_@@_jacobian_bool
-         { \seq_use:Nn \l_@@_jacobian_seq {  } }
+      \bool_if:nT { \l_@@_jacobian_bool && !\l_@@_manual_jacobian_bool }
+         {
+            \@@_mkern:N \l_@@_jacobian_sep_muskip
+            \seq_use:Nn \l_@@_jacobian_seq {  }
+         }
    }
 %    \end{macrocode}
 %
@@ -2197,13 +2280,26 @@ end
                      { \@@_mkern:N \l_@@_differential_sep_muskip }
                }
          }
+      \bool_if:nT
+         { \l_@@_jacobian_bool && \l_@@_manual_jacobian_bool }
+         {
+            \cs_set_protected:Npn \jacobian
+               {
+                  \seq_gpop_left:NNT \l_@@_jacobian_seq \l_tmpa_tl
+                     { \tl_use:N \l_tmpa_tl }
+               }
+         }
       \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
          {
             \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
             \@@_mkern:N \l_@@_symbol_post_sep_muskip
             \seq_item:Nn \l_@@_integrand_seq { ##1 }
-            \bool_if:NT \l_@@_jacobian_bool
-               { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+            \bool_if:nT
+               { \l_@@_jacobian_bool && !\l_@@_manual_jacobian_bool }
+               {
+                  \@@_mkern:N \l_@@_jacobian_sep_muskip
+                  \seq_item:Nn \l_@@_jacobian_seq { ##1 }
+               }
          }
       \@@_mkern:N \l_@@_variable_sep_muskip
       \bool_if:NF \l_@@_manual_differential_bool
@@ -2222,6 +2318,15 @@ end
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_print_nested_integral_inv:
    {
+      \bool_if:nT
+         { \l_@@_jacobian_bool && \l_@@_manual_jacobian_bool }
+         {
+            \cs_set_protected:Npn \jacobian
+               {
+                  \seq_use:Nn \l_@@_jacobian_seq
+                     { \@@_mkern:N \l_@@_jacobian_sep_muskip }
+               }
+         }
       \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
          {
             \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
@@ -2230,8 +2335,11 @@ end
          }
       \@@_mkern:N \l_@@_variable_sep_muskip
       \seq_use:Nn \l_@@_integrand_seq {  }
-      \bool_if:NT \l_@@_jacobian_bool
-         { \seq_use:Nn \l_@@_jacobian_seq {  } }
+      \bool_if:nT { \l_@@_jacobian_bool && !\l_@@_manual_jacobian_bool }
+         {
+            \@@_mkern:N \l_@@_jacobian_sep_muskip
+            \seq_use:Nn \l_@@_jacobian_seq {  }
+         }
    }
 %    \end{macrocode}
 %
@@ -2248,8 +2356,17 @@ end
          {
             \cs_set_protected:Npn \differentials
                {
-                  \seq_gpop_left:NN \l_@@_differential_seq \l_tmpa_tl
-                  \tl_use:N \l_tmpa_tl
+                  \seq_gpop_left:NNT \l_@@_differential_seq \l_tmpa_tl
+                     { \tl_use:N \l_tmpa_tl }
+               }
+         }
+      \bool_if:nT
+         { \l_@@_jacobian_bool && \l_@@_manual_jacobian_bool }
+         {
+            \cs_set_protected:Npn \jacobian
+               {
+                  \seq_gpop_left:NNT \l_@@_jacobian_seq \l_tmpa_tl
+                     { \tl_use:N \l_tmpa_tl }
                }
          }
       \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
@@ -2257,8 +2374,12 @@ end
             \seq_item:Nn \l_@@_integral_symbol_seq { ##1 }
             \@@_mkern:N \l_@@_symbol_post_sep_muskip
             \seq_item:Nn \l_@@_integrand_seq { ##1 }
-            \bool_if:NT \l_@@_jacobian_bool
-               { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+            \bool_if:nT
+               { \l_@@_jacobian_bool && !\l_@@_manual_jacobian_bool }
+               {
+                  \@@_mkern:N \l_@@_jacobian_sep_muskip
+                  \seq_item:Nn \l_@@_jacobian_seq { ##1 }
+               }
             \@@_mkern:N \l_@@_variable_sep_muskip
             \bool_if:NF \l_@@_manual_differential_bool
                { \seq_item:Nn \l_@@_differential_seq { ##1 } }
@@ -2277,8 +2398,17 @@ end
          {
             \cs_set_protected:Npn \differentials
                {
-                  \seq_gpop_left:NN \l_@@_differential_seq \l_tmpa_tl
-                  \tl_use:N \l_tmpa_tl
+                  \seq_gpop_left:NNT \l_@@_differential_seq \l_tmpa_tl
+                     { \tl_use:N \l_tmpa_tl }
+               }
+         }
+      \bool_if:nT
+         { \l_@@_jacobian_bool && \l_@@_manual_jacobian_bool }
+         {
+            \cs_set_protected:Npn \jacobian
+               {
+                  \seq_gpop_left:NNT \l_@@_jacobian_seq \l_tmpa_tl
+                     { \tl_use:N \l_tmpa_tl }
                }
          }
       \int_step_inline:nn { \seq_count:N \l_@@_integral_symbol_seq }
@@ -2291,8 +2421,12 @@ end
                }
             \@@_mkern:N \l_@@_variable_sep_muskip
             \seq_item:Nn \l_@@_integrand_seq { ##1 }
-            \bool_if:NT \l_@@_jacobian_bool
-               { \seq_item:Nn \l_@@_jacobian_seq { ##1 } }
+            \bool_if:nT
+               { \l_@@_jacobian_bool && !\l_@@_manual_jacobian_bool }
+               {
+                  \@@_mkern:N \l_@@_jacobian_sep_muskip
+                  \seq_item:Nn \l_@@_jacobian_seq { ##1 }
+               }
          }
    }
 %    \end{macrocode}
@@ -2307,6 +2441,8 @@ end
    {
       \int_gincr:N \g_@@_integral_number_int
       \@@_integral_preconfiguration:
+      \cs_set:Npn \variables
+         { \seq_use:Nn \l_@@_variables_seq { , } }
       \bool_if:NTF \l_@@_invert_differential_bool
          {
             \str_case:VnF \l_@@_display_mode_str
@@ -2507,9 +2643,10 @@ end
       postsymbsep  .muskip_set:N = \l_@@_symbol_post_sep_muskip,
       varsep       .muskip_set:N = \l_@@_variable_sep_muskip,
       diffsep      .muskip_set:N = \l_@@_differential_sep_muskip,
+      jacobiansep  .muskip_set:N = \l_@@_jacobian_sep_muskip,
+      innersymbsep .muskip_set:N = \l_@@_symbol_inner_sep_muskip,
       vectorstyle  .tl_set:N     = \l_@@_vectorial_differential_style_tl,
       domainstyle  .tl_set:N     = \l_@@_domain_style_tl,
-      innersymbsep .tl_set:N     = \l_@@_symbol_inner_sep_muskip,
       novar        .bool_set:N   = \l_@@_deactivate_variables_bool,
    }
 %    \end{macrocode}
@@ -2603,7 +2740,7 @@ end
          { #1 } { #2 }
       \tl_if_blank:nF { #3 }
          {
-            \seq_if_exist:c { g_@@_#1_jacobian_seq }
+            \seq_if_exist:cF { g_@@_#1_jacobian_seq }
                { \seq_new:c { g_@@_#1_jacobian_seq } }
             \seq_gset_split:cnn { g_@@_#1_jacobian_seq } { , } { #3 }
          }
@@ -2766,7 +2903,7 @@ end
    }
 %    \end{macrocode}
 %
-% \subsection{Macros de configuration}
+% \subsection{Autres macros}
 %
 % \begin{codedescribe}[macro]{\IntegralSetup}
 % \itshape
@@ -2794,6 +2931,18 @@ end
 %    \begin{macrocode}
 \NewDocumentCommand\invertdiff{ }
    { \bool_set_inverse:N \l_@@_invert_differential_bool }
+%    \end{macrocode}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[macro]{\differentials, \jacobian}
+% On définit ces trois macros de sorte à ce que leur emploi en dehors d'\tsobj[macro]{\integral} déclenche un message d'erreur.
+%    \begin{macrocode}
+\cs_new_protected:Npn \differentials
+   { \msg_error:nn { intexgral } { differentials-outside } }
+\cs_new_protected:Npn \jacobian
+   { \msg_error:nn { intexgral } { jacobian-outside } }
+\cs_new_protected:Npn \variables
+   { \msg_error:nn { intexgral } { variables-outside } }
 %    \end{macrocode}
 % \end{codedescribe}
 %
@@ -2872,6 +3021,7 @@ end
    diffsep      = \thinmuskip,
    innersymbsep = {-5mu},
    postsymbsep  = {-1mu},
+   jacobiansep  = {0mu},
    vectorstyle  = \vec,
    domainstyle  = \mathbb,
    novar        = false

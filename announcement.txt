@@ -1,9 +1,8 @@
-                     ANNOUNCEMENT FOR INTEXGRAL v4.1.1
-                             (2026-08-01)
+                     ANNOUNCEMENT FOR INTEXGRAL v4.2.0
+                             (2026-09-10)
 
 Changes
 ----------------
-Fixed
-- Issue with `\differentials` used in `product` mode.
-- Issue with `\RenewSymbolKeyword` and `\DeclareSymbolKeyword`.
-- Issue with `\RenewVariableKeyword` and `\DeclareVariableKeyword`.
+Added
+- `jacobiansep` key.
+- Macros `\jacobian` and `\variables`.
