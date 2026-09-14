@@ -203,28 +203,28 @@
 \invertdiff
 
 % ============================================================
-% SECTION 7: Manual positioning (\differentials)
+% SECTION 7: Manual positioning and variables (\differentials, \jacobian & \variables)
 % ============================================================
 
-% --- 7a. Mode default [Eq. 30] ---
+% --- 7a. Mode default (differentials) [Eq. 30] ---
 
 \begin{equation}
    \integral[variables=x]{\frac{\differentials}{1 + x^2}}
 \end{equation}
 
-% --- 7b. Mode default complex [Eq. 31] ---
+% --- 7b. Mode default + diff options (differentials) [Eq. 31] ---
 
 \begin{equation}
    \integral[diff-order=4, variables=p]{\frac{\differentials}{(2\pi)^4} \frac{e^{-ip \cdot (x-y)}}{p^2 - m^2 + i\epsilon}}
 \end{equation}
 
-% --- 7c. Mode nested [Eq. 32] ---
+% --- 7c. Mode nested (differentials) [Eq. 32] ---
 
 \begin{equation}
    \integral[limits={a, b; c, d}, variables={x, y}, mode=nested]{f(x); \frac\differentials{1+y}}
 \end{equation}
 
-% --- 7d. Mode product [Eq. 33] ---
+% --- 7d. Mode product (differentials) [Eq. 33] ---
 
 \begin{equation}
    \integral[limits={0, 1; 0, 1}, variables={x, y}, mode=product]{\frac{\differentials}{1+x} ; \frac{\differentials}{1+y}}
@@ -232,67 +232,123 @@
 
 \invertdiff
 
-% --- 7e. Mode default + \invertdiff [Eq. 34] ---
+% --- 7e. Mode default + \invertdiff (differentials) [Eq. 34] ---
 
 \begin{equation}
    \integral[variables=x]{\frac{\differentials}{x}}
 \end{equation}
 
-% --- 7f. Mode product + \invertdiff [Eq. 35] ---
+% --- 7f. Mode product + \invertdiff (differentials) [Eq. 35] ---
 
 \begin{equation}
-   \integral[limits={a, b; c, d}, variables={x, y}, mode=product]{\differentials f(x) ; \differentials g(y)}
+   \integral[limits={0, 1; 0, 1}, variables={x, y}, mode=product]{\differentials f(x) ; \differentials g(y)}
 \end{equation}
 
 \invertdiff
+
+% --- 7g. Mode default (jacobian) [Eq. 36] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=default, jacobian]{f(r, \theta, \phi) \jacobian}
+\end{equation}
+
+\invertdiff
+
+% --- 7h. Mode default + \invertdiff (jacobian) [Eq. 37] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=default, jacobian]{f(r, \theta, \phi) \jacobian}
+\end{equation}
+
+\invertdiff
+
+% --- 7i. Mode nested (jacobian) [Eq. 38] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=nested, jacobian]{\jacobian; \jacobian; \jacobian}
+\end{equation}
+
+\invertdiff
+
+% --- 7j. Mode nested + \invertdiff (jacobian) [Eq. 39] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=nested, jacobian]{\jacobian}
+\end{equation}
+
+\invertdiff
+
+% --- 7k. Mode product (jacobian) [Eq. 40] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=product, jacobian]{\jacobian f_1(r); \jacobian f_2(\theta); \jacobian f_3(\phi)}
+\end{equation}
+
+\invertdiff
+
+% --- 7l. Mode product + \invertdiff (jacobian) [Eq. 41] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=product, jacobian]{\jacobian f_1(r); \jacobian f_2(\theta); \jacobian f_3(\phi)}
+\end{equation}
+
+\invertdiff
+
+% --- 7m. Mode default (variables) [Eq. 42] ---
+
+\begin{equation}
+   \integral[limits={0, R; 0, 2\pi; 0, \pi}, variables=spherical, mode=default]{f(\variables)}
+\end{equation}
+
+
 
 % ============================================================
 % SECTION 8: Special syntax
 % ============================================================
 
-% --- 8a. Classic syntax [Eq. 36] ---
+% --- 8a. Classic syntax [Eq. 43] ---
 
 \begin{equation}
    \integral[1, 10:x]{f(x)}
 \end{equation}
 
-% --- 8b. Classic syntax with keyword [Eq. 37] ---
+% --- 8b. Classic syntax with keyword [Eq. 44] ---
 
 \begin{equation}
    \integral[a, b; c, d:planar]{f(x, y)}
 \end{equation}
 
-% --- 8c. Variable only [Eq. 38] ---
+% --- 8c. Variable only [Eq. 45] ---
 
 \begin{equation}
    \integral[:z]{g(z)}
 \end{equation}
 
-% --- 8d. Jacobian +j [Eq. 39] ---
+% --- 8d. Jacobian +j [Eq. 46] ---
 
 \begin{equation}
    \integral[0, R; 0, 2\pi:polar+j]{1}
 \end{equation}
 
-% --- 8e. Jacobian + keyword limits [Eq. 40] ---
+% --- 8e. Jacobian + keyword limits [Eq. 47] ---
 
 \begin{equation}
    \integral[radius;circle;scircle:spherical+j]{1}
 \end{equation}
 
-% --- 8f. Nested mode :n [Eq. 41] ---
+% --- 8f. Nested mode :n [Eq. 48] ---
 
 \begin{equation}
    \integral[1, 2; 3, 4:y, x:n]{x ; y}
 \end{equation}
 
-% --- 8g. Product mode :p [Eq. 42] ---
+% --- 8g. Product mode :p [Eq. 49] ---
 
 \begin{equation}
    \integral[1, 2; 3, 4:x, y:p]{x^2 ; y^2}
 \end{equation}
 
-% --- 8h. Product mode + jacobian :spherical+j:p [Eq. 43] ---
+% --- 8h. Product mode + jacobian :spherical+j:p [Eq. 50] ---
 
 \begin{equation}
    \integral[radius;circle;scircle:spherical+j:p]{r ; \theta ; \phi}
@@ -309,13 +365,13 @@
    diffsep     = 10mu
 }
 
-% --- 9a. Changed default variable [Eq. 44] ---
+% --- 9a. Changed default variable [Eq. 51] ---
 
 \begin{equation}
    \integral{f(u)}
 \end{equation}
 
-% --- 9b. Changed default vector variable [Eq. 45] ---
+% --- 9b. Changed default vector variable [Eq. 52] ---
 
 \begin{equation}
    \integral[diff-vec]{\vec{E}}
@@ -323,7 +379,7 @@
 
 \IntegralSetup{novar = true}
 
-% --- 9c. novar=true [Eq. 46] ---
+% --- 9c. novar=true [Eq. 53] ---
 
 \begin{equation}
    \integral[limits={0, 1}]{f(x)}
@@ -331,7 +387,7 @@
 
 \IntegralSetup{novar = false}
 
-% --- 9d. novar=false [Eq. 47] ---
+% --- 9d. novar=false [Eq. 54] ---
 
 \begin{equation}
    \integral[limits={0, 1}]{f(x)}
@@ -339,13 +395,13 @@
 
 \IntegralSetup{vectorstyle=\mathbf}
 
-% --- 9e. vectorstyle=\mathbf [Eq. 48] ---
+% --- 9e. vectorstyle=\mathbf [Eq. 55] ---
 
 \begin{equation}
    \integral[variables=r, diff-vec]{\mathbf F}
 \end{equation}
 
-% --- 9f. Changed spacing between differentials + integrand/differentials [Eq. 49] ---
+% --- 9f. Changed spacing between differentials + integrand/differentials [Eq. 56] ---
 
 \begin{equation}
    \integral[ab;ab;ab:cartesian]{f(x, y, z)}

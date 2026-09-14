@@ -111,13 +111,20 @@
 
 \IntegralSetup{
    postsymbsep  = -4mu,
-   innersymbsep = -6mu
+   innersymbsep = -6mu,
+   jacobiansep  = \thinmuskip,
 }
 
-% --- 4a. Symbol spacing adjustments [Eq. 23] ---
+% --- 4a. Symbol spacing adjustment [Eq. 23] ---
 
 \begin{equation}
    \integral[1, 2; 3, 4; 5, 6]{f(x)}
+\end{equation}
+
+% --- 4b. Jacobian spacing adjustment [Eq. 24] ---
+
+\begin{equation}
+   \integral[:polar+j]{r}
 \end{equation}
 
 \end{document}
