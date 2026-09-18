@@ -407,4 +407,24 @@
    \integral[ab;ab;ab:cartesian]{f(x, y, z)}
 \end{equation}
 
+% --- 9g. Changed default variable with keyword [Eq. 57] ---
+
+\IntegralSetup{defaultvar=spherical}
+
+\begin{equation}
+   \integral{x}
+\end{equation}
+
+% --- 9h. Changed default variable with keyword + jacobian [Eq. 58] ---
+
+\begin{equation}
+   \integral[jacobian]{x}
+\end{equation}
+
+% --- 9i. Changed default variable with keyword + jacobian with special syntax [Eq. 59] ---
+
+\begin{equation}
+   \integral[:+j]{x}
+\end{equation}
+
 \end{document}

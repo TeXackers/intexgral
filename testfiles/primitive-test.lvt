@@ -1,0 +1,120 @@
+\input regression-test.tex
+
+\documentclass{article}
+
+\usepackage{mathtools, intexgral}
+
+\ExplSyntaxOn
+\sys_if_engine_pdftex:F
+   { \usepackage{unicode-math} }
+\ExplSyntaxOff
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ============================================================
+% SECTION 1: Key limits - basic forms
+% ============================================================
+
+% --- 1a. Single pair (lower, upper) [Eq. 1] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}]{f(x)}
+\end{equation}
+
+% --- 1b. Single keyword [Eq. 2] ---
+
+\begin{equation}
+   \antideriv[limits=real]{f(x)}
+\end{equation}
+
+% ============================================================
+% SECTION 2: Delimiter options
+% ============================================================
+
+% --- 2a. Brackets with no sizing [Eq. 3] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=brackets]{f(x)}
+\end{equation}
+
+% --- 2b. Brackets with 'big' sizing [Eq. 4] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=brackets, big]{f(x)}
+\end{equation}
+
+% --- 2c. Brackets with 'Big' sizing [Eq. 5] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=brackets, Big]{f(x)}
+\end{equation}
+
+% --- 2d. Brackets with 'bigg' sizing [Eq. 6] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=brackets, bigg]{f(x)}
+\end{equation}
+
+% --- 2e. Brackets with 'Bigg' sizing [Eq. 7] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=brackets, Bigg]{f(x)}
+\end{equation}
+
+% --- 2f. Brackets with 'auto' sizing [Eq. 8] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=brackets, auto]{\frac{1}{x}}
+\end{equation}
+
+% --- 2g. Bar with no sizing [Eq. 9] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=bar]{f(x)}
+\end{equation}
+
+% --- 2h. Bar with 'big' sizing [Eq. 10] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=bar, big]{f(x)}
+\end{equation}
+
+% --- 2i. Bar with 'Big' sizing [Eq. 11] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=bar, Big]{f(x)}
+\end{equation}
+
+% --- 2j. Bar with 'bigg' sizing [Eq. 12] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=bar, bigg]{f(x)}
+\end{equation}
+
+% --- 2k. Bar with 'Bigg' sizing [Eq. 13] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=bar, Bigg]{f(x)}
+\end{equation}
+
+% --- 2l. Bar with 'auto' sizing [Eq. 14] ---
+
+\begin{equation}
+   \antideriv[limits={1, 10}, delim=bar, auto]{\frac{1}{x}}
+\end{equation}
+
+% ============================================================
+% SECTION 3: \IntegralSetup options
+% ============================================================
+
+% --- 3a. \IntegralSetup bar delimiter [Eq. 13] ---
+
+\IntegralSetup{delim=bar}
+
+\begin{equation}
+   \antideriv[limits={1, 10}]{f(x)}
+\end{equation}
+
+\end{document}
