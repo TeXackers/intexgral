@@ -1,8 +1,17 @@
-                     ANNOUNCEMENT FOR INTEXGRAL v4.2.0
-                             (2026-09-10)
+                     ANNOUNCEMENT FOR INTEXGRAL v4.3.0
+                             (2026-09-18)
 
 Changes
 ----------------
 Added
-- `jacobiansep` key.
-- Macros `\jacobian` and `\variables`.
+- Macro `\antideriv`.
+- Keys `delim`, `limits`, `big`, `Big`, `bigg`, `Bigg` and `auto` for `\antideriv`.
+
+Fixed
+- Issue with `defaultvar` (isssue #20).
+
+Changed
+- `defaultvar` can now accept `none` as a value.
+
+Deprecated
+- Key `novar`.

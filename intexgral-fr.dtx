@@ -825,6 +825,52 @@ end
 %
 % \tsdemo*[intexgral]{variables-macro}
 %
+% \subsection{Composer une primitive}
+%
+% \begin{codedescribe}[macro, new={v4.3.0}]{\antideriv}
+%   \begin{codesyntax}[macro]
+%     \tsmacro{\antideriv}[liste de clés]{primitive}
+%   \end{codesyntax}
+% Le package met à disposition une seule macro qui n'est pas directement liée à \tsobj[macro]{\integral}, mais qui en reste néanmoins complémentaire. Elle permet de composer une primitive accompagnée de délimiteurs et de bornes.
+% \end{codedescribe}
+%
+% \begin{codedescribe}[key, new={v4.3.0}]{limits}
+%   \begin{codesyntax}[key]
+%     \tsobj[key]{limits}=\tsargs[marg]{liste-csv}, \tsobj[meta]{mot-clé}
+%   \end{codesyntax}
+%   Cette clé a exactement le même fonctionnement que celle d'\tsobj[macro]{\integral}, à deux exceptions près:
+%  \begin{enumerate}
+%    \item La variante étoilée n'est pas définie.
+%    \item La clé n'attend \emph{qu'une seule} paire de bornes. Si vous utilisez le point-virgule, il se retrouvera écrit dans le document car non interprété.
+%  \end{enumerate}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[key, new={v4.3.0}]{delim}
+%   \begin{codesyntax}[key]
+%     \tsobj[key]{delim}=\tsobj[option, meta or]{\uline{brackets},bar}
+%   \end{codesyntax}
+%  Cette clé permet de choisir le type de délimiteur à utiliser pour la primitive de façon locale.
+% \end{codedescribe}
+%
+% \begin{codedescribe}[key, new={v4.3.0}]{big, Big, bigg, Bigg, auto}
+%   \begin{codesyntax}[key]
+%     \tsobj[key]{big}
+%     \tsobj[key]{Big}
+%     \tsobj[key]{bigg}
+%     \tsobj[key]{Bigg}
+%     \tsobj[key]{auto}
+%   \end{codesyntax}
+%  Ces cinq clés permettent de modifier la taille des délimiteurs. La clé \tsobj[key]{auto} applique \tsobj[macro]{\left} et \tsobj[macro]{\right}.
+% \end{codedescribe}
+%
+% \begin{codestore}[antideriv]
+%   \begin{equation}
+%     \antideriv[limits={0, 1}, delim=bar, Big]{f(x)}
+%   \end{equation}
+% \end{codestore}
+%
+% \tsdemo*[intexgral]{antideriv}
+%
 % \subsection{Retour sur la clé \emph{limits}}
 %
 % \subsubsection{Définir un mot-clé}\label{subsubsec:limitskey}
@@ -1072,7 +1118,7 @@ end
 %     jacobiansep  = {0mu},
 %     vectorstyle  = \vec,
 %     domainstyle  = \mathbb,
-%     novar        = false
+%     delim        = brackets
 %   }
 % \end{codestore}
 %
@@ -1087,9 +1133,9 @@ end
 %
 % \begin{codedescribe}[key, new={v3.0.0}]{defaultvar, defaultvar*}
 %   \begin{codesyntax}[key]
-%     \tsobj[key]{defaultvar}=\tsargs[marg]{variables}
+%     \tsobj[key]{defaultvar}=\tsargs[marg]{liste-csv}, \tsobj[meta]{mot-clé}, \tsobj[option]{none}
 %   \end{codesyntax}
-%   Cette clé modifie la variable d'intégration insérée automatiquement lorsque \tsobj[key]{variables} n'est pas utilisée. L'argument peut tout à fait correspondre à un mot clé défini par \tsobj[macro]{\NewVariableKeyword}. La variante étoilée de la clé contrôle la variable d'intégration à composer avec \tsobj[key]{diff-vec}.
+%   Cette clé modifie la variable d'intégration insérée automatiquement lorsque \tsobj[key]{variables} n'est pas utilisée. L'argument peut tout à fait correspondre à un mot clé défini par \tsobj[macro]{\NewVariableKeyword}. La valeur \tsobj[option]{none} peut aussi être utilisée afin de prolonger la désactivation des variables. La variante étoilée de la clé contrôle la variable d'intégration à composer avec \tsobj[key]{diff-vec}.
 % \end{codedescribe}
 %
 % \begin{codedescribe}[key, new={v4.0.0}]{varsep}
@@ -1141,11 +1187,11 @@ end
 %   Semblablement, on peut changer la macro à appliquer pour les clés \tsobj[key]{domain(*)}.
 % \end{codedescribe}
 %
-% \begin{codedescribe}[key, new={v3.0.0}, update={v4.0.0}]{novar}
+% \begin{codedescribe}[key, new={v4.3.0}]{delim}
 %   \begin{codesyntax}[key]
-%     \tsobj[key]{novar}=\tsobj[option, meta or]{true,\uline{false}}
+%     \tsobj[key]{delim}=\tsobj[option, meta or]{\uline{brackets},bar}
 %   \end{codesyntax}
-%   Lorsqu'une large partie du document nécessite de ne pas inclure les différentielles, il est possible de prolonger dans la durée l'action plus ponctuelle de \tsobj[key]{variables}\texttt{=}\tsobj[option]{none}.
+%   Cette clé permet de choisir le type de délimiteur à utiliser pour les primitives.
 % \end{codedescribe}
 %
 % \newpage
@@ -1153,6 +1199,18 @@ end
 % \phantomsection
 % \addcontentsline{toc}{section}{Historique des modifications}
 % \begin{changelog}[sectioncmd=\section*]
+%
+% \begin{version}[v=4.3.0, date=18-09-2026]
+% \added
+% \item Macro \tsobj[macro]{\antideriv}.
+% \item Clés \tsobj[key]{delim}, \tsobj[key]{limits}, \tsobj[key]{big}, \tsobj[key]{Big}, \tsobj[key]{bigg}, \tsobj[key]{Bigg} et \tsobj[key]{auto} pour \tsobj[macro]{\antideriv}.
+% \fixed
+% \item Bug avec \tsobj[key]{defaultvar} (\href{https://github.com/TeXackers/intexgral/issues/20}{problème \#20}).
+% \changed
+% \item \tsobj[key]{defaultvar} qui peut maintenant accepter \tsobj[option]{none} comme valeur.
+% \deprecated
+% \item Clé \tsobj[key]{novar}.
+% \end{version}
 %
 % \begin{version}[v=4.2.0, date=10-09-2026]
 % \added
@@ -1264,8 +1322,8 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{4.2.0}
-\def\intexgral@date{2026-09-10}
+\def\intexgral@version{4.3.0}
+\def\intexgral@date{2026-09-18}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
@@ -1481,6 +1539,12 @@ end
 
 \msg_new:nnn { intexgral } { variables-outside }
    { \cs_to_str:N\variables~cannot~appear~outside~of~an~integral. }
+
+\msg_new:nnn { intexgral } { novar-deprecated }
+   {
+      The~key~"novar"~is~deprecated~\@@_warning_msg_header:
+      Use~"defaultvar=none"~instead.
+   }
 %    \end{macrocode}
 %
 % \section{Variantes utiles}
@@ -1569,6 +1633,29 @@ end
 % Token contenant le potentiel nom d'une clé, utilisé pour différencier la syntaxe \tsobj[meta]{clé=valeur} de la syntaxe spéciale.
 %    \begin{macrocode}
 \tl_new:N \l_@@_key_name_tl
+%    \end{macrocode}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[variable3]{\l_@@_primitive_tl}
+% Token contenant la primitive.
+%    \begin{macrocode}
+\tl_new:N \l_@@_primitive_tl
+%    \end{macrocode}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[variable3]{\l_@@_primitive_left_delim_tl, \l_@@_primitive_right_delim_tl}
+% Tokens contenant les délimiteurs de la primitive.
+%    \begin{macrocode}
+\tl_new:N \l_@@_primitive_left_delim_tl
+\tl_new:N \l_@@_primitive_right_delim_tl
+%    \end{macrocode}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[variable3]{\l_@@_primitive_left_delim_size_tl, \l_@@_primitive_right_delim_size_tl}
+% Tokens contenant la taille des délimiteurs de la primitive.
+%    \begin{macrocode}
+\tl_new:N \l_@@_primitive_left_delim_size_tl
+\tl_new:N \l_@@_primitive_right_delim_size_tl
 %    \end{macrocode}
 % \end{codedescribe}
 %
@@ -2630,15 +2717,45 @@ end
       diff-symb    .tl_set:N     = \l_@@_differential_symbol_tl,
       defaultvar   .code:n =
          {
-            \seq_set_split:Nnn
-               \l_@@_default_variables_seq
-               { , } { #1 }
+            \str_if_eq:nnTF { #1 } { none }
+               { \bool_set_true:N \l__intexgral_deactivate_variables_bool }
+               {
+                  \seq_set_split:Nne
+                     \l__intexgral_default_variables_seq
+                     { , }
+                     {
+                        \prop_if_in:NnTF \g__intexgral_differential_group_keyword_prop { #1 }
+                           { \prop_item:Nn \g__intexgral_differential_group_keyword_prop { #1 } }
+                           { #1 }
+                     }
+                  \seq_if_exist:cT { g_@@_#1_jacobian_seq }
+                     {
+                        \seq_set_eq:Nc
+                           \l_@@_jacobian_seq
+                           { g_@@_#1_jacobian_seq }
+                     }
+               }
          },
       defaultvar*   .code:n =
          {
-            \seq_set_split:Nnn
-               \l_@@_default_vectorial_variables_seq
-               { , } { #1 }
+            \str_if_eq:nnTF { #1 } { none }
+               { \bool_set_true:N \l__intexgral_deactivate_variables_bool }
+               {
+                  \seq_set_split:Nne
+                     \l__intexgral_default_vectorial_variables_seq
+                     { , }
+                     {
+                        \prop_if_in:NnTF \g__intexgral_differential_group_keyword_prop { #1 }
+                           { \prop_item:Nn \g__intexgral_differential_group_keyword_prop { #1 } }
+                           { #1 }
+                     }
+                  \seq_if_exist:cT { g_@@_#1_jacobian_seq }
+                     {
+                        \seq_set_eq:Nc
+                           \l_@@_jacobian_seq
+                           { g_@@_#1_jacobian_seq }
+                     }
+               }
          },
       postsymbsep  .muskip_set:N = \l_@@_symbol_post_sep_muskip,
       varsep       .muskip_set:N = \l_@@_variable_sep_muskip,
@@ -2647,7 +2764,70 @@ end
       innersymbsep .muskip_set:N = \l_@@_symbol_inner_sep_muskip,
       vectorstyle  .tl_set:N     = \l_@@_vectorial_differential_style_tl,
       domainstyle  .tl_set:N     = \l_@@_domain_style_tl,
-      novar        .bool_set:N   = \l_@@_deactivate_variables_bool,
+      novar        .code:n =
+         {
+            \msg_warning:nn { intexgral } { novar-deprecated }
+            \bool_set_true:N \l_@@_deactivate_variables_bool,
+         },
+      delim .choice:,
+         delim / brackets .code:n =
+            {
+               \tl_set_eq:NN \l_@@_primitive_left_delim_tl \c_@@_left_bracket_tl
+               \tl_set_eq:NN \l_@@_primitive_right_delim_tl \c_@@_right_bracket_tl
+            },
+         delim / bar .code:n =
+            {
+               \tl_set_eq:NN \l_@@_primitive_left_delim_tl .
+               \tl_set_eq:NN \l_@@_primitive_right_delim_tl \vert
+            },
+   }
+
+\keys_define:nn { primitive }
+   {
+      limits .code:n =
+         {
+            \seq_set_split:Nnf \l_tmpa_seq { , } { \@@_parse_limits:n { #1 } }
+            \tl_set:Ne \l_@@_lower_limit_tl
+               { \seq_item:Nn \l_tmpa_seq { 1 } }
+            \tl_set:Ne \l_@@_upper_limit_tl
+               { \seq_item:Nn \l_tmpa_seq { 2 } }
+         },
+      auto .code:n =
+         {
+            \tl_set_eq:NN \l_@@_primitive_left_delim_size_tl \left
+            \tl_set_eq:NN \l_@@_primitive_right_delim_size_tl \right
+         },
+      big .code:n =
+         {
+            \tl_set_eq:NN \l_@@_primitive_left_delim_size_tl \bigl
+            \tl_set_eq:NN \l_@@_primitive_right_delim_size_tl \bigr
+         },
+      Big .code:n =
+         {
+            \tl_set_eq:NN \l_@@_primitive_left_delim_size_tl \Bigl
+            \tl_set_eq:NN \l_@@_primitive_right_delim_size_tl \Bigr
+         },
+      bigg .code:n =
+         {
+            \tl_set_eq:NN \l_@@_primitive_left_delim_size_tl \biggl
+            \tl_set_eq:NN \l_@@_primitive_right_delim_size_tl \biggr
+         },
+      Bigg .code:n =
+         {
+            \tl_set_eq:NN \l_@@_primitive_left_delim_size_tl \Biggl
+            \tl_set_eq:NN \l_@@_primitive_right_delim_size_tl \Biggr
+         },
+      delim .choice:,
+         delim / brackets .code:n =
+            {
+               \tl_set_eq:NN \l_@@_primitive_left_delim_tl \c_@@_left_bracket_tl
+               \tl_set_eq:NN \l_@@_primitive_right_delim_tl \c_@@_right_bracket_tl
+            },
+         delim / bar .code:n =
+            {
+               \tl_set_eq:NN \l_@@_primitive_left_delim_tl .
+               \tl_set_eq:NN \l_@@_primitive_right_delim_tl \vert
+            },
    }
 %    \end{macrocode}
 %
@@ -2946,6 +3126,39 @@ end
 %    \end{macrocode}
 % \end{codedescribe}
 %
+% \begin{codedescribe}[macro3]{\@@_print_primitive:}
+% Cette macro est utilisée par \tsobj[macro]{\antideriv} pour composer la primitive.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_print_primitive:
+   {
+      \bool_lazy_and:nnT
+         { \tl_if_empty_p:N \l_@@_primitive_left_delim_size_tl }
+         { \tl_if_eq_p:NN \l_@@_primitive_left_delim_tl . }
+         { \use_none:nn }
+      \l_@@_primitive_left_delim_size_tl
+      \l_@@_primitive_left_delim_tl
+      \l_@@_primitive_tl
+      \l_@@_primitive_right_delim_size_tl
+      \l_@@_primitive_right_delim_tl
+      \c_math_subscript_token { \l_@@_lower_limit_tl }
+      \c_math_superscript_token { \l_@@_upper_limit_tl }
+   }
+%    \end{macrocode}
+% \end{codedescribe}
+%
+% \begin{codedescribe}[macro]{\antideriv}
+%    \begin{macrocode}
+\NewDocumentCommand\antideriv{ O{} m }
+   {
+      \group_begin:
+      \keys_set:nn { primitive } { #1 }
+      \tl_set:Nn \l_@@_primitive_tl { #2 }
+      \@@_print_primitive:
+      \group_end:
+   }
+%    \end{macrocode}
+% \end{codedescribe}
+%
 % \begin{codedescribe}[macro]{\integral}
 % La macro finale ne tient qu'en quelques lignes. Si un argument optionnel est fourni, elle effectue les actions nécessaires pour juger de la nature de celui-ci (syntaxe spéciale ou non), et assigne les clés en conséquence. Elle assigne ensuite l'argument principal au token correspondant, avant d'appeler la macro centrale qui compose l'intégrale. Le tout est executé dans un groupe afin que toutes les modifications demeurent locales.\par
 % \textit{Cette macro est documentée en \cref{sec:mainmacro}.}
@@ -3024,7 +3237,7 @@ end
    jacobiansep  = {0mu},
    vectorstyle  = \vec,
    domainstyle  = \mathbb,
-   novar        = false
+   delim        = brackets,
 }
 %</package>
 %    \end{macrocode}
