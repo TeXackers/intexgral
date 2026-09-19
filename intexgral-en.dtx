@@ -1764,7 +1764,7 @@ end
 %    \begin{macrocode}
 \cs_new:Npn \@@_general_integral_symbol:
    {
-      \l_@@_integral_symbol_tl
+      \tex_mathop:D { \l_@@_integral_symbol_tl }
       \l_@@_limits_style_tl
       \c_math_subscript_token
          { \l_@@_lower_limit_tl }
