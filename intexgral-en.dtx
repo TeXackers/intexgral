@@ -990,11 +990,12 @@ end
 %   \end{codesyntax}
 %   With regard to definite integrals, the user will be required to use a maximum of four keys to compose them: \tsobj[key]{limits}, \tsobj[key]{variables}, \tsobj[key]{mode} and \tsobj[key]{jacobian}. However, they can be criticised for the same reason as before; writing these four keys, which can take quite long arguments, runs counter to the main objective of this package. Thus, the user can designate as an optional argument of \tsobj[macro]{\integral} a syntax called \emph{special} that is unique to \tsobj[pkg]{intexgral}. The logic is as follows:
 %   \begin{itemize}[label=\textemdash]
-%     \item You specify a \emph{valid} argument for the \tsobj[key]{limits} key
-%     \item You specify a \emph{valid} argument for the \tsobj[key]{variables} key
-%     \item You specify a \emph{valid} argument for the \tsobj[key]{mode} key
+%     \item You specify a \emph{valid} argument for the \tsobj[key]{limits} key.
+%     \item You specify a \emph{valid} argument for the \tsobj[key]{variables} key.
+%     \item You specify a \emph{valid} argument for the \tsobj[key]{mode} key.
+%     \item And you separate everything with a colon.
 %   \end{itemize}
-%   And you separate everything with a colon. Let's look at an example to better understand.
+%   Let's look at an example to better understand.
 % \end{codedescribe}
 %
 % \begin{codestore}[special-syntax]
@@ -1082,7 +1083,7 @@ end
 %     jacobiansep  = {0mu},
 %     vectorstyle  = \vec,
 %     domainstyle  = \mathbb,
-%     delim        = brackets,
+%     delim        = brackets
 %   }
 % \end{codestore}
 %
@@ -1163,6 +1164,11 @@ end
 % \phantomsection
 % \addcontentsline{toc}{section}{Changelog}
 % \begin{changelog}[sectioncmd=\section*]
+%
+% \begin{version}[v=4.3.1, date=21-09-2026]
+% \fixed
+% \item Display issue between \tsobj[key]{nint} and \tsobj[key]{limits-mode} (\href{https://github.com/TeXackers/intexgral/issues/9}{issue \#9}).
+% \end{version}
 %
 % \begin{version}[v=4.3.0, date=18-09-2026]
 % \added
@@ -1285,8 +1291,8 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{4.3.0}
-\def\intexgral@date{2026-09-18}
+\def\intexgral@version{4.3.1}
+\def\intexgral@date{2026-09-21}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
@@ -1764,12 +1770,15 @@ end
 %    \begin{macrocode}
 \cs_new:Npn \@@_general_integral_symbol:
    {
-      \tex_mathop:D { \l_@@_integral_symbol_tl }
-      \l_@@_limits_style_tl
-      \c_math_subscript_token
-         { \l_@@_lower_limit_tl }
-      \c_math_superscript_token
-         { \l_@@_upper_limit_tl }
+      \tex_mathop:D
+         {
+            \l_@@_integral_symbol_tl
+            \l_@@_limits_style_tl
+            \c_math_subscript_token
+               { \l_@@_lower_limit_tl }
+            \c_math_superscript_token
+               { \l_@@_upper_limit_tl }
+         }
    }
 %    \end{macrocode}
 % \end{codedescribe}

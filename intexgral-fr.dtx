@@ -1025,9 +1025,9 @@ end
 %   \AutoSpacing
 %   En ce qui concerne les intégrales définies, l'utilisateur sera amené à employer au maximum quatre clés pour les composer: \tsobj[key]{limits}, \tsobj[key]{variables}, \tsobj[key]{mode} et \tsobj[key]{jacobian}. On peut néanmoins leur reprocher la même chose qu'avant; écrire ces quatre clés, pouvant recevoir des arguments assez longs, va à l'encontre de l'objectif principal de ce package. Ainsi, l'utilisateur peut désigner comme argument optionnel d'\tsobj[macro]{\integral}, une syntaxe dite \emph{spéciale} qui n'est propre qu'à \tsobj[pkg]{intexgral}. La logique est la suivante:
 %   \begin{itemize}[label=\textemdash]
-%     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{limits}
-%     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{variables}
-%     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{mode}
+%     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{limits}.
+%     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{variables}.
+%     \item Vous spécifiez un argument \emph{valide} de la clé \tsobj[key]{mode}.
 %     \item Et vous séparez le tout d'un deux-points.
 %   \end{itemize}
 %   Voyons un exemple pour mieux comprendre.
@@ -1200,6 +1200,11 @@ end
 % \addcontentsline{toc}{section}{Historique des modifications}
 % \begin{changelog}[sectioncmd=\section*]
 %
+% \begin{version}[v=4.3.1, date=21-09-2026]
+% \fixed
+% \item Problème d'affichage entre \tsobj[key]{nint} et \tsobj[key]{limits-mode} (\href{https://github.com/TeXackers/intexgral/issues/9}{problème \#9}).
+% \end{version}
+%
 % \begin{version}[v=4.3.0, date=18-09-2026]
 % \added
 % \item Macro \tsobj[macro]{\antideriv}.
@@ -1322,8 +1327,8 @@ end
 \RequirePackage{expl3}[2025-05-14]
 
 \def\intexgral@module{intexgral}
-\def\intexgral@version{4.3.0}
-\def\intexgral@date{2026-09-18}
+\def\intexgral@version{4.3.1}
+\def\intexgral@date{2026-09-21}
 \def\intexgral@description{A LaTeX package for typesetting integrals}
 
 \ProvidesExplPackage
@@ -1801,12 +1806,15 @@ end
 %    \begin{macrocode}
 \cs_new:Npn \@@_general_integral_symbol:
    {
-      \tex_mathop:D { \l_@@_integral_symbol_tl }
-      \l_@@_limits_style_tl
-      \c_math_subscript_token
-         { \l_@@_lower_limit_tl }
-      \c_math_superscript_token
-         { \l_@@_upper_limit_tl }
+      \tex_mathop:D
+         {
+            \l_@@_integral_symbol_tl
+            \l_@@_limits_style_tl
+            \c_math_subscript_token
+               { \l_@@_lower_limit_tl }
+            \c_math_superscript_token
+               { \l_@@_upper_limit_tl }
+         }
    }
 %    \end{macrocode}
 % \end{codedescribe}
