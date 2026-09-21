@@ -1,6 +1,4 @@
 .vscode
-.venv
-*.env
 *.curlopt
 *.zip
 temp
